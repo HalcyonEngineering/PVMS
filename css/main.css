@@ -24,12 +24,12 @@ body
 
 #content
 {
-    padding: 20px;
+	padding: 20px;
 }
 
 #sidebar
 {
-	padding: 20px 20px 20px 0;
+	padding: 20px;
 }
 
 #footer
@@ -146,13 +146,6 @@ div.breadcrumbs span
 	font-weight: bold;
 }
 
-div.search-form
-{
-	padding: 10px;
-	margin: 10px 0;
-	background: #eee;
-}
-
 .portlet
 {
 
@@ -177,8 +170,9 @@ div.search-form
 .portlet-content
 {
 	font-size:0.9em;
-	margin: 0 0 15px 0;
+	margin: 0;
 	padding: 5px 8px;
+	margin-bottom:15px;
 	background:#EFFDFF;
 }
 
@@ -196,34 +190,78 @@ div.search-form
 	padding: 2px 0 4px 0px;
 }
 
-.operations
+.post
 {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+	margin: 0 0 20px;
 }
 
-.operations li
+.post .title
 {
-	padding-bottom: 2px;
+	font-size: 1.5em;
+	border-bottom: 1px solid #C9E0ED;
 }
 
-.operations li a
+.post .title a
 {
-	font: bold 12px Arial;
-	color: #0066A4;
-	display: block;
-	padding: 2px 0 2px 8px;
-	line-height: 15px;
+	color: #555;
 	text-decoration: none;
 }
 
-.operations li a:visited
+.post .author
 {
-	color: #0066A4;
+	color: #888;
+	margin: 0 0 5px;
 }
 
-.operations li a:hover
+.post .nav
 {
-	background: #80CFFF;
+	-moz-border-radius:7px;
+	padding: 5px;
+	background: #EFFDFF;
+}
+
+.comment
+{
+	-moz-border-radius:7px;
+	padding: 10px;
+	background: #F5F5F5;
+	margin: 5px 0;
+}
+
+.comment .content
+{
+	margin: 10px 0;
+}
+
+.comment .author
+{
+	margin: 5px 0;
+	padding: 0 0 3px;
+	border-bottom: 1px solid #DDD;
+}
+
+.comment .time
+{
+	color: #888;
+	font-size: 0.8em;
+}
+
+.comment a.cid
+{
+	color:#CCC;
+	float:right;
+	font-size:1.5em;
+	font-weight:bold;
+	padding:0 5px 5px 5px;
+	text-decoration: none;
+}
+
+.comment a.cid:hover
+{
+	color:#555;
+}
+
+.comment .pending
+{
+	color:red;
 }

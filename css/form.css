@@ -36,6 +36,7 @@
 
 div.form
 {
+	margin: 0;
 }
 
 div.form input,
@@ -50,7 +51,7 @@ div.form fieldset
 	border: 1px solid #DDD;
 	padding: 10px;
 	margin: 0 0 10px 0;
-    -moz-border-radius:7px;
+	-moz-border-radius:7px;
 }
 
 div.form label
@@ -82,7 +83,7 @@ div.form span.required
 	color: red;
 }
 
-div.form div.error label:first-child,
+div.form div.error label,
 div.form label.error,
 div.form span.error
 {
@@ -111,10 +112,6 @@ div.form select.success
 	border-color: #C6D880;
 }
 
-div.form div.success label
-{
-	color: inherit;
-}
 
 div.form .errorSummary
 {
@@ -143,7 +140,7 @@ div.form .errorSummary ul
 	padding: 0 0 0 20px;
 }
 
-div.wide.form label
+div.wide form label
 {
 	float: left;
 	margin-right: 10px;
@@ -152,13 +149,18 @@ div.wide.form label
 	width: 100px;
 }
 
-div.wide.form .row
+div.wide form .row
 {
 	clear: left;
 }
 
-div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
+div.wide form .buttons
 {
 	clear: left;
 	padding-left: 110px;
+}
+
+div.wide form .errorMessage
+{
+	margin: 0 0 0 110px;
 }
