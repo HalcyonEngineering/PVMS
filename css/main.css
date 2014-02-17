@@ -22,6 +22,38 @@ body
 	border-top: 3px solid #C9E0ED;
 }
 
+#header ul
+{
+	padding:6px 20px 5px 20px;
+	margin:0px;
+      text-align: right;
+    
+}
+
+#header ul li
+{
+	display: inline;
+
+}
+
+#header ul li a
+{
+	color:#000000;
+	background-color:transparent;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 8px;
+}
+
+#header ul li a:hover, #mainmenu ul li.active a
+{
+	color: #6399cd;
+	background-color:#EFF4FA;
+	text-decoration:none;
+}
+
+
 #content
 {
 	padding: 20px;

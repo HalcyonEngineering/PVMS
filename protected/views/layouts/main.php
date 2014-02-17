@@ -22,17 +22,29 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="logo"><?php echo CHtml::encode(Yii::app()->name);
+           $this->widget('zii.widgets.CMenu',array(
+                                                   'items'=>array(array('label'=>'Advanced Search', 'url'=>array('site/page', 'view'=>'advancedSearch')),
+                                                                  array('label'=>'User Name', 'url'=>array('site/page', 'view'=>'userName')),
+                                                                  array('label'=>'Login', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
+                                                                  array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                                                                  ),
+                                                   ));
+            ?></div>
+
+
 	</div><!-- header -->
 
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('post/index')),
+				array('label'=>'Notifications', 'url'=>array('post/index')),
 				array('label'=>'About', 'url'=>array('site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('site/contact')),
-				array('label'=>'Login', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                array('label'=>'Projects', 'url'=>array('site/page', 'view'=>'projects')),
+				array('label'=>'Calendar', 'url'=>array('site/page', 'view'=>'calendar')),
+                array('label'=>'Settings', 'url'=>array('site/page', 'view'=>'settings')),
+                array('label'=>'Import', 'url'=>array('site/page', 'view'=>'import')),
+                array('label'=>'Contact', 'url'=>array('site/contact')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
