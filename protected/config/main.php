@@ -36,6 +36,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			'loginUrl' => array('/account/login'),
 		),
 		'db'=>require(dirname(__FILE__).'/db.php'),
 
