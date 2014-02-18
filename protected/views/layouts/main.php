@@ -13,7 +13,8 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+	
+	<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/favicon.ico" type="image/x-icon" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -39,12 +40,12 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Notifications', 'url'=>array('post/index')),
-				array('label'=>'About', 'url'=>array('site/page', 'view'=>'about')),
                 array('label'=>'Projects', 'url'=>array('site/page', 'view'=>'projects')),
 				array('label'=>'Calendar', 'url'=>array('site/page', 'view'=>'calendar')),
-                array('label'=>'Settings', 'url'=>array('site/page', 'view'=>'settings')),
-                array('label'=>'Import', 'url'=>array('site/page', 'view'=>'import')),
-                array('label'=>'Contact', 'url'=>array('site/contact')),
+                array('label'=>'Add Volunteers', 'url'=>array('site/page', 'view'=>'import')),
+                array('label'=>'Email', 'url'=>array('site/contact')),
+				array('label'=>'Settings', 'url'=>array('site/page', 'view'=>'settings')),
+				array('label'=>'About', 'url'=>array('site/page', 'view'=>'about')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
@@ -54,12 +55,12 @@
 	)); ?><!-- breadcrumbs -->
 
 	<?php echo $content; ?>
-
+<!--
 	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
+	</div><!-- footer --> -->
 
 </div><!-- page -->
 

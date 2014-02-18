@@ -7,3 +7,4 @@ $this->breadcrumbs=array(
 <h1>Settings</h1>
 
 <p>This is the "settings" page for my blog site. We are Halcyon Engineering</p>
+<p>Functions include Editing Credentials and Allow Remote Access by Admin</p>
