@@ -44,15 +44,27 @@ class AccountController extends Controller
 
 	public function actionRegister()
 	{
-        $model=new User;
-        $model->setScenario('register');
+        $model=new User('register');
+
+        // if it is ajax validation request
+        if(isset($_POST['ajax']) && $_POST['ajax']==='user-register-form')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+
         //If registration information was supplied.
         if(isset($_POST['User'])){
             $model->attributes=$_POST['User'];
             if($model->validate()){
-
+                //Hash the password before saving it.
+                Yii::log("Saving using with password: " . $model->password, CLogger::LEVEL_ERROR);
+                $model->password=$model->verifyPassword=$model->hashPassword($model->password);
+                $model->save();
             }
-        $this->redirect(Yii::app()->homeUrl);
+            //Clear the password fields.
+            $model->verifyPassword=null;
+            $model->password=null;
         }
 		$this->render('register', array('model' => $model));
 	}

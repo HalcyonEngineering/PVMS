@@ -11,6 +11,7 @@ class User extends CActiveRecord
      * @var string $type
 	 */
 
+    public $originalPassword;
     public $verifyPassword;
 
 	/**
@@ -42,7 +43,9 @@ class User extends CActiveRecord
             array('verifyPassword, type', 'required', 'on' => 'register'),
             array('type', 'in', 'on' => 'register', 'range' => array('volunteer', 'manager', 'administrator')),
             array('email', 'unique'),
+            array('email', 'email'),
 			array('name, password, email', 'length', 'max'=>128),
+            array('password, verifyPassword', 'length', 'min'=>6),
             array('verifyPassword', 'compare', 'compareAttribute' => 'password', 'on' => 'register'),
 		);
 	}

@@ -2,7 +2,10 @@
 /* @var $this AccountController */
 /* @var $model User */
 /* @var $form CActiveForm */
-?>
+$this->pageTitle=Yii::app()->name . ' - Register';
+$this->breadcrumbs=array(
+    'Register',
+);?>
 
 <div class="form">
 
@@ -16,7 +19,7 @@
 	// controller action is handling ajax validation correctly.
 	// See class documentation of CActiveForm for details on this,
 	// you need to use the performAjaxValidation()-method described there.
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -31,7 +34,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
+		<?php echo $form->emailField($model,'email'); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
