@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	
-	<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/PVMS/images/favicon2.ico" type="image/x-icon" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -23,7 +23,8 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name);
+		<div id="logo"><?php $image_url='/PVMS/images/Pitchnlogo.JPG';?>
+		<?php echo CHtml::encode(Yii::app()->name);
            $this->widget('zii.widgets.CMenu',array(
                                                    'items'=>array(array('label'=>'Advanced Search', 'url'=>array('site/page', 'view'=>'advancedSearch')),
                                                                   array('label'=>'User Name', 'url'=>array('site/page', 'view'=>'userName')),
