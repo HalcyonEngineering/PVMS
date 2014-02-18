@@ -1,9 +1,10 @@
 <?php
 /* @var $this AccountController */
-
+$this->pageTitle=Yii::app()->name . ' - Login';
 $this->breadcrumbs=array(
 	'Login',
 );
+
 ?>
 <h1>Login</h1>
 
@@ -28,8 +29,11 @@ $this->breadcrumbs=array(
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
 		<p class="hint">
-			Hint: You may login with <tt>demo/demo</tt>.
+			Hint: You may login with <tt>webmaster@example.com/demo</tt>.
 		</p>
+        <p class="hint">
+            You can also register <?php echo CHtml::link('here', array('account/register')) ?>
+        </p>
 	</div>
 
 	<div class="row rememberMe">

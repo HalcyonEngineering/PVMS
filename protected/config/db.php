@@ -1,7 +1,7 @@
 <?php
 // comment the following to disable the sqlite database
 return array(
-			'connectionString' => 'sqlite:protected/data/blog.db',
+			'connectionString' => 'sqlite:protected/data/pvms.sqlite',
 			'tablePrefix' => 'tbl_',
 		);
 // uncomment the following to use a MySQL database		

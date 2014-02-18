@@ -44,7 +44,17 @@ class AccountController extends Controller
 
 	public function actionRegister()
 	{
-		$this->render('register');
+        $model=new User;
+        $model->setScenario('register');
+        //If registration information was supplied.
+        if(isset($_POST['User'])){
+            $model->attributes=$_POST['User'];
+            if($model->validate()){
+
+            }
+        $this->redirect(Yii::app()->homeUrl);
+        }
+		$this->render('register', array('model' => $model));
 	}
 
 	public function actionReset()

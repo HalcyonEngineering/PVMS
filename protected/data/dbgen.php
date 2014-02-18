@@ -1,6 +1,6 @@
 <?php
 
-$dbFile=dirname(__FILE__).'/blog.db';
+$dbFile=dirname(__FILE__).'/pvms.sqlite';
 $sqlFile=dirname(__FILE__).'/schema.sqlite.sql';
 
 @unlink($dbFile);

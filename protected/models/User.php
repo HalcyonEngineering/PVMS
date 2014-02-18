@@ -5,11 +5,13 @@ class User extends CActiveRecord
 	/**
 	 * The followings are the available columns in table 'tbl_user':
 	 * @var integer $id
-	 * @var string $username
+	 * @var string $name
 	 * @var string $password
 	 * @var string $email
-	 * @var string $profile
+     * @var string $type
 	 */
+
+    public $verifyPassword;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -36,9 +38,12 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email', 'required'),
-			array('username, password, email', 'length', 'max'=>128),
-			array('profile', 'safe'),
+			array('name, email, password', 'required'),
+            array('verifyPassword, type', 'required', 'on' => 'register'),
+            array('type', 'in', 'on' => 'register', 'range' => array('volunteer', 'manager', 'administrator')),
+            array('email', 'unique'),
+			array('name, password, email', 'length', 'max'=>128),
+            array('verifyPassword', 'compare', 'compareAttribute' => 'password', 'on' => 'register'),
 		);
 	}
 
@@ -61,10 +66,12 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'username' => 'Username',
+			'name' => 'Name',
 			'password' => 'Password',
+            'verifyPassword' => 'Verify Password',
 			'email' => 'Email',
 			'profile' => 'Profile',
+            'type' => 'Type',
 		);
 	}
 
@@ -78,6 +85,10 @@ class User extends CActiveRecord
 		return CPasswordHelper::verifyPassword($password,$this->password);
 	}
 
+    public function getType(){
+
+    }
+
 	/**
 	 * Generates the password hash.
 	 * @param string password
@@ -87,4 +98,9 @@ class User extends CActiveRecord
 	{
 		return CPasswordHelper::hashPassword($password);
 	}
+
+    // The username is an email.
+    public function getUsername(){
+        return parent::__get('email');
+    }
 }
