@@ -23,6 +23,7 @@
 <div class="container" id="page">
 
 	<div id="header">
+	<img src="/PVMS/images/Pitchnlogo.JPG" />
 		<div id="logo"><?php $image_url='/PVMS/images/Pitchnlogo.JPG';?>
 		<?php echo CHtml::encode(Yii::app()->name);
            $this->widget('zii.widgets.CMenu',array(
