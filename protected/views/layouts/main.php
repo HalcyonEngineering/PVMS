@@ -46,7 +46,7 @@
 				array('label'=>'Calendar', 'url'=>array('site/page', 'view'=>'calendar')),
                 array('label'=>'Add Volunteers', 'url'=>array('site/page', 'view'=>'import')),
                 array('label'=>'Email', 'url'=>array('site/contact')),
-				array('label'=>'Settings', 'url'=>array('site/page', 'view'=>'settings')),
+				array('label'=>'Settings', 'url'=>array('account/settings')),
 				array('label'=>'About', 'url'=>array('site/page', 'view'=>'about')),
 			),
 		)); ?>

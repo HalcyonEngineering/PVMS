@@ -11,8 +11,13 @@ class User extends CActiveRecord
      * @var string $type
 	 */
 
-    public $originalPassword;
+    public $origPassword;
+    public $newPassword;
     public $verifyPassword;
+
+    const VOLUNTEER='volunteer';
+    const MANAGER='manager';
+    const ADMINISTRATOR='administrator';
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -39,14 +44,19 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, email, password', 'required'),
-            array('verifyPassword, type', 'required', 'on' => 'register'),
-            array('type', 'in', 'on' => 'register', 'range' => array('volunteer', 'manager', 'administrator')),
+			array('name, email', 'required'),
             array('email', 'unique'),
             array('email', 'email'),
-			array('name, password, email', 'length', 'max'=>128),
-            array('password, verifyPassword', 'length', 'min'=>6),
-            array('verifyPassword', 'compare', 'compareAttribute' => 'password', 'on' => 'register'),
+			array('name, origPassword, email, newPassword', 'length', 'max'=>128),
+            array('origPassword, verifyPassword, newPassword', 'length', 'min'=>6),
+            array('verifyPassword', 'compare', 'compareAttribute' => 'newPassword', 'on' => 'register, settings'),
+            // Do not allow changes to type unless we are registering.
+            array('type', 'unsafe', 'except' => 'register'),
+            array('newPassword, verifyPassword', 'safe', 'on'=>'settings'),
+            array('origPassword', 'required', 'on'=> 'settings'),
+            array('newPassword, verifyPassword', 'required', 'on' => 'register'),
+            array('type, origPassword', 'required', 'on' => 'register'),
+            array('type', 'in', 'on' => 'register', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR)),
 		);
 	}
 
@@ -70,7 +80,9 @@ class User extends CActiveRecord
 		return array(
 			'id' => 'Id',
 			'name' => 'Name',
-			'password' => 'Password',
+			'password' => 'Hidden Password',
+            'origPassword' => 'Password',
+            'newPassword' => 'New Password',
             'verifyPassword' => 'Verify Password',
 			'email' => 'Email',
 			'profile' => 'Profile',
@@ -87,10 +99,6 @@ class User extends CActiveRecord
 	{
 		return CPasswordHelper::verifyPassword($password,$this->password);
 	}
-
-    public function getType(){
-
-    }
 
 	/**
 	 * Generates the password hash.

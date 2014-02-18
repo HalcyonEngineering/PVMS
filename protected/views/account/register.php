@@ -7,6 +7,13 @@ $this->breadcrumbs=array(
     'Register',
 );?>
 
+<?php if(Yii::app()->user->hasFlash('register.success')): ?>
+
+<div class="flash-success">
+    <?php echo Yii::app()->user->getFlash('register.success'); ?>
+</div>
+<?php endif; ?>
+
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -19,7 +26,7 @@ $this->breadcrumbs=array(
 	// controller action is handling ajax validation correctly.
 	// See class documentation of CActiveForm for details on this,
 	// you need to use the performAjaxValidation()-method described there.
-	'enableAjaxValidation'=>true,
+	'enableAjaxValidation'=>false,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -39,9 +46,9 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
+		<?php echo $form->labelEx($model,'newPassword'); ?>
+		<?php echo $form->passwordField($model,'newPassword'); ?>
+		<?php echo $form->error($model,'newPassword'); ?>
 	</div>
 
 	<div class="row">
@@ -52,7 +59,12 @@ $this->breadcrumbs=array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'type'); ?>
-		<?php echo $form->textField($model, 'type') ?>
+        <?php echo $form->dropDownList($model, 'type',
+            array(
+                $model::VOLUNTEER=>'Volunteer',
+                $model::MANAGER=> 'Manager',
+                $model::ADMINISTRATOR=>'Administrator',
+            )) ?>
 		<?php echo $form->error($model,'type'); ?>
 	</div>
 
