@@ -25,31 +25,14 @@
 	<div id="header">
 	<img src="/PVMS/images/Pitchnlogo.JPG" />
 		<div id="logo"><?php $image_url='/PVMS/images/Pitchnlogo.JPG';?>
-		<?php echo CHtml::encode(Yii::app()->name);
-           $this->widget('zii.widgets.CMenu',array(
-                                                   'items'=>array(array('label'=>'Advanced Search', 'url'=>array('site/page', 'view'=>'advancedSearch')),
-                                                                  array('label'=>'User Name', 'url'=>array('site/page', 'view'=>'userName')),
-                                                                  array('label'=>'Login', 'url'=>array('account/login'), 'visible'=>Yii::app()->user->isGuest),
-                                                                  array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('account/logout'), 'visible'=>!Yii::app()->user->isGuest)
-                                                                  ),
-                                                   ));
+<?php include('header.php');
             ?></div>
 
 
 	</div><!-- header -->
 
 	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Notifications', 'url'=>array('post/index')),
-                array('label'=>'Projects', 'url'=>array('site/page', 'view'=>'projects')),
-				array('label'=>'Calendar', 'url'=>array('site/page', 'view'=>'calendar')),
-                array('label'=>'Add Volunteers', 'url'=>array('site/page', 'view'=>'import')),
-                array('label'=>'Email', 'url'=>array('mail/contact')),
-				array('label'=>'Settings', 'url'=>array('account/settings')),
-				array('label'=>'About', 'url'=>array('site/page', 'view'=>'about')),
-			),
-		)); ?>
+		<?php include('manager.php');?>
 	</div><!-- mainmenu -->
 
 	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
