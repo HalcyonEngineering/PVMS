@@ -1,4 +1,4 @@
-		<?php echo CHtml::encode(Yii::app()->name);
+		<?php 
            $this->widget('zii.widgets.CMenu',array(
                                                    'items'=>array(array('label'=>'Advanced Search', 'url'=>array('site/page', 'view'=>'advancedSearch')),
                                                                   array('label'=>'User Name', 'url'=>array('site/page', 'view'=>'userName')),

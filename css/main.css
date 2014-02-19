@@ -17,9 +17,19 @@ body
 
 #header
 {
+	background-color:#FFFFFF;
 	margin: 0;
 	padding: 0;
 	border-top: 3px solid #C9E0ED;
+}
+
+#stickyheader
+{
+	background-color:#FFFFFF;
+	height:60px; 
+	position:fixed;
+	width:950px; 
+	top:0;
 }
 
 #header ul
@@ -57,10 +67,11 @@ body
 #content
 {
 	padding: 20px;
+	top: 160px;
 }
 
 #sidebar
-{
+{	
 	padding: 20px;
 }
 
@@ -89,7 +100,12 @@ body
 	padding:6px 20px 5px 20px;
 	margin:0px;
 }
-
+#spacerbox
+{
+	background-color:#FFFFFF;
+	height:180px;
+	
+}
 #mainmenu ul li
 {
 	display: inline;

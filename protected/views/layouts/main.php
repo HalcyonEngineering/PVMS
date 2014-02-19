@@ -21,28 +21,28 @@
 <body>
 
 <div class="container" id="page">
-
+<div id="stickyheader">
 	<div id="header">
 	<img src="/PVMS/images/Pitchnlogo.JPG" />
-		<div id="logo"><?php $image_url='/PVMS/images/Pitchnlogo.JPG';?>
-<?php include('header.php');
-            ?></div>
-
-
+    <div id="logo"><?php echo CHtml::encode(Yii::app()->name);?></div>
+	<?php include('header.php');?>
 	</div><!-- header -->
-
 	<div id="mainmenu">
 		<?php include('manager.php');?>
 	</div><!-- mainmenu -->
+</div>	
+<div id="spacerbox">
+</div> 	
 
 	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 		'links'=>$this->breadcrumbs,
 	)); ?><!-- breadcrumbs -->
 
 	<?php echo $content; ?>
-<!--
+
+
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by Halcyon Engineering<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
