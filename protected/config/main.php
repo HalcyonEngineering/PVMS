@@ -10,7 +10,9 @@ return array(
 	'name'=>'Volunteer Management System',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array(
+		'log',
+		'bootstrap'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -28,6 +30,9 @@ return array(
 			'password'=>'pvmsgii',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+			'generatorPaths'=>array(
+				'bootstrap.gii',
+			),
 		),
 		
 	),
@@ -37,6 +42,9 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 			'loginUrl' => array('/account/login'),
+		),
+		'bootstrap'=> array(
+			'class' => 'ext.yii-booster.components.Bootstrap',
 		),
 		'db'=>require(dirname(__FILE__).'/db.php'),
 
