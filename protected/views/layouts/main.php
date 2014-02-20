@@ -19,20 +19,21 @@
 </head>
 
 <body>
+<div id="header">
+<?php include('header.php');?>
+</div><!-- header -->
+
+<div id="spacerbox">
+</div>
+
+<div id="mainmenu">
+<?php include('manager.php');?>
+</div><!-- mainmenu -->
+
+
 
 <div class="container" id="page">
-<div id="stickyheader">
-	<div id="header">
-	<img src="/PVMS/images/Pitchnlogo.JPG" />
-    <div id="logo"><?php echo CHtml::encode(Yii::app()->name);?></div>
-	<?php include('header.php');?>
-	</div><!-- header -->
-	<div id="mainmenu">
-		<?php include('manager.php');?>
-	</div><!-- mainmenu -->
-</div>	
-<div id="spacerbox">
-</div> 	
+
 
 	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 		'links'=>$this->breadcrumbs,

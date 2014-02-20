@@ -92,7 +92,8 @@ body
 
 #mainmenu
 {
-	background:white url(bg.gif) repeat-x left top;
+	background:white repeat-x left top;
+    float: left;
 }
 
 #mainmenu ul
@@ -103,7 +104,7 @@ body
 #spacerbox
 {
 	background-color:#FFFFFF;
-	height:180px;
+	height:60px;
 	
 }
 #mainmenu ul li
@@ -113,7 +114,7 @@ body
 
 #mainmenu ul li a
 {
-	color:#ffffff;
+	color:#000000;
 	background-color:transparent;
 	font-size:12px;
 	font-weight:bold;

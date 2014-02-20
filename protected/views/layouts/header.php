@@ -1,10 +1,59 @@
-		<?php 
-           $this->widget('zii.widgets.CMenu',array(
-                                                   'items'=>array(array('label'=>'Advanced Search', 'url'=>array('site/page', 'view'=>'advancedSearch')),
-                                                                  array('label'=>'User Name', 'url'=>array('site/page', 'view'=>'userName')),
-                                                                  array('label'=>'Login', 'url'=>array('account/login'), 'visible'=>Yii::app()->user->isGuest),
-                                                                  array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('account/logout'), 'visible'=>!Yii::app()->user->isGuest)
-                                                                  ),
-                                                   ));
-            ?>
+
+<!--- Uncomment if you want to add branding --->
+<!--- <img src="/PVMS/images/Pitchnlogo.JPG" /> --->
+<!--- <div id="logo"><?php echo CHtml::encode(Yii::app()->name);?></div>--->
+
+
+<?php
+    $this->widget(
+                  'bootstrap.widgets.TbNavbar',
+                  array(
+                        'type' => null,
+                        'brand' => 'Pitchn',
+                        'brandUrl' => '#',
+                        'collapse' => true, // requires bootstrap-responsive.css
+                        'fixed' => 'top',
+                        'items' => array(
+                                         array(
+                                               'class' => 'bootstrap.widgets.TbMenu',
+                                               'items' => array(
+                                                                // find logic to set active
+                                                                array('label' => 'Home', 'url' =>array('post/index'), 'active' => true),
+                                                                ),
+                                               ),
+                                         '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',
+                                         array(
+                                               'class' => 'bootstrap.widgets.TbMenu',
+                                               'items' => array(
+                                                                // find logic to set active
+                                                                array('label' => 'Advanced Search', 'url' =>array('post/index'), 'active' => false),
+                                                                ),
+                                               ),
+                                         
+                                         array(
+                                               'class' => 'bootstrap.widgets.TbMenu','htmlOptions' => array('class' => 'pull-right'),
+                                               'items' => array(
+                                                                array('label' => 'Messages', 'url' => '#'),
+                                                                '---',
+                                                                array(
+                                                                      'label' => 'Hello ('.Yii::app()->user->name.')',
+                                                                      'url' => '#',
+                                                                      'items' => array(
+                                                                                       array('label' => 'Signout',
+                                                                                             'url' => array('account/logout')
+                                                                                             ),
+                                                                                       ),
+                                                                      'visible'=>!Yii::app()->user->isGuest
+                                                                      ),
+                                                                array('label'=>'Login', 'url'=>array('account/login'), 'visible'=>Yii::app()->user->isGuest),
+                                                                
+                                                                ),
+                                               ),
+                                         ),
+                        )
+                  );
+    
+    
+    
+    ?>
 
