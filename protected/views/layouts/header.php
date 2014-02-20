@@ -32,16 +32,17 @@
                                          
                                          array(
                                                'class' => 'bootstrap.widgets.TbMenu','htmlOptions' => array('class' => 'pull-right'),
-                                               'items' => array(
+                                               'items' => array(array('label'=>'Notifications', 'url'=>array('post/index')                                                             
+                                                                      ),
+
                                                                 array('label' => 'Messages', 'url' => '#'),
                                                                 '---',
                                                                 array(
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',
                                                                       'url' => '#',
                                                                       'items' => array(
-                                                                                       array('label' => 'Signout',
-                                                                                             'url' => array('account/logout')
-                                                                                             ),
+                                                                                       array('label' => 'Signout', 'url' => array('account/logout')),
+                                                                                       array('label'=>'Settings', 'url'=>array('account/settings')),
                                                                                        ),
                                                                       'visible'=>!Yii::app()->user->isGuest
                                                                       ),
