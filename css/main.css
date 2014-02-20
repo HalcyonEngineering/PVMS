@@ -58,8 +58,8 @@ body
 
 #header ul li a:hover, #mainmenu ul li.active a
 {
-	color: #6399cd;
-	background-color:#EFF4FA;
+	color: ##1AAB9F;
+	background-color:#ffffff;
 	text-decoration:none;
 }
 
@@ -92,7 +92,7 @@ body
 
 #mainmenu
 {
-	background:white repeat-x left top;
+	background:transparent;
     float: left;
 }
 
@@ -124,8 +124,8 @@ body
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
-	color: #6399cd;
-	background-color:#EFF4FA;
+	color: #1AAB9F;
+	background-color:transparent;
 	text-decoration:none;
 }
 
