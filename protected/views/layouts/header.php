@@ -9,7 +9,7 @@
                   'bootstrap.widgets.TbNavbar',
                   array(
                         'type' => null,
-                        'brand' => CHtml::image(Yii::app()->getBaseUrl().'/images/Pitchnlogo.JPG'),
+                        'brand' => CHtml::image(Yii::app()->getBaseUrl().'/images/Pitchn-Logo-Mark-317x150.png', "", array("width"=>"70px", "height"=>"50px")),
                         'brandUrl' => '#',
                         'collapse' => true, // requires bootstrap-responsive.css
                         'fixed' => 'top',
