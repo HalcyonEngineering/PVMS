@@ -11,13 +11,14 @@ class User extends CActiveRecord
      * @var string $type
 	 */
 
-    public $origPassword;
-    public $newPassword;
-    public $verifyPassword;
+	public $origPassword;
+	public $newPassword;
+	public $verifyPassword;
 
-    const VOLUNTEER='volunteer';
-    const MANAGER='manager';
-    const ADMINISTRATOR='administrator';
+	const ADMINISTRATOR = 0;
+	const MANAGER       = 1;
+	const VOLUNTEER     = 2;
+
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -54,8 +55,7 @@ class User extends CActiveRecord
             array('type', 'unsafe', 'except' => 'register'),
             array('newPassword, verifyPassword', 'safe', 'on'=>'settings'),
             array('origPassword', 'required', 'on'=> 'settings'),
-            array('newPassword, verifyPassword', 'required', 'on' => 'register'),
-            array('type, origPassword', 'required', 'on' => 'register'),
+            array('type, newPassword, verifyPassword', 'required', 'on' => 'register'),
             array('type', 'in', 'on' => 'register', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR)),
 		);
 	}
@@ -80,7 +80,7 @@ class User extends CActiveRecord
 		return array(
 			'id' => 'Id',
 			'name' => 'Name',
-			'password' => 'Hidden Password',
+			'password' => 'Hidden Password (DO NOT EXPOSE)',
             'origPassword' => 'Password',
             'newPassword' => 'New Password',
             'verifyPassword' => 'Verify Password',
@@ -114,4 +114,8 @@ class User extends CActiveRecord
     public function getUsername(){
         return parent::__get('email');
     }
+
+	public function getFullName(){
+		return parent::__get('name');
+	}
 }

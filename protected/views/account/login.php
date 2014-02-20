@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->emailField($model,'username'); ?>
+		<?php echo $form->textField($model,'username'); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
@@ -29,7 +29,7 @@ $this->breadcrumbs=array(
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
 		<p class="hint">
-			Hint: You may login with <tt>webmaster@example.com/demo</tt>.
+			Hint: You may login with <tt>admin/admin</tt>.
 		</p>
         <p class="hint">
             You can also register <?php echo CHtml::link('here', array('account/register')) ?>

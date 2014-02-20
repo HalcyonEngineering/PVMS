@@ -42,6 +42,7 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 			'loginUrl' => array('/account/login'),
+			'class' => 'WebUser',
 		),
 		'bootstrap'=> array(
 			'class' => 'ext.yii-booster.components.Bootstrap',

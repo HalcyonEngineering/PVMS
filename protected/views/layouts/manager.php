@@ -7,5 +7,6 @@
                 array('label'=>'Email', 'url'=>array('mail/contact')),
 				array('label'=>'Settings', 'url'=>array('account/settings')),
 				array('label'=>'About', 'url'=>array('site/page', 'view'=>'about')),
+			    array('label'=>'Example Code', 'url' =>array('organization/index')),
 			),
 		)); ?>
