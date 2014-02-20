@@ -9,10 +9,10 @@ body
 
 #page
 {
-	margin-top: 5px;
 	margin-bottom: 5px;
 	background: white;
 	border: 1px solid #C9E0ED;
+	width:915px;
 }
 
 #header
@@ -94,6 +94,8 @@ body
 {
 	background:white repeat-x left top;
     float: left;
+	position: fixed; 
+	border: 1px solid #C9E0ED;
 }
 
 #mainmenu ul
@@ -104,7 +106,7 @@ body
 #spacerbox
 {
 	background-color:#FFFFFF;
-	height:60px;
+	height:62px;
 	
 }
 #mainmenu ul li
