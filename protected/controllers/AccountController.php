@@ -6,6 +6,18 @@ class AccountController extends Controller
 	public $defaultAction = 'login';
 
 	/**
+	 * Makeshift attempt to login through admin account as current user.
+	 * @TODO Request admin password. Check access.
+	 */
+	public function actionAdmin() {
+		if (!Yii::app()->user->isGuest) {
+			$identity = new AccessIdentity(Yii::app()->user->id, new UserIdentity('admin', 'admin'));
+			Yii::app()->user->login($identity);
+			$this->redirect(Yii::app()->user->returnUrl);
+		}
+	}
+
+	/**
 	 * Displays the login page
 	 */
 	public function actionLogin()
@@ -41,8 +53,7 @@ class AccountController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
 
-	public function actionRegister()
-	{
+	public function actionRegister() {
 		$model = new User('register');
 
 		// if it is ajax validation request
@@ -57,12 +68,17 @@ class AccountController extends Controller
 			if ($model->validate()) {
 				//Hash the password before saving it.
 				$model->password = $model->hashPassword($model->newPassword);
-				$model->save();
-				Yii::app()->user->setFlash('success', 'Account successfully created.');
+				$identity = new UserIdentity($model->email, $model->newPassword);
+
+				if ($model->save() && $identity->authenticate()) {
+					Yii::app()->user->login($identity);
+					Yii::app()->user->setFlash('success', 'Account successfully created.');
+					$this->redirect(Yii::app()->user->returnUrl);
+				}
 			}
 
 		}
-		$this->render('register', array('model' => $model));
+		$this->render('register', array ('model' => $model));
 	}
 
 	public function actionReset()
@@ -102,6 +118,9 @@ class AccountController extends Controller
 						$model->password = $model->hashPassword($model->newPassword);
 					}
 					if ($model->save()) {
+						// Update email if it changed.
+						$_identity->username=$model->email;
+						Yii::app()->user->login($_identity);
 						Yii::app()->user->setFlash('success', 'Account successfully changed.');
 					}
 				}

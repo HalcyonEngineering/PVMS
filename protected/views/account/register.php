@@ -7,10 +7,10 @@ $this->breadcrumbs=array(
     'Register',
 );?>
 
-<?php if(Yii::app()->user->hasFlash('register.success')): ?>
+<?php if(Yii::app()->user->hasFlash('success')): ?>
 
 <div class="flash-success">
-    <?php echo Yii::app()->user->getFlash('register.success'); ?>
+    <?php echo Yii::app()->user->getFlash('success'); ?>
 </div>
 <?php endif; ?>
 
