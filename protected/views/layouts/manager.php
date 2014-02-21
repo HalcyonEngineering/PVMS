@@ -1,14 +1,21 @@
 <?php
+    $projectIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/folder.png', "", array("width"=>"70px", "height"=>"50px"));
+    $volunteerIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/wlm.png', "", array("width"=>"70px", "height"=>"50px"));
+    $calendarIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/calendar.png', "", array("width"=>"70px", "height"=>"50px"));
+    $reportIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/tasks.png', "", array("width"=>"70px", "height"=>"50px"));
+
+    
     $this->widget(
                   'bootstrap.widgets.TbMenu',
                   array(
+                        'encodeLabel' => false,
                         'type' => 'tabs',
                         'stacked'=>true,
                         'items' => array(
-                                         array('label'=>'Projects', 'url'=>array('site/page', 'view'=>'projects')),
-                                         array('label'=>'Volunteers', 'url'=>array('site/page', 'view'=>'import')),
-                                         array('label'=>'Calendar', 'url'=>array('site/page', 'view'=>'calendar')),
-                                         array('label'=>'Reports', 'url' =>array('organization/index')),
+                                         array('label'=>$projectIcon, 'url'=>array('site/page', 'view'=>'projects')),
+                                         array('label'=>$volunteerIcon, 'url'=>array('site/page', 'view'=>'import')),
+                                         array('label'=>$calendarIcon, 'url'=>array('site/page', 'view'=>'calendar')),
+                                         array('label'=>$reportIcon, 'url' =>array('organization/index')),
                                          //array('label'=>'Email', 'url'=>array('mail/contact')),
 
                                          ),
