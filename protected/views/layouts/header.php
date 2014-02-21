@@ -10,9 +10,16 @@
                         'fixed' => 'top',
                         'items' => array(
                                          array(
-                                               'class' => 'bootstrap.widgets.TbMenu','htmlOptions' => array('class' => 'pull-right'),
+                                               'class' => 'bootstrap.widgets.TbMenu',
+											   'htmlOptions' => array('class' => 'pull-right'),
                                                'items' => array(
-                                                                array('label'=>'Notifications', 'url'=>array('site/page', 'view'=>'notifications')  ),
+                                                                array('label'=>'Notifications',
+																	  'url' => '#',
+                                                                      'items' => array(
+                                                                                       array('label' => ''),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION                                                                                    
+                                                                                       array('label' => 'View All Notifications', 'url' => array('site/page', 'view'=>'notifications')),
+                                                                                       ),
+																	),
                                                                 array('label' => 'Messages','url' => array('site/page', 'view'=>'messages')),
                                                                 '---',
                                                                 array(
@@ -24,12 +31,12 @@
                                                                                        array('label' => 'Help', 'url' => '#'),
                                                                                        array('label' => 'Signout', 'url' => array('account/logout')),
                                                                                        ),
-                                                                      'visible'=>!Yii::app()->user->isGuest
+                                                                      'visible'=>!Yii::app()->user->isGuest,
                                                                       ),
                                                                 array('label'=>'Login', 'url'=>array('account/login'), 'visible'=>Yii::app()->user->isGuest),
                                                                 ),
                                                ),
                                          ),
-                        ),
+                        )
                   );
     ?>

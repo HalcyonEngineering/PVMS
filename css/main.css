@@ -58,7 +58,7 @@ body
 
 #header ul li a
 {
-	color:#ffffff;
+	color:#1AAB9F;
 	background-color:transparent;
 	font-size:12px;
 	font-weight:bold;
@@ -68,8 +68,8 @@ body
 
 #header ul li a:hover, #mainmenu ul li.active a
 {
-	color: ##1AAB9F;
-	background-color:#00000f;
+	color: #1AAB9F;
+	background-color:##1AAB9F;
 	text-decoration:none;
 }
 
