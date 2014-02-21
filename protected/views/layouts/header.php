@@ -31,7 +31,7 @@
                                                'items' => array(array('label' => 'Advanced Search', 'url' =>array('site/page', 'view'=>'advancedSearch')),array('label'=>'Notifications', 'url'=>array('site/page', 'view'=>'notifications')                                                             
                                                                       ),
 
-                                                                array('label' => 'Messages', 'url' => array('post/index')),
+                                                                array('label' => 'Messages', 'url' => array('site/page', 'view'=>'messages')),
                                                                 '---',
                                                                 array(
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',

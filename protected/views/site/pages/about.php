@@ -5,7 +5,6 @@ $this->breadcrumbs=array(
 );
 ?>
 
-
 <div id = "AboutContent">
 <h1>About Us</h1>
 

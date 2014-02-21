@@ -99,6 +99,18 @@ CREATE TABLE notifications
   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_role (id) ON DELETE CASCADE
 );
 
+CREATE TABLE messages
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	user_id VARCHAR(128) NOT NULL,
+	sender_id VARCHAR(128) NOT NULL,
+	message_subject VARCHAR(128) NOT NULL,
+	message_body VARCHAR(128) NOT NULL,
+	timestamp INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_role (id) ON DELETE CASCADE
+	CONSTRAINT FK_user FOREIGN KEY (sender_id) REFERENCES pvms_role (id) ON DELETE CASCADE
+);
+
 --I have no idea if these are correct so I'm doing it the way I taught myself.
 
 
