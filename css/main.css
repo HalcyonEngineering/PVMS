@@ -1,3 +1,4 @@
+
 body
 {
 	margin: 0;
@@ -112,6 +113,11 @@ body
 #mainmenu ul li
 {
 	display: inline;
+}
+
+#AboutContent
+{
+	margin-right: 10px;
 }
 
 #mainmenu ul li a

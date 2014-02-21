@@ -1,7 +1,7 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - contact';
 $this->breadcrumbs=array(
-	'Contact',
+	'contact',
 );
 ?>
 
@@ -18,9 +18,6 @@ $this->breadcrumbs=array(
 	<?php echo Yii::app()->user->getFlash('error'); ?>
 </div>
 <?php else: ?>
-<p>
-Send an Email.
-</p>
 
 <div class="form">
 
@@ -68,7 +65,7 @@ Send an Email.
 
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton('Send'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

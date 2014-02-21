@@ -1,7 +1,7 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Import';
+$this->pageTitle=Yii::app()->name . ' - Add Volunteers';
 $this->breadcrumbs=array(
-	'Import',
+	'Add Volunteers',
 );
 ?>
 <h1>Add Volunteers</h1>

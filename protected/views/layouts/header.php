@@ -18,24 +18,20 @@
                                                'class' => 'bootstrap.widgets.TbMenu',
                                                'items' => array(
                                                                 // find logic to set active
-                                                                array('label' => 'Home', 'url' =>array('post/index'), 'active' => true),
+                                                                array('label' => 'Home', 'url' =>array('post/index'), 'active' => false),
                                                                 ),
                                                ),
-                                         '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',
-                                         array(
-                                               'class' => 'bootstrap.widgets.TbMenu',
-                                               'items' => array(
-                                                                // find logic to set active
-                                                                array('label' => 'Advanced Search', 'url' =>array('post/index'), 'active' => false),
-                                                                ),
-                                               ),
-                                         
+                                         '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"> <button type="submit" class="btn">Search</button></form>',
+                                 
+                                        
+                                        
+                                                                
                                          array(
                                                'class' => 'bootstrap.widgets.TbMenu','htmlOptions' => array('class' => 'pull-right'),
-                                               'items' => array(array('label'=>'Notifications', 'url'=>array('post/index')                                                             
+                                               'items' => array(array('label' => 'Advanced Search', 'url' =>array('site/page', 'view'=>'advancedSearch')),array('label'=>'Notifications', 'url'=>array('site/page', 'view'=>'notifications')                                                             
                                                                       ),
 
-                                                                array('label' => 'Messages', 'url' => '#'),
+                                                                array('label' => 'Messages', 'url' => array('post/index')),
                                                                 '---',
                                                                 array(
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',
