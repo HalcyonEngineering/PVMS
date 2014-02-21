@@ -19,22 +19,17 @@
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',
                                                                       'url' => '#',
                                                                       'items' => array(
-                                                                                       array('label' => 'My Profile', 'url' => '#',
+                                                                                       array('label' => 'My Profile', 'url' => '#'),
+                                                                                       array('label'=>'Settings', 'url'=>array('account/settings')),
+                                                                                       array('label' => 'Help', 'url' => '#'),
                                                                                        array('label' => 'Signout', 'url' => array('account/logout')),
-                                                                                       array('label' => 'Help', 'url'=>'#'),
-                                                                                       array('label' => 'Signout', 'url' => array('account/logout')),
-                                                                                                                                                                             ),
+                                                                                       ),
                                                                       'visible'=>!Yii::app()->user->isGuest
                                                                       ),
                                                                 array('label'=>'Login', 'url'=>array('account/login'), 'visible'=>Yii::app()->user->isGuest),
-                                                                
                                                                 ),
                                                ),
                                          ),
-                        )
+                        ),
                   );
-    
-    
-    
     ?>
-
