@@ -64,9 +64,9 @@ class Project extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'org_id' => 'Org',
+			'org_id' => 'Organization ID',
 			'name' => 'Name',
-			'desc' => 'Desc',
+			'desc' => 'Description',
 		);
 	}
 

@@ -66,9 +66,9 @@ class Role extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'proj_id' => 'Proj',
+			'proj_id' => 'Project ID',
 			'name' => 'Name',
-			'desc' => 'Desc',
+			'desc' => 'Description',
 		);
 	}
 

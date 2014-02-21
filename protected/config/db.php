@@ -3,6 +3,11 @@
 return array(
 			'connectionString' => 'sqlite:protected/data/pvms.sqlite',
 			'tablePrefix' => 'pvms_',
+			'initSQLs'=>array(
+				// Enable foreign key support.
+				'PRAGMA foreign_keys = ON',
+			),
+			'enableParamLogging'=>true,
 		);
 // uncomment the following to use a MySQL database		
 /*

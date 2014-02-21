@@ -65,7 +65,7 @@ CREATE TABLE pvms_project
   org_id INTEGER NOT NULL,
   name VARCHAR(128) NOT NULL,
   desc TEXT NOT NULL,
-  CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id) ON DELETE CASCADE
+  CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE pvms_role
@@ -74,7 +74,7 @@ CREATE TABLE pvms_role
   proj_id INTEGER NOT NULL,
   name VARCHAR(128) NOT NULL,
   desc TEXT NOT NULL,
-  CONSTRAINT FK_proj FOREIGN KEY (proj_id) REFERENCES pvms_project (id) ON DELETE CASCADE
+  CONSTRAINT FK_proj FOREIGN KEY (proj_id) REFERENCES pvms_project (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE pvms_task
@@ -85,10 +85,11 @@ CREATE TABLE pvms_task
 	desc TEXT,
 	expected INTEGER,
 	actual INTEGER,
-  CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id) ON DELETE CASCADE
+  status INTEGER NOT NULL DEFAULT 1,
+  CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE notifications
+CREATE TABLE pvms_notifications
 (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	user_id VARCHAR(128) NOT NULL,
@@ -96,10 +97,10 @@ CREATE TABLE notifications
 	timestamp INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	source VARCHAR(128) NOT NULL,
 	link VARCHAR(128) NOT NULL,
-  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_role (id) ON DELETE CASCADE
+  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE
 );
 
-CREATE TABLE messages
+CREATE TABLE pvms_messages
 (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	user_id VARCHAR(128) NOT NULL,
@@ -107,12 +108,29 @@ CREATE TABLE messages
 	message_subject VARCHAR(128) NOT NULL,
 	message_body VARCHAR(128) NOT NULL,
 	timestamp INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_role (id) ON DELETE CASCADE
-	CONSTRAINT FK_user FOREIGN KEY (sender_id) REFERENCES pvms_role (id) ON DELETE CASCADE
+  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE,
+  CONSTRAINT FK_sender FOREIGN KEY (sender_id) REFERENCES pvms_user (id) ON DELETE CASCADE
 );
 
 --I have no idea if these are correct so I'm doing it the way I taught myself.
 
+CREATE TABLE pvms_user_org
+(
+  user_id INTEGER NOT NULL,
+  org_id INTEGER NOT NULL,
+  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE,
+  CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id) ON DELETE CASCADE
+);
+
+CREATE TABLE pvms_user_role
+(
+  user_id INTEGER NOT NULL,
+  role_id INTEGER NOT NULL,
+  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE,
+  CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id) ON DELETE CASCADE
+);
+
+-- I personally feel like the below tables aren't very useful since it's easier keeping the keys in the other tables.
 
 CREATE TABLE pvms_org_proj
 (
@@ -138,21 +156,6 @@ CREATE TABLE pvms_role_task
   CONSTRAINT FK_task FOREIGN KEY (task_id) REFERENCES pvms_task (id)
 );
 
-CREATE TABLE pvms_user_org
-(
-  user_id INTEGER NOT NULL,
-  org_id INTEGER NOT NULL,
-  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id),
-  CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id)
-);
-
-CREATE TABLE pvms_user_role
-(
-  user_id INTEGER NOT NULL,
-  role_id INTEGER NOT NULL,
-  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id),
-  CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id)
-);
 
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Draft', 'PostStatus', 1, 1);
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Published', 'PostStatus', 2, 2);

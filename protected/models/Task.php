@@ -10,6 +10,7 @@
  * @property string $desc
  * @property integer $expected
  * @property integer $actual
+ * @property integer $status
  *
  * The followings are the available model relations:
  * @property RoleTask[] $roleTasks
@@ -33,13 +34,13 @@ class Task extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('role_id, name', 'required'),
-			array('role_id, expected, actual', 'numerical', 'integerOnly'=>true),
+			array('role_id, name, status', 'required'),
+			array('role_id, expected, actual, status', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>128),
 			array('desc', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, role_id, name, desc, expected, actual', 'safe', 'on'=>'search'),
+			array('id, role_id, name, desc, expected, actual, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,11 +64,12 @@ class Task extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'role_id' => 'Role',
+			'role_id' => 'Role ID',
 			'name' => 'Name',
-			'desc' => 'Desc',
+			'desc' => 'Description',
 			'expected' => 'Expected',
 			'actual' => 'Actual',
+			'status' => 'Status',
 		);
 	}
 
@@ -95,6 +97,7 @@ class Task extends CActiveRecord
 		$criteria->compare('desc',$this->desc,true);
 		$criteria->compare('expected',$this->expected);
 		$criteria->compare('actual',$this->actual);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
