@@ -8,35 +8,18 @@
     $this->widget(
                   'bootstrap.widgets.TbNavbar',
                   array(
-                        'type' => null,
+                        'type' => 'inverse',
                         'brand' => CHtml::image(Yii::app()->getBaseUrl().'/images/Pitchn-Logo-Mark-317x150.png', "", array("width"=>"70px", "height"=>"50px")),
                         'brandUrl' => '#',
-                        'collapse' => true, // requires bootstrap-responsive.css
+                        'collapse' => false, // requires bootstrap-responsive.css
                         'fixed' => 'top',
                         'items' => array(
-                                         array(
-                                               'class' => 'bootstrap.widgets.TbMenu',
-                                               'items' => array(
-                                                                // find logic to set active
-                                                                array('label' => 'Home', 'url' =>array('post/index'), 'active' => true),
-                                                                ),
-                                               ),
-                                         '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',
-                                         array(
-                                               'class' => 'bootstrap.widgets.TbMenu',
-                                               'items' => array(
-                                                                // find logic to set active
-                                                                array('label' => 'Advanced Search', 'url' =>array('post/index'), 'active' => false),
-                                                                ),
-                                               ),
-                                         
                                          array(
                                                'class' => 'bootstrap.widgets.TbMenu','htmlOptions' => array('class' => 'pull-right'),
                                                'items' => array(array('label'=>'Notifications', 'url'=>array('post/index')                                                             
                                                                       ),
 
                                                                 array('label' => 'Messages', 'url' => '#'),
-                                                                '---',
                                                                 array(
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',
                                                                       'url' => '#',
