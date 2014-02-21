@@ -1,9 +1,4 @@
 
-<!--- Uncomment if you want to add branding --->
-<!--- <img src="/PVMS/images/Pitchnlogo.JPG" /> --->
-<!--- <div id="logo"><?php echo CHtml::encode(Yii::app()->name);?></div>--->
-
-
 <?php
     $this->widget(
                   'bootstrap.widgets.TbNavbar',
@@ -16,17 +11,19 @@
                         'items' => array(
                                          array(
                                                'class' => 'bootstrap.widgets.TbMenu','htmlOptions' => array('class' => 'pull-right'),
-                                               'items' => array(array('label'=>'Notifications', 'url'=>array('post/index')                                                             
-                                                                      ),
-
-                                                                array('label' => 'Messages', 'url' => '#'),
+                                               'items' => array(
+                                                                array('label'=>'Notifications', 'url'=>array('site/page', 'view'=>'notifications')  ),
+                                                                array('label' => 'Messages','url' => array('site/page', 'view'=>'messages')),
+                                                                '---',
                                                                 array(
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',
                                                                       'url' => '#',
                                                                       'items' => array(
+                                                                                       array('label' => 'My Profile', 'url' => '#',
                                                                                        array('label' => 'Signout', 'url' => array('account/logout')),
-                                                                                       array('label'=>'Settings', 'url'=>array('account/settings')),
-                                                                                       ),
+                                                                                       array('label' => 'Help', 'url'=>'#'),
+                                                                                       array('label' => 'Signout', 'url' => array('account/logout')),
+                                                                                                                                                                             ),
                                                                       'visible'=>!Yii::app()->user->isGuest
                                                                       ),
                                                                 array('label'=>'Login', 'url'=>array('account/login'), 'visible'=>Yii::app()->user->isGuest),

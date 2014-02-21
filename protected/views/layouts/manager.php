@@ -10,6 +10,7 @@
                                          array('label'=>'Calendar', 'url'=>array('site/page', 'view'=>'calendar')),
                                          array('label'=>'Reports', 'url' =>array('organization/index')),
                                          //array('label'=>'Email', 'url'=>array('mail/contact')),
+
                                          ),
                         ));
     

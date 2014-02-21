@@ -1,3 +1,4 @@
+
 body
 {
 	margin: 0;
@@ -101,7 +102,7 @@ body
 
 #mainmenu
 {
-	background:transparent;
+	background:#FFFFFF;
     float: left;
 	position: fixed; 
 
@@ -116,6 +117,11 @@ body
 #mainmenu ul li
 {
 	display: inline;
+}
+
+#AboutContent
+{
+	margin-right: 10px;
 }
 
 #mainmenu ul li a

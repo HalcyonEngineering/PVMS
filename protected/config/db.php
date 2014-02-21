@@ -2,7 +2,12 @@
 // comment the following to disable the sqlite database
 return array(
 			'connectionString' => 'sqlite:protected/data/pvms.sqlite',
-			'tablePrefix' => 'tbl_',
+			'tablePrefix' => 'pvms_',
+			'initSQLs'=>array(
+				// Enable foreign key support.
+				'PRAGMA foreign_keys = ON',
+			),
+			'enableParamLogging'=>true,
 		);
 // uncomment the following to use a MySQL database		
 /*
