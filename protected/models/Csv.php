@@ -26,8 +26,6 @@ class Csv extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('csv', 'safe'),
-            array('csv', 'safe', 'on'=>'search'),
             array('csv', 'file', 'allowEmpty' => 'false', 'types' => 'csv'),
         );
     }
@@ -93,12 +91,11 @@ class Csv extends CActiveRecord
      * Given the filepath to a csv, parses the csv and adds users to the database
      * It's assumed that the csv will have at least a name and email column.
      * @param filepath of the local csv file
-     * @return null
      */
     public function register_csv()
     {
         $username = Yii::app()->user->name; //User::model()->findByPk(Yii::app()->user->name);
-        $filepath = 'C:\inetpub\wwwroot\PVMS\assets' . "\/" . "$username" . "_import.csv";
+        $filepath = dirname(__FILE__) . "/../../assets/" . "$username" . "_import.csv";
         $this->csv->saveAs($filepath);
 
         $file = fopen($filepath, 'r');
@@ -107,12 +104,27 @@ class Csv extends CActiveRecord
             fgetcsv($file); // skip the first row, which has the labels
             while(($fields = fgetcsv($file)) !== false)
             {
-                $volunteer_name = $fields[0]; 
-                $volunteer_email = $fields[1];
-                $volunteer_skills = $fields[2];
-                Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills");
-                //enroll_volunteer($volunteer_name, $volunteer_email, $volunteer_skills);
+                if(count($fields) >= 2)
+                {
+                    $volunteer_name = $fields[0]; 
+                    $volunteer_email = $fields[1];
+                    $volunteer_skills = (count($fields) > 2) ? $fields[2] : null;
+
+                    Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills");
+                    //enroll_volunteer($volunteer_name, $volunteer_email, $volunteer_skills);
+                }
             }
         }
+    }
+
+    /**
+     * Given the name, email, and skillset of the volunteer, enrolls the volunteer in the database
+     * @param volunteer name
+     * @param volunteer email
+     * @param volunteer skills
+     */
+    public function enroll_volunteer($name, $email, $skills)
+    {
+
     }
 }

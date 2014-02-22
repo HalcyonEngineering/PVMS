@@ -51,13 +51,6 @@ CREATE TABLE pvms_comment
 		REFERENCES pvms_post (id) ON DELETE CASCADE ON UPDATE RESTRICT
 );
 
-CREATE TABLE pvms_tag
-(
-  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  name VARCHAR(128) NOT NULL,
-  frequency INTEGER DEFAULT 1
-);
-
 CREATE TABLE pvms_organization
 (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -162,6 +155,12 @@ CREATE TABLE pvms_role_task
   CONSTRAINT FK_task FOREIGN KEY (task_id) REFERENCES pvms_task (id)
 );
 
+CREATE TABLE pvms_tag
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(128) NOT NULL,
+  frequency INTEGER DEFAULT 1
+);
 
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Draft', 'PostStatus', 1, 1);
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Published', 'PostStatus', 2, 2);
@@ -192,7 +191,5 @@ INSERT INTO pvms_tag (name) VALUES ('test');
 INSERT INTO pvms_organization (name, desc) VALUES ('First Org', 'We are the first here.');
 INSERT INTO pvms_organization (name, desc) VALUES ('Second Org', 'We did not finish first.');
 
-CREATE TABLE pvms_csv
-(
-  csv BLOB
-);
+CREATE TABLE pvms_csv(csv BLOB);
+CREATE TABLE pvms_skill(skill NOT NULL PRIMARY KEY, frequency INTEGER DEFAULT 1);
