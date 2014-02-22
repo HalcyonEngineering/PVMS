@@ -26,8 +26,11 @@
 <div id="spacerbox">
 </div>
 
+<!-- We will have to add logic to choose the type of module later -->
 <div id="mainmenu">
 <?php include('manager.php');?>
+<!-- <?php include('admin.php');?> -->
+<!-- <?php include('volunteer.php');?> -->
 </div><!-- mainmenu -->
 
 

@@ -8,12 +8,28 @@ body
 	background: #EFEFEF;
 }
 
+#stickyheader
+{
+	background-color:#FFFFFF;
+	height:60px; 
+	position:fixed;
+	width:950px; 
+	top:0;
+}
+
+#spacerbox
+{
+	background-color:#FFFFFF;
+	height:50px;
+	
+}
+
 #page
 {
-	margin-bottom: 5px;
+	margin-left: 150px;
 	background: white;
 	border: 1px solid #C9E0ED;
-	width:915px;
+
 }
 
 #header
@@ -24,14 +40,7 @@ body
 	border-top: 3px solid #C9E0ED;
 }
 
-#stickyheader
-{
-	background-color:#FFFFFF;
-	height:60px; 
-	position:fixed;
-	width:950px; 
-	top:0;
-}
+
 
 #header ul
 {
@@ -49,7 +58,7 @@ body
 
 #header ul li a
 {
-	color:#000000;
+	color:#ffffff;
 	background-color:transparent;
 	font-size:12px;
 	font-weight:bold;
@@ -60,7 +69,7 @@ body
 #header ul li a:hover, #mainmenu ul li.active a
 {
 	color: ##1AAB9F;
-	background-color:#ffffff;
+	background-color:#00000f;
 	text-decoration:none;
 }
 
@@ -96,20 +105,15 @@ body
 	background:#FFFFFF;
     float: left;
 	position: fixed; 
-	border: 1px solid #C9E0ED;
+
 }
 
 #mainmenu ul
 {
-	padding:6px 20px 5px 20px;
+	padding:0px 0px 0px 0px;
 	margin:0px;
 }
-#spacerbox
-{
-	background-color:#FFFFFF;
-	height:62px;
-	
-}
+
 #mainmenu ul li
 {
 	display: inline;
@@ -122,12 +126,13 @@ body
 
 #mainmenu ul li a
 {
-	color:#000000;
+	color:#1AAB9F;
 	background-color:transparent;
 	font-size:12px;
 	font-weight:bold;
 	text-decoration:none;
-	padding:5px 8px;
+    width:75px;
+    height:75px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
