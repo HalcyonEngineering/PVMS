@@ -3,13 +3,25 @@
 class User extends CActiveRecord
 {
 	/**
-	 * The followings are the available columns in table 'tbl_user':
-	 * @var integer $id
-	 * @var string $name
-	 * @var string $password
-	 * @var string $email
-     * @var string $type
-	 * @var integer $adminaccess
+	 * This is the model class for table "{{user}}".
+	 *
+	 * The followings are the available columns in table '{{user}}':
+	 * @property integer $id
+	 * @property string $name
+	 * @property string $password
+	 * @property string $email
+	 * @property string $type
+	 * @property string $profile
+	 *
+	 * The followings are the available model relations:
+	 * @property Messages[] $messages
+	 * @property Messages[] $messages1
+	 * @property Notifications[] $notifications
+	 * @property Post[] $posts
+	 * @property UserOrg[] $userOrgs
+	 * @property UserRole[] $userRoles
+	 * @property Organization[] $orgs
+	 * @property Role[] $roles
 	 */
 
 	public $origPassword;
@@ -17,6 +29,8 @@ class User extends CActiveRecord
 	public $verifyPassword;
 	public $adminAccess;
 
+	public $orgs;
+	public $roles;
 	const ADMINISTRATOR = 0;
 	const MANAGER       = 1;
 	const VOLUNTEER     = 2;
@@ -124,5 +138,31 @@ class User extends CActiveRecord
 
 	public function getFullName(){
 		return parent::__get('name');
+	}
+
+	/**
+	 * @return Organization[] the organizations the user is a part of.
+	 */
+	public function getOrgs() {
+		if ($this->orgs === null) {
+			foreach ($this->userOrgs->org as $k => $org) {
+				$this->orgs[$k] = $org;
+			}
+		}
+
+		return $this->orgs;
+	}
+
+	/**
+	 * @return Role[] the roles the user has.
+	 */
+	public function getRoles() {
+		if ($this->roles === null) {
+			foreach ($this->userRole->role as $k => $role) {
+				$this->roles[$k] = $role;
+			}
+		}
+
+		return $this->roles;
 	}
 }

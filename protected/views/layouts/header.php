@@ -13,7 +13,7 @@
                                                'class' => 'bootstrap.widgets.TbMenu','htmlOptions' => array('class' => 'pull-right'),
                                                'items' => array(
                                                                 array('label'=>'Notifications', 'url'=>array('site/page', 'view'=>'notifications')  ),
-                                                                array('label' => 'Messages','url' => array('site/page', 'view'=>'messages')),
+                                                                array('label' => 'Messages','url' => array('mail/contact')),
                                                                 '---',
                                                                 array(
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',

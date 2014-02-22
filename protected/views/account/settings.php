@@ -62,6 +62,7 @@ $this->breadcrumbs=array(
         <?php echo $form->textField($model,'newPassword'); ?>
         <?php echo $form->error($model,'newPassword'); ?>
     </div>
+	
     <div class="row">
         <?php echo $form->labelEx($model,'verifyPassword'); ?>
         <?php echo $form->textField($model,'verifyPassword'); ?>

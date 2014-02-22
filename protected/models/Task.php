@@ -13,7 +13,6 @@
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property RoleTask[] $roleTasks
  * @property Role $role
  */
 class Task extends CActiveRecord
@@ -67,8 +66,8 @@ class Task extends CActiveRecord
 			'role_id' => 'Role ID',
 			'name' => 'Name',
 			'desc' => 'Description',
-			'expected' => 'Expected',
-			'actual' => 'Actual',
+			'expected' => 'Expected Time',
+			'actual' => 'Actual Time',
 			'status' => 'Status',
 		);
 	}
