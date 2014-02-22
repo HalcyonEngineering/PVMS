@@ -11,3 +11,5 @@ foreach(explode(';',$sqls) as $sql)
 	if(trim($sql)!=='')
 		$db->exec($sql);
 }
+
+echo "DB (probably) (re)generated successfully";

@@ -9,11 +9,13 @@ class User extends CActiveRecord
 	 * @var string $password
 	 * @var string $email
      * @var string $type
+	 * @var integer $adminaccess
 	 */
 
 	public $origPassword;
 	public $newPassword;
 	public $verifyPassword;
+	public $adminAccess;
 
 	const ADMINISTRATOR = 0;
 	const MANAGER       = 1;
@@ -47,6 +49,8 @@ class User extends CActiveRecord
 		return array(
 			array('name, email', 'required'),
             array('email', 'unique'),
+			array('adminAccess', 'boolean', 'on' => 'settings'),
+			array('adminAccess', 'safe'),
             array('email', 'email'),
 			array('name, origPassword, email, newPassword', 'length', 'max'=>128),
             array('origPassword, verifyPassword, newPassword', 'length', 'min'=>6),
@@ -89,6 +93,7 @@ class User extends CActiveRecord
 			'email' => 'Email',
 			'profile' => 'Profile',
             'type' => 'Type',
+			'adminAccess' => 'Allow Admin Access'
 		);
 	}
 

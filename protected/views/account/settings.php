@@ -1,5 +1,5 @@
 <?php
-/* @var $this UserController */
+/* @var $this AccountController */
 /* @var $model User */
 /* @var $form CActiveForm */
 $this->pageTitle=Yii::app()->name . ' - Settings';
@@ -32,7 +32,7 @@ $this->breadcrumbs=array(
         // controller action is handling ajax validation correctly.
         // See class documentation of CActiveForm for details on this,
         // you need to use the performAjaxValidation()-method described there.
-        'enableAjaxValidation'=>false,
+        'enableAjaxValidation'=>true,
     )); ?>
 
     <p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -67,12 +67,19 @@ $this->breadcrumbs=array(
         <?php echo $form->textField($model,'verifyPassword'); ?>
         <?php echo $form->error($model,'verifyPassword'); ?>
     </div>
-
-
+	
+	<div class="row">
+        <?php echo $form->labelEx($model,'adminAccess'); ?>
+        <?php echo $form->checkBox($model,'adminAccess'); ?>
+		<?php echo $form->error($model,'adminAccess'); ?>
+    </div
+	
     <div class="row buttons">
         <?php echo CHtml::submitButton('Submit'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+    <?php $this->endWidget();
+	unset($form);
+	?>
 
 </div><!-- form -->

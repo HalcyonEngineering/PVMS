@@ -7,6 +7,11 @@ CREATE TABLE pvms_lookup
 	position INTEGER NOT NULL
 );
 
+CREATE TABLE blank
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT
+);
+
 CREATE TABLE pvms_user
 (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -14,6 +19,7 @@ CREATE TABLE pvms_user
 	password VARCHAR(128) NOT NULL,
 	email VARCHAR(128) NOT NULL UNIQUE,
 	type VARCHAR(128) NOT NULL DEFAULT 2,
+	adminAccess BOOLEAN NOT NULL DEFAULT 0,
 	profile TEXT
 );
 
@@ -169,8 +175,8 @@ INSERT INTO pvms_lookup (name, type, code, position) VALUES ('In Progress', 'Tas
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Complete (Pending)', 'TaskStatus', 2, 2);
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Complete (Verified)', 'TaskStatus', 3, 3);
 
-INSERT INTO pvms_user (name, password, email, type) VALUES ('demo','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 0);
-INSERT INTO pvms_user (name, password, email, type) VALUES ('admin','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin', 2);
+INSERT INTO pvms_user (name, password, email, type, adminAccess) VALUES ('demo','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 0, 0);
+INSERT INTO pvms_user (name, password, email, type, adminAccess) VALUES ('admin','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin', 2, 0);
 
 INSERT INTO pvms_post (title, content, status, create_time, update_time, author_id, tags) VALUES ('Welcome!','This blog system is developed using Yii. It is meant to demonstrate how to use Yii to build a complete real-world application. Complete source code may be found in the Yii releases.
 
