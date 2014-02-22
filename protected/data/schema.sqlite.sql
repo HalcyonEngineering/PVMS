@@ -185,3 +185,8 @@ INSERT INTO pvms_tag (name) VALUES ('test');
 
 INSERT INTO pvms_organization (name, desc) VALUES ('First Org', 'We are the first here.');
 INSERT INTO pvms_organization (name, desc) VALUES ('Second Org', 'We did not finish first.');
+
+CREATE TABLE pvms_csv
+(
+  csv BLOB
+);
