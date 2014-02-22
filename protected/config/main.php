@@ -60,6 +60,7 @@ return array(
 				'posts/<tag:.*?>'=>'post/index',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
+		    'showScriptName'=>false,
 		),
 		'log'=>array(
 			'class'=>'CLogRouter',

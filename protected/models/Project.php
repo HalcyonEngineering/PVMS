@@ -10,8 +10,6 @@
  * @property string $desc
  *
  * The followings are the available model relations:
- * @property OrgProj[] $orgProjs
- * @property ProjRole[] $projRoles
  * @property Organization $org
  * @property Role[] $roles
  */
@@ -50,8 +48,6 @@ class Project extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'orgProjs' => array(self::HAS_MANY, 'OrgProj', 'proj_id'),
-			'projRoles' => array(self::HAS_MANY, 'ProjRole', 'proj_id'),
 			'org' => array(self::BELONGS_TO, 'Organization', 'org_id'),
 			'roles' => array(self::HAS_MANY, 'Role', 'proj_id'),
 		);

@@ -9,7 +9,6 @@
  * @property string $desc
  *
  * The followings are the available model relations:
- * @property OrgProj[] $orgProjs
  * @property Project[] $projects
  * @property UserOrg[] $userOrgs
  */
@@ -47,7 +46,6 @@ class Organization extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'orgProjs' => array(self::HAS_MANY, 'OrgProj', 'org_id'),
 			'projects' => array(self::HAS_MANY, 'Project', 'org_id'),
 			'userOrgs' => array(self::HAS_MANY, 'UserOrg', 'org_id'),
 		);
@@ -61,7 +59,7 @@ class Organization extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
-			'desc' => 'Desc',
+			'desc' => 'Description',
 		);
 	}
 
@@ -101,5 +99,15 @@ class Organization extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function getUsers(){
+		if ($this->users === null) {
+			foreach ($this->userOrgs->user as $k => $user) {
+				$this->users[$k] = $user;
+			}
+		}
+
+		return $this->users;
 	}
 }

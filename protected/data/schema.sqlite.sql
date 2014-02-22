@@ -7,6 +7,11 @@ CREATE TABLE pvms_lookup
 	position INTEGER NOT NULL
 );
 
+CREATE TABLE blank
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT
+);
+
 CREATE TABLE pvms_user
 (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -14,6 +19,7 @@ CREATE TABLE pvms_user
 	password VARCHAR(128) NOT NULL,
 	email VARCHAR(128) NOT NULL UNIQUE,
 	type VARCHAR(128) NOT NULL DEFAULT 2,
+	adminAccess BOOLEAN NOT NULL DEFAULT 0,
 	profile TEXT
 );
 
@@ -43,13 +49,6 @@ CREATE TABLE pvms_comment
 	post_id INTEGER NOT NULL,
 	CONSTRAINT FK_comment_post FOREIGN KEY (post_id)
 		REFERENCES pvms_post (id) ON DELETE CASCADE ON UPDATE RESTRICT
-);
-
-CREATE TABLE pvms_tag
-(
-  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  name VARCHAR(128) NOT NULL,
-  frequency INTEGER DEFAULT 1
 );
 
 CREATE TABLE pvms_organization
@@ -156,6 +155,12 @@ CREATE TABLE pvms_role_task
   CONSTRAINT FK_task FOREIGN KEY (task_id) REFERENCES pvms_task (id)
 );
 
+CREATE TABLE pvms_tag
+(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(128) NOT NULL,
+  frequency INTEGER DEFAULT 1
+);
 
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Draft', 'PostStatus', 1, 1);
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Published', 'PostStatus', 2, 2);
@@ -169,8 +174,8 @@ INSERT INTO pvms_lookup (name, type, code, position) VALUES ('In Progress', 'Tas
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Complete (Pending)', 'TaskStatus', 2, 2);
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Complete (Verified)', 'TaskStatus', 3, 3);
 
-INSERT INTO pvms_user (name, password, email, type) VALUES ('demo','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 0);
-INSERT INTO pvms_user (name, password, email, type) VALUES ('admin','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin', 2);
+INSERT INTO pvms_user (name, password, email, type, adminAccess) VALUES ('demo','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 0, 0);
+INSERT INTO pvms_user (name, password, email, type, adminAccess) VALUES ('admin','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin', 2, 0);
 
 INSERT INTO pvms_post (title, content, status, create_time, update_time, author_id, tags) VALUES ('Welcome!','This blog system is developed using Yii. It is meant to demonstrate how to use Yii to build a complete real-world application. Complete source code may be found in the Yii releases.
 
@@ -185,3 +190,6 @@ INSERT INTO pvms_tag (name) VALUES ('test');
 
 INSERT INTO pvms_organization (name, desc) VALUES ('First Org', 'We are the first here.');
 INSERT INTO pvms_organization (name, desc) VALUES ('Second Org', 'We did not finish first.');
+
+CREATE TABLE pvms_csv(csv BLOB);
+CREATE TABLE pvms_skill(skill NOT NULL PRIMARY KEY, frequency INTEGER DEFAULT 1);

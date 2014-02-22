@@ -21,6 +21,7 @@
                                                                                        ),
 																	),
                                                                 array('label' => 'Messages','url' => array('site/page', 'view'=>'messages')),
+
                                                                 '---',
                                                                 array(
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',

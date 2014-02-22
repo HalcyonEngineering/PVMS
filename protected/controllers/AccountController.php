@@ -117,6 +117,7 @@ class AccountController extends Controller
 					if ($model->newPassword !== '') {
 						$model->password = $model->hashPassword($model->newPassword);
 					}
+					
 					if ($model->save()) {
 						// Update email if it changed.
 						$_identity->username=$model->email;

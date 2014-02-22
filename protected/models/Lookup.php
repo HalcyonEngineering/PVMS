@@ -34,7 +34,7 @@ class Lookup extends CActiveRecord
 
 	/**
 	 * Returns the items for the specified type.
-	 * @param string item type (e.g. 'PostStatus').
+	 * @param string $type item type (e.g. 'PostStatus').
 	 * @return array item names indexed by item code. The items are order by their position values.
 	 * An empty array is returned if the item type does not exist.
 	 */
@@ -47,8 +47,8 @@ class Lookup extends CActiveRecord
 
 	/**
 	 * Returns the item name for the specified type and code.
-	 * @param string the item type (e.g. 'PostStatus').
-	 * @param integer the item code (corresponding to the 'code' column value)
+	 * @param string $type the item type (e.g. 'PostStatus').
+	 * @param integer $code the item code (corresponding to the 'code' column value)
 	 * @return string the item name for the specified the code. False is returned if the item type or code does not exist.
 	 */
 	public static function item($type,$code)
@@ -60,7 +60,7 @@ class Lookup extends CActiveRecord
 
 	/**
 	 * Loads the lookup items for the specified type from the database.
-	 * @param string the item type
+	 * @param string $type the item type
 	 */
 	private static function loadItems($type)
 	{
