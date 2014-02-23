@@ -13,16 +13,21 @@
                                                'class' => 'bootstrap.widgets.TbMenu',
 											   'htmlOptions' => array('class' => 'pull-right'),
                                                'items' => array(
-                                                                array('label'=>'Notifications',
-																	  'url' => '#',
+                                                                array('label' => 'Notifications',
+																	  'url' => '#',																	 
                                                                       'items' => array(
                                                                                        array('label' => ''),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION                                                                                    
                                                                                        array('label' => 'View All Notifications', 'url' => array('site/page', 'view'=>'notifications')),
                                                                                        ),
 																	),
-                                                                array('label' => 'Messages','url' => array('site/page', 'view'=>'messages')),
+                                                                array('label' => 'Messages',
+																'url' => '#',
+																'items' => array(  
+                                                                                       array('label' => 'Inbox', 'url' => array('site/page', 'view'=>'messages')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES                                                            
+                                                                                       array('label' => 'Send Email', 'url' => array('mail/contact')),
+                                                                                       ),),
 
-                                                                '---',
+                                                              
                                                                 array(
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',
                                                                       'url' => '#',
@@ -40,4 +45,6 @@
                                          ),
                         )
                   );
+				  
+				  
     ?>
