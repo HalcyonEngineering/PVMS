@@ -23,19 +23,24 @@ class WebUser extends CWebUser {
 	function isAdmin() {
 		$user = $this->loadUser(Yii::app()->user->id);
 
-		return !$this->isGuest && ($user->type === User::ADMINISTRATOR);
+		return !$this->isGuest && ($user->type == User::ADMINISTRATOR);
 	}
 
 	function isManager() {
 		$user = $this->loadUser(Yii::app()->user->id);
 
-		return !$this->isGuest && ($user->type === User::MANAGER);
+		return !$this->isGuest && ($user->type == User::MANAGER);
+	}
+
+	function managedOrg(){
+		$user = $this->loadUser(Yii::app()->user->id);
+		return $user->managedOrg;
 	}
 
 	function isVolunteer() {
 		$user = $this->loadUser(Yii::app()->user->id);
 
-		return !$this->isGuest && ($user->type === User::VOLUNTEER);
+		return !$this->isGuest && ($user->type == User::VOLUNTEER);
 	}
 
 

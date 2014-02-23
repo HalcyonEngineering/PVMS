@@ -65,7 +65,7 @@ class Skill extends CActiveRecord
         {
             foreach($models as $model)
             {
-                $skills[$model->name] = 8 + (int)(16*$model->frequency/($total+10);
+                $skills[$model->name] = 8 + (int)(16*$model->frequency)/($total+10);
             }
             ksort($skills);
         }

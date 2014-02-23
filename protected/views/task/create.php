@@ -12,4 +12,4 @@ array('label'=>'Manage Task','url'=>array('admin')),
 
 <h1>Create Task</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('/task/_form', array('model'=>$model)); ?>

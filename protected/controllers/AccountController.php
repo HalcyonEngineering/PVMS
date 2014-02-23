@@ -133,6 +133,15 @@ class AccountController extends Controller
 		$this->render('settings', array('model' => $model));
 	}
 
+	/**
+	 * View profile.
+	 */
+	public function actionProfile(){
+
+		$model = User::model()->findByPk(Yii::app()->user->id);
+		$this->render('profile', array('model' => $model));
+	}
+
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()

@@ -9,8 +9,9 @@
  * @property string $desc
  *
  * The followings are the available model relations:
+ * @property User[] $managers
  * @property Project[] $projects
- * @property UserOrg[] $userOrgs
+ * @property User[] $users
  */
 class Organization extends CActiveRecord
 {
@@ -46,8 +47,9 @@ class Organization extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'managers' => array(self::MANY_MANY, 'User', '{{organization_manager}}(org_id, user_id)'),
 			'projects' => array(self::HAS_MANY, 'Project', 'org_id'),
-			'userOrgs' => array(self::HAS_MANY, 'UserOrg', 'org_id'),
+			'users' => array(self::MANY_MANY, 'User', '{{user_organization}}(org_id, user_id)'),
 		);
 	}
 
@@ -57,7 +59,7 @@ class Organization extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Organization ID',
 			'name' => 'Name',
 			'desc' => 'Description',
 		);
@@ -101,13 +103,12 @@ class Organization extends CActiveRecord
 		return parent::model($className);
 	}
 
-	public function getUsers(){
-		if ($this->users === null) {
-			foreach ($this->userOrgs->user as $k => $user) {
-				$this->users[$k] = $user;
-			}
-		}
-
-		return $this->users;
+	/**
+	 * @todo Finish checks.
+	 * @param int $id Manager's id.
+	 * @return boolean Whether the user is a manager for this organization.
+	 */
+	public static function isManager($id){
+		return false;
 	}
 }

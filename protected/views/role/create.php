@@ -12,4 +12,4 @@ array('label'=>'Manage Role','url'=>array('admin')),
 
 <h1>Create Role</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('/role/_form', array('model'=>$model)); ?>

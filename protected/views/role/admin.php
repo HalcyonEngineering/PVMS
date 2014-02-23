@@ -44,7 +44,7 @@ return false;
 'filter'=>$model,
 'columns'=>array(
 		'id',
-		'proj_id',
+		'project_id',
 		'name',
 		'desc',
 array(
