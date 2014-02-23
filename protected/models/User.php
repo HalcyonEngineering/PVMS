@@ -15,7 +15,7 @@ class User extends CActiveRecord
 	 *
 	 * The followings are the available model relations:
 	 * @property Messages[] $messages
-	 * @property Messages[] $messages1
+	 * @property Messages[] $sentMessages
 	 * @property Notifications[] $notifications
 	 * @property Post[] $posts
 	 * @property Organization[] $organizations
@@ -85,6 +85,9 @@ class User extends CActiveRecord
 			'organizations' => array(self::MANY_MANY, 'Organization', '{{user_organization}}(user_id, org_id)'),
 			'roles' => array(self::MANY_MANY, 'Role', '{{user_role}}(user_id, role_id)'),
 		    'managedOrg' => array(self::MANY_MANY, 'Organization', '{{organization_manager}}(user_id, org_id)'),
+		    'sentMessages' => array(self::HAS_MANY, 'Message', 'sender_id'),
+		    'messages' => array(self::HAS_MANY, 'Message', 'user_id'),
+		    'notifications' => array(self::HAS_MANY, 'Notification', 'user_id'),
 		);
 	}
 
