@@ -51,7 +51,6 @@ class Task extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'roleTasks' => array(self::HAS_MANY, 'RoleTask', 'task_id'),
 			'role' => array(self::BELONGS_TO, 'Role', 'role_id'),
 		);
 	}
@@ -62,7 +61,7 @@ class Task extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Task ID',
 			'role_id' => 'Role ID',
 			'name' => 'Name',
 			'desc' => 'Description',

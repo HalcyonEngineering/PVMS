@@ -26,9 +26,9 @@ body
 
 #page
 {
-	margin-left: 150px;
+	margin-left: 110px;
 	background: white;
-	border: 1px solid #C9E0ED;
+
 
 }
 
@@ -86,8 +86,37 @@ body
 
 #sidebar
 {	
-	padding: 20px;
+	padding: 0px;
 }
+
+#sidebar ul
+{
+	padding:0px 0px 0px 0px;
+	margin:0px;
+}
+
+#sidebar ul li
+{
+	display: block;
+}
+
+#sidebar ul li a
+{
+	color:#1AAB9F;
+	background-color:transparent;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+ 
+}
+
+#sidebar ul li a:hover, #sidebar ul li.active a
+{
+	color: #1AAB9F;
+	background-color:black;
+	text-decoration:none;
+}
+
 
 #footer
 {
@@ -109,7 +138,6 @@ body
 #mainmenu
 {
 	background:#FFFFFF;
-    float: left;
 	position: fixed; 
 
 }
@@ -138,7 +166,8 @@ body
 	text-align: left;
 	font-weight:bold;
 	text-decoration:none;
-    width:100px;
+    width:75px;
+    height: 75px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a

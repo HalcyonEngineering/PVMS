@@ -18,9 +18,8 @@ class User extends CActiveRecord
 	 * @property Messages[] $messages1
 	 * @property Notifications[] $notifications
 	 * @property Post[] $posts
-	 * @property UserOrg[] $userOrgs
-	 * @property UserRole[] $userRoles
-	 * @property Organization[] $orgs
+	 * @property Organization[] $organizations
+	 * @property Organization $managedOrg
 	 * @property Role[] $roles
 	 */
 
@@ -29,8 +28,6 @@ class User extends CActiveRecord
 	public $verifyPassword;
 	public $adminAccess;
 
-	public $orgs;
-	public $roles;
 	const ADMINISTRATOR = 0;
 	const MANAGER       = 1;
 	const VOLUNTEER     = 2;
@@ -83,12 +80,11 @@ class User extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
 			'posts' => array(self::HAS_MANY, 'Post', 'author_id'),
-			'userOrgs' => array(self::HAS_MANY, 'UserOrg', 'user_id'),
-			'userRoles' => array(self::HAS_MANY, 'UserRole', 'user_id'),
+			'organizations' => array(self::MANY_MANY, 'Organization', '{{user_organization}}(user_id, org_id)'),
+			'roles' => array(self::MANY_MANY, 'Role', '{{user_role}}(user_id, role_id)'),
+		    'managedOrg' => array(self::MANY_MANY, 'Organization', '{{organization_manager}}(user_id, org_id)'),
 		);
 	}
 
@@ -113,7 +109,7 @@ class User extends CActiveRecord
 
 	/**
 	 * Checks if the given password is correct.
-	 * @param string the password to be validated
+	 * @param string $password the password to be validated
 	 * @return boolean whether the password is valid
 	 */
 	public function validatePassword($password)
@@ -123,7 +119,7 @@ class User extends CActiveRecord
 
 	/**
 	 * Generates the password hash.
-	 * @param string password
+	 * @param string $password
 	 * @return string hash
 	 */
 	public function hashPassword($password)
@@ -138,31 +134,5 @@ class User extends CActiveRecord
 
 	public function getFullName(){
 		return parent::__get('name');
-	}
-
-	/**
-	 * @return Organization[] the organizations the user is a part of.
-	 */
-	public function getOrgs() {
-		if ($this->orgs === null) {
-			foreach ($this->userOrgs->org as $k => $org) {
-				$this->orgs[$k] = $org;
-			}
-		}
-
-		return $this->orgs;
-	}
-
-	/**
-	 * @return Role[] the roles the user has.
-	 */
-	public function getRoles() {
-		if ($this->roles === null) {
-			foreach ($this->userRole->role as $k => $role) {
-				$this->roles[$k] = $role;
-			}
-		}
-
-		return $this->roles;
 	}
 }

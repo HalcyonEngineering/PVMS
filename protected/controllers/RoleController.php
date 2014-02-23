@@ -36,12 +36,12 @@ class RoleController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','createTask'),
 				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
+//			array('deny',  // deny all users
+//				'users'=>array('*'),
+//			),
 		);
 	}
 
@@ -101,6 +101,22 @@ class RoleController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * Creates a task under the specified role.
+	 */
+	public function actionCreateTask(){
+		$model=new Task;
+		$model->role_id=$_GET['id'];
+		if(isset($_POST['Task'])){
+			$model->attributes=$_POST['Task'];
+			if($model->save()){
+				$this->redirect(array('/task/view', 'id'=>$model->id));
+			}
+		}
+
+		$this->render('/task/create', array('model'=>$model));
 	}
 
 	/**

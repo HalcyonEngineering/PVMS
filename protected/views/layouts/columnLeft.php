@@ -11,6 +11,9 @@
                 <?php $this->widget('RecentComments', array(
                     'maxComments'=>Yii::app()->params['recentCommentCount'],
                 )); ?>
+
+
+
             </div><!-- sidebar -->
         </div>
         <div class="span-18 last">

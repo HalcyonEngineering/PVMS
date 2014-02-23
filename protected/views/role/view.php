@@ -10,6 +10,8 @@ array('label'=>'Create Role','url'=>array('create')),
 array('label'=>'Update Role','url'=>array('update','id'=>$model->id)),
 array('label'=>'Delete Role','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 array('label'=>'Manage Role','url'=>array('admin')),
+array('label'=>'Create Task','url'=>array('createTask', 'id'=>$model->id)),
+
 );
 ?>
 
@@ -19,8 +21,11 @@ array('label'=>'Manage Role','url'=>array('admin')),
 'data'=>$model,
 'attributes'=>array(
 		'id',
-		'proj_id',
+		'project_id',
 		'name',
 		'desc',
 ),
-)); ?>
+));
+
+
+?>

@@ -36,12 +36,12 @@ class ProjectController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete', 'createRole'),
 				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
+//			array('deny',  // deny all users
+//				'users'=>array('*'),
+//			),
 		);
 	}
 
@@ -77,6 +77,22 @@ class ProjectController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * Creates a role under the specified project.
+	 */
+	public function actionCreateRole($id){
+		$model=new Role;
+		$model->project_id=$_GET['id'];
+		if(isset($_POST['Role'])){
+			$model->attributes=$_POST['Role'];
+			if($model->save()){
+				$this->redirect(array('/role/view', 'id'=>$model->id));
+			}
+		}
+
+		$this->render('/role/create', array('model'=>$model));
 	}
 
 	/**

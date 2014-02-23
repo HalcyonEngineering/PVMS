@@ -7,11 +7,6 @@ CREATE TABLE pvms_lookup
 	position INTEGER NOT NULL
 );
 
-CREATE TABLE blank
-(
-	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT
-);
-
 CREATE TABLE pvms_user
 (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -70,10 +65,10 @@ CREATE TABLE pvms_project
 CREATE TABLE pvms_role
 (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  proj_id INTEGER NOT NULL,
+  project_id INTEGER NOT NULL,
   name VARCHAR(128) NOT NULL,
   desc TEXT NOT NULL,
-  CONSTRAINT FK_proj FOREIGN KEY (proj_id) REFERENCES pvms_project (id) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT FK_project FOREIGN KEY (project_id) REFERENCES pvms_project (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE pvms_task
@@ -111,12 +106,12 @@ CREATE TABLE pvms_messages
   CONSTRAINT FK_sender FOREIGN KEY (sender_id) REFERENCES pvms_user (id) ON DELETE CASCADE
 );
 
---I have no idea if these are correct so I'm doing it the way I taught myself.
-
-CREATE TABLE pvms_user_org
+-- Various join tables.
+CREATE TABLE pvms_user_organization
 (
   user_id INTEGER NOT NULL,
   org_id INTEGER NOT NULL,
+  PRIMARY KEY (user_id, org_id),
   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE,
   CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id) ON DELETE CASCADE
 );
@@ -125,35 +120,21 @@ CREATE TABLE pvms_user_role
 (
   user_id INTEGER NOT NULL,
   role_id INTEGER NOT NULL,
+  PRIMARY KEY (user_id, role_id),
   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE,
   CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id) ON DELETE CASCADE
 );
 
--- I personally feel like the below tables aren't very useful since it's easier keeping the keys in the other tables.
-
-CREATE TABLE pvms_org_proj
+-- Table for Manager to Org mappings.
+CREATE TABLE pvms_organization_manager
 (
+  user_id INTEGER NOT NULL UNIQUE,
   org_id INTEGER NOT NULL,
-  proj_id INTEGER NOT NULL UNIQUE,
-  CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id),
-  CONSTRAINT FK_proj FOREIGN KEY (proj_id) REFERENCES pvms_project (id)
+  PRIMARY KEY (user_id, org_id),
+  CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE,
+  CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id) ON DELETE CASCADE
 );
 
-CREATE TABLE pvms_proj_role
-(
-  proj_id INTEGER NOT NULL,
-  role_id INTEGER NOT NULL UNIQUE,
-  CONSTRAINT FK_proj FOREIGN KEY (proj_id) REFERENCES pvms_project (id),
-  CONSTRAINT FK_role FOREIGN KEY  (role_id) REFERENCES pvms_role (id)
-);
-
-CREATE TABLE pvms_role_task
-(
-  role_id INTEGER NOT NULL,
-  task_id INTEGER NOT NULL UNIQUE,
-  CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id),
-  CONSTRAINT FK_task FOREIGN KEY (task_id) REFERENCES pvms_task (id)
-);
 
 CREATE TABLE pvms_tag
 (
@@ -174,8 +155,10 @@ INSERT INTO pvms_lookup (name, type, code, position) VALUES ('In Progress', 'Tas
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Complete (Pending)', 'TaskStatus', 2, 2);
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Complete (Verified)', 'TaskStatus', 3, 3);
 
-INSERT INTO pvms_user (name, password, email, type, adminAccess) VALUES ('demo','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 0, 0);
-INSERT INTO pvms_user (name, password, email, type, adminAccess) VALUES ('admin','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin', 2, 0);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('demo','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 0);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('admin','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin', 0);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('manager','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','manager', 1);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('volunteer','$2a$12$J1n3OwZasqX3gsMG6TSzvOHEJleCYyWJ/TNAuxOmAoB/zmiBqskeq','volunteer', 2);
 
 INSERT INTO pvms_post (title, content, status, create_time, update_time, author_id, tags) VALUES ('Welcome!','This blog system is developed using Yii. It is meant to demonstrate how to use Yii to build a complete real-world application. Complete source code may be found in the Yii releases.
 
@@ -190,6 +173,14 @@ INSERT INTO pvms_tag (name) VALUES ('test');
 
 INSERT INTO pvms_organization (name, desc) VALUES ('First Org', 'We are the first here.');
 INSERT INTO pvms_organization (name, desc) VALUES ('Second Org', 'We did not finish first.');
+
+INSERT INTO pvms_project(org_id, name, desc) VALUES (1,'First Project', 'First project created.');
+INSERT INTO pvms_role(project_id, name, desc) VALUES (1, 'First Role', 'First role created.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'First Task', 'First task created.');
+
+INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
+INSERT INTO pvms_user_organization(user_id, org_id) VALUES (4,1);
+INSERT INTO pvms_user_role(user_id, role_id) VALUES (4, 1);
 
 CREATE TABLE pvms_csv(csv BLOB);
 CREATE TABLE pvms_skill(skill NOT NULL PRIMARY KEY, frequency INTEGER DEFAULT 1);

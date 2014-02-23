@@ -49,7 +49,7 @@ class Project extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'org' => array(self::BELONGS_TO, 'Organization', 'org_id'),
-			'roles' => array(self::HAS_MANY, 'Role', 'proj_id'),
+			'roles' => array(self::HAS_MANY, 'Role', 'project_id'),
 		);
 	}
 
@@ -59,7 +59,7 @@ class Project extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Project ID',
 			'org_id' => 'Organization ID',
 			'name' => 'Name',
 			'desc' => 'Description',

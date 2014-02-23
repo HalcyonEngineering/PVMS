@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	
-	<link rel="shortcut icon" href="/PVMS/images/favicon2.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon2.ico" type="image/x-icon" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -26,17 +26,22 @@
 <div id="spacerbox">
 </div>
 
-<!-- We will have to add logic to choose the type of module later -->
 <div id="mainmenu">
-<?php include('manager.php');?>
-<!-- <?php include('admin.php');?> -->
-<!-- <?php include('volunteer.php');?> -->
+
+<?php
+	if (Yii::app()->user->isAdmin()) {
+		include('admin.php');
+	} elseif (Yii::app()->user->isManager()) {
+		include('manager.php');
+	} elseif (Yii::app()->user->isVolunteer()) {
+		include('volunteer.php');
+	}
+?>
+
 </div><!-- mainmenu -->
 
-
-
 <div class="container" id="page">
-
+<div class="span-19 last">
 
 	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 		'links'=>$this->breadcrumbs,
@@ -50,7 +55,7 @@
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
-
+</div>
 </div><!-- page -->
 
 </body>
