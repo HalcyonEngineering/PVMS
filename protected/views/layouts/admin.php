@@ -7,6 +7,7 @@
     $this->widget(
                   'bootstrap.widgets.TbMenu',
                   array(
+                        'encodeLabel'=>false,
                         'type' => 'tabs',
                         'stacked'=>true,
                         'items' => array(

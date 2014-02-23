@@ -26,9 +26,9 @@ body
 
 #page
 {
-	margin-left: 100px;
+	margin-left: 110px;
 	background: white;
-	border: 1px solid #C9E0ED;
+
 
 }
 
@@ -164,7 +164,8 @@ body
 	text-align: left;
 	font-weight:bold;
 	text-decoration:none;
-    width:100px;
+    width:75px;
+    height: 75px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a

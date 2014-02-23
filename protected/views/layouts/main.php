@@ -26,7 +26,6 @@
 <div id="spacerbox">
 </div>
 
-<!-- We will have to add logic to choose the type of module later -->
 <div id="mainmenu">
 
 <?php
@@ -41,10 +40,8 @@
 
 </div><!-- mainmenu -->
 
-
-
 <div class="container" id="page">
-
+<div class="span-19 last">
 
 	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 		'links'=>$this->breadcrumbs,
@@ -58,7 +55,7 @@
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
-
+</div>
 </div><!-- page -->
 
 </body>
