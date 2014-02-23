@@ -29,7 +29,7 @@ $this->breadcrumbs=array(
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
 		<p class="hint">
-			Hint: You may login with <tt>admin/admin</tt>.
+			Hint: You may login with <tt>admin/admin</tt> or <tt>manager/manager</tt> or <tt>volunteer/volunteer</tt>.
 		</p>
         <p class="hint">
             You can also register <?php echo CHtml::link('here', array('account/register')) ?>

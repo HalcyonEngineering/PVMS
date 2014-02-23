@@ -32,7 +32,7 @@
                                                                       'label' => 'Hello ('.Yii::app()->user->name.')',
                                                                       'url' => '#',
                                                                       'items' => array(
-                                                                                       array('label' => 'My Profile', 'url' => '#'),
+                                                                                       array('label' => 'My Profile', 'url' => array('account/profile')),
                                                                                        array('label'=>'Settings', 'url'=>array('account/settings')),
                                                                                        array('label' => 'Help', 'url' => '#'),
                                                                                        array('label' => 'Signout', 'url' => array('account/logout')),

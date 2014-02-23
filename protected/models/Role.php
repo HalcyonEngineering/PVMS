@@ -5,19 +5,18 @@
  *
  * The followings are the available columns in table '{{role}}':
  * @property integer $id
- * @property integer $proj_id
+ * @property integer $project_id
  * @property string $name
  * @property string $desc
  *
  * The followings are the available model relations:
- * @property Project $proj
+ * @property Project $project
  * @property Task[] $tasks
- * @property UserRole[] $userRoles
+ * @property User[] $users
  */
 class Role extends CActiveRecord
 {
 
-	public $users;
 
 	/**
 	 * @return string the associated database table name
@@ -35,12 +34,12 @@ class Role extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('proj_id, name, desc', 'required'),
-			array('proj_id', 'numerical', 'integerOnly'=>true),
+			array('project_id, name, desc', 'required'),
+			array('project_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, proj_id, name, desc', 'safe', 'on'=>'search'),
+			array('id, project_id, name, desc', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,9 +51,9 @@ class Role extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'proj' => array(self::BELONGS_TO, 'Project', 'proj_id'),
+			'project' => array(self::BELONGS_TO, 'Project', 'project_id'),
 			'tasks' => array(self::HAS_MANY, 'Task', 'role_id'),
-			'userRoles' => array(self::HAS_MANY, 'UserRole', 'role_id'),
+			'users' => array(self::MANY_MANY, 'User', '{{user_role}}(role_id, user_id)'),
 		);
 	}
 
@@ -64,8 +63,8 @@ class Role extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'proj_id' => 'Project ID',
+			'id' => 'Role ID',
+			'project_id' => 'Project ID',
 			'name' => 'Name',
 			'desc' => 'Description',
 		);
@@ -90,7 +89,7 @@ class Role extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('proj_id',$this->proj_id);
+		$criteria->compare('project_id',$this->project_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('desc',$this->desc,true);
 
@@ -108,18 +107,5 @@ class Role extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	/**
-	 * @return User[] Users with this role.
-	 */
-	public function getUsers() {
-		if ($this->users === null) {
-			foreach ($this->userRoles->user as $k => $user) {
-				$this->users[$k] = $user;
-			}
-		}
-
-		return $this->users;
 	}
 }

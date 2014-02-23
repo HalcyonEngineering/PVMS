@@ -17,6 +17,8 @@
 
 	<?php echo $form->textFieldRow($model,'actual',array('class'=>'span5')); ?>
 
+	<?php echo $form->dropDownListRow($model, 'status', Lookup::items('TaskStatus')); ?>
+
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',

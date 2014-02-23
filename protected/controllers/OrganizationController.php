@@ -36,12 +36,12 @@ class OrganizationController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','createProject'),
 				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
+//			array('deny',  // deny all users
+//				'users'=>array('*'),
+//			),
 		);
 	}
 
@@ -79,6 +79,21 @@ class OrganizationController extends Controller
 		));
 	}
 
+	/**
+	 * Creates a project under the specified organization.
+	 */
+	public function actionCreateProject(){
+		$model=new Project;
+		$model->org_id=$_GET['id'];
+		if(isset($_POST['Project'])){
+			$model->attributes=$_POST['Project'];
+			if($model->save()){
+				$this->redirect(array('/project/view', 'id'=>$model->id));
+			}
+		}
+
+		$this->render('/project/create', array('model'=>$model));
+	}
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.

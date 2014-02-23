@@ -35,7 +35,6 @@ body
 #header
 {
 	background-color:#FFFFFF;
-	text-align: center;
 	margin: 0;
 	padding: 0;
 	border-top: 3px solid #C9E0ED;
@@ -60,17 +59,21 @@ body
 #header ul li a
 {
 	color:#1AAB9F;
-	background-color:transparent;
-	font-size:12px;
+	font-size:15px;
+	text-align: center;
 	font-weight:bold;
-	text-decoration:none;
 	padding:5px 8px;
+}
+
+#header ul li a:hover 
+{
+	background-color:#282828;
 }
 
 #header ul li a:hover, #mainmenu ul li.active a
 {
 	color: #1AAB9F;
-	background-color:##1AAB9F;
+	background-color:#282828;
 	text-decoration:none;
 }
 
@@ -157,20 +160,21 @@ body
 {
 	color:#1AAB9F;
 	background-color:transparent;
-	font-size:12px;
+	font-size:15px;
+	text-align: left;
 	font-weight:bold;
 	text-decoration:none;
-    width:75px;
-    height:75px;
+    width:100px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
 	color: #1AAB9F;
-	background-color:transparent;
+	background-color:#FFEBEB;
 	text-decoration:none;
 }
 
+#manager ul li a:hover
 div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;

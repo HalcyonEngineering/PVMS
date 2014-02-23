@@ -1,7 +1,7 @@
 <div class="view">
 
 		<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
+	<?php echo CHtml::link(CHtml::encode($data->id),array('/organization/view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
@@ -12,5 +12,12 @@
 	<?php echo CHtml::encode($data->desc); ?>
 	<br />
 
+	<b><?php echo CHtml::encode('Number of Managers'); ?>:</b>
+	<?php echo CHtml::encode(count($data->managers)); ?>
+	<br />
+
+	<b><?php echo CHtml::encode('Number of Users'); ?>:</b>
+	<?php echo CHtml::encode(count($data->users)); ?>
+	<br />
 
 </div>
