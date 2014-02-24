@@ -8,22 +8,6 @@ body
 	background: #EFEFEF;
 }
 
-#stickyheader
-{
-	background-color:#FFFFFF;
-	height:60px; 
-	position:fixed;
-	width:950px; 
-	top:0;
-}
-
-#spacerbox
-{
-	background-color:#FFFFFF;
-	height:50px;
-	
-}
-
 #page
 {
 	margin-left: 110px;
@@ -84,6 +68,12 @@ body
 	top: 160px;
 }
 
+div.smallNotification
+{
+	color: #000000;
+	text-align:left;
+}
+
 #sidebar
 {	
 	padding: 0px;
@@ -126,7 +116,6 @@ body
 	text-align: center;
 	border-top: 1px solid #C9E0ED;
 	bottom: 0px;
-	 position:absolute;
 }
 
 #logo
@@ -137,6 +126,7 @@ body
 
 #mainmenu
 {
+	top: 55px;
 	background:#FFFFFF;
 	position: fixed; 
 
@@ -166,8 +156,6 @@ body
 	text-align: left;
 	font-weight:bold;
 	text-decoration:none;
-    width:75px;
-    height: 75px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a

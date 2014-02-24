@@ -23,9 +23,6 @@
 <?php include('header.php');?>
 </div><!-- header -->
 
-<div id="spacerbox">
-</div>
-
 <div id="mainmenu">
 
 <?php
