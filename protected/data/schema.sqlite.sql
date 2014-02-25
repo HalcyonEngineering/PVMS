@@ -136,12 +136,19 @@ CREATE TABLE pvms_organization_manager
   CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id) ON DELETE CASCADE
 );
 
-
 CREATE TABLE pvms_tag
 (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(128) NOT NULL,
   frequency INTEGER DEFAULT 1
+);
+
+-- Table for onboarding documents
+CREATE TABLE pvms_onboarding
+(
+  role_id INTEGER NOT NULL PRIMARY KEY,
+  markdown BLOB,
+  CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Draft', 'PostStatus', 1, 1);
@@ -178,6 +185,7 @@ INSERT INTO pvms_organization (name, desc) VALUES ('Second Org', 'We did not fin
 INSERT INTO pvms_project(org_id, name, desc) VALUES (1,'First Project', 'First project created.');
 INSERT INTO pvms_role(project_id, name, desc) VALUES (1, 'First Role', 'First role created.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'First Task', 'First task created.');
+INSERT INTO pvms_onboarding(role_id, markdown) VALUES(1,'*this text is bold*');
 
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
 INSERT INTO pvms_user_organization(user_id, org_id) VALUES (4,1);
