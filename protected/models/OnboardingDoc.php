@@ -29,7 +29,7 @@ class OnboardingDoc extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('role_id', 'unique'),
-			//array('role_id', 'exist'), //todo: WHY DOES THIS RULE BREAK?
+			array('role_id', 'exist', 'className'=>'Role','attributeName'=>'id'), //todo: WHY DOES THIS RULE BREAK?
 			array('markdown', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
