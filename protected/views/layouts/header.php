@@ -23,6 +23,8 @@ $this->widget(
                 'encodeLabel' => false,
                 'htmlOptions' => array('class' => 'pull-right'),
                 'items' => array(
+                                 
+                // This is the Notifications Drop Down Menu
                     array('label' => 'Notifications',
                         'url' => '#',
                         'items' => array(
@@ -31,6 +33,8 @@ $this->widget(
                             array('label' => 'View All Notifications', 'url' => array('notification/index')),
                         ),
                     ),
+                                 
+                // This is the messages Drop Down Menu
                     array('label' => 'Messages',
                         'url' => '#',
                         'items' => array(
@@ -38,14 +42,15 @@ $this->widget(
                             array('label' => 'Send Email', 'url' => array('mail/contact')),
                         ),),
 
-
+                // This is the User Drop Down Menu
                     array(
-                        'label' => 'Hello ('.Yii::app()->user->name.')',
+                        'label' => Yii::app()->user->name,
                         'url' => '#',
                         'items' => array(
                             array('label' => 'My Profile', 'url' => array('account/profile')),
+                            array('label'=>'Take a Tour', 'url'=>'#'),
+                            array('label'=>'FAQ', 'url'=>'#'),
                             array('label'=>'Settings', 'url'=>array('account/settings')),
-                            array('label' => 'Help', 'url' => '#'),
                             array('label' => 'Signout', 'url' => array('account/logout')),
                         ),
                         'visible'=>!Yii::app()->user->isGuest,

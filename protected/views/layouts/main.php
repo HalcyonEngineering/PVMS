@@ -23,8 +23,10 @@
 <?php include('header.php');?>
 </div><!-- header -->
 
-<div id="mainmenu">
 
+
+<div class="container" id="page">
+<div id="mainmenu">
 <?php
 	if (Yii::app()->user->isAdmin()) {
 		include('admin.php');
@@ -33,17 +35,11 @@
 	} elseif (Yii::app()->user->isVolunteer()) {
 		include('volunteer.php');
 	}
-?>
-
+    ?>
 </div><!-- mainmenu -->
 
-<div class="container" id="page">
 <div class="span-19 last">
-
-	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-		'links'=>$this->breadcrumbs,
-	)); ?><!-- breadcrumbs -->
-
+<div class="container" id="inside-page">
 	<?php echo $content; ?>
 
 
@@ -53,6 +49,8 @@
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 </div>
+</div><!-- content -->
+
 </div><!-- page -->
 
 </body>
