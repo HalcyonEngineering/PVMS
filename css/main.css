@@ -16,7 +16,7 @@ body
 #inside-page
 {
     margin: 0px 0 0 55px;
-	background: green;
+	background: #ffffff;
     width: 900px;
 
 }
@@ -161,8 +161,8 @@ div.smallNotification
 	text-align: left;
 	font-weight:bold;
 	text-decoration:none;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
