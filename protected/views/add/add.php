@@ -5,7 +5,12 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Import Volunteers by CSV</h1>
+<h1>By CSV</h1>
+
+<p>You must fill out a CSV template file, then upload the file to us</p>
+<p>You can download the template file here</p>
+
+<p>[Insert screenshot of CSV Template here]</p>
 
 <?php $form = $this->beginWidget(
     'CActiveForm',
@@ -16,16 +21,10 @@ $this->breadcrumbs=array(
     )
 );
 
-echo CHtml::link('Download file here<br><br>', $model->getCsvTemplateUrl());
-echo CHtml::image($model->getCsvTemplateImageUrl(), 'This is where the CSV template image would be...');
-
-//echo $form->labelEx($model, 'csv');
-
-echo '<br>';
-echo '<br>';
-
+echo $form->labelEx($model, 'csv');
 echo $form->fileField($model, 'csv');
 echo $form->error($model, 'csv');
+
 echo CHtml::submitButton('Submit');
 
 $this->endWidget();

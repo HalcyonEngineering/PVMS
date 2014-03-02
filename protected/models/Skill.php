@@ -65,7 +65,7 @@ class Skill extends CActiveRecord
         {
             foreach($models as $model)
             {
-                $skills[$model->name] = 8 + (int)(16*$model->frequency)/($total+10);
+                $skills[$model->name] = 8 + (int)(16*$model->frequency/($total+10);
             }
             ksort($skills);
         }
@@ -108,8 +108,8 @@ class Skill extends CActiveRecord
     {
         $oldSkills = self::string2array($oldSkills);
         $newSkills = self::string2array($newSkills);
-        $this->addSkills(array_values(array_diff($newSkills,$oldSkills)));
-        $this->removeSkills(array_values(array_diff($oldSkills,$newSkills)));
+        $this->addSkills(array_values(array_diff($newSkills, $oldSkills)));
+        $this->removeSkills(array_values(array_diff($oldSkills, $newSkills)));
     }
 
     public function addSkills($skills)

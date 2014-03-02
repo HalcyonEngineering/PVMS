@@ -9,6 +9,8 @@
 class Csv extends CActiveRecord
 {
     public $csv;
+    public $csvTemplateUrl;
+    public $csvTemplateImageUrl;
 
     /**
      * @return string the associated database table name
@@ -92,7 +94,7 @@ class Csv extends CActiveRecord
      * It's assumed that the csv will have at least a name and email column.
      * @param filepath of the local csv file
      */
-    public function register_csv()
+    public function registerCsv()
     {
         $username = Yii::app()->user->name; //User::model()->findByPk(Yii::app()->user->name);
         $filepath = dirname(__FILE__) . "/../../assets/" . "$username" . "_import.csv";
@@ -109,6 +111,7 @@ class Csv extends CActiveRecord
                     $volunteer_name = $fields[0]; 
                     $volunteer_email = $fields[1];
                     $volunteer_skills = (count($fields) > 2) ? $fields[2] : null;
+                    $volunteer_location = (count($fields) > 3) ? $fields[3] : null;
 
                     Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills");
                     //enroll_volunteer($volunteer_name, $volunteer_email, $volunteer_skills);
@@ -123,8 +126,32 @@ class Csv extends CActiveRecord
      * @param volunteer email
      * @param volunteer skills
      */
-    public function enroll_volunteer($name, $email, $skills)
+    public function enroll_volunteer($name, $email, $skills, $location)
     {
 
+    }
+
+    /**
+     * returns the url of the CSV template
+     */
+    public function getCsvTemplateUrl()
+    {
+        if($this->csvTemplateUrl === null)
+        {
+            $this->csvTemplateUrl = Yii::app()->baseUrl . '/assets/lol.txt';
+        }
+        return $this->csvTemplateUrl;
+    }
+
+    /**
+     * returns the url of the CSV template image
+     */
+    public function getCsvTemplateImageUrl()
+    {
+        if($this->csvTemplateImageUrl === null)
+        {
+            $this->csvTemplateImageUrl = Yii::app()->baseUrl . '/assets/csv_template.jpg';
+        }
+        return $this->csvTemplateImageUrl;
     }
 }
