@@ -113,8 +113,8 @@ class Csv extends CActiveRecord
                     $volunteer_skills = (count($fields) > 2) ? $fields[2] : null;
                     $volunteer_location = (count($fields) > 3) ? $fields[3] : null;
 
-                    Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills");
-                    //enroll_volunteer($volunteer_name, $volunteer_email, $volunteer_skills);
+                    Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills, location: $volunteer_location");
+                    $this->enrollVolunteer($volunteer_name, $volunteer_email, $volunteer_skills, $volunteer_location);
                 }
             }
         }
@@ -126,9 +126,15 @@ class Csv extends CActiveRecord
      * @param volunteer email
      * @param volunteer skills
      */
-    public function enroll_volunteer($name, $email, $skills, $location)
+    public function enrollVolunteer($name, $email, $skills, $location)
     {
+        $user = new User;
+        $user->name = $name;
+        $user->email = $email;
+        //$user->skills = $skills;
+        //$user->location = $location;
 
+        $user->save();
     }
 
     /**
@@ -138,7 +144,7 @@ class Csv extends CActiveRecord
     {
         if($this->csvTemplateUrl === null)
         {
-            $this->csvTemplateUrl = Yii::app()->baseUrl . '/assets/lol.txt';
+            $this->csvTemplateUrl = Yii::app()->baseUrl . '/assets/csv_template.csv';
         }
         return $this->csvTemplateUrl;
     }

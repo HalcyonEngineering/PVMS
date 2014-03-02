@@ -9,7 +9,7 @@ class CsvController extends Controller
         {
             $model->attributes = $_POST['Csv'];
             $model->csv = CUploadedFile::getInstance($model, 'csv');
-            if($model->save()) $model->register_csv();
+            if($model->save()) $model->registerCsv();
         }
         
         $this->render('import', array('model' => $model));
