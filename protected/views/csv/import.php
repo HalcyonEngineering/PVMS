@@ -19,8 +19,6 @@ $this->breadcrumbs=array(
 echo CHtml::link('Download file here<br><br>', $model->getCsvTemplateUrl());
 echo CHtml::image($model->getCsvTemplateImageUrl(), 'This is where the CSV template image would be...');
 
-//echo $form->labelEx($model, 'csv');
-
 echo '<br>';
 echo '<br>';
 
