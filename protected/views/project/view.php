@@ -7,5 +7,7 @@
 		'org_id',
 		'name',
 		'desc',
+        'colour',
+        'target',
 ),
 )); ?>

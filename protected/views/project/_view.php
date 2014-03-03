@@ -16,5 +16,11 @@
 	<?php echo CHtml::encode($data->desc); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('colour')); ?>:</b>
+	<?php echo CHtml::encode($data->color); ?>
+	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('target')); ?>:</b>
+	<?php echo CHtml::encode($data->target); ?>
+	<br />
 </div>

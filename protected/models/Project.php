@@ -8,6 +8,8 @@
  * @property integer $org_id
  * @property string $name
  * @property string $desc
+ * @property string $colour
+ * @property integer $target
  *
  * The followings are the available model relations:
  * @property Organization $org
@@ -31,12 +33,14 @@ class Project extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('org_id, name, desc', 'required'),
+			array('org_id, name, desc, colour', 'required'),
 			array('org_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>128),
+			array('colour', 'length', 'max'=>7),
+			array('target', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, org_id, name, desc', 'safe', 'on'=>'search'),
+			array('id, org_id, name, desc, colour, target', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +67,8 @@ class Project extends CActiveRecord
 			'org_id' => 'Organization ID',
 			'name' => 'Name',
 			'desc' => 'Description',
+			'colour' => 'Colour',
+			'target' => 'Target Completion',
 		);
 	}
 
@@ -88,6 +94,7 @@ class Project extends CActiveRecord
 		$criteria->compare('org_id',$this->org_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('desc',$this->desc,true);
+		$criteria->compare('target',$this->target);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
