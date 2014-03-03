@@ -34,9 +34,11 @@ class Role extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('project_id, name, desc', 'required'),
+			array('project_id, name, desc, colour', 'required'),
 			array('project_id', 'numerical', 'integerOnly'=>true),
+			array('project_id', 'exist', 'className' => 'Project', 'attributeName'=>'id'),
 			array('name', 'length', 'max'=>128),
+			array('colour', 'length', 'max'=>7),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, project_id, name, desc', 'safe', 'on'=>'search'),

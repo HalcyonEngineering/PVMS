@@ -35,6 +35,7 @@ class Project extends CActiveRecord
 		return array(
 			array('org_id, name, desc, colour', 'required'),
 			array('org_id', 'numerical', 'integerOnly'=>true),
+			array('org_id', 'exist', 'className' => 'Organization', 'attributeName'=>'id'),
 			array('name', 'length', 'max'=>128),
 			array('colour', 'length', 'max'=>7),
 			array('target', 'length', 'max'=>10),

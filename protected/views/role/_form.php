@@ -13,6 +13,8 @@
 
 	<?php echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
+	<?php echo $form->colorpickerRow($model,'colour'); ?>
+
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',

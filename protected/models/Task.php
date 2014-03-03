@@ -35,6 +35,7 @@ class Task extends CActiveRecord
 		return array(
 			array('role_id, name, status', 'required'),
 			array('role_id, expected, actual, status', 'numerical', 'integerOnly'=>true),
+			array('role_id', 'exist', 'className' => 'Role', 'attributeName'=>'id'),
 			array('name', 'length', 'max'=>128),
 			array('desc', 'safe'),
 			// The following rule is used by search().
