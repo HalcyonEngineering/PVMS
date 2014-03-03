@@ -133,22 +133,13 @@ class Csv extends CActiveRecord
         $user->email = $email;
         //$user->skills = $skills;
         //$user->location = $location;
-        $user->type = User::VOLUNTEER;
-        $user->newPassword = 'temporary'; //should have randomly generated pass
+        $user->newPassword = 'temporary'; //should have randomly generated pass, email user
 
-        ////$user->validate();
-        //$user->save('false');
-        //Yii::trace(vardump($user));
         if($user->validate())
         {
             // Has the password before saving it.
             $user->password = $user->hashPassword($user->newPassword);
-            Yii::trace("TRYING TO SAVE USER.");
             $user->save();
-        }
-        else
-        {
-            Yii::trace("OH NOES!");
         }
     }
 
