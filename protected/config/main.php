@@ -20,7 +20,7 @@ return array(
 		'application.components.*',
 	),
 
-	'defaultController'=>'post',
+	'defaultController'=>'account',
 	
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool

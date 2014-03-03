@@ -9,7 +9,7 @@ body
 
 #page
 {
-	background: #000000;
+	background: #ffffff;
     width: 960px;
 }
 
@@ -35,7 +35,7 @@ body
 {
 	padding:6px 20px 5px 20px;
 	margin:0px;
-      text-align: right;
+    text-align: right;
     
 }
 
