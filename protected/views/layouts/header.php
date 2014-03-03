@@ -1,8 +1,8 @@
 
 <?php
 $Notification_dataprovider = new CActiveDataProvider('Notification');
-$notificationIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png', "", array("width"=>"50px", "height"=>"50px"));
-$messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png', "", array("width"=>"50px", "height"=>"50px"));
+$notificationIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/Notificationbutton.png', "", array("width"=>"40px", "height"=>"40px"));
+$messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png', "", array("width"=>"40px", "height"=>"40px"));
     
 ob_start();
 $this->widget('bootstrap.widgets.TbListView',
