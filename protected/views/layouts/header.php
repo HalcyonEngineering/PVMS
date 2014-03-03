@@ -1,7 +1,9 @@
 
 <?php
 $Notification_dataprovider = new CActiveDataProvider('Notification');
-
+$notificationIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png', "", array("width"=>"50px", "height"=>"50px"));
+$messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png', "", array("width"=>"50px", "height"=>"50px"));
+    
 ob_start();
 $this->widget('bootstrap.widgets.TbListView',
     array('dataProvider'=>$Notification_dataprovider, 'itemView'=>'/notification/_notification'));
@@ -13,7 +15,7 @@ $this->widget(
     'bootstrap.widgets.TbNavbar',
     array(
         'type' => 'inverse',
-        'brand' => CHtml::image(Yii::app()->getBaseUrl().'/images/Pitchn-Logo-Mark-317x150.png', "", array("width"=>"70px", "height"=>"50px")),
+        'brand' => CHtml::image(Yii::app()->getBaseUrl().'/images/Pitchn-Logo-Mark-317x150.png', "", array("width"=>"140px", "height"=>"100px")),
         'brandUrl' => '#',
         'collapse' => false, // requires bootstrap-responsive.css
         'fixed' => 'top',
@@ -25,7 +27,7 @@ $this->widget(
                 'items' => array(
                                  
                 // This is the Notifications Drop Down Menu
-                    array('label' => 'Notifications',
+                    array('label' => $notificationIcon,
                         'url' => '#',
                         'items' => array(
                             array('label' => $nWidget),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION
@@ -35,13 +37,13 @@ $this->widget(
                     ),
                                  
                 // This is the messages Drop Down Menu
-                    array('label' => 'Messages',
+                    array('label' => $messagesIcon,
                         'url' => '#',
                         'items' => array(
                             array('label' => 'Inbox', 'url' => array('site/page', 'view'=>'messages')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES
                             array('label' => 'Send Email', 'url' => array('mail/contact')),
                         ),),
-
+ '---',
                 // This is the User Drop Down Menu
                     array(
                         'label' => Yii::app()->user->name,

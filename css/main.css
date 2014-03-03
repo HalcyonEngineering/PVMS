@@ -25,7 +25,7 @@ body
 {
 	background-color:#FFFFFF;
 	margin: 0;
-	padding:0px 0px 50px 0px;
+	padding:0px 0px 100px 0px;
 	border-top: 3px solid #C9E0ED;
 }
 
@@ -131,9 +131,9 @@ div.smallNotification
 
 #mainmenu
 {
-	top: 55px;
+	top: 85px;
 	background:transparent;
-	position: absolute;
+	position: fixed;
 
 }
 
