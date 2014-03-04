@@ -92,8 +92,9 @@ class Csv extends CActiveRecord
     /**
      * Given the filepath to a csv, parses the csv and adds users to the database
      * It's assumed that the csv will have at least a name and email column.
+     * @return an array of viable volunteers, each with 4 attributes
      */
-    public function registerCsv()
+    public function csv2volunteers()
     {
         $username = Yii::app()->user->name;
         $filepath = realpath(dirname(__FILE__) . "/../../assets/" . trim($username) . '_import.csv');
@@ -114,34 +115,10 @@ class Csv extends CActiveRecord
         //            $volunteer_location = (count($fields) > 3) ? $fields[3] : null;
 
         //            Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills, location: $volunteer_location");
-        //            //$this->enrollVolunteer($volunteer_name, $volunteer_email, $volunteer_skills, $volunteer_location);
+        //            //User::enrollVolunteer($volunteer_name, $volunteer_email, $volunteer_skills, $volunteer_location);
         //        }
         //    }
         //}
-    }
-
-    /**
-     * Given the name, email, and skillset of the volunteer, enrolls the volunteer in the database
-     * @param volunteer name
-     * @param volunteer email
-     * @param volunteer skillset
-     */
-    public function enrollVolunteer($name, $email, $skillset, $location)
-    {
-        $user = new User;
-        $user->name = $name;
-        $user->email = $email;
-        $user->skillset = $skillset;
-        $user->location = $location;
-
-        $user->newPassword = 'temporary'; //should have randomly generated pass, email user
-
-        if($user->validate())
-        {
-            // Has the password before saving it.
-            $user->password = $user->hashPassword($user->newPassword);
-            $user->save();
-        }
     }
 
     /**

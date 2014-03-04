@@ -11,16 +11,18 @@ class VolunteerController extends Controller
         {
             $csvModel->attributes = $_POST['Csv'];
             $csvModel->csv = CUploadedFile::getInstance($csvModel, 'csv');
-            if($csvModel->save()) $csvModel->registerCsv();
+            if($csvModel->save()) $csvModel->csv2volunteers();
         }
         
-        //if(isset($_POST['User']))
-        //{
-        //    $userModel->attributes = $_POST['User'];
+        if(isset($_POST['User']))
+        {
+            $name = $_POST['User']['name'];
+            $email = $_POST['User']['email'];
+            $location = $_POST['User']['location'];
+            $skillset = $_POST['User']['skillset'];
 
-        //    //$model->csv = CUploadedFile::getInstance($model, 'csv');
-        //    //if($model->save()) $model->registerCsv();
-        //}
+            User::enrollVolunteer($name, $email, $location, $skillset);
+        }
 
         // Pass the two partial views (csv and form) to add
         $csvView = $this->renderPartial('csv', array('csvModel' => $csvModel), true);

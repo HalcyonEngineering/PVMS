@@ -169,4 +169,30 @@ class User extends CActiveRecord
         parent::afterDelete();
         Skill::model()->updateFrequency($this->skillset, '');
     }
+
+    /**
+     * Given the name, email, and skillset of the volunteer, enrolls the volunteer in the database
+     * @param volunteer name
+     * @param volunteer email
+     * @param volunteer location
+     * @param volunteer skillset
+     */
+    public static function enrollVolunteer($name, $email, $location, $skillset)
+    {
+        $user = new User;
+        $user->name = $name;
+        $user->email = $email;
+        $user->location = $location;
+        $user->skillset = $skillset;
+
+        $user->newPassword = 'temporary'; //should have randomly generated pass, email user
+
+        if($user->validate())
+        {
+            // Has the password before saving it.
+            $user->password = $user->hashPassword($user->newPassword);
+            $user->save();
+        }
+    }
+
 }
