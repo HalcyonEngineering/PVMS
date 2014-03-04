@@ -1,28 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "{{project}}".
+ * This is the model class for table "{{file}}".
  *
- * The followings are the available columns in table '{{project}}':
- * @property integer $id
- * @property integer $org_id
- * @property string $name
- * @property string $desc
- * @property string $colour
- * @property integer $target
+ * The followings are the available columns in table '{{file}}':
+ * @property integer $project_id
+ * @property string $data
  *
  * The followings are the available model relations:
- * @property Organization $org
- * @property Role[] $roles
+ * @property Project $project
  */
-class Project extends CActiveRecord
+class FileDoc extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{project}}';
+		return '{{file}}';
 	}
 
 	/**
@@ -33,15 +28,10 @@ class Project extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('org_id, name, desc, colour', 'required'),
-			array('org_id', 'numerical', 'integerOnly'=>true),
-			array('org_id', 'exist', 'className' => 'Organization', 'attributeName'=>'id'),
-			array('name', 'length', 'max'=>128),
-			array('colour', 'length', 'max'=>7),
-			array('target', 'length', 'max'=>10),
+			array('data', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, org_id, name, desc, colour, target', 'safe', 'on'=>'search'),
+			array('project_id, data', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,9 +43,7 @@ class Project extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'org' => array(self::BELONGS_TO, 'Organization', 'org_id'),
-			'roles' => array(self::HAS_MANY, 'Role', 'project_id'),
-			'filedocs' => array(self::HAS_MANY, 'FileDoc', 'project_id'),
+			'project' => array(self::BELONGS_TO, 'Project', 'project_id'),
 		);
 	}
 
@@ -65,12 +53,8 @@ class Project extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Project ID',
-			'org_id' => 'Organization ID',
-			'name' => 'Name',
-			'desc' => 'Description',
-			'colour' => 'Colour',
-			'target' => 'Target Completion',
+			'project_id' => 'Project',
+			'data' => 'Data',
 		);
 	}
 
@@ -92,11 +76,8 @@ class Project extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('org_id',$this->org_id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('desc',$this->desc,true);
-		$criteria->compare('target',$this->target);
+		$criteria->compare('project_id',$this->project_id);
+		$criteria->compare('data',$this->data,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -107,7 +88,7 @@ class Project extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Project the static model class
+	 * @return FileDoc the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
