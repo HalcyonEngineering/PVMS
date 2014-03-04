@@ -123,15 +123,16 @@ class Csv extends CActiveRecord
      * Given the name, email, and skillset of the volunteer, enrolls the volunteer in the database
      * @param volunteer name
      * @param volunteer email
-     * @param volunteer skills
+     * @param volunteer skillset
      */
-    public function enrollVolunteer($name, $email, $skills, $location)
+    public function enrollVolunteer($name, $email, $skillset, $location)
     {
         $user = new User;
         $user->name = $name;
         $user->email = $email;
-        //$user->skills = $skills;
-        //$user->location = $location;
+        $user->skillset = $skillset;
+        $user->location = $location;
+
         $user->newPassword = 'temporary'; //should have randomly generated pass, email user
 
         if($user->validate())
