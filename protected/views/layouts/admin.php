@@ -12,10 +12,7 @@
                         'stacked'=>true,
                         'items' => array(
                                          array('label'=>'Organizations', 'url'=>array('site/page', 'view'=>'projects')),
-                                         array('label'=>'Managers', 'url'=>array('site/page', 'view'=>'import')),
-                                         array('label'=>$calendarIcon, 'url'=>array('site/page', 'view'=>'calendar')),
-                                         array('label'=>$reportIcon, 'url' =>array('organization/index')),
-                                         //array('label'=>'Email', 'url'=>array('mail/contact')),
+                                         array('label'=>'Volunteers', 'url'=>array('site/page', 'view'=>'import')),
                                          ),
                         ));
 
