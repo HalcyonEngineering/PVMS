@@ -1,13 +1,23 @@
 <?php
 
-/**
- * This is the model class for table "{{skill}}".
- *
- * The followings are the available columns in table '{{skill}}':
- * @property string $skill
- */
 class Skill extends CActiveRecord
 {
+    /**
+     * The followings are the available columns in table 'pvms_skill':
+     * @var integer $id
+     * @var string $name
+     * @var integer $frequency
+     */
+
+    /**
+     * Returns the static model of the specified AR class.
+     * @return CActiveRecord the static model class
+     */
+    public static function model($className=__CLASS__)
+    {
+        return parent::model($className);
+    }
+
     /**
      * @return string the associated database table name
      */
@@ -21,8 +31,12 @@ class Skill extends CActiveRecord
      */
     public function rules()
     {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
         return array(
-            array('skill', 'required'),
+            array('name', 'required'),
+            array('frequency', 'numerical', 'integerOnly'=>true),
+            array('name', 'length', 'max'=>32),
         );
     }
 
@@ -43,44 +57,48 @@ class Skill extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'skill' => 'Skill',
+            'id' => 'Id',
+            'name' => 'Name',
+            'frequency' => 'Frequency',
         );
     }
 
     /**
-     * Returns skill name and their corresponding weights.
-     * Only the skills with the top weights will be returned.
-     * @param integer the maximum number of skills that should be returned
-     * @return array weights indexed by skills names.
+     * Returns skill names and their corresponding weights.
+     * Only the skillset with the top weights will be returned.
+     * @param integer the maximum number of skillset that should be returned
+     * @return array weights indexed by skill names.
      */
     public function findSkillWeights($limit=20)
     {
-        $models = $this->findAll(array('order' => 'frequency DESC', 'limit' => $limit));
+        $models=$this->findAll(array(
+            'order'=>'frequency DESC',
+            'limit'=>$limit,
+        ));
 
-        $total = 0;
-        foreach($models as $model) {$total += $model->frequency;}
+        $total=0;
+        foreach($models as $model)
+            $total+=$model->frequency;
 
-        $skils = array();
-        if($total > 0)
+        $skillset=array();
+        if($total>0)
         {
             foreach($models as $model)
-            {
-                $skills[$model->name] = 8 + (int)(16*$model->frequency/($total+10);
-            }
-            ksort($skills);
+                $skillset[$model->name]=8+(int)(16*$model->frequency/($total+10));
+            ksort($skillset);
         }
-        return $skills;
+        return $skillset;
     }
-        
+
     /**
-     * Suggests a list of existing skills matching the specified keyword.
+     * Suggests a list of existing skillset matching the specified keyword.
      * @param string the keyword to be matched
-     * @param integer maximum number of skills to be returned
+     * @param integer maximum number of skillset to be returned
      * @return array list of matching skill names
      */
-    public function suggestSkills($keyword, $limit=20)
+    public function suggestSkillset($keyword,$limit=20)
     {
-        $skills = $this->findAll(array(
+        $skillset=$this->findAll(array(
             'condition'=>'name LIKE :keyword',
             'order'=>'frequency DESC, Name',
             'limit'=>$limit,
@@ -88,36 +106,36 @@ class Skill extends CActiveRecord
                 ':keyword'=>'%'.strtr($keyword,array('%'=>'\%', '_'=>'\_', '\\'=>'\\\\')).'%',
             ),
         ));
-        $names = array();
-        foreach($skills as $skill) {$names[] = $skill->name;}
-
+        $names=array();
+        foreach($skillset as $skill)
+            $names[]=$skill->name;
         return $names;
     }
 
-    public static function string2array($skills)
+    public static function string2array($skillset)
     {
-        return preg_split('/\s*,\s*/',trim($skills),-1,PREG_SPLIT_NO_EMPTY);
+        return preg_split('/\s*,\s*/',trim($skillset),-1,PREG_SPLIT_NO_EMPTY);
     }
 
-    public static function array2string($skills)
+    public static function array2string($skillset)
     {
-        return implode(', ',$skills);
+        return implode(', ',$skillset);
     }
 
-    public function updateFrequency($oldSkills, $newSkills)
+    public function updateFrequency($oldSkillset, $newSkillset)
     {
-        $oldSkills = self::string2array($oldSkills);
-        $newSkills = self::string2array($newSkills);
-        $this->addSkills(array_values(array_diff($newSkills, $oldSkills)));
-        $this->removeSkills(array_values(array_diff($oldSkills, $newSkills)));
+        $oldSkillset=self::string2array($oldSkillset);
+        $newSkillset=self::string2array($newSkillset);
+        $this->addSkillset(array_values(array_diff($newSkillset,$oldSkillset)));
+        $this->removeSkillset(array_values(array_diff($oldSkillset,$newSkillset)));
     }
 
-    public function addSkills($skills)
+    public function addSkillset($skillset)
     {
         $criteria=new CDbCriteria;
-        $criteria->addInCondition('name',$skills);
+        $criteria->addInCondition('name',$skillset);
         $this->updateCounters(array('frequency'=>1),$criteria);
-        foreach($skills as $name)
+        foreach($skillset as $name)
         {
             if(!$this->exists('name=:name',array(':name'=>$name)))
             {
@@ -129,12 +147,12 @@ class Skill extends CActiveRecord
         }
     }
 
-    public function removeSkills($skills)
+    public function removeSkillset($skillset)
     {
-        if(empty($skills))
+        if(empty($skillset))
             return;
         $criteria=new CDbCriteria;
-        $criteria->addInCondition('name',$skills);
+        $criteria->addInCondition('name',$skillset);
         $this->updateCounters(array('frequency'=>-1),$criteria);
         $this->deleteAll('frequency<=0');
     }

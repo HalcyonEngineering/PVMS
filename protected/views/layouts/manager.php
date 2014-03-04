@@ -15,7 +15,7 @@
                         'items' => array(
                                          array('label'=>$projectIcon,'url'=>array('project/index')),
                                          array('label'=>"Manage Volunteer",'url'=>array('csv/import')),
-                                         array('label'=>"Add Volunteers",'url'=>array('csv/import')),
+                                         array('label'=>"Add Volunteers",'url'=>array('volunteer/add')),
                                          array('label'=>$calendarIcon, 'url'=>array('site/page', 'view'=>'calendar')),
                                          array('label'=>"Report", 'url' =>array('organization/index')),
                                          //array('label'=>'Email', 'url'=>array('mail/contact')),

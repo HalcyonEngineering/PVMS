@@ -13,6 +13,9 @@ CREATE TABLE pvms_user
 	name VARCHAR(128) NOT NULL,
 	password VARCHAR(128) NOT NULL,
 	email VARCHAR(128) NOT NULL UNIQUE,
+	location VARCHAR(32),
+	skillset VARCHAR(256),
+	causes VARCHAR(256),
 	type VARCHAR(128) NOT NULL DEFAULT 2,
 	adminAccess BOOLEAN NOT NULL DEFAULT 0,
 	profile TEXT
@@ -80,6 +83,13 @@ CREATE TABLE pvms_message
 	timestamp INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE,
   CONSTRAINT FK_sender FOREIGN KEY (sender_id) REFERENCES pvms_user (id) ON DELETE CASCADE
+);
+
+CREATE TABLE pvms_skill
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR(32) NOT NULL,
+	frequency INTEGER DEFAULT 1
 );
 
 -- Various join tables.
@@ -150,3 +160,28 @@ INSERT INTO pvms_user_role(user_id, role_id) VALUES (4, 1);
 
 CREATE TABLE pvms_csv(csv BLOB);
 CREATE TABLE pvms_skill(skill NOT NULL PRIMARY KEY, frequency INTEGER DEFAULT 1);
+
+INSERT INTO pvms_skill (name) VALUES ('Accounting');
+INSERT INTO pvms_skill (name) VALUES ('Advertising');
+INSERT INTO pvms_skill (name) VALUES ('Branding');
+INSERT INTO pvms_skill (name) VALUES ('Business Strategy');
+INSERT INTO pvms_skill (name) VALUES ('Communications');
+INSERT INTO pvms_skill (name) VALUES ('Copywriting');
+INSERT INTO pvms_skill (name) VALUES ('Design');
+INSERT INTO pvms_skill (name) VALUES ('Education');
+INSERT INTO pvms_skill (name) VALUES ('Entrepreneurship');
+INSERT INTO pvms_skill (name) VALUES ('Event Planning');
+INSERT INTO pvms_skill (name) VALUES ('Finance');
+INSERT INTO pvms_skill (name) VALUES ('Fundraising');
+INSERT INTO pvms_skill (name) VALUES ('Human Resources');
+INSERT INTO pvms_skill (name) VALUES ('Legal');
+INSERT INTO pvms_skill (name) VALUES ('Marketing');
+INSERT INTO pvms_skill (name) VALUES ('Multimedia');
+INSERT INTO pvms_skill (name) VALUES ('Online Marketing');
+INSERT INTO pvms_skill (name) VALUES ('Photography');
+INSERT INTO pvms_skill (name) VALUES ('Project Management');
+INSERT INTO pvms_skill (name) VALUES ('Public Relations');
+INSERT INTO pvms_skill (name) VALUES ('Sales');
+INSERT INTO pvms_skill (name) VALUES ('Social Media');
+INSERT INTO pvms_skill (name) VALUES ('Technology');
+INSERT INTO pvms_skill (name) VALUES ('Web Development');
