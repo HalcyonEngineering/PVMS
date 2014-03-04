@@ -1,6 +1,6 @@
 <?php
 
-class OnboardDocController extends Controller
+class FileDocController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,16 +62,16 @@ class OnboardDocController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new OnboardDoc;
+		$model=new FileDoc;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['OnboardDoc']))
+		if(isset($_POST['FileDoc']))
 		{
-			$model->attributes=$_POST['OnboardDoc'];
+			$model->attributes=$_POST['FileDoc'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->role_id));
+				$this->redirect(array('view','id'=>$model->project_id));
 		}
 
 		$this->render('create',array(
@@ -91,11 +91,11 @@ class OnboardDocController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['OnboardDoc']))
+		if(isset($_POST['FileDoc']))
 		{
-			$model->attributes=$_POST['OnboardDoc'];
+			$model->attributes=$_POST['FileDoc'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->role_id));
+				$this->redirect(array('view','id'=>$model->project_id));
 		}
 
 		$this->render('update',array(
@@ -129,7 +129,7 @@ class OnboardDocController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('OnboardDoc');
+		$dataProvider=new CActiveDataProvider('FileDoc');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -140,10 +140,10 @@ class OnboardDocController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new OnboardDoc('search');
+		$model=new FileDoc('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['OnboardDoc']))
-			$model->attributes=$_GET['OnboardDoc'];
+		if(isset($_GET['FileDoc']))
+			$model->attributes=$_GET['FileDoc'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -154,12 +154,12 @@ class OnboardDocController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return OnboardDoc the loaded model
+	 * @return FileDoc the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=OnboardDoc::model()->findByPk($id);
+		$model=FileDoc::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,11 +167,11 @@ class OnboardDocController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param OnboardDoc $model the model to be validated
+	 * @param FileDoc $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='onboard-doc-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='file-doc-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

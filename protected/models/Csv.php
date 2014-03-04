@@ -92,55 +92,33 @@ class Csv extends CActiveRecord
     /**
      * Given the filepath to a csv, parses the csv and adds users to the database
      * It's assumed that the csv will have at least a name and email column.
-     * @param filepath of the local csv file
+     * @return an array of viable volunteers, each with 4 attributes
      */
-    public function registerCsv()
+    public function csv2volunteers()
     {
-        $username = Yii::app()->user->name; //User::model()->findByPk(Yii::app()->user->name);
-        $filepath = dirname(__FILE__) . "/../../assets/" . "$username" . "_import.csv";
-        $this->csv->saveAs($filepath);
+        $username = Yii::app()->user->name;
+        $filepath = realpath(dirname(__FILE__) . "/../../assets/" . trim($username) . '_import.csv');
+	Yii::trace("FILEPATH " . $filepath);
+        //$this->csv->saveAs($filepath); // can't save??
 
-        $file = fopen($filepath, 'r');
-        if ($file)
-        {
-            fgetcsv($file); // skip the first row, which has the labels
-            while(($fields = fgetcsv($file)) !== false)
-            {
-                if(count($fields) >= 2)
-                {
-                    $volunteer_name = $fields[0]; 
-                    $volunteer_email = $fields[1];
-                    $volunteer_skills = (count($fields) > 2) ? $fields[2] : null;
-                    $volunteer_location = (count($fields) > 3) ? $fields[3] : null;
+        //$file = fopen($filepath, 'r');
+        //if ($file)
+        //{
+        //    fgetcsv($file); // skip the first row, which has the labels
+        //    while(($fields = fgetcsv($file)) !== false)
+        //    {
+        //        if(count($fields) >= 2)
+        //        {
+        //            $volunteer_name = $fields[0]; 
+        //            $volunteer_email = $fields[1];
+        //            $volunteer_skills = (count($fields) > 2) ? $fields[2] : null;
+        //            $volunteer_location = (count($fields) > 3) ? $fields[3] : null;
 
-                    Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills, location: $volunteer_location");
-                    $this->enrollVolunteer($volunteer_name, $volunteer_email, $volunteer_skills, $volunteer_location);
-                }
-            }
-        }
-    }
-
-    /**
-     * Given the name, email, and skillset of the volunteer, enrolls the volunteer in the database
-     * @param volunteer name
-     * @param volunteer email
-     * @param volunteer skills
-     */
-    public function enrollVolunteer($name, $email, $skills, $location)
-    {
-        $user = new User;
-        $user->name = $name;
-        $user->email = $email;
-        //$user->skills = $skills;
-        //$user->location = $location;
-        $user->newPassword = 'temporary'; //should have randomly generated pass, email user
-
-        if($user->validate())
-        {
-            // Has the password before saving it.
-            $user->password = $user->hashPassword($user->newPassword);
-            $user->save();
-        }
+        //            Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills, location: $volunteer_location");
+        //            //User::enrollVolunteer($volunteer_name, $volunteer_email, $volunteer_skills, $volunteer_location);
+        //        }
+        //    }
+        //}
     }
 
     /**
