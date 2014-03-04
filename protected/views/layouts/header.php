@@ -16,7 +16,7 @@ $this->widget(
     array(
         'type' => 'inverse',
         'brand' => CHtml::image(Yii::app()->getBaseUrl().'/images/Pitchn-Logo-Mark-317x150.png', "", array("width"=>"140px", "height"=>"100px")),
-        'brandUrl' => '#',
+        'brandUrl' => 'http://pitchn.ca/',
         'collapse' => false, // requires bootstrap-responsive.css
         'fixed' => 'top',
         'items' => array(
