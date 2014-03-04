@@ -15,7 +15,9 @@
 
 <div class="form">
 
-<?php echo $formView; ?>
-<?php echo $csvView; ?>
+<?php 
+    echo $csvView; 
+    echo $formView;
+?>
 
 </div><!-- form -->
