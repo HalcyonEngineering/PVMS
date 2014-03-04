@@ -33,7 +33,7 @@ $this->widget(
                             array('label' => $nWidget),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION
                             '---',
                             array('label' => 'View All Notifications', 'url' => array('notification/index')),
-                        ),
+                        ),'visible'=>!Yii::app()->user->isGuest,
                     ),
                                  
                 // This is the messages Drop Down Menu
@@ -42,7 +42,8 @@ $this->widget(
                         'items' => array(
                             array('label' => 'Inbox', 'url' => array('site/page', 'view'=>'messages')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES
                             array('label' => 'Send Email', 'url' => array('mail/contact')),
-                        ),),
+                        ),
+                          'visible'=>!Yii::app()->user->isGuest,),
  '---',
                 // This is the User Drop Down Menu
                     array(

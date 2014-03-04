@@ -11,11 +11,9 @@
                         'type' => 'tabs',
                         'stacked'=>true,
                         'items' => array(
-                                         array('label'=>$projectIcon, 'url'=>array('site/page', 'view'=>'projects')),
+                                         array('label'=>'Roles', 'url'=>'#'),
+                                         array('label'=>'Team', 'url'=>'#'),
                                          array('label'=>$calendarIcon, 'url'=>array('site/page', 'view'=>'calendar')),
-                                         array('label'=>'Email', 'url'=>array('mail/contact')),
-                                         array('label'=>'About', 'url'=>array('site/page', 'view'=>'about')),
-                                         //array('label'=>'Email', 'url'=>array('mail/contact')),
                                          ),
                         ));
     
