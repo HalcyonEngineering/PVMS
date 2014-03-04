@@ -96,8 +96,9 @@ class Csv extends CActiveRecord
     public function registerCsv()
     {
         $username = Yii::app()->user->name;
-        $filepath = dirname(__FILE__) . "/../../assets/" . "$username" . "_import.csv";
-        $this->csv->saveAs($filepath); // can't save??
+        $filepath = realpath(dirname(__FILE__) . "/../../assets/" . trim($username) . '_import.csv');
+	Yii::trace("FILEPATH " . $filepath);
+        //$this->csv->saveAs($filepath); // can't save??
 
         //$file = fopen($filepath, 'r');
         //if ($file)
