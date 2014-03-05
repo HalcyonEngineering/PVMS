@@ -1,5 +1,5 @@
 <?php
-    $projectIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/folder.png', "", array("width"=>"50px", "height"=>"50px"));
+    $organizationsIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/organizations.png', "", array("width"=>"50px", "height"=>"50px"));
     $volunteerIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/wlm.png', "", array("width"=>"50px", "height"=>"50px"));
 
     $this->widget(
@@ -9,7 +9,7 @@
                         'type' => 'tabs',
                         'stacked'=>true,
                         'items' => array(
-                                         array('label'=>'Organizations', 'url'=>array('site/page', 'view'=>'projects')),
+                                         array('label'=>$organizationsIcon, 'url'=>array('site/page', 'view'=>'projects')),
                                          array('label'=>$volunteerIcon, 'url'=>array('site/page', 'view'=>'import')),
                                          ),
                         ));
