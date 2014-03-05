@@ -23,4 +23,18 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('target')); ?>:</b>
 	<?php echo CHtml::encode($data->target); ?>
 	<br />
+	<?php $this->widget('bootstrap.widgets.TbButton',
+          array(
+	                'url'=>Yii::app()->createUrl("project/view", array("id"=>$data->id,"asDialog"=>1)),
+	                'htmlOptions'=>array(
+		                'ajax'=>array(
+			                'type'=>'POST',
+			                // ajax post will use 'url' specified above
+			                'url'=>"js:$(this).attr('href')",
+			                'update'=>'#project-modal',
+		                ),
+	                ),
+                ));
+
+	?>
 </div>
