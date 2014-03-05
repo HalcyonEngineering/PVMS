@@ -16,6 +16,27 @@ class AccountController extends Controller
 			$this->redirect(Yii::app()->user->returnUrl);
 		}
 	}
+	
+	/**
+	* Second login admin attempt
+	* @TODO UI handle case for denied access and Not admin
+	*/
+	public function actionAdminLogin($userID) {
+	// First check that the manager has allowed admin access
+		if (User::model()->findByPk($userID)->adminAccess == 1) { 
+			if (Yii::app()->user->isAdmin()) {
+				$identity = new AccessIdentity($userID, new UserIdentity('admin', 'admin'));
+				Yii::app()->user->login($identity);
+				$this->redirect(Yii::app()->user->returnUrl);
+			}
+			else {
+				echo "Not an admin";
+			}
+		}
+		else {
+			echo "Manager has not enabled admin access";
+		}
+	}
 
 	/**
 	 * Displays the login page

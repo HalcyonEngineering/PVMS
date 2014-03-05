@@ -5,10 +5,9 @@
  *
  * The followings are the available columns in table '{{notification}}':
  * @property integer $id
- * @property string $user_id
+ * @property integer $user_id
  * @property string $description
  * @property integer $timestamp
- * @property string $source
  * @property string $link
  *
  * The followings are the available model relations:
@@ -32,12 +31,14 @@ class Notification extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, description, source, link', 'required'),
-			array('timestamp', 'numerical', 'integerOnly'=>true),
-			array('user_id, description, source, link', 'length', 'max'=>128),
+			array('user_id, description, link', 'required'),
+			array('user_id, timestamp', 'numerical', 'integerOnly'=>true),
+			array('description, link', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, description, timestamp, source, link', 'safe', 'on'=>'search'),
+			array('id, user_id, description, timestamp, link', 'safe', 'on'=>'search'),
+            array('timestamp','default', 'value'=>new CDbExpression('NOW()'),
+                  'setOnEmpty'=>false,'on'=>'insert')
 		);
 	}
 
@@ -63,7 +64,6 @@ class Notification extends CActiveRecord
 			'user_id' => 'User',
 			'description' => 'Description',
 			'timestamp' => 'Timestamp',
-			'source' => 'Source',
 			'link' => 'Link',
 		);
 	}
@@ -90,7 +90,6 @@ class Notification extends CActiveRecord
 		$criteria->compare('user_id',$this->user_id,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('timestamp',$this->timestamp);
-		$criteria->compare('source',$this->source,true);
 		$criteria->compare('link',$this->link,true);
 
 		return new CActiveDataProvider($this, array(
@@ -108,4 +107,23 @@ class Notification extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+    /**
+     * @param int $userID - UserID of the account that the notification is sent to
+     * @param string $description - description of  the notification
+     * @param string $link - redirect link to notification location
+     */
+    public static function notify(int $userID, string $description, string $link)
+    {
+        $_notify = new Notification();
+        $_notify->userID = $userID;
+        $_notify->description = $description;
+        $_notify->link = $link;
+
+        if ($_notify->validate()) {
+            $_notify->save();
+
+        }
+    }
 }

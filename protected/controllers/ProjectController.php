@@ -51,9 +51,21 @@ class ProjectController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		if (Yii::app()->request->isAjaxRequest)
+		{
+			$this->renderPartial('view',
+			                     array(
+				                     'model'=>$this->loadModel($id),
+			                     ),false,true);
+			//js-code to open the dialog
+			if (!empty($_GET['asDialog']))
+				echo CHtml::script('$("#project-modal").dialog("open")');
+			Yii::app()->end();
+		} else {
+			$this->render('view',array(
+				'model'=>$this->loadModel($id),
+			));
+			}
 	}
 
 	/**
@@ -65,7 +77,7 @@ class ProjectController extends Controller
 		$model=new Project;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Project']))
 		{

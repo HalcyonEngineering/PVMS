@@ -13,19 +13,24 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-	
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainmenu.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/header.css" />
+
+
+
 	<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon2.ico" type="image/x-icon" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
 <body>
-<div id="header">
-<?php include('header.php');?>
-</div><!-- header -->
+
 
 
 
 <div class="container" id="page">
+<div id="header">
+<?php include('header.php');?>
+</div><!-- header -->
 <div id="mainmenu">
 <?php
 	if (Yii::app()->user->isAdmin()) {
@@ -39,7 +44,7 @@
 </div><!-- mainmenu -->
 
 <div class="span-19 last">
-<div class="container" id="inside-page">
+<div id="inside-page">
 	<?php echo $content; ?>
 
 
