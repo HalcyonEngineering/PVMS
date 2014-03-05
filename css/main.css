@@ -11,6 +11,7 @@ body
 {
 	background: #ffffff;
     width: 960px;
+    clear:both;
 }
 
 #inside-page
@@ -20,52 +21,6 @@ body
     width: 900px;
 
 }
-
-#header
-{
-	background-color:#FFFFFF;
-	margin: 0;
-	padding:0px 0px 100px 0px;
-	border-top: 3px solid #C9E0ED;
-}
-
-
-
-#header ul
-{
-	padding:6px 20px 5px 20px;
-	margin:0px;
-    text-align: right;
-    
-}
-
-#header ul li
-{
-	display: inline;
-
-}
-
-#header ul li a
-{
-	color:#1AAB9F;
-	font-size:15px;
-	text-align: center;
-	font-weight:bold;
-	padding:5px 8px;
-}
-
-#header ul li a:hover 
-{
-	background-color:#282828;
-}
-
-#header ul li a:hover, #mainmenu ul li.active a
-{
-	color: #1AAB9F;
-	background-color:#282828;
-	text-decoration:none;
-}
-
 
 #content
 {
@@ -129,47 +84,9 @@ div.smallNotification
 	font-size: 200%;
 }
 
-#mainmenu
-{
-	top: 85px;
-	background:transparent;
-	position: fixed;
-
-}
-
-#mainmenu ul
-{
-	padding:0px 0px 0px 0px;
-	margin:0px;
-}
-
-#mainmenu ul li
-{
-	display: inline;
-}
-
 #AboutContent
 {
 	margin-right: 10px;
-}
-
-#mainmenu ul li a
-{
-	color:#1AAB9F;
-	background-color:transparent;
-	font-size:15px;
-	text-align: left;
-	font-weight:bold;
-	text-decoration:none;
-    width: 50px;
-    height: 50px;
-}
-
-#mainmenu ul li a:hover, #mainmenu ul li.active a
-{
-	color: #1AAB9F;
-	background-color:#FFEBEB;
-	text-decoration:none;
 }
 
 #manager ul li a:hover

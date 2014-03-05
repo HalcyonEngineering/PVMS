@@ -1,6 +1,6 @@
 <?php
-    $organizationsIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/organizations.png', "", array("width"=>"50px", "height"=>"50px"));
-    $volunteerIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/wlm.png', "", array("width"=>"50px", "height"=>"50px"));
+    $organizationsIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/organizations.png');
+    $volunteerIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/wlm.png');
 
     $this->widget(
                   'bootstrap.widgets.TbMenu',

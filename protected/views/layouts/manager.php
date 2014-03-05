@@ -1,10 +1,10 @@
 
 <?php
-    $projectIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/projects.png', "", array("width"=>"50px", "height"=>"50px"));
-    $managerIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/managevolunteers.png', "", array("width"=>"50px", "height"=>"50px"));
-    $addVolunteerIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/addvolunteers.png', "", array("width"=>"50px", "height"=>"50px"));
-    $calendarIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/calendar.png', "", array("width"=>"50px", "height"=>"50px"));
-    $reportIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/Report.png', "", array("width"=>"50px", "height"=>"50px"));
+    $projectIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/projects.png');
+    $managerIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/managevolunteers.png');
+    $addVolunteerIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/addvolunteers.png');
+    $calendarIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/calendar.png');
+    $reportIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/Report.png');
 
     
     $this->widget(

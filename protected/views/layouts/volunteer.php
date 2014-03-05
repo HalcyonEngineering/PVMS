@@ -1,7 +1,7 @@
 <?php
-    $roleIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/folder.png', "", array("width"=>"50px", "height"=>"50px"));
-    $teamIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/Team.png', "", array("width"=>"50px", "height"=>"50px"));
-    $calendarIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/calendar.png', "", array("width"=>"50px", "height"=>"50px"));
+    $roleIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/folder.png');
+    $teamIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/Team.png');
+    $calendarIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/calendar.png');
 
     $this->widget(
                   'bootstrap.widgets.TbMenu',
