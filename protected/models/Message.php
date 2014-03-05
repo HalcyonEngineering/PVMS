@@ -5,8 +5,8 @@
  *
  * The followings are the available columns in table '{{message}}':
  * @property integer $id
- * @property string $user_id
- * @property string $sender_id
+ * @property integer $user_id
+ * @property integer $sender_id
  * @property string $message_subject
  * @property string $message_body
  * @property integer $timestamp
@@ -34,8 +34,8 @@ class Message extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id, sender_id, message_subject, message_body', 'required'),
-			array('timestamp', 'numerical', 'integerOnly'=>true),
-			array('user_id, sender_id, message_subject, message_body', 'length', 'max'=>128),
+			array('user_id, sender_id, timestamp', 'numerical', 'integerOnly'=>true),
+			array('message_subject, message_body', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, user_id, sender_id, message_subject, message_body, timestamp', 'safe', 'on'=>'search'),
