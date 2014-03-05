@@ -5,16 +5,12 @@
 'itemView'=>'_view',
 )); ?>
 
-<?php $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-'id'=>'project-modal',
-'options'=>array(
-'title'=>'Detail view',
-'autoOpen'=>false, //important!
-'modal'=>true,
-'width'=>550,
-'height'=>470,
-),
-));
+<?php $this->beginWidget('bootstrap.widgets.TbModal', array(
+	'id'=>'project-modal',
+	'options'=>array(
+		'autoOpen'=>false, //important!
+		),
+	));
 ?>
-<div id="project-modal"></div>
+<div id="project-modal-body" class="modal-body"></div>
 <?php $this->endWidget();?>
