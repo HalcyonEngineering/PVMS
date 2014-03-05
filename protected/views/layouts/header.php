@@ -27,14 +27,22 @@ $this->widget(
                 'items' => array(
                                  
                 // This is the Notifications Drop Down Menu
-                    array('label' => $notificationIcon,
-                        'url' => '#',
-                        'items' => array(
-                            array('label' => $nWidget),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION
+                    array($this->widget(
+    'bootstrap.widgets.TbButton',
+    array(
+        'label' => $notificationIcon,
+        'type' => 'primary',
+        'url' => '#',
+        'items' => array( array('label' => $nWidget),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION
                             '---',
                             array('label' => 'View All Notifications', 'url' => array('notification/index')),
-                        ),'visible'=>!Yii::app()->user->isGuest,
-                    ),
+                        ),
+	    'visible'=>!Yii::app()->user->isGuest,
+        'htmlOptions' => array(
+            'data-title' => 'A Title',
+            'data-placement' => 'top',
+            'data-content' => "And here's some amazing content. It's very engaging. right?",
+            'data-toggle' => 'popover'),
                                  
                 // This is the messages Drop Down Menu
                     array('label' => $messagesIcon,
