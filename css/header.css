@@ -1,10 +1,6 @@
 #header
 {
-	background-color:#FFFFFF;
-	margin: 0;
-	padding:0px 0px 0px 0px;
-    overflow: auto;
-    clear: both;
+	height:88px;
 }
 
 #header ul
