@@ -4,19 +4,19 @@ body
 	padding: 0;
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+	background-color: #F0F0F0;
 }
 
 #page
 {
-	background: #ffffff;
+	background: #F0F0F0;
     width: 960px;
     clear:both;
 }
 
 #inside-page
 {
-    margin: 0px 0 0 55px;
+    margin: 0px 0 0 51px;
 	background: #ffffff;
     width: 900px;
 

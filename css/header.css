@@ -4,6 +4,7 @@
 	margin: 0;
 	padding:0px 0px 0px 0px;
     overflow: auto;
+    clear: both;
 }
 
 #header ul
@@ -16,7 +17,6 @@
 #header ul li
 {
 	display: inline;
-
 }
 
 #header ul li a
@@ -40,3 +40,6 @@
 	text-decoration:none;
 }
 
+.navbar-fixed-top{
+position: fixed;
+}

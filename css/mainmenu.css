@@ -8,6 +8,7 @@
 #mainmenu ul
 {
 	margin:0px;
+    padding:0px;
 }
 
 #mainmenu ul li
@@ -30,13 +31,13 @@
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
 	color: #1AAB9F;
-	background-color:#FFEBEB;
+	background-color:#ffffff;
 	text-decoration:none;
 }
 
 #mainmenu ul li a img
 {
-    width: 70px;
-    height: 70px;
-    padding:2.5px 2.5px 2.5px 2.5px;
+    width: 60px;
+    height: 60px;
+    padding:10px 10px 10px 10px;
 }
