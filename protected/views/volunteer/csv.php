@@ -14,7 +14,7 @@ $form = $this->beginWidget(
 echo '<h2>By CSV</h2>';
 
 echo CHtml::link('Download file here<br><br>', $csvModel->getCsvTemplateUrl());
-echo CHtml::image($csvModel->getCsvTemplateImageUrl(), 'This is where the CSV template image would be...');
+//echo CHtml::image($csvModel->getCsvTemplateImageUrl(), 'This is where the CSV template image would be...');
 
 echo '<br><br>';
 
