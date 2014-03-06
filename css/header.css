@@ -1,10 +1,6 @@
 #header
 {
-	background-color:#FFFFFF;
-	margin: 0;
-	padding:0px 0px 0px 0px;
-    overflow: auto;
-    clear: both;
+	height:88px;
 }
 
 #header ul
@@ -38,6 +34,13 @@
 	color: #1AAB9F;
 	background-color:#282828;
 	text-decoration:none;
+}
+
+#mainmenu ul li a img
+{
+    width: 40px;
+    height: 40px;
+    padding:0px 0px 0px 0px;
 }
 
 .navbar-fixed-top{
