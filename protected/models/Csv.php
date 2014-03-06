@@ -92,33 +92,30 @@ class Csv extends CActiveRecord
     /**
      * Given the filepath to a csv, parses the csv and adds users to the database
      * It's assumed that the csv will have at least a name and email column.
-     * @return an array of viable volunteers, each with 4 attributes
      */
     public function csv2volunteers()
     {
         $username = Yii::app()->user->name;
         $filepath = realpath(dirname(__FILE__) . "/../../assets/" . trim($username) . '_import.csv');
-	Yii::trace("FILEPATH " . $filepath);
-        //$this->csv->saveAs($filepath); // can't save??
+        $this->csv->saveAs($filepath); // can't save??
 
-        //$file = fopen($filepath, 'r');
-        //if ($file)
-        //{
-        //    fgetcsv($file); // skip the first row, which has the labels
-        //    while(($fields = fgetcsv($file)) !== false)
-        //    {
-        //        if(count($fields) >= 2)
-        //        {
-        //            $volunteer_name = $fields[0]; 
-        //            $volunteer_email = $fields[1];
-        //            $volunteer_skills = (count($fields) > 2) ? $fields[2] : null;
-        //            $volunteer_location = (count($fields) > 3) ? $fields[3] : null;
+        $file = fopen($filepath, 'r');
+        if ($file)
+        {
+            fgetcsv($file); // skip the first row, which has the labels
+            while(($fields = fgetcsv($file)) !== false)
+            {
+                if(count($fields) >= 2)
+                {
+                    $name = $fields[0]; 
+                    $email = $fields[1];
+                    $location = (count($fields) > 3) ? $fields[3] : null;
+                    $skillset = (count($fields) > 2) ? $fields[2] : null;
 
-        //            Yii::trace("name: $volunteer_name, email: $volunteer_email, skills: $volunteer_skills, location: $volunteer_location");
-        //            //User::enrollVolunteer($volunteer_name, $volunteer_email, $volunteer_skills, $volunteer_location);
-        //        }
-        //    }
-        //}
+                    User::enrollVolunteer($name, $email, $location, $skillset);
+                }
+            }
+        }
     }
 
     /**
