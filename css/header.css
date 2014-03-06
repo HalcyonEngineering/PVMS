@@ -40,6 +40,13 @@
 	text-decoration:none;
 }
 
+#mainmenu ul li a img
+{
+    width: 40px;
+    height: 40px;
+    padding:0px 0px 0px 0px;
+}
+
 .navbar-fixed-top{
 position: fixed;
 }
