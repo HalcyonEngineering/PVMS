@@ -79,16 +79,29 @@ class ProjectController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		 $this->performAjaxValidation($model);
 
-		if(isset($_POST['Project']))
-		{
-			$model->attributes=$_POST['Project'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
+			if(isset($_POST['Project']))
+			{
+				Yii::log("Project is set");
+				$model->attributes=$_POST['Project'];
+				if($model->save())
+					$this->redirect(array('view','id'=>$model->id));
+			} elseif (Yii::app()->request->isAjaxRequest)
+			{
+				Yii::log("Ajax and project is set.");
+				$this->renderPartial('create',
+				                     array('model'=>$model,),
+				                     false,
+				                     true);
+				//js-code to open the dialog
+				if (!empty($_GET['asDialog']))
+					echo CHtml::script('$("#project-modal").dialog("open")');
+				Yii::app()->end();
+			} else {
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+			$this->render('create',array(
+				'model'=>$model,
+			));
+		}
 	}
 
 	/**
@@ -117,18 +130,29 @@ class ProjectController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Project']))
 		{
 			$model->attributes=$_POST['Project'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
+		} elseif (Yii::app()->request->isAjaxRequest)
+		{
+			Yii::log("Ajax and project is set.");
+			$this->renderPartial('update',
+			                     array('model'=>$model,),
+			                     false,
+			                     true);
+			//js-code to open the dialog
+			if (!empty($_GET['asDialog']))
+				echo CHtml::script('$("#project-modal").dialog("open")');
+			Yii::app()->end();
+		} else {
+			$this->render('update',array(
+				'model'=>$model,
+			));
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
 	}
 
 	/**
@@ -157,6 +181,10 @@ class ProjectController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if(isset($_POST['Project'])){
+			Yii::log("Project set in index.", CLogger::LEVEL_ERROR);
+		}
+
 		$dataProvider=new CActiveDataProvider('Project');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
@@ -202,6 +230,7 @@ class ProjectController extends Controller
 		if(isset($_POST['ajax']) && $_POST['ajax']==='project-form')
 		{
 			echo CActiveForm::validate($model);
+			Yii::log("Ajax validation. Ending now./r/n");
 			Yii::app()->end();
 		}
 	}

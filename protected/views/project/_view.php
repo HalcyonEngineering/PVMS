@@ -44,4 +44,25 @@
             ));
 
 	?>
+
+	<?php $this->widget('bootstrap.widgets.TbButton',
+	                    array(
+		                    'label'=> 'Edit Project',
+		                    'type' => 'primary',
+
+		                    'htmlOptions'=>array(
+			                    'data-toggle' => 'modal',
+			                    'data-target' => '#project-modal',
+			                    'href' =>Yii::app()->createUrl("project/update", array("id"=>$data->id,"asDialog"=>1)),
+			                    'ajax'=>array(
+				                    'type'=>'POST',
+				                    // ajax post will use 'url' specified above
+				                    'url'=>"js:$(this).attr('href')",
+				                    'update'=>'#project-modal-body',
+				                    'complete'=>"$('#project-modal').modal({show : true})",
+			                    ),
+		                    ),
+	                    ));
+
+	?>
 </div>
