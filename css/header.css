@@ -6,13 +6,6 @@
 #header ul
 {
 	padding:25px 0px 16px 0px;
-	margin:0px;
-    text-align: right;
-}
-
-#header ul li
-{
-	display: inline;
 }
 
 #header ul li a
@@ -33,7 +26,6 @@
 {
 	color: #1AAB9F;
 	background-color:#282828;
-	text-decoration:none;
 }
 
 #mainmenu ul li a img
