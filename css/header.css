@@ -46,3 +46,11 @@
 .navbar-fixed-top{
 position: fixed;
 }
+
+/*
+* Makes colorpicker show up on top of modal window.
+*/
+.colorpicker
+{
+	z-index: 1060;
+}
