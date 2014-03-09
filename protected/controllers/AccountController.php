@@ -23,19 +23,42 @@ class AccountController extends Controller
 	*/
 	public function actionAdminLogin($userID) {
 	// First check that the manager has allowed admin access
-		if (User::model()->findByPk($userID)->adminAccess == 1) { 
-			if (Yii::app()->user->isAdmin()) {
+		$user = Yii::app()->getComponent('user');
+		if (Yii::app()->user->isAdmin()) { 
+			if (User::model()->findByPk($userID)->adminAccess == 1) {
 				$identity = new AccessIdentity($userID, new UserIdentity('admin', 'admin'));
 				Yii::app()->user->login($identity);
+				Yii::app()->user->setAdminAccess();
 				$this->redirect(Yii::app()->user->returnUrl);
 			}
 			else {
-				echo "Not an admin";
+				$user->setFlash(
+					'error',
+					'Manager has not enabled admin access.'
+				);
 			}
 		}
 		else {
-			echo "Manager has not enabled admin access";
+			$user->setFlash(
+				'error',
+				'You do not have admin access.'
+			);
 		}
+		$this->widget('bootstrap.widgets.TbAlert', array(
+		'block' => true,
+		'fade' => true,
+		'closeText' => '&times;', // false equals no close link
+		'events' => array(),
+		'htmlOptions' => array(),
+		'userComponentId' => 'user',
+		'alerts' => array( // configurations per alert type
+		// success, info, warning, error or danger
+		'success' => array('closeText' => '&times;'),
+		'info', // you don't need to specify full config
+		'warning' => array('block' => false, 'closeText' => false),
+		'error' => array('block' => false, 'closeText' => 'AAARGHH!!')
+),
+));
 	}
 
 	/**

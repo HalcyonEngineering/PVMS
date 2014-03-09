@@ -3,6 +3,7 @@
 class WebUser extends CWebUser {
 
 	private $_model;
+	public $isAdminAccess = false;
 
 	function getEmail() {
 		$user = $this->loadUser(Yii::app()->user->id);
@@ -41,6 +42,14 @@ class WebUser extends CWebUser {
 		$user = $this->loadUser(Yii::app()->user->id);
 
 		return !$this->isGuest && ($user->type == User::VOLUNTEER);
+	}
+	
+	function setAdminAccess() {
+		$this->isAdminAccess = true;
+	}
+	
+	function isAdminAccess() {
+		return $this->isAdminAccess;
 	}
 
 
