@@ -51,7 +51,7 @@ class VolunteerController extends Controller
      */
     public function actionSearch()
     {
-        $model = new User;
+        $model = new User('search');
         $model->unsetAttributes(); // Clear attributes for search
 
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
