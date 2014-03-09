@@ -57,9 +57,6 @@ class ProjectController extends Controller
 			                     array(
 				                     'model'=>$this->loadModel($id),
 			                     ),false,true);
-			//js-code to open the dialog
-			if (!empty($_GET['asDialog']))
-				echo CHtml::script('$("#project-modal").dialog("open")');
 			Yii::app()->end();
 		} else {
 			$this->render('view',array(
@@ -81,20 +78,16 @@ class ProjectController extends Controller
 
 			if(isset($_POST['Project']))
 			{
-				Yii::log("Project is set");
 				$model->attributes=$_POST['Project'];
 				if($model->save())
 					$this->redirect(array('view','id'=>$model->id));
-			} elseif (Yii::app()->request->isAjaxRequest)
+			}
+			if (Yii::app()->request->isAjaxRequest)
 			{
-				Yii::log("Ajax and project is set.");
 				$this->renderPartial('create',
 				                     array('model'=>$model,),
 				                     false,
 				                     true);
-				//js-code to open the dialog
-				if (!empty($_GET['asDialog']))
-					echo CHtml::script('$("#project-modal").dialog("open")');
 				Yii::app()->end();
 			} else {
 
@@ -137,16 +130,14 @@ class ProjectController extends Controller
 			$model->attributes=$_POST['Project'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
-		} elseif (Yii::app()->request->isAjaxRequest)
+		}
+		if (Yii::app()->request->isAjaxRequest)
 		{
-			Yii::log("Ajax and project is set.");
+			Yii::log("Ajax and project is set.",CLogger::LEVEL_ERROR);
 			$this->renderPartial('update',
 			                     array('model'=>$model,),
 			                     false,
 			                     true);
-			//js-code to open the dialog
-			if (!empty($_GET['asDialog']))
-				echo CHtml::script('$("#project-modal").dialog("open")');
 			Yii::app()->end();
 		} else {
 			$this->render('update',array(

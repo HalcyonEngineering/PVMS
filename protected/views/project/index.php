@@ -4,17 +4,15 @@
                     array(
 	                    'label'=> 'Create Project',
 	                    'type' => 'primary',
-
+						'id'=>'create-project-btn',
 	                    'htmlOptions'=>array(
-		                    'data-toggle' => 'modal',
-		                    'data-target' => '#project-modal',
-		                    'href' =>Yii::app()->createUrl("project/create", array("asDialog"=>1)),
+		                    'href' =>Yii::app()->createUrl("project/create"),
 		                    'ajax'=>array(
 			                    'type'=>'POST',
 			                    // ajax post will use 'url' specified above
 			                    'url'=>"js:$(this).attr('href')",
 			                    'update'=>'#project-modal-body',
-			                    'complete'=>"$('#project-modal').modal({show : true})",
+			                    'complete'=>"$('#project-modal').modal('show')",
 		                    ),
 	                    ),
                     ));
@@ -34,4 +32,5 @@
 	));
 ?>
 <div id="project-modal-body" class="modal-body"></div>
+
 <?php $this->endWidget();?>

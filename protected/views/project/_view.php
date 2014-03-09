@@ -25,41 +25,21 @@
 	<br />
 
 	<?php $this->widget('bootstrap.widgets.TbButton',
-          array(
-	            'label'=> 'Test Modal',
-	            'type' => 'primary',
-
-                'htmlOptions'=>array(
-	                'data-toggle' => 'modal',
-	                'data-target' => '#project-modal',
-	                'href' =>Yii::app()->createUrl("project/view", array("id"=>$data->id,"asDialog"=>1)),
-	                'ajax'=>array(
-		                'type'=>'POST',
-		                // ajax post will use 'url' specified above
-		                'url'=>"js:$(this).attr('href')",
-		                'update'=>'#project-modal-body',
-	                    'complete'=>"$('#project-modal').modal({show : true})",
-	                ),
-                ),
-            ));
-
-	?>
-
-	<?php $this->widget('bootstrap.widgets.TbButton',
 	                    array(
 		                    'label'=> 'Edit Project',
 		                    'type' => 'primary',
 
 		                    'htmlOptions'=>array(
-			                    'data-toggle' => 'modal',
-			                    'data-target' => '#project-modal',
-			                    'href' =>Yii::app()->createUrl("project/update", array("id"=>$data->id,"asDialog"=>1)),
+			                    //Generate a unique id for each button.
+			                    //Required to prevent id conflicts with the modal window.
+			                    'id'=>'edit-project-'.$data->id,
+			                    'href' => Yii::app()->createUrl("project/update", array("id"=>$data->id)),
 			                    'ajax'=>array(
 				                    'type'=>'POST',
 				                    // ajax post will use 'url' specified above
 				                    'url'=>"js:$(this).attr('href')",
 				                    'update'=>'#project-modal-body',
-				                    'complete'=>"$('#project-modal').modal({show : true})",
+				                    'complete'=>"$('#project-modal').modal('show')",
 			                    ),
 		                    ),
 	                    ));

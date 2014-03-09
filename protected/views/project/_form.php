@@ -25,34 +25,30 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 <?php echo $form->datepickerRow($model,'target'); ?>
 
 <div class="form-actions">
-	<?php $this->widget('bootstrap.widgets.TbButton', array(
-		'buttonType'=>'ajaxSubmit',
-		'type'=>'primary',
-		'label'=>$model->isNewRecord ? 'Create' : 'Save',
-	)); ?>
+<?php
+	//This part below needs to be improved. It's not quite done and pretty hacky.
+	$this->widget('bootstrap.widgets.TbButton',
+	              array(
+		              'buttonType'=> 'ajaxSubmit',
+		              'label'=>($model->isNewRecord ? 'Create' : 'Save') . " Fancy",
+		              'type' => 'submit',
+		              //url has to be outside ajax options so it doesn't get overwritten.
+		              // YiiBooster doesn't have a check to see if url exists in ajax first.
+		              'url'=>"js:$(this).attr('href')",
+		              'htmlOptions'=>array(
+			              'id'=>'project-submit',
+			              'href' =>Yii::app()->createUrl("project/".($model->isNewRecord ? "create" : "update?id=$model->id")),
 
-	<?php
-		//This part below needs to be improved. It's not quite done and pretty hacky.
-		$this->widget('bootstrap.widgets.TbButton',
-	                    array(
-		                    'label'=>$model->isNewRecord ? 'Create' : 'Save' . " Fancy",
-		                    'type' => 'submit',
+		              ),
+		              'ajaxOptions'=>array(
+			              'type'=>'POST',
+			              // ajax post will use 'url' specified above
+			              'update'=>'#project-modal-body',
+		              ),
+	              ));
 
-		                    'htmlOptions'=>array(
-			                    'data-toggle' => 'modal',
-			                    'data-target' => '#project-modal',
-			                    'href' =>Yii::app()->createUrl("project/".($model->isNewRecord ? "create" : "update?id=$model->id")),
-			                    'ajax'=>array(
-				                    'type'=>'POST',
-				                    // ajax post will use 'url' specified above
-				                    'url'=>"js:$(this).attr('href')",
-				                    'update'=>'#project-modal-body',
-				                    'complete'=>"$('#project-modal').modal({show : true})",
-			                    ),
-		                    ),
-	                    ));
+?>
 
-	?>
 </div>
 
 <?php $this->endWidget(); ?>
