@@ -15,6 +15,7 @@
  */
 class FileDoc extends CActiveRecord
 {
+	public $uploadedfile; // stores a reference to a CUploadedFile
 	/**
 	 * @return string the associated database table name
 	 */
@@ -31,7 +32,9 @@ class FileDoc extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('uploadedfile', 'file', 'types'=>'txt,doc,docx','safe'=>true, 'maxSize'=>16*1024*1024, 'allowEmpty'=>true, 'tooLarge'=>'{attribute} is too large to be uploaded. Maximum size is 16MB.'),
 			array('project_id', 'required'),
+			array('project_id', 'exist', 'className'=>'Project','attributeName'=>'id'),
 			array('project_id, file_size', 'numerical', 'integerOnly'=>true),
 			array('file_name', 'length', 'max'=>256),
 			array('file_data', 'safe'),
@@ -95,6 +98,24 @@ class FileDoc extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	/**
+    * Before the normal rest of the save happens, we use the data from the CuploadedFile in $uploadedfile
+    * to fill our model variables with the name, size, type and data of the file it represents
+    */
+    public function beforeSave()
+    {
+        if($file=CUploadedFile::getInstance($this,'uploadedfile')) //TODO: ?!?!?!
+        {
+            $this->file_name=$file->name;
+            $this->file_size=$file->size;
+            //$this->file_type=$file->type;
+            //Yii::log('FileDoc doc save tempname: '.$file->tempName, 'warning', 'FileDoc');
+            $this->file_data=file_get_contents($file->tempName); //the rest of the stuff we can read directly off the file, but we have to fetch the data out of the file's temporary location on the server
+        }
+ 
+    	return parent::beforeSave(); //overriding, should call parent too
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.

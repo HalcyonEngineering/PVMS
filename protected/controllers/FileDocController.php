@@ -56,27 +56,34 @@ class FileDocController extends Controller
 		));
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
 	public function actionCreate()
 	{
-		$model=new FileDoc;
+		////Yii::log('FileDoc create action begun', 'warning', 'FileDoc');
+        
+		$model=new FileDoc; // remember: this is a local var
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['FileDoc']))
+        if(isset($_POST['FileDoc']))
 		{
-			$model->attributes=$_POST['FileDoc'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
+            $model->attributes=$_POST['FileDoc'];
+            Yii::log('FileDoc uploadedfile before set from cuploadedfile getinstance: '.$model->uploadedfile, 'warning', 'FileDoc');
+            ////$tempattribute = 'uploadedfile';
+            ////Yii::log('getinstancebyname: '.(CHtml::resolveName($model, $tempattribute)), 'warning', 'FileDoc'); // => "(...) FileDoc[uploadedfile]"
+            $model->uploadedfile=CUploadedFile::getInstance($model,'uploadedfile'); //TODO: what's going on with getInstance and the model and the attribute name??? how is the binding to FileDoc[uploadedfile] specific enough?!?!?!
+            Yii::log('FileDoc uploadedfile after set from cuploadedfile getinstance: '.$model->uploadedfile, 'warning', 'FileDoc');
+            if($model->save())
+            {
+    	        ////Yii::log('file to be saved in path: '.Yii::getPathOfAlias('webroot').'/assets/tempupload/'.$model->uploadedfile->name, 'warning', 'FileDoc');
+                //$model->uploadedfile->saveAs(Yii::getPathOfAlias('webroot').'/assets/tempupload/'.$model->uploadedfile->name); // uncomment and modify if you want to save the file on the filesystem
+                ////Yii::log('FileDoc create action ended with redir', 'warning', 'FileDoc');
+                $this->redirect(array('view','id'=>$model->id)); // redirect to success page
+            }
+        }
 
+        ////Yii::log('FileDoc create action ended', 'warning', 'FileDoc');
 		$this->render('create',array(
 			'model'=>$model,
 		));
+
 	}
 
 	/**
