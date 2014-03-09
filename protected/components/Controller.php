@@ -20,4 +20,47 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+
+	/**
+	 * Our custom redirect. Uses yii's CController's redirect when it is a normal request and
+	 * does a forced javascript redirect when it's an ajax redirect.
+	 *
+	 * @param mixed $url
+	 * @param bool  $terminate
+	 * @param int   $statusCode
+	 */
+	public function redirect($url, $terminate=true, $statusCode=302){
+		if(is_array($url))
+		{
+			$route=isset($url[0]) ? $url[0] : '';
+			$url=$this->createUrl($route,array_splice($url,1));
+		}
+		if(Yii::app()->request->isAjaxRequest){
+			//HTML redirect.
+			echo CHtml::script("window.location.href = '$url';");
+		} else {
+			parent::redirect($url,$terminate,$statusCode);
+		}
+	}
+
+	/**
+	 * Renders a view in a modal.
+	 *
+	 * If the request is an ajax request, this method calls {@link renderPartial} to render the view
+	 * (called content view).
+	 * Otherwise, it calls {@link render} to render the view.
+	 *
+	 * @param string $view name of the view to be rendered. See {@link getViewFile} for details
+	 * about how the view script is resolved.
+	 * @param array $data data to be extracted into PHP variables and made available to the view script
+	 */
+	public function renderModal($view,$data=null){
+		if (Yii::app()->request->isAjaxRequest)
+		{
+			$this->renderPartial($view,$data,false,true);
+			Yii::app()->end();
+		} else {
+			$this->render($view,$data);
+		}
+	}
 }

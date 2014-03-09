@@ -43,8 +43,11 @@ return false;
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
+		'id',
 		'project_id',
-		'data',
+		'file_name',
+		'file_size',
+		'file_data',
 array(
 'class'=>'bootstrap.widgets.TbButtonColumn',
 ),
