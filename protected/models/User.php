@@ -80,6 +80,10 @@ class User extends CActiveRecord
             // Skills and causes
             array('skillset', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Skillset can only includes skills, which must be word characters.'),
             array('skillset', 'normalizeSkillset'),
+
+            // The following rule is used by search().
+            // @todo Please remove those attributes that should not be searched.
+            array('name, email, location', 'safe', 'on'=>'search'),
         );
     }
 
@@ -139,6 +143,33 @@ class User extends CActiveRecord
     public function hashPassword($password)
     {
         return CPasswordHelper::hashPassword($password);
+    }
+
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     *
+     * Typical usecase:
+     * - Initialize the model fields with values from filter form.
+     * - Execute this method to get CActiveDataProvider instance which will filter
+     * models according to data in model fields.
+     * - Pass data provider to CGridView, CListView or any similar widget.
+     *
+     * @return CActiveDataProvider the data provider that can return the models
+     * based on the search/filter conditions.
+     */
+    public function search()
+    {
+            // @todo Please modify the following code to remove attributes that should not be searched.
+
+            $criteria=new CDbCriteria;
+
+            $criteria->compare('name',$this->name, true);
+            $criteria->compare('email',$this->email, true);
+            $criteria->compare('location',$this->location, true);
+
+            return new CActiveDataProvider($this, array(
+                    'criteria'=>$criteria,
+            ));
     }
 
     // The username is an email.
