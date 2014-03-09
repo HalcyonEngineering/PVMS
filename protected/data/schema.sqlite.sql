@@ -129,15 +129,15 @@ CREATE TABLE pvms_onboarding
   CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Table for onboarding documents
+-- Table for files
 CREATE TABLE pvms_file
 (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  project_id INTEGER NOT NULL PRIMARY KEY,
+  project_id INTEGER NOT NULL,
   file_name VARCHAR(256),
   file_size INTEGER,
   file_data BLOB,
-  CONSTRAINT FK_role FOREIGN KEY (project_id) REFERENCES pvms_project (id) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT FK_project FOREIGN KEY (project_id) REFERENCES pvms_project (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Draft', 'PostStatus', 1, 1);
@@ -164,7 +164,7 @@ INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'First Project', 
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'First Role', 'First role created.', '#FFFFFF');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'First Task', 'First task created.');
 INSERT INTO pvms_onboarding(role_id, markdown) VALUES(1,'*this text is bold*');
-INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt','19','This is an example.');
+INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt',19,'This is an example.');
 
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
 INSERT INTO pvms_user_organization(user_id, org_id) VALUES (4,1);
