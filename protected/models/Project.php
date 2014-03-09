@@ -55,7 +55,6 @@ class Project extends CActiveRecord
 		return array(
 			'org' => array(self::BELONGS_TO, 'Organization', 'org_id'),
 			'roles' => array(self::HAS_MANY, 'Role', 'project_id'),
-			'filedocs' => array(self::HAS_MANY, 'FileDoc', 'project_id'),
 		);
 	}
 
