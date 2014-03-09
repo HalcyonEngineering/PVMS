@@ -77,6 +77,10 @@ return array(
 				
 			),
 		),
+	    'request'=>array(
+		    //'enableCsrfValidation'=>true,
+		    'enableCookieValidation'=>true,
+	    ),
 	),
 
 	// application-level parameters that can be accessed

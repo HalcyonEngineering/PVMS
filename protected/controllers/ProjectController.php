@@ -51,18 +51,9 @@ class ProjectController extends Controller
 	 */
 	public function actionView($id)
 	{
-		if (Yii::app()->request->isAjaxRequest)
-		{
-			$this->renderPartial('view',
-			                     array(
-				                     'model'=>$this->loadModel($id),
-			                     ),false,true);
-			Yii::app()->end();
-		} else {
-			$this->render('view',array(
-				'model'=>$this->loadModel($id),
-			));
-			}
+		$this->renderModal('view',
+		                   array('model'=>$this->loadModel($id))
+		);
 	}
 
 	/**
@@ -76,25 +67,13 @@ class ProjectController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		 $this->performAjaxValidation($model);
 
-			if(isset($_POST['Project']))
-			{
-				$model->attributes=$_POST['Project'];
-				if($model->save())
-					$this->redirect(array('view','id'=>$model->id));
-			}
-			if (Yii::app()->request->isAjaxRequest)
-			{
-				$this->renderPartial('create',
-				                     array('model'=>$model,),
-				                     false,
-				                     true);
-				Yii::app()->end();
-			} else {
-
-			$this->render('create',array(
-				'model'=>$model,
-			));
-		}
+		if(isset($_POST['Project']))
+	{
+		$model->attributes=$_POST['Project'];
+		if($model->save())
+			$this->redirect(array('view','id'=>$model->id));
+	}
+		$this->renderModal('create',array('model'=>$model));
 	}
 
 	/**
@@ -129,21 +108,14 @@ class ProjectController extends Controller
 		{
 			$model->attributes=$_POST['Project'];
 			if($model->save())
+			{
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
-		if (Yii::app()->request->isAjaxRequest)
-		{
-			Yii::log("Ajax and project is set.",CLogger::LEVEL_ERROR);
-			$this->renderPartial('update',
-			                     array('model'=>$model,),
-			                     false,
-			                     true);
-			Yii::app()->end();
-		} else {
-			$this->render('update',array(
-				'model'=>$model,
-			));
-		}
+
+		$this->renderModal('update',
+		                   array('model'=>$model)
+		);
 	}
 
 	/**

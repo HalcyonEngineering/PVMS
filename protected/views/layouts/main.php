@@ -44,6 +44,17 @@
 
 <div class="span-19 last">
 <div id="inside-page">
+	<?php $this->beginWidget('bootstrap.widgets.TbModal', array(
+		'id'=>'modal',
+		'options'=>array(
+			'autoOpen'=>false, //important!
+		),
+	));
+	?>
+	<div id="modal-body" class="modal-body"></div>
+
+	<?php $this->endWidget();?>
+
 	<?php echo $content; ?>
 
 

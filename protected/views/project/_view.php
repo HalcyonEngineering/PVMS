@@ -38,8 +38,8 @@
 				                    'type'=>'POST',
 				                    // ajax post will use 'url' specified above
 				                    'url'=>"js:$(this).attr('href')",
-				                    'update'=>'#project-modal-body',
-				                    'complete'=>"$('#project-modal').modal('show')",
+				                    'update'=>'#modal-body',
+				                    'complete'=>"$('#modal').modal('show')",
 			                    ),
 		                    ),
 	                    ));

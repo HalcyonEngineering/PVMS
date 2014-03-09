@@ -18,7 +18,7 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 
 <?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>128)); ?>
 
-<?php echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
+<?php echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span5')); ?>
 
 <?php echo $form->colorpickerRow($model,'colour'); ?>
 
@@ -43,7 +43,7 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 		              'ajaxOptions'=>array(
 			              'type'=>'POST',
 			              // ajax post will use 'url' specified above
-			              'update'=>'#project-modal-body',
+			              'update'=>'#modal-body',
 		              ),
 	              ));
 
