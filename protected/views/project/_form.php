@@ -25,28 +25,13 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 <?php echo $form->datepickerRow($model,'target'); ?>
 
 <div class="form-actions">
+
 <?php
-	//This part below needs to be improved. It's not quite done and pretty hacky.
-	$this->widget('bootstrap.widgets.TbButton',
+	$this->widget('ModalSubmitButton',
 	              array(
-		              'buttonType'=> 'ajaxSubmit',
-		              'label'=>($model->isNewRecord ? 'Create' : 'Save') . " Fancy",
-		              'type' => 'submit',
-		              //url has to be outside ajax options so it doesn't get overwritten.
-		              // YiiBooster doesn't have a check to see if url exists in ajax first.
-		              'url'=>"js:$(this).attr('href')",
-		              'htmlOptions'=>array(
-			              'id'=>'project-submit',
-			              'href' =>Yii::app()->createUrl("project/".($model->isNewRecord ? "create" : "update?id=$model->id")),
-
-		              ),
-		              'ajaxOptions'=>array(
-			              'type'=>'POST',
-			              // ajax post will use 'url' specified above
-			              'update'=>'#modal-body',
-		              ),
-	              ));
-
+		              'label'=>($model->isNewRecord ? 'Create' : 'Save'),
+		              'modelName' => 'project')
+	);
 ?>
 
 </div>
