@@ -25,3 +25,24 @@ array('label'=>'Manage FileDoc','url'=>array('admin')),
 		'file_data',
 ),
 )); ?>
+
+<?php 
+// for educational purposes: alternate simple CHtml button version from http://stackoverflow.com/questions/14189872/yii-chtmlbutton-and-post-request-to-controller
+// also see: http://www.yiiframework.com/wiki/48/by-example-chtml/
+/*echo CHtml::button('Download', array('submit'=>array('FileDoc/download'),
+										'confirm' => 'Download file?',
+										'params'=>array('id'=>$model->id),)); */?>
+
+<?php 
+// bootstrap buttons version.
+$this->widget(
+    'bootstrap.widgets.TbButton',
+    array(
+        'buttonType' => 'submit', // submits form via POST
+        'type' => 'primary', // the chrome of the button
+        'label' => 'download', // text of the button
+        'htmlOptions' => array('submit'=>array('FileDoc/download'), // htmloptions trick got from http://stackoverflow.com/questions/17698065/tbbutton-not-sending-data-in-post-to-the-controller
+    							//'confirm' => 'Download file?',
+    							'params'=>array('id'=>$model->id),),
+        )
+    ); ?>

@@ -1,3 +1,5 @@
+<?php // used by create.php, update.php ?>
+
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'file-doc-form',
 	'enableAjaxValidation'=>false,
