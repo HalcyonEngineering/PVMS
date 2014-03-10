@@ -1,22 +1,12 @@
 <h1>Projects</h1>
 
-<?php $this->widget('bootstrap.widgets.TbButton',
+<?php $this->widget('ModalOpenButton',
                     array(
-	                    'label'=> 'Create Project',
+	                    'id'=>'create-project-btn',
+	                    'url' => Yii::app()->createUrl("project/create"),
+	                    'label' => 'Create Project',
 	                    'type' => 'primary',
-						'id'=>'create-project-btn',
-	                    'htmlOptions'=>array(
-		                    'href' =>Yii::app()->createUrl("project/create"),
-		                    'ajax'=>array(
-			                    'type'=>'POST',
-			                    // ajax post will use 'url' specified above
-			                    'url'=>"js:$(this).attr('href')",
-			                    'update'=>'#modal-body',
-			                    'complete'=>"$('#modal').modal('show')",
-		                    ),
-	                    ),
                     ));
-
 ?>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
