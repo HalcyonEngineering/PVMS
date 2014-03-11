@@ -96,7 +96,7 @@ class User extends CActiveRecord
             'posts' => array(self::HAS_MANY, 'Post', 'author_id'),
             'organizations' => array(self::MANY_MANY, 'Organization', '{{user_organization}}(user_id, org_id)'),
             'roles' => array(self::MANY_MANY, 'Role', '{{user_role}}(user_id, role_id)'),
-            'managedOrg' => array(self::MANY_MANY, 'Organization', '{{organization_manager}}(user_id, org_id)'),
+            'managedOrgs' => array(self::MANY_MANY, 'Organization', '{{organization_manager}}(user_id, org_id)'),
             'sentMessages' => array(self::HAS_MANY, 'Message', 'sender_id'),
             'messages' => array(self::HAS_MANY, 'Message', 'user_id'),
             'notifications' => array(self::HAS_MANY, 'Notification', 'user_id'),
@@ -197,6 +197,10 @@ class User extends CActiveRecord
     public function getFullName() {
         return parent::__get('name');
     }
+
+	public function getManagedOrg(){
+		return $this->managedOrgs[0];
+	}
 
     // Normalizes the manager-entered skillset.
     public function normalizeSkillset($attribute, $params) {
