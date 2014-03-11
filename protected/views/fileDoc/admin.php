@@ -38,18 +38,25 @@ return false;
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-'id'=>'file-doc-grid',
-'dataProvider'=>$model->search(),
-'filter'=>$model,
-'columns'=>array(
-		'id',
-		'project_id',
-		'file_name',
-		'file_size',
-		'file_data',
-array(
-'class'=>'bootstrap.widgets.TbButtonColumn',
-),
-),
-)); ?>
+<?php $this->widget('bootstrap.widgets.TbGridView',array('id'=>'file-doc-grid',
+														'dataProvider'=>$model->search(),
+														'filter'=>$model,
+														'columns'=>array('id',
+																		'project_id',
+																		'file_name',
+																		'file_size',
+																		'file_data',
+																		array('class'=>'bootstrap.widgets.TbButtonColumn', // buttoncolumn customized with documentation at: http://www.yiiframework.com/wiki/106/using-cbuttoncolumn-to-customize-buttons-in-cgridview/
+																				'template'=>'{email}{view}{update}{delete}',
+    																			'buttons'=>array('email' => array('label'=>'Download file',
+																										            'imageUrl'=>Yii::app()->request->baseUrl.'/images/Notificationbutton.png',
+																										            // note: data can be passed over GET like this: 'url'=>'Yii::app()->createUrl("fileDoc/create", array("id"=>$data->id))',
+																									            	'url'=>'Yii::app()->createUrl("fileDoc/download", array("id"=>$data->id))',
+																									            	//'click' => 'js:function() { alert($data->id)); return false;}', // access to data id variable: http://stackoverflow.com/questions/5539526/access-to-the-data-variable-from-buttons-in-cgridview
+																									            	),
+																				            	),
+															            		),
+													            		)
+									            		)
+					); 
+?>
