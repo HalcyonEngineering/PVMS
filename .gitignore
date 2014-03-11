@@ -8,6 +8,7 @@ protected/runtime/*
 !protected/runtime/.gitignore
 !protected/data/*.db
 themes/classic/views/
+yii/demos/blog/assets
 
 # Mac OS X hidden files
 .DS_Store

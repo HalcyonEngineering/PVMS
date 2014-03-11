@@ -2,6 +2,8 @@
 
 class VolunteerController extends Controller
 {
+    public $layout = '//layouts/column2';
+
     public function actionAdd()
     {
         $csvModel = new Csv;
@@ -42,5 +44,17 @@ class VolunteerController extends Controller
             if($skillset!==array())
                 echo implode("\n", $skillset);
         }
+    }
+
+    /**
+     * Searches for volunteers
+     */
+    public function actionSearch()
+    {
+        $model = new User('search');
+        $model->unsetAttributes(); // Clear attributes for search
+
+        if(isset($_GET['User'])) $model->attributes=$_GET['User'];
+        $this->render('search', array('model'=>$model));
     }
 }

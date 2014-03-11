@@ -1,15 +1,4 @@
 <?php
-$this->breadcrumbs=array(
-	'Projects'=>array('index'),
-	'Manage',
-);
-
-$this->menu=array(
-                  array('label'=>'List Project','url'=>array('index')),
-                  array('label'=>'Manage Project','url'=>array('admin')),
-                  array('label'=>'Create Project','url'=>array('create')),
-);
-
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 $('.search-form').toggle();
@@ -42,8 +31,13 @@ return false;
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 'id'=>'project-grid',
 'dataProvider'=>$model->search(),
-'filter'=>$model,
+'selectableRows'=>2,
+//'filter'=>$model,
 'columns'=>array(
+        array(
+            'name' => 'selectedNames',
+            'class' => 'CCheckBoxColumn'
+        ),
 		'id',
 		'org_id',
 		'name',

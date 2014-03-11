@@ -2,29 +2,29 @@
 
 class User extends CActiveRecord
 {
-    /**
-     * This is the model class for table "{{user}}".
-     *
-     * The followings are the available columns in table '{{user}}':
-     * @property integer $id
-     * @property string $name
-     * @property string $password
-     * @property string $email
-     * @property string $location
-     * @property string $skillset
-     * @property string $causes
-     * @property string $type
-     * @property string $profile
-     *
-     * The followings are the available model relations:
-     * @property Messages[] $messages
-     * @property Messages[] $sentMessages
-     * @property Notifications[] $notifications
-     * @property Post[] $posts
-     * @property Organization[] $organizations
-     * @property Organization $managedOrg
-     * @property Role[] $roles
-     */
+   /**
+    * This is the model class for table "{{user}}".
+    *
+    * The followings are the available columns in table '{{user}}':
+    * @property integer $id
+    * @property string $name
+    * @property string $password
+    * @property string $email
+    * @property string $location
+    * @property string $skillset
+    * @property string $causes
+    * @property string $type
+    * @property string $profile
+    *
+    * The followings are the available model relations:
+    * @property Messages[] $messages
+    * @property Messages[] $sentMessages
+    * @property Notifications[] $notifications
+    * @property Post[] $posts
+    * @property Organization[] $organizations
+    * @property Organization $managedOrg
+    * @property Role[] $roles
+    */
 
     public $origPassword;
     public $newPassword;
@@ -80,6 +80,10 @@ class User extends CActiveRecord
             // Skills and causes
             array('skillset', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Skillset can only includes skills, which must be word characters.'),
             array('skillset', 'normalizeSkillset'),
+
+            // The following rule is used by search().
+            // @todo Please remove those attributes that should not be searched.
+            array('name, location, skillset', 'safe', 'on'=>'search'),
         );
     }
 
@@ -139,6 +143,50 @@ class User extends CActiveRecord
     public function hashPassword($password)
     {
         return CPasswordHelper::hashPassword($password);
+    }
+
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     *
+     * Typical usecase:
+     * - Initialize the model fields with values from filter form.
+     * - Execute this method to get CActiveDataProvider instance which will filter
+     * models according to data in model fields.
+     * - Pass data provider to CGridView, CListView or any similar widget.
+     *
+     * @return CActiveDataProvider the data provider that can return the models
+     * based on the search/filter conditions.
+     */
+    public function search()
+    {
+            // @todo Please modify the following code to remove attributes that should not be searched.
+
+            $criteria=new CDbCriteria;
+
+            $criteria->compare('name',$this->name, true);
+            $criteria->compare('email',$this->email, true);
+            $criteria->compare('location',$this->location, true);
+
+            return new CActiveDataProvider($this, array(
+                    'criteria'=>$criteria,
+            ));
+    }
+
+    public function search_volunteers_in_org()//$org_id)
+    {
+            // @todo Please modify the following code to remove attributes that should not be searched.
+
+            $criteria=new CDbCriteria;
+
+            $criteria->compare('id',$this->id);
+            $criteria->compare('name',$this->name, true);
+            $criteria->compare('location',$this->location);
+            $criteria->compare('skillset',$this->skillset, true);
+            //$criteria->compare('type', User::VOLUNTEER, true);
+
+            return new CActiveDataProvider($this, array(
+                    'criteria'=>$criteria,
+            ));
     }
 
     // The username is an email.
