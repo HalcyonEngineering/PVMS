@@ -153,7 +153,7 @@ class OrganizationController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public function actionSearch()
 	{
 		$model=new Organization('search');
 		$model->unsetAttributes();  // clear any default values
