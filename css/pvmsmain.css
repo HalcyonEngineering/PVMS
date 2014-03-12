@@ -1,0 +1,63 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal 10pt Arial,Helvetica,sans-serif;
+	background-color: #F0F0F0;
+}
+
+#inside-page
+{
+	background: #ffffff;
+    margin-left: 0px;
+}
+
+#page
+{
+	background: #F0F0F0;
+    clear:both;
+}
+
+
+#content
+{
+	padding: 20px;
+	top: 160px;
+}
+
+
+#footer
+{
+	padding: 10px;
+	margin: 10px 20px;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: 1px solid #C9E0ED;
+	bottom: 0px;
+}
+
+
+
+
+#logo
+{
+	padding: 10px 20px;
+	font-size: 200%;
+}
+
+
+
+
+
+
+
+
+
+
+
+div.smallNotification
+{
+	color: #000000;
+	text-align:left;
+}

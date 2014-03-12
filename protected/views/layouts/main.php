@@ -4,27 +4,25 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
 
-    <!-- blueprint CSS framework -->
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-    <![endif]-->
+
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-
+<!-- blueprint CSS framework -->
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
+<![endif]-->
 
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/header.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/mainmenu.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/pvmsmain.css" />
     <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon2.ico" type="image/x-icon" />
 </head>
 
 <body>
-
-
-
 
 <div class="container" id="page">
 <div id="header">
@@ -42,8 +40,8 @@
     ?>
 </div><!-- mainmenu -->
 
-<div class="span-19 last">
-<div id="inside-page">
+<div class="span-24 last">
+<div id="inside-page" class="span-22 pull-right last">
 	<?php $this->beginWidget('bootstrap.widgets.TbModal', array(
 		'id'=>'modal',
 		'options'=>array(

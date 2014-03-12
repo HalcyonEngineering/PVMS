@@ -1,26 +1,7 @@
-body
-{
-	margin: 0;
-	padding: 0;
-	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
-	background-color: #F0F0F0;
-}
 
-#page
-{
-	background: #F0F0F0;
-    width: 960px;
-    clear:both;
-}
 
-#inside-page
-{
-    margin: 0px 0 0 7%;
-	background: #ffffff;
-    width: 900px;
 
-}
+
 
 #content
 {
@@ -33,40 +14,6 @@ div.smallNotification
 	color: #000000;
 	text-align:left;
 }
-
-#sidebar
-{	
-	padding: 0px;
-}
-
-#sidebar ul
-{
-	padding:0px 0px 0px 0px;
-	margin:0px;
-}
-
-#sidebar ul li
-{
-	display: block;
-}
-
-#sidebar ul li a
-{
-	color:#1AAB9F;
-	background-color:transparent;
-	font-size:12px;
-	font-weight:bold;
-	text-decoration:none;
- 
-}
-
-#sidebar ul li a:hover, #sidebar ul li.active a
-{
-	color: #1AAB9F;
-	background-color:black;
-	text-decoration:none;
-}
-
 
 #footer
 {
@@ -89,13 +36,6 @@ div.smallNotification
 	margin-right: 10px;
 }
 
-#manager ul li a:hover
-div.flash-error, div.flash-notice, div.flash-success
-{
-	padding:.8em;
-	margin-bottom:1em;
-	border:2px solid #ddd;
-}
 
 div.flash-error
 {
