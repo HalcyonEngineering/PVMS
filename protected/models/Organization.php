@@ -104,11 +104,18 @@ class Organization extends CActiveRecord
 	}
 
 	/**
+	 * @return User The manager of this organization.
+	 */
+	public function getManager(){
+		return $this->managers[0];
+	}
+
+	/**
 	 * @todo Finish checks.
 	 * @param int $id Manager's id.
 	 * @return boolean Whether the user is a manager for this organization.
 	 */
-	public static function isManager($id){
+	public static function isManager($manager_id){
 		return false;
 	}
 }

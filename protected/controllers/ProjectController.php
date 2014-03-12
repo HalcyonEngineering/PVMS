@@ -63,16 +63,17 @@ class ProjectController extends Controller
 	public function actionCreate()
 	{
 		$model=new Project;
-
+		//Sets the org id to equal the org of the user.
+		$model->org_id = Yii::app()->user->managedOrg->id;
 		// Uncomment the following line if AJAX validation is needed
-		 $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Project']))
-	{
-		$model->attributes=$_POST['Project'];
-		if($model->save())
-			$this->redirect(array('view','id'=>$model->id));
-	}
+		{
+			$model->attributes=$_POST['Project'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
 		$this->renderModal('create',array('model'=>$model));
 	}
 

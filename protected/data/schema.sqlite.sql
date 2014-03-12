@@ -155,6 +155,7 @@ INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Complete (Verified
 INSERT INTO pvms_user (name, password, email, type) VALUES ('demo','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 0);
 INSERT INTO pvms_user (name, password, email, type) VALUES ('admin','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin', 0);
 INSERT INTO pvms_user (name, password, email, type) VALUES ('manager','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','manager', 1);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('manager2','$2a$12$MO94I98I9ts.psar1DoMBOxfKAZXciOPDwqUF4UJ8P5hua.my5EPO','manager2', 1);
 INSERT INTO pvms_user (name, password, email, type) VALUES ('volunteer','$2a$12$J1n3OwZasqX3gsMG6TSzvOHEJleCYyWJ/TNAuxOmAoB/zmiBqskeq','volunteer', 2);
 
 INSERT INTO pvms_organization (name, desc) VALUES ('First Org', 'We are the first here.');
@@ -163,12 +164,14 @@ INSERT INTO pvms_organization (name, desc) VALUES ('Second Org', 'We did not fin
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'First Project', 'First project created.','#FFFFFF');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'First Role', 'First role created.', '#FFFFFF');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'First Task', 'First task created.');
+
 INSERT INTO pvms_onboarding(role_id, markdown) VALUES(1,'*this text is bold*');
 INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt',19,'This is an example.');
 
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
-INSERT INTO pvms_user_organization(user_id, org_id) VALUES (4,1);
-INSERT INTO pvms_user_role(user_id, role_id) VALUES (4, 1);
+INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (4, 2);
+INSERT INTO pvms_user_organization(user_id, org_id) VALUES (5,1);
+INSERT INTO pvms_user_role(user_id, role_id) VALUES (5, 1);
 
 CREATE TABLE pvms_csv(csv BLOB);
 CREATE TABLE pvms_skill(skill NOT NULL PRIMARY KEY, frequency INTEGER DEFAULT 1);

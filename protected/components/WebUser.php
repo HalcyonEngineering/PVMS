@@ -33,7 +33,7 @@ class WebUser extends CWebUser {
 		return !$this->isGuest && ($user->type == User::MANAGER);
 	}
 
-	function managedOrg(){
+	function getManagedOrg(){
 		$user = $this->loadUser(Yii::app()->user->id);
 		return $user->managedOrg;
 	}
