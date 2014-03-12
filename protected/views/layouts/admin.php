@@ -9,7 +9,7 @@
                         'type' => 'tabs',
                         'stacked'=>true,
                         'items' => array(
-                                         array('label'=>$organizationsIcon, 'url'=>array('site/page', 'view'=>'projects')),
+                                         array('label'=>$organizationsIcon, 'url'=>array('organization/admin')),
                                          array('label'=>$volunteerIcon, 'url'=>array('site/page', 'view'=>'import')),
                                          ),
                         ));
