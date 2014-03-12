@@ -199,7 +199,11 @@ class User extends CActiveRecord
     }
 
 	public function getManagedOrg(){
-		return $this->managedOrgs[0];
+		if (count($this->managedOrgs) !== 0){
+			return $this->managedOrgs[0];
+		} else {
+			return null;
+		}
 	}
 
     // Normalizes the manager-entered skillset.
