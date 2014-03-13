@@ -3,16 +3,40 @@ body
 	background-color: #F0F0F0;
 }
 
-#page
+#content
 {
-	background: #F0F0F0;
-    clear:both;
+	top: 160px;
+    min-height:450px;
 }
 
-#menu-background
+#header
 {
-    background: #F0F0F0;
-    margin:0px;
+	height:88px;
+}
+
+#header ul
+{
+	padding:25px 0px 16px 0px;
+}
+
+#header ul li a
+{
+	color:#1AAB9F;
+	font-size:15px;
+	text-align: center;
+	font-weight:bold;
+	padding:0px 8px;
+}
+
+#header ul li a:hover 
+{
+	background-color:#282828;
+}
+
+#header ul li a:hover, #mainmenu ul li.active a
+{
+	color: #1AAB9F;
+	background-color:#282828;
 }
 
 #inside-page
@@ -21,9 +45,60 @@ body
     margin-left: 0px;
 }
 
-#content
+#mainmenu
 {
-	top: 160px;
+	top: 85px;
+	background:transparent;
+	position: fixed;
+    width:80px
+}
+
+#mainmenu ul
+{
+	margin:0px;
+    padding:0px;
+}
+
+#mainmenu ul li
+{
+	display: inline;
+}
+
+#mainmenu ul li a
+{
+	color:#1AAB9F;
+	background-color:transparent;
+	font-size:15px;
+	text-align: left;
+	font-weight:bold;
+	text-decoration:none;
+    padding:0px 0px 0px 0px;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+	color: #1AAB9F;
+	background-color:#ffffff;
+	text-decoration:none;
+}
+
+#mainmenu ul li a img
+{
+    width: 60px;
+    height: 60px;
+    padding:10px 10px 10px 10px;
+}
+
+#menu-background
+{
+    background: #F0F0F0;
+    margin:0px;
+}
+
+#page
+{
+	background: #F0F0F0;
+    clear:both;
 }
 
 div.smallNotification
@@ -32,78 +107,14 @@ div.smallNotification
 	text-align:left;
 }
 
-.post
+/*
+* Makes colorpicker show up on top of modal window.
+*/
+.colorpicker
 {
-	margin: 0 0 20px;
+	z-index: 1060;
 }
 
-.post .title
-{
-	font-size: 1.5em;
-	border-bottom: 1px solid #C9E0ED;
-}
-
-.post .title a
-{
-	color: #555;
-	text-decoration: none;
-}
-
-.post .author
-{
-	color: #888;
-	margin: 0 0 5px;
-}
-
-.post .nav
-{
-	-moz-border-radius:7px;
-	padding: 5px;
-	background: #EFFDFF;
-}
-
-.comment
-{
-	-moz-border-radius:7px;
-	padding: 10px;
-	background: #F5F5F5;
-	margin: 5px 0;
-}
-
-.comment .content
-{
-	margin: 10px 0;
-}
-
-.comment .author
-{
-	margin: 5px 0;
-	padding: 0 0 3px;
-	border-bottom: 1px solid #DDD;
-}
-
-.comment .time
-{
-	color: #888;
-	font-size: 0.8em;
-}
-
-.comment a.cid
-{
-	color:#CCC;
-	float:right;
-	font-size:1.5em;
-	font-weight:bold;
-	padding:0 5px 5px 5px;
-	text-decoration: none;
-}
-
-.comment a.cid:hover
-{
-	color:#555;
-}
-
-.comment .pending
-{
-	color:red;
+.navbar-fixed-top{
+position: fixed;
 }

@@ -1,10 +1,10 @@
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
+<!-- begin layout-->
 <div class="container">
-	<div class="span-19">
-		<div id="content">
+	<div id="content" class="span-19">
 			<?php echo $content; ?>
 		</div><!-- content -->
-	</div>
-	</div>
+</div>
+<!-- end layout-->
 <?php $this->endContent(); ?>

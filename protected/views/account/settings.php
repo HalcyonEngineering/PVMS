@@ -3,10 +3,7 @@
 /* @var $model User */
 /* @var $form CActiveForm */
 $this->pageTitle=Yii::app()->name . ' - Settings';
-$this->breadcrumbs=array(
-    'Settings',
-);?>
-
+?>
 
 <?php if(Yii::app()->user->hasFlash('success')): ?>
 
@@ -73,7 +70,7 @@ $this->breadcrumbs=array(
         <?php echo $form->labelEx($model,'adminAccess'); ?>
         <?php echo $form->checkBox($model,'adminAccess'); ?>
 		<?php echo $form->error($model,'adminAccess'); ?>
-    </div
+    </div>
 	
     <div class="row buttons">
         <?php echo CHtml::submitButton('Submit'); ?>
