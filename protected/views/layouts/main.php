@@ -40,7 +40,7 @@
     ?>
 </div><!-- mainmenu -->
 
-<div class="span-24 last">
+<div id="menu-background" class="span-24 last">
 <div id="inside-page" class="span-22 pull-right last">
 	<?php $this->beginWidget('bootstrap.widgets.TbModal', array(
 		'id'=>'modal',
