@@ -47,7 +47,7 @@ class ModalOpenButton extends CWidget{
 		if (isset($this->button_id)){
 			$this->buttonOptions['htmlOptions']['id'] = $this->button_id;
 		} else {
-			$this->buttonOptions['label'] = 'Missing button id.';
+			$this->buttonOptions['label'] = 'Missing button id';
 		}
 	}
 

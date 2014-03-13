@@ -2,7 +2,7 @@
 
 <?php $this->widget('ModalOpenButton',
                     array(
-	                    'id'=>'create-project-btn',
+	                    'button_id'=>'create-project-btn',
 	                    'url' => Yii::app()->createUrl("project/create"),
 	                    'label' => 'Create Project',
 	                    'type' => 'primary',

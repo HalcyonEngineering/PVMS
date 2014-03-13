@@ -12,17 +12,23 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 
 <p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
-<?php echo $form->errorSummary($model); ?>
+<?php
 
-<?php echo $form->textFieldRow($model,'org_id',array('class'=>'span5')); ?>
+echo $form->errorSummary($model);
 
-<?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>128)); ?>
+echo $form->hiddenField($model, 'org_id');
 
-<?php echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span5')); ?>
+/*echo $form->textFieldRow($model,'org_id',array('class'=>'span5'));*/
 
-<?php echo $form->colorpickerRow($model,'colour'); ?>
+echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>128));
 
-<?php echo $form->datepickerRow($model,'target'); ?>
+echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span5'));
+
+echo $form->colorpickerRow($model,'colour');
+
+echo $form->datepickerRow($model,'target');
+
+?>
 
 <div class="form-actions">
 

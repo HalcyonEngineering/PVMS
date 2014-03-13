@@ -148,8 +148,11 @@ class ProjectController extends Controller
 		if(isset($_POST['Project'])){
 			Yii::log("Project set in index.", CLogger::LEVEL_ERROR);
 		}
-
-		$dataProvider=new CActiveDataProvider('Project');
+		$dataCriteria=new CDbCriteria();
+		$dataCriteria->compare('org_id', Yii::app()->user->managedOrg->id);
+		$dataProvider=new CActiveDataProvider('Project',array(
+			'criteria'=>$dataCriteria,
+		));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

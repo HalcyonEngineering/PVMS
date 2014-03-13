@@ -53,19 +53,19 @@ $this->breadcrumbs=array(
 
     <div class="row">
         <?php echo $form->labelEx($model,'origPassword'); ?>
-        <?php echo $form->textField($model,'origPassword'); ?>
+        <?php echo $form->passwordField($model,'origPassword'); ?>
         <?php echo $form->error($model,'origPassword'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'newPassword'); ?>
-        <?php echo $form->textField($model,'newPassword'); ?>
+        <?php echo $form->passwordField($model,'newPassword'); ?>
         <?php echo $form->error($model,'newPassword'); ?>
     </div>
 	
     <div class="row">
         <?php echo $form->labelEx($model,'verifyPassword'); ?>
-        <?php echo $form->textField($model,'verifyPassword'); ?>
+        <?php echo $form->passwordField($model,'verifyPassword'); ?>
         <?php echo $form->error($model,'verifyPassword'); ?>
     </div>
 	
