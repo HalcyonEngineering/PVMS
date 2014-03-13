@@ -149,10 +149,16 @@ class ProjectController extends Controller
 			Yii::log("Project set in index.", CLogger::LEVEL_ERROR);
 		}
 		$dataCriteria=new CDbCriteria();
-		$dataCriteria->compare('org_id', Yii::app()->user->managedOrg->id);
+		if(Yii::app()->user->ManagedOrg != null){
+			$dataCriteria->compare('org_id', Yii::app()->user->managedOrg->id);
+		} else {
+			throw new CHttpException(403, "Not a manager.");
+		}
+
 		$dataProvider=new CActiveDataProvider('Project',array(
 			'criteria'=>$dataCriteria,
 		));
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

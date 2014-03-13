@@ -26,20 +26,10 @@
 <div id="header">
 <?php include('header.php');?>
 </div><!-- header -->
-<div id="mainmenu">
-<?php
-	if (Yii::app()->user->isAdmin()) {
-		include('admin.php');
-	} elseif (Yii::app()->user->isManager()) {
-		include('manager.php');
-	} elseif (Yii::app()->user->isVolunteer()) {
-		include('volunteer.php');
-	}
-    ?>
-</div><!-- mainmenu -->
+
 
 <div id="menu-background" class="span-24 last">
-<div id="inside-page" class="span-22 pull-right last">
+	<!--Begin modal -->
 	<?php $this->beginWidget('bootstrap.widgets.TbModal', array(
 		'id'=>'modal',
 		'options'=>array(
@@ -48,18 +38,31 @@
 	));
 	?>
 	<div id="modal-body" class="modal-body"></div>
+	<?php $this->endWidget();?> <!--End modal-->
 
-	<?php $this->endWidget();?>
+	<div id="mainmenu">
+		<?php
+		if (Yii::app()->user->isAdmin()) {
+			include('admin.php');
+		} elseif (Yii::app()->user->isManager()) {
+			include('manager.php');
+		} elseif (Yii::app()->user->isVolunteer()) {
+			include('volunteer.php');
+		}
+		?>
+	</div><!-- mainmenu -->
+
+<div id="inside-page" class="span-22 pull-right last">
 
 	<?php echo $content; ?>
 
 
-	<div id="footer">
+	<div id="footer" class="clear">
 		Copyright &copy; <?php echo date('Y'); ?> by Halcyon Engineering<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
-</div>
+</div><!--inside-page-->
 </div><!--menu-background -->
 
 </div><!-- page -->

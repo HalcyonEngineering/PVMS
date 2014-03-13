@@ -10,6 +10,6 @@
 	}
 	if(Yii::app()->user->isManager()){
 		echo CHtml::encode('Managing this org:');
-		$this->renderPartial('/organization/_view', array('data' => $model->managedOrg[0]));
+		$this->renderPartial('/organization/_view', array('data' => $model->managedOrg));
 	}
 ?>

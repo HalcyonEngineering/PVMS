@@ -5,13 +5,12 @@ body
 
 #content
 {
-	top: 160px;
     min-height:450px;
 }
 
 #header
 {
-	height:88px;
+	height:87px;
 }
 
 #header ul
@@ -47,7 +46,6 @@ body
 
 #mainmenu
 {
-	top: 85px;
 	background:transparent;
 	position: fixed;
     width:80px
@@ -113,8 +111,4 @@ div.smallNotification
 .colorpicker
 {
 	z-index: 1060;
-}
-
-.navbar-fixed-top{
-position: fixed;
 }

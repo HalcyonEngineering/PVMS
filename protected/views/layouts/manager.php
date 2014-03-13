@@ -14,7 +14,7 @@
                         'type' => 'tabs',
                         'stacked'=>true,
                         'items' => array(
-                                         array('label'=>$projectIcon,'url'=>array('project/admin')),
+                                         array('label'=>$projectIcon,'url'=>array('project/index')),
                                          array('label'=>$managerIcon,'url'=>array('volunteer/search')),
                                          array('label'=>$addVolunteerIcon,'url'=>array('volunteer/add')),
                                          array('label'=>$calendarIcon, 'url'=>array('site/page', 'view'=>'calendar')),

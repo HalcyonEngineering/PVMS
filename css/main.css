@@ -7,13 +7,6 @@ body
 	background-color: #F0F0F0;
 }
 
-#page
-{
-	background: #F0F0F0;
-    clear:both;
-}
-
-
 #content
 {
 	padding: 20px;
@@ -35,21 +28,6 @@ body
 {
 	padding: 10px 20px;
 	font-size: 200%;
-}
-
-
-
-
-#content
-{
-	padding: 20px;
-	top: 160px;
-}
-
-div.smallNotification
-{
-	color: #000000;
-	text-align:left;
 }
 
 #footer
