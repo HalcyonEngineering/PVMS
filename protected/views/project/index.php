@@ -1,4 +1,15 @@
-<h1>Projects</h1>
+<?php
+    $user = Yii::app()->user->name;
+    echo "<h1>";
+    echo "Welcome, ";
+    echo $user;
+    echo "</h1>";
+    ?>
+<p>Here are your projects. You can also create a new project by clicking on the button below</p></br>
+
+
+
+
 
 <?php $this->widget('ModalOpenButton',
                     array(
