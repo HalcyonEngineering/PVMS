@@ -99,6 +99,12 @@ body
     clear:both;
 }
 
+#project-bar
+{
+margin:0;
+height:100%;
+}
+
 div.smallNotification
 {
 	color: #000000;
@@ -111,4 +117,15 @@ div.smallNotification
 .colorpicker
 {
 	z-index: 1060;
+}
+div.view
+{
+margin: 10px 10px;
+height: 200px;
+padding: 0;
+}
+
+.pagination
+{
+clear: both;
 }

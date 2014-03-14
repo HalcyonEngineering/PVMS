@@ -1,4 +1,6 @@
-<div class="view">
+<div class="view span-6">
+<canvas class="span-1 pull-left" id="project-bar" style=<?php echo "background-color:" . CHtml::encode($data->colour).";";?>>
+</canvas>
 
 		<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->name),array('/project/view','id'=>$data->id)); ?>
@@ -12,13 +14,8 @@
 	<?php echo CHtml::encode($data->desc); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('colour')); ?>:</b>
-	<?php echo CHtml::encode($data->colour); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('target')); ?>:</b>
-	<?php echo CHtml::encode($data->target); ?>
-	<br />
+	<?php echo CHtml::encode($data->target);?>	<br />
 
 	<?php
 	$this->widget('ModalOpenButton',
