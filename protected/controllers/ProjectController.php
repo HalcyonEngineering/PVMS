@@ -157,6 +157,7 @@ class ProjectController extends Controller
 
 		$dataProvider=new CActiveDataProvider('Project',array(
 			'criteria'=>$dataCriteria,
+		    'pagination'=>array('pageSize' => 9),
 		));
 
 		$this->render('index',array(

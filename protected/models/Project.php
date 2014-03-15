@@ -39,7 +39,7 @@ class Project extends CActiveRecord
 			array('org_id', 'compare', 'compareValue'=> Yii::app()->user->managedOrg->id,
 			      'message' => 'You must be a manager of this organization to add a project.'),
 			array('name', 'length', 'max'=>128),
-			array('colour', 'length', 'max'=>7),
+			array('colour', 'match', 'pattern'=>'/#[0-9a-fA-F]{6}/'),
 			array('target', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
