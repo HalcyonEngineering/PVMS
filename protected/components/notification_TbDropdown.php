@@ -1,5 +1,7 @@
 <?php
 
+Yii::import('bootstrap.widgets.TbDropdown');
+
 class notification_TbDropdown extends TbDropdown
 {
     /**
@@ -10,81 +12,14 @@ class notification_TbDropdown extends TbDropdown
     public function init()
     {
         parent::init();
-
-        if (isset($this->htmlOptions['class'])) {
-            $this->htmlOptions['class'] .= ' dropdown-menu';
-        } else {
-            $this->htmlOptions['class'] = 'dropdown-menu';
-        }
-    }
-
-    /**
-     *### .renderMenuItem()
-     *
-     * Renders the content of a menu item.
-     * Note that the container and the sub-menus are not rendered here.
-     *
-     * @param array $item the menu item to be rendered. Please see {@link items} on what data might be in the item.
-     *
-     * @return string the rendered item
-     */
-    protected function renderMenuItem($item)
-    {
-        if (isset($item['icon'])) {
-            if (strpos($item['icon'], 'icon') === false && strpos($item['icon'], 'fa') === false) {
-                $item['icon'] = 'icon-' . implode(' icon-', explode(' ', $item['icon']));
-            }
-
-            $item['label'] = '<i class="' . $item['icon'] . '"></i> ' . $item['label'];
-        }
-
-        if (!isset($item['linkOptions'])) {
-            $item['linkOptions'] = array();
-        }
-
-        if (isset($item['items']) && !empty($item['items']) && empty($item['url'])) {
-            $item['url'] = '#';
-        }
-
-        $item['linkOptions']['tabindex'] = -1;
-
-        if (isset($item['url'])) {
-            return CHtml::link($item['label'], $item['url'], $item['linkOptions']);
-        } else {
-            return $item['label'];
-        }
-    }
-
-    /**
-     *### .getDividerCssClass()
-     *
-     * Returns the divider CSS class.
-     * @return string the class name
-     */
-    public function getDividerCssClass()
-    {
-        return 'divider';
-    }
-
-    /**
-     *### .getDropdownCssClass()
-     *
-     * Returns the dropdown css class.
-     * @return string the class name
-     */
-    public function getDropdownCssClass()
-    {
-        return 'dropdown-submenu';
-    }
-
-    /**
-     *### .isVertical()
-     *
-     * Returns whether this is a vertical menu.
-     * @return boolean the result
-     */
-    public function isVertical()
-    {
-        return true;
+        //$notify_criteria=new CDbCriteria;
+        //$notify_criteria->compare('user_id', Yii::app()->user->getId(),true);
+        //The above section is a DBCriteria called "notify_criteria" used to select the notification entities with criteria of having the currently login ID.
+        //$Notification_dataprovider = new CActiveDataProvider('Notification',array('criteria'=>$notify_criteria,));
+        //$notificationIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/Notificationbutton.png', 'notification', array('class'=>'img-circle'));
+        //$this->htmlOptions['class'] .= 'dropdown-menu';
+        //$this->htmlOptions['data-toggle'] .= 'tooltip';
+        //$this->htmlOptions['title'] .= '347';
     }
 }
+

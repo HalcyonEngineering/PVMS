@@ -6,8 +6,8 @@ $Notification_dataprovider = new CActiveDataProvider('Notification',
     array('criteria'=>$notify_criteria,)
 );
 
-$notificationIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/Notificationbutton.png');
-$messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png');
+$notificationIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/Notificationbutton.png', 'notification', array('class'=>'img-circle'));
+$messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png' , 'messages', array('class'=>'img-circle'));
     
 ob_start();
 $this->widget('bootstrap.widgets.TbListView',
@@ -26,6 +26,7 @@ $this->widget(
 	     'collapse' => false, // requires bootstrap-responsive.css
 	     'fixed' => 'top',
 	     'items' => array(
+             array('class' => 'notification_TbDropdown'),
 		     array(
 			     'class' => 'bootstrap.widgets.TbMenu',
 			     'encodeLabel' => false,
@@ -35,9 +36,10 @@ $this->widget(
 				     // This is the Notifications Drop Down Menu
 				     array(
 					     'label' => $notificationIcon,
+                         'itemOptions' => array('data-toggle' => 'tooltip', 'title' => '3'),
 					     'type' => 'primary',
 					     'url' => '#',
-					     'items' => array( array('label' => $nWidget),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION
+					     'items' => array( array('label' => $nWidget,  'itemOptions' => array('data-toggle' => 'tooltip', 'title' => 'testing')),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION
 					                       '---',
 					                       array('label' => 'View All Notifications', 'url' => array('notification/index')),
 					     ),//End notifications drop down menu items
