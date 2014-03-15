@@ -7,29 +7,25 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<?php if(Yii::app()->user->hasFlash('success')): ?>
-
-<div class="flash-success">
-    <?php echo Yii::app()->user->getFlash('success'); ?>
-	<?php $this->widget('bootstrap.widgets.TbAlert', array(
-		'userComponentId' => 'user',
-		'alerts' => array('success'),)
+<?php
+// Render them all with single `TbAlert`
+$this->widget('bootstrap.widgets.TbAlert', array(
+	'block' => true,
+	'fade' => true,
+	'closeText' => '&times;', // false equals no close link
+	'events' => array(),
+	'htmlOptions' => array(),
+	'userComponentId' => 'user',
+	'alerts' => array( // configurations per alert type
+	// success, info, warning, error or danger
+		'success' => array('closeText' => '&times;'),
+		'info', // you don't need to specify full config
+		'warning' => array('block' => false, 'closeText' => false),
+		'error' => array('block' => false)
+		),
 	)
-	?>
-</div>
-<?php endif; ?>
-
-<?php if(Yii::app()->user->hasFlash('error')): ?>
-
-<div class="flash-success">
-    <?php echo Yii::app()->user->getFlash('error'); ?>
-	<?php $this->widget('bootstrap.widgets.TbAlert', array(
-		'userComponentId' => 'user',
-		'alerts' => array('error'),)
-	)
-	?>
-</div>
-<?php endif; ?>
+);
+?>
 
 <h1><?php echo "Forgot your password?"; ?></h1>
 
@@ -57,7 +53,7 @@ $this->breadcrumbs=array(
 	<?php
 		$this->widget(
 		'bootstrap.widgets.TbButton',
-		array('buttonType' => 'submit', 'label' => 'Login')
+		array('buttonType' => 'submit', 'label' => 'Submit')
 		);
 	?>
 </div>
