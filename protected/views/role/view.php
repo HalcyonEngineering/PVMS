@@ -1,31 +1,42 @@
-<?php
-$this->breadcrumbs=array(
-	'Roles'=>array('index'),
-	$model->name,
-);
+<div class="span-9 pull-right" ><!--Buttons-->
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('bootstrap.widgets.TbButton',
+                    array(
+                          'url' => Yii::app()->createUrl("role/index"),
+                          'label' => 'Back to Roles',
+                          ));
+    ?>
+</div>
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('bootstrap.widgets.TbButton',
+                    array(
+                          'url' => Yii::app()->createUrl("project/#"),
+                          'label' => 'Project Doc Repository<NEED LINK>',
+                          ));
+    ?>
+</div>
+</div><!--End of Buttons-->
 
-$this->menu=array(
-array('label'=>'List Role','url'=>array('index')),
-array('label'=>'Create Role','url'=>array('create')),
-array('label'=>'Update Role','url'=>array('update','id'=>$model->id)),
-array('label'=>'Delete Role','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage Role','url'=>array('admin')),
-array('label'=>'Create Task','url'=>array('createTask', 'id'=>$model->id)),
+<h1> <?php echo $model->name; ?></h1>
 
-);
-?>
+<p><?php echo $model->desc; ?></p>
 
-<h1>View Role #<?php echo $model->id; ?></h1>
-
+<h3>Tasks:</h3>
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
 		'id',
 		'project_id',
-		'name',
-		'desc',
 ),
 ));
-
-
 ?>
+
+
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('bootstrap.widgets.TbButton',
+                    array(
+                          'url' => Yii::app()->createUrl("#"),
+                          'label' => 'Save<NEED Functionality>',
+                          ));
+    ?>
+</div>
