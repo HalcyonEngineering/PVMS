@@ -1,18 +1,18 @@
 <?php
-$notify_criteria=new CDbCriteria;
+/*$notify_criteria=new CDbCriteria;
 $notify_criteria->compare('user_id', Yii::app()->user->getId(),true);
 //The above section is a DBCriteria called "notify_criteria" used to select the notification entities with criteria of having the currently login ID.
 $Notification_dataprovider = new CActiveDataProvider('Notification',
     array('criteria'=>$notify_criteria,)
-);
+);*/
 
-$notificationIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/Notificationbutton.png', 'notification', array('class'=>'img-circle'));
+/*$notificationIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/Notificationbutton.png', 'notification', array('class'=>'img-circle'));*/
 $messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png' , 'messages', array('class'=>'img-circle'));
     
-ob_start();
+/*ob_start();
 $this->widget('bootstrap.widgets.TbListView',
     array('dataProvider'=>$Notification_dataprovider, 'itemView'=>'/notification/_notification'));
-$nWidget =  ob_get_clean();
+$nWidget =  ob_get_clean();*/
 //The above widget is used to display a list of notifications in the notification dropdown on the header navbar. Note that at the momment, there are set conditions
 //@TODO Add settings on conditions of displayed notificatons
 
@@ -26,7 +26,6 @@ $this->widget(
 	     'collapse' => false, // requires bootstrap-responsive.css
 	     'fixed' => 'top',
 	     'items' => array(
-             array('class' => 'notification_TbDropdown'),
 		     array(
 			     'class' => 'bootstrap.widgets.TbMenu',
 			     'encodeLabel' => false,
@@ -34,7 +33,7 @@ $this->widget(
 			     'items' => array(
 
 				     // This is the Notifications Drop Down Menu
-				     array(
+		/*		     array(
 					     'label' => $notificationIcon,
                          'itemOptions' => array('data-toggle' => 'tooltip', 'title' => '3'),
 					     'type' => 'primary',
@@ -49,7 +48,7 @@ $this->widget(
 						     'data-placement' => 'top',
 						     'data-content' => "And here's some amazing content. It's very engaging. right?",
 						     'data-toggle' => 'popover'),
-				     ),//End notifications drop down menu
+				     ),//End notifications drop down menu*/
 
 				     // This is the messages Drop Down Menu
 				     array('label' => $messagesIcon,
@@ -82,6 +81,8 @@ $this->widget(
 				           'visible'=>Yii::app()->user->isGuest),//End user login
 			     ),//End menu items.
 		     ),//End TbMenu
+             array('class' => 'notification_TbDropdown',
+                 'htmlOptions' => array('class' =>'pull-right'))
 	     ),//End navbar items.
      )//End navbar
 );//End widget instantiation
