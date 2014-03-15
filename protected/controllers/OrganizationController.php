@@ -160,7 +160,7 @@ class OrganizationController extends Controller
 		if(isset($_GET['Organization']))
 			$model->attributes=$_GET['Organization'];
 
-		$this->render('admin',array(
+		$this->render('search',array(
 			'model'=>$model,
 		));
 	}

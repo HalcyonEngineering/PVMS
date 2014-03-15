@@ -44,21 +44,7 @@ class AccountController extends Controller
 				'You do not have admin access.'
 			);
 		}
-		$this->widget('bootstrap.widgets.TbAlert', array(
-		'block' => true,
-		'fade' => true,
-		'closeText' => '&times;', // false equals no close link
-		'events' => array(),
-		'htmlOptions' => array(),
-		'userComponentId' => 'user',
-		'alerts' => array( // configurations per alert type
-		// success, info, warning, error or danger
-		'success' => array('closeText' => '&times;'),
-		'info', // you don't need to specify full config
-		'warning' => array('block' => false, 'closeText' => false),
-		'error' => array('block' => false, 'closeText' => 'AAARGHH!!')
-),
-));
+		$this->redirect(array('organization/search'));
 	}
 
 	/**

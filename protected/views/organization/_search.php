@@ -5,8 +5,8 @@
 	'method'=>'get',
 )); ?>
 
-<?php echo $form->textFieldRow($model,'name',array('class'=>'span3')); ?>
-<?php echo $form->textFieldRow($model,'managers',array('class'=>'span3')); ?>
+<?php echo $form->textFieldRow($model,'id',array('class'=>'span3')); ?>
+<?php echo $form->textFieldRow($model, 'name',array('class'=>'span3')); ?>
 <?php echo $form->textFieldRow($model,'desc',array('class'=>'span3')); ?>
 
 <div class="form-actions">
