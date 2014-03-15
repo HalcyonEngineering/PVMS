@@ -34,15 +34,30 @@ array('label'=>'Manage FileDoc','url'=>array('admin')),
 										'params'=>array('id'=>$model->id),)); */?>
 
 <?php 
-// bootstrap buttons version.
+
+// bootstrap button post version.
 $this->widget(
     'bootstrap.widgets.TbButton',
+    //GET button
     array(
-        'buttonType' => 'submit', // submits form via POST
+        'buttonType' => 'link',
         'type' => 'primary', // the chrome of the button
         'label' => 'download', // text of the button
-        'htmlOptions' => array('submit'=>array('FileDoc/download'), // htmloptions trick got from http://stackoverflow.com/questions/17698065/tbbutton-not-sending-data-in-post-to-the-controller
-    							//'confirm' => 'Download file?',
-    							'params'=>array('id'=>$model->id),),
+        'url'=>Yii::app()->createUrl("fileDoc/download", array("id"=>$model->id)),
+        'htmlOptions' => array('confirm' => 'Download file?',
+                                'target'=>'_blank',
+                                ),
         )
+    
+    // for educational purposes: alternate TbButton POST version 
+    /*array(
+    'buttonType' => 'submit',
+    'type' => 'primary', // the chrome of the button
+    'label' => 'download', // text of the button
+    'htmlOptions' => array('submit'=>array('FileDoc/download'), // htmloptions trick got from http://stackoverflow.com/questions/17698065/tbbutton-not-sending-data-in-post-to-the-controller
+                            'confirm' => 'Download file?',
+                            'params'=>array('id'=>$model->id), //POST parameter
+                            ),
+    )*/
+    
     ); ?>

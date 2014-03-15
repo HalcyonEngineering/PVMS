@@ -92,7 +92,7 @@ class FileDocController extends Controller
 
 	public function actionDownload()
 	{
-		$id = $_POST['id'];
+		$id = /*$_GET['id'];*/ $_POST['id']; //we used to do this over POST, but there are instances where it's hard to do POST, so we use GET
 		Yii::log('downloadmodel input: id:'.$id, 'warning', 'FileDoc');
 
 		$dataProvider=new CActiveDataProvider('FileDoc', array('criteria'=>array('condition'=>'id='.$id,),));
