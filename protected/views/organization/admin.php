@@ -1,14 +1,4 @@
 <?php
-$this->breadcrumbs=array(
-	'Organizations'=>array('index'),
-	'Manage',
-);
-
-$this->menu=array(
-                  array('label'=>'List Organization','url'=>array('index')),
-                  array('label'=>'Manage Organization','url'=>array('admin')),
-                  array('label'=>'Create Organization','url'=>array('create')),
-);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -25,11 +15,7 @@ return false;
 ?>
 <?php
     $user = Yii::app()->user->name;
-    echo "<h1>";
-    echo "Welcome, ";
-    echo $user;
-    echo "!";
-    echo "</h1>";
+    echo "<h1>Welcome, ".$user."!</h1>";
 ?>
 <p>Here are all the organizations that are using Pitch'n's Management Dashboard.</p>
 <br>

@@ -1,5 +1,4 @@
 <?php
-
 // Make sure you change yiiGridView.update js BELOW!
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

@@ -160,7 +160,7 @@ class FileDocController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('FileDoc');
-		$this->render('index',array(
+		$this->renderModal('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
