@@ -50,8 +50,8 @@ return false;
 																			'template'=>'{download}{view}{update}{delete}',
 																			'buttons'=>array('download' => array('label'=>'Download file',
 																									            'imageUrl'=>Yii::app()->request->baseUrl.'/images/downloadSmall.png',
-																												//TODO: this would probably be better going through the 'icon' property (to go through the framework)
-																								            	'url'=>'Yii::app()->createUrl("fileDoc/download", array("id"=>$data->id))', //passes data over GET
+																												'icon' => 'circle-arrow-down', 
+																												'url'=>'Yii::app()->createUrl("fileDoc/download", array("id"=>$data->id))', //passes data over GET
 																								            	//'click' => 'js:function() { alert($data->id)); return false;}', // example of how we can't access data id variable outside 'url' (note: disregard the bad advice at http://stackoverflow.com/questions/5539526/access-to-the-data-variable-from-buttons-in-cgridview )
 																										       	//'options'=> array(
 																										       					// CHtml post style. Problems: no access to $data

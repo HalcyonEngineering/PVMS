@@ -36,7 +36,7 @@ class FileDocController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','partialfilelister'), //TODO: REMOVE THIS TEMP CODE
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -92,7 +92,7 @@ class FileDocController extends Controller
 
 	public function actionDownload()
 	{
-		$id = /*$_GET['id'];*/ $_POST['id']; //we used to do this over POST, but there are instances where it's hard to do POST, so we use GET
+		$id = $_GET['id']; // $_POST['id']; //we used to do this over POST, but there are instances where it's hard to do POST, so we use GET
 		Yii::log('downloadmodel input: id:'.$id, 'warning', 'FileDoc');
 
 		$dataProvider=new CActiveDataProvider('FileDoc', array('criteria'=>array('condition'=>'id='.$id,),));
@@ -160,7 +160,7 @@ class FileDocController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('FileDoc');
-		$this->render('index',array(
+		$this->renderModal('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
@@ -177,6 +177,19 @@ class FileDocController extends Controller
 
 		$this->render('admin',array(
 			'model'=>$model,
+		));
+	}
+
+	/**
+	 * View all FileDocs for the project id set here
+	 */
+	public function actionPartialfilelister()
+	{
+		$projectid = 2; //projectid: hardcoded for now
+		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$projectid,),));
+		$this->render('partialfilelister',array(
+			'projectid'=>$projectid,
+			'dataProvider'=>$dataProvider,
 		));
 	}
 
