@@ -139,8 +139,9 @@ clear: both;
 	position: fixed;
 }
 
-.tooltip-inner
+#notification-menu a .tooltip-inner
 {
+    min-width:20px;
 	max-width:200px;
 	padding:4px 4px;
 	color:#ffffff;
@@ -150,10 +151,11 @@ clear: both;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
 	border-radius:5px;
-	position: center;
+	position: relative;
 }
 
-.tooltip.top .tooltip-arrow
+/*, #notification-menu a .tooltip.top .tooltip-arrow*/
+#notification-menu .tooltip.top .tooltip-arrow
 {
 	bottom:0;
 	margin-left:-5px;

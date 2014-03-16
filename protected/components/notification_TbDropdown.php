@@ -30,14 +30,10 @@ class notification_TbDropdown extends TbMenu
 
 
         $this->encodeLabel = false;
-       /* $this->htmlOptions['id'] = 'notification-menu';
-        $this->htmlOptions['data-toggle'] = 'tooltip';
-        $this->htmlOptions['title'] = $this->count;
-        $this->htmlOptions['data-trigger'] = 'manual';
-        $this->htmlOptions['data-placement'] = 'top';*/
+
         $this->items = array(array(
             'label' => $notificationIcon,
-            'itemOptions' => array(/*'data-toggle' => 'tooltip',*/ /*'title' =>  $this->count, 'data-trigger' => 'manual', 'data-placement' => 'top', */'id' => 'notification-menu'),
+            'itemOptions' => array('id' => 'notification-menu'),
             'type' => 'primary',
             'url' => '#',
             'items' => array( array('label' => $nWidget),   //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION
