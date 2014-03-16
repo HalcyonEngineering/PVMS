@@ -1,5 +1,3 @@
-<?php echo 'partial view. Projectid: '.$projectid; ?>
-
 <?php $this->widget('bootstrap.widgets.TbGridView',array('id'=>'file-doc-grid',
 														'dataProvider'=>$dataProvider,
 														'columns'=>array(//'id',

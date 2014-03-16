@@ -32,11 +32,11 @@ class FileDocController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','download'),
+				'actions'=>array('create','update','download','listFiles','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','partialfilelister'), //TODO: REMOVE THIS TEMP CODE
+				'actions'=>array('admin'), //TODO: REMOVE THIS TEMP CODE
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -181,16 +181,12 @@ class FileDocController extends Controller
 	}
 
 	/**
-	 * View all FileDocs for the project id set here
+	 * Render a modal showing all FileDocs for the project id passed in
 	 */
-	public function actionPartialfilelister()
+	public function actionListFiles($projectid)
 	{
-		$projectid = 2; //projectid: hardcoded for now
 		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$projectid,),));
-		$this->render('partialfilelister',array(
-			'projectid'=>$projectid,
-			'dataProvider'=>$dataProvider,
-		));
+		$this->renderModal('_files',array('dataProvider'=>$dataProvider,));
 	}
 
 	/**

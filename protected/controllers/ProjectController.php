@@ -51,8 +51,9 @@ class ProjectController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->renderModal('view',
-		                   array('model'=>$this->loadModel($id))
+		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$id,),));
+		$this->render('view', array('model'=>$this->loadModel($id),
+		                   		'dataProvider'=>$dataProvider,)
 		);
 	}
 

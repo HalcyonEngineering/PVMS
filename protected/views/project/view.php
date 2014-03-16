@@ -8,15 +8,14 @@
     ?>
 </div>
 <div class="span-3" style="padding:5px;" >
-
 <?php $this->widget('ModalOpenButton',
                     array(
-                          'button_id'=>'project-doc-repo-btn',
-                          'url' => Yii::app()->createUrl("fileDoc/Index"),
-                          'label' => 'Project Doc Repository',
-                          'type' => 'common',
-                          ));
-    ?>
+                      'button_id'=>'list-files-btn',
+                      'url' => Yii::app()->createUrl("fileDoc/listFiles",array("projectid"=>$model->id)),
+                      'label' => 'View files in project',
+                      'type' => 'common',
+                    ));
+?>
 </div>
 </div><!--End of Buttons-->
 
@@ -48,4 +47,3 @@
                           ));
     ?>
 </div>
-
