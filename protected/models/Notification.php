@@ -37,7 +37,7 @@ class Notification extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, user_id, description, timestamp, link', 'safe', 'on'=>'search'),
-            array('timestamp','default', 'value'=>new CDbExpression('NOW()'),
+            array('timestamp','default', 'value'=>time(),
                   'setOnEmpty'=>false,'on'=>'insert')
 		);
 	}

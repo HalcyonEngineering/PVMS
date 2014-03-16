@@ -8,10 +8,6 @@
 	<?php echo CHtml::encode($data->timestamp); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('source')); ?>:</b>
-	<?php echo CHtml::encode($data->source); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('link')); ?>:</b>
 	<?php echo CHtml::encode($data->link); ?>
 	<br />

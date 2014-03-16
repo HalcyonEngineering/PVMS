@@ -11,10 +11,6 @@
 
 	<?php echo $form->textFieldRow($model,'description',array('class'=>'span5','maxlength'=>128)); ?>
 
-	<?php echo $form->textFieldRow($model,'timestamp',array('class'=>'span5')); ?>
-
-	<?php echo $form->textFieldRow($model,'source',array('class'=>'span5','maxlength'=>128)); ?>
-
 	<?php echo $form->textFieldRow($model,'link',array('class'=>'span5','maxlength'=>128)); ?>
 
 <div class="form-actions">
