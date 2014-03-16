@@ -26,22 +26,27 @@ return false;
 
 <?php 
 
+echo CHtml::beginForm();
+
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'user-search-grid',
-    'dataProvider'=>$model->search_volunteers_in_org(),
+    // Need to make sure only volunteers in manager's org show up
+    'dataProvider'=>$model->search_volunteers_in_org(Yii::app()->user->getManagedOrg()),
     'selectableRows' => 2,
     //'filter'=>$model,
     'columns'=>array(
-        array(
-            'name' => 'selectedNames',
-            'class' => 'CCheckBoxColumn'
-        ),
-        'name',
-        'email',
-        array(
-            'class'=>'bootstrap.widgets.TbButtonColumn',
+            array(
+                'id' => 'selectedIds',
+                'class' => 'CCheckBoxColumn'
+            ),
+            'email',
+            array(
+                'class'=>'bootstrap.widgets.TbButtonColumn',
             ),
         ),
 )); 
+
+echo CHtml::submitButton('Submit', array('name'=>'EmailVolunteersButton', 'submit'=>'email'));
+echo CHtml::endForm();
 
 ?>

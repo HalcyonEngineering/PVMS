@@ -172,7 +172,7 @@ class User extends CActiveRecord
             ));
     }
 
-    public function search_volunteers_in_org()//$org_id)
+    public function search_volunteers_in_org($org)
     {
             // @todo Please modify the following code to remove attributes that should not be searched.
 
@@ -182,7 +182,15 @@ class User extends CActiveRecord
             $criteria->compare('name',$this->name, true);
             $criteria->compare('location',$this->location);
             $criteria->compare('skillset',$this->skillset, true);
-            //$criteria->compare('type', User::VOLUNTEER, true);
+
+            // User has to be a volunteer
+            $criteria->compare('type', User::VOLUNTEER, true);
+
+            // User's organizations[] must have one that matches $org
+            // Join the user table with the organization table
+            // $criteria->with = array('email', 'organizations');
+            $criteria->together = true;
+            //$criteria->compare('organizations', $org->name, true);
 
             return new CActiveDataProvider($this, array(
                     'criteria'=>$criteria,
