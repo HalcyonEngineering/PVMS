@@ -49,6 +49,7 @@ class Organization extends CActiveRecord
 		return array(
 			'managers' => array(self::MANY_MANY, 'User', '{{organization_manager}}(org_id, user_id)'),
 			'projects' => array(self::HAS_MANY, 'Project', 'org_id'),
+			
 			'users' => array(self::MANY_MANY, 'User', '{{user_organization}}(org_id, user_id)'),
 		);
 	}
@@ -104,11 +105,22 @@ class Organization extends CActiveRecord
 	}
 
 	/**
+	 * @return User The manager of this organization.
+	 */
+	public function getManager(){
+		if (count($this->managers) !== 0){
+			return $this->managers[0];
+		} else {
+			return null;
+		}
+	}
+
+	/**
 	 * @todo Finish checks.
 	 * @param int $id Manager's id.
 	 * @return boolean Whether the user is a manager for this organization.
 	 */
-	public static function isManager($id){
+	public static function isManager($manager_id){
 		return false;
 	}
 }

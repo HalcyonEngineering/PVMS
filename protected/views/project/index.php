@@ -1,25 +1,20 @@
-<h1>Projects</h1>
+<?php
+    $user = Yii::app()->user->name;
+    echo "<h1>Welcome, ". $user ."</h1>";
+    ?>
+<p>Here are your projects. You can also create a new project by clicking on the button below</p></br>
 
-<?php $this->widget('bootstrap.widgets.TbButton',
+<?php $this->widget('ModalOpenButton',
                     array(
-	                    'label'=> 'Create Project',
+	                    'button_id'=>'create-project-btn',
+	                    'url' => Yii::app()->createUrl("project/create"),
+	                    'label' => 'Create Project',
 	                    'type' => 'primary',
-						'id'=>'create-project-btn',
-	                    'htmlOptions'=>array(
-		                    'href' =>Yii::app()->createUrl("project/create"),
-		                    'ajax'=>array(
-			                    'type'=>'POST',
-			                    // ajax post will use 'url' specified above
-			                    'url'=>"js:$(this).attr('href')",
-			                    'update'=>'#modal-body',
-			                    'complete'=>"$('#modal').modal('show')",
-		                    ),
-	                    ),
                     ));
-
 ?>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
+'template'=>"{pager}\n{items}\n{pager}",
 )); ?>

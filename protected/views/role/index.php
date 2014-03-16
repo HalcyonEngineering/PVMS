@@ -1,17 +1,12 @@
 <?php
-$this->breadcrumbs=array(
-	'Roles',
-);
+    $user = Yii::app()->user->name;
+    echo "<h1>Welcome, ". $user ."</h1>";
+    ?>
+<p>Here are your roles.</p></br>
 
-$this->menu=array(
-array('label'=>'Create Role','url'=>array('create')),
-array('label'=>'Manage Role','url'=>array('admin')),
-);
-?>
-
-<h1>Roles</h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
+'template'=>"{pager}\n{items}\n{pager}",
 )); ?>

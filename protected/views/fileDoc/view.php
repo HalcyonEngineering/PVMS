@@ -25,3 +25,39 @@ array('label'=>'Manage FileDoc','url'=>array('admin')),
 		'file_data',
 ),
 )); ?>
+
+<?php 
+// for educational purposes: alternate simple CHtml button version from http://stackoverflow.com/questions/14189872/yii-chtmlbutton-and-post-request-to-controller
+// also see: http://www.yiiframework.com/wiki/48/by-example-chtml/
+/*echo CHtml::button('Download', array('submit'=>array('FileDoc/download'),
+										'confirm' => 'Download file?',
+										'params'=>array('id'=>$model->id),)); */?>
+
+<?php 
+
+// bootstrap button post version.
+$this->widget(
+    'bootstrap.widgets.TbButton',
+    //GET button
+    array(
+        'buttonType' => 'link',
+        'type' => 'primary', // the chrome of the button
+        'label' => 'download', // text of the button
+        'url'=>Yii::app()->createUrl("fileDoc/download", array("id"=>$model->id)),
+        'htmlOptions' => array('confirm' => 'Download file?',
+                                'target'=>'_blank',
+                                ),
+        )
+    
+    // for educational purposes: alternate TbButton POST version 
+    /*array(
+    'buttonType' => 'submit',
+    'type' => 'primary', // the chrome of the button
+    'label' => 'download', // text of the button
+    'htmlOptions' => array('submit'=>array('FileDoc/download'), // htmloptions trick got from http://stackoverflow.com/questions/17698065/tbbutton-not-sending-data-in-post-to-the-controller
+                            'confirm' => 'Download file?',
+                            'params'=>array('id'=>$model->id), //POST parameter
+                            ),
+    )*/
+    
+    ); ?>

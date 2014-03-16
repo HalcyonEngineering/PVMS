@@ -32,7 +32,7 @@ class FileDocController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','download'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -56,6 +56,10 @@ class FileDocController extends Controller
 		));
 	}
 
+	/**
+ 	 * Creates a new model.
+ 	 * If creation is successful, the browser will be redirected to the 'view' page.
+ 	 */
 	public function actionCreate()
 	{
 		////Yii::log('FileDoc create action begun', 'warning', 'FileDoc');
@@ -84,6 +88,25 @@ class FileDocController extends Controller
 			'model'=>$model,
 		));
 
+	}
+
+	public function actionDownload()
+	{
+		$id = /*$_GET['id'];*/ $_POST['id']; //we used to do this over POST, but there are instances where it's hard to do POST, so we use GET
+		Yii::log('downloadmodel input: id:'.$id, 'warning', 'FileDoc');
+
+		$dataProvider=new CActiveDataProvider('FileDoc', array('criteria'=>array('condition'=>'id='.$id,),));
+		$model = $dataProvider->getData()[0];
+		Yii::log('downloadmodel db: id:'.$model->id, 'warning', 'FileDoc');
+		Yii::log('downloadmodel db: file_name:'.$model->file_name, 'warning', 'FileDoc');
+		Yii::log('downloadmodel db: file_size:'.$model->file_size, 'warning', 'FileDoc');
+		Yii::log('downloadmodel db: file_data:'.$model->file_data, 'warning', 'FileDoc');
+
+		//echo CHtml::script("window.alert('id is: ".$id."');"); //works: this is how you create a popup
+		// note: documentation on sendFile: http://www.yiiframework.com/doc/api/1.1/CHttpRequest#sendFile-detail
+		Yii::app()->getRequest()->sendFile($model->file_name,$model->file_data); //TODO: put actual useful file data here //getRequest returns the request component of Yii
+		
+		//Yii::log('download: after workhorse code', 'warning', 'FileDoc'); //NOTE: it seems like nothing after the sendFile gets reached due to terminate (?)
 	}
 
 	/**

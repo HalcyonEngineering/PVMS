@@ -36,7 +36,7 @@ class Role extends CActiveRecord
 			array('project_id', 'numerical', 'integerOnly'=>true),
 			array('project_id', 'exist', 'className' => 'Project', 'attributeName'=>'id'),
 			array('name', 'length', 'max'=>128),
-			array('colour', 'length', 'max'=>7),
+			array('colour', 'match', 'pattern'=>'/#[0-9a-fA-F]{6}/'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, project_id, name, desc', 'safe', 'on'=>'search'),

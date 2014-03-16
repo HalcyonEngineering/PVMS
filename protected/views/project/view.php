@@ -1,13 +1,45 @@
-<h1>View Project #<?php echo $model->id; ?></h1>
+<div class="span-9 pull-right" ><!--Buttons-->
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('bootstrap.widgets.TbButton',
+                    array(
+                          'url' => Yii::app()->createUrl("project/index"),
+                          'label' => 'Back to Projects',
+                          ));
+    ?>
+</div>
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('bootstrap.widgets.TbButton',
+                    array(
+                          'url' => Yii::app()->createUrl("project/#"),
+                          'label' => 'Project Doc Repository<NEED LINK>',
+                          ));
+    ?>
+</div>
+</div><!--End of Buttons-->
+
+<h1> <?php echo $model->name; ?></h1>
+
+<p><?php echo $model->desc; ?> </p>
+
+<p> <?php $target = $model->target; if ($target!=null)echo "Target Date: ".$model->target; ?> </p>
+
+<h3> Volunteers and Roles</h3>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
 		'id',
 		'org_id',
-		'name',
-		'desc',
         'colour',
-        'target',
 ),
 )); ?>
+
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('bootstrap.widgets.TbButton',
+                    array(
+                          'url' => Yii::app()->createUrl("#"),
+                          'label' => 'Add Role<NEED LINK>',
+                          ));
+    ?>
+</div>
+

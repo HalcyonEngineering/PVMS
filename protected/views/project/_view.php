@@ -1,48 +1,30 @@
-<div class="view">
+<div class="view span-6">
+	<div class="tile" style=<?php echo "border-color:" . CHtml::encode($data->colour).";";?>>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('/project/view','id'=>$data->id)); ?>
-	<br />
+		<!--<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>-->
+		<h3><b><?php echo CHtml::link(CHtml::encode($data->name),array('/project/view','id'=>$data->id)); ?></b></h3>
+		<br />
 
-	<b><?php echo CHtml::encode("Organization " . $data->org->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->org->name), array('/organization/view', 'id'=>$data->org->id)); ?>
-	<br />
+	    <!--<b><?php echo CHtml::encode($data->getAttributeLabel('desc')); ?>:</b>-->
+	    <?php echo CHtml::encode($data->desc); ?>
+	    <br />  <br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
-	<br />
+		<!--<b><?php echo CHtml::encode("Organization " . $data->org->getAttributeLabel('name')); ?>:</b>
+		<?php echo CHtml::link(CHtml::encode($data->org->name), array('/organization/view', 'id'=>$data->org->id)); ?>
+		<br />  <br />-->
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('desc')); ?>:</b>
-	<?php echo CHtml::encode($data->desc); ?>
-	<br />
+		<b><?php echo CHtml::encode($data->getAttributeLabel('target')); ?>:</b>
+		<?php echo CHtml::encode($data->target);?>	<br /><br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('colour')); ?>:</b>
-	<?php echo CHtml::encode($data->colour); ?>
-	<br />
+		<?php
+		$this->widget('ModalOpenButton',
+		              array('label' => 'Edit Project',
+		                    'type' => 'link',
+		                    'button_id'=>'edit-project-'.$data->id,
+		                    'url' => Yii::app()->createUrl("project/update", array("id"=>$data->id))
+		              )
+		);
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('target')); ?>:</b>
-	<?php echo CHtml::encode($data->target); ?>
-	<br />
-
-	<?php $this->widget('bootstrap.widgets.TbButton',
-	                    array(
-		                    'label'=> 'Edit Project',
-		                    'type' => 'primary',
-
-		                    'htmlOptions'=>array(
-			                    //Generate a unique id for each button.
-			                    //Required to prevent id conflicts with the modal window.
-			                    'id'=>'edit-project-'.$data->id,
-			                    'href' => Yii::app()->createUrl("project/update", array("id"=>$data->id)),
-			                    'ajax'=>array(
-				                    'type'=>'POST',
-				                    // ajax post will use 'url' specified above
-				                    'url'=>"js:$(this).attr('href')",
-				                    'update'=>'#modal-body',
-				                    'complete'=>"$('#modal').modal('show')",
-			                    ),
-		                    ),
-	                    ));
-
-	?>
+		?>
+	</div>
 </div>

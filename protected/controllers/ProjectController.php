@@ -63,16 +63,17 @@ class ProjectController extends Controller
 	public function actionCreate()
 	{
 		$model=new Project;
-
+		//Sets the org id to equal the org of the user.
+		$model->org_id = Yii::app()->user->managedOrg->id;
 		// Uncomment the following line if AJAX validation is needed
-		 $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Project']))
-	{
-		$model->attributes=$_POST['Project'];
-		if($model->save())
-			$this->redirect(array('view','id'=>$model->id));
-	}
+		{
+			$model->attributes=$_POST['Project'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
 		$this->renderModal('create',array('model'=>$model));
 	}
 
@@ -147,8 +148,18 @@ class ProjectController extends Controller
 		if(isset($_POST['Project'])){
 			Yii::log("Project set in index.", CLogger::LEVEL_ERROR);
 		}
+		$dataCriteria=new CDbCriteria();
+		if(Yii::app()->user->ManagedOrg != null){
+			$dataCriteria->compare('org_id', Yii::app()->user->managedOrg->id);
+		} else {
+			throw new CHttpException(403, "Not a manager.");
+		}
 
-		$dataProvider=new CActiveDataProvider('Project');
+		$dataProvider=new CActiveDataProvider('Project',array(
+			'criteria'=>$dataCriteria,
+		    'pagination'=>array('pageSize' => 9),
+		));
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

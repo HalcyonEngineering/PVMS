@@ -23,11 +23,18 @@ return false;
 });
 ");
 ?>
-
-<h1>Manage Organizations</h1>
-
-<p>
-	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
+<?php
+    $user = Yii::app()->user->name;
+    echo "<h1>";
+    echo "Welcome, ";
+    echo $user;
+    echo "!";
+    echo "</h1>";
+?>
+<p>Here are all the organizations that are using Pitch'n's Management Dashboard.</p>
+<br>
+<br>
+<p>	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
 		&lt;&gt;</b>
 	or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
 </p>

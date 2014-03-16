@@ -2,7 +2,7 @@
 
 class AccountController extends Controller
 {
-	public $layout = 'column1';
+	public $layout = 'column2';
 	public $defaultAction = 'login';
 
 	/**
@@ -23,19 +23,42 @@ class AccountController extends Controller
 	*/
 	public function actionAdminLogin($userID) {
 	// First check that the manager has allowed admin access
-		if (User::model()->findByPk($userID)->adminAccess == 1) { 
-			if (Yii::app()->user->isAdmin()) {
+		$user = Yii::app()->getComponent('user');
+		if (Yii::app()->user->isAdmin()) { 
+			if (User::model()->findByPk($userID)->adminAccess == 1) {
 				$identity = new AccessIdentity($userID, new UserIdentity('admin', 'admin'));
 				Yii::app()->user->login($identity);
+				Yii::app()->user->setAdminAccess();
 				$this->redirect(Yii::app()->user->returnUrl);
 			}
 			else {
-				echo "Not an admin";
+				$user->setFlash(
+					'error',
+					'Manager has not enabled admin access.'
+				);
 			}
 		}
 		else {
-			echo "Manager has not enabled admin access";
+			$user->setFlash(
+				'error',
+				'You do not have admin access.'
+			);
 		}
+		$this->widget('bootstrap.widgets.TbAlert', array(
+		'block' => true,
+		'fade' => true,
+		'closeText' => '&times;', // false equals no close link
+		'events' => array(),
+		'htmlOptions' => array(),
+		'userComponentId' => 'user',
+		'alerts' => array( // configurations per alert type
+		// success, info, warning, error or danger
+		'success' => array('closeText' => '&times;'),
+		'info', // you don't need to specify full config
+		'warning' => array('block' => false, 'closeText' => false),
+		'error' => array('block' => false, 'closeText' => 'AAARGHH!!')
+),
+));
 	}
 
 	/**
@@ -104,7 +127,37 @@ class AccountController extends Controller
 
 	public function actionReset()
 	{
-		$this->render('reset');
+		$model = new User('register');
+		//If email is supplied
+		if (isset($_POST['User'])) {
+			$model->attributes = $_POST['User'];
+			if(User::model()->findByAttributes(array('email' => $model->email)) != null){
+				Yii::app()->user->setFlash('success', 'Password reset email sent to ' . $model->email);
+				
+				$mail = new Mail;
+				
+				$mail->name = 'pitchn@pitchn.ca';
+				$mail->subject = "Pitch'n - Password Reset";
+				$mail->email = 'pitchn@pitchn.ca';
+				$mail->Remail = $model->email;
+				$mail->body = "Please follow the link below to reset your password.";
+				
+				$name='=?UTF-8?B?'.base64_encode($mail->name).'?=';
+				$subject='=?UTF-8?B?'.base64_encode($mail->subject).'?=';
+				$headers="From: $name <{$mail->email}>\r\n".
+					"Reply-To: {$mail->email}\r\n".
+					"MIME-Version: 1.0\r\n".
+					"Content-Type: text/plain; charset=UTF-8";
+
+				if(mail($mail->Remail,$subject,$mail->body,$headers)){
+					Yii::app()->user->setFlash('contact','Your mail has been sent');
+				}
+			}
+			else{
+				Yii::app()->user->setFlash('error', 'No account exists with the provided email.');
+			}
+		}
+		$this->render('reset', array ('model' => $model));
 	}
 
 	public function actionSettings()
