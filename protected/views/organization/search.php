@@ -77,7 +77,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 			),
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
-			'template'=>'{adminAccess} {disable} {remove}',
+			'template'=>'{adminAccess} {disable} {remove} {delete}',
 			'buttons'=> array(
 				'adminAccess' => array(
 					'label' => 'Log in',
@@ -88,6 +88,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 				),
 				'remove' => array(
 					'label' => 'Remove',
+					'url' => 'Yii::app()->createUrl("organization/delete", array("id"=>$data->id))',
 				)
             ),
         ),
