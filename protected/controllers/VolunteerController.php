@@ -55,6 +55,34 @@ class VolunteerController extends Controller
         $model->unsetAttributes(); // Clear attributes for search
 
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
+
+        if (isset($_POST['EmailVolunteersButton']))
+        {
+            if (isset($_POST['selectedIds']))
+            {
+                foreach ($_POST['selectedIds'] as $id)
+                {
+                    Yii::trace("user id: $id");
+                    //$comment = $this->loadModel($id);
+                    //$comment->is_published = 1;
+                    //$comment->update(array('is_published'));
+                }
+            }
+        }
+        $this->render('search', array('model'=>$model));
+    }
+
+    public function actionEmail()
+    {
+        $model = new User();
+        Yii::trace("POST SUPERGLOBAL:".serialize($_POST));
+            if (isset($_POST['selectedIds']))
+            {
+                foreach ($_POST['selectedIds'] as $id)
+                {
+                    Yii::trace("user id: $id");
+                }
+            }
         $this->render('search', array('model'=>$model));
     }
 }
