@@ -1,5 +1,5 @@
 <?php
-    $roleIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/folder.png');
+    $roleIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/roles.png');
     $teamIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/Team.png');
     $calendarIcon=CHtml::image(Yii::app()->getBaseUrl().'/images/calendar.png');
 
