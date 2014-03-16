@@ -117,9 +117,7 @@ div.smallNotification
 div.view
 {
 margin: 10px 10px;
-overflow: auto;
 padding: 0;
-min-height: 200px;
 border: 1px solid #000000;
 }
 
@@ -128,6 +126,7 @@ border: 1px solid #000000;
     padding: 5px;
     height: 300px;
     border-left: 10px solid #ffc0cb;
+    overflow: auto;
 }
 
 .pagination

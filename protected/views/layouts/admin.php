@@ -9,8 +9,8 @@
                         'type' => 'tabs',
                         'stacked'=>true,
                         'items' => array(
-                                         array('label'=>$organizationsIcon, 'url'=>array('organization/admin')),
-                                         array('label'=>$volunteerIcon, 'url'=>array('site/page', 'view'=>'import')),
+                                         array('label'=>$organizationsIcon, 'url'=>array('organization/search')),
+                                         array('label'=>$volunteerIcon, 'url'=>array('volunteer/search', 'view'=>'import')),
                                          ),
                         ));
 

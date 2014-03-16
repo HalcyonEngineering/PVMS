@@ -8,10 +8,13 @@
     ?>
 </div>
 <div class="span-3" style="padding:5px;" >
-<?php $this->widget('bootstrap.widgets.TbButton',
+
+<?php $this->widget('ModalOpenButton',
                     array(
-                          'url' => Yii::app()->createUrl("project/#"),
-                          'label' => 'Project Doc Repository<NEED LINK>',
+                          'button_id'=>'project-doc-repo-btn',
+                          'url' => Yii::app()->createUrl("fileDoc/Index"),
+                          'label' => 'Project Doc Repository',
+                          'type' => 'common',
                           ));
     ?>
 </div>
@@ -35,10 +38,13 @@
 )); ?>
 
 <div class="span-3" style="padding:5px;" >
-<?php $this->widget('bootstrap.widgets.TbButton',
+
+<?php $this->widget('ModalOpenButton',
                     array(
-                          'url' => Yii::app()->createUrl("#"),
-                          'label' => 'Add Role<NEED LINK>',
+                          'button_id'=>'add-role-btn',
+                          'url' => Yii::app()->createUrl("role/create"),
+                          'label' => 'Add Role',
+                          'type' => 'common',
                           ));
     ?>
 </div>

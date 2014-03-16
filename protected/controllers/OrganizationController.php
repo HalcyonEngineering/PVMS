@@ -153,14 +153,14 @@ class OrganizationController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public function actionSearch()
 	{
 		$model=new Organization('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Organization']))
 			$model->attributes=$_GET['Organization'];
 
-		$this->render('admin',array(
+		$this->render('search',array(
 			'model'=>$model,
 		));
 	}

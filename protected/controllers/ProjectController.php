@@ -160,7 +160,7 @@ class ProjectController extends Controller
 		    'pagination'=>array('pageSize' => 9),
 		));
 
-		$this->render('index',array(
+		$this->renderModal('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
