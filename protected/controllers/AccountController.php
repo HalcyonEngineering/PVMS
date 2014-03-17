@@ -192,7 +192,43 @@ class AccountController extends Controller
 
 		$this->render('settings', array('model' => $model));
 	}
-
+	
+	/**
+	* Disables the account 
+	*/
+	public function actionOrgDisable($userID){
+		$model = User::model()->findByPk($userID);
+		$model->setScenario("register");
+		if($model->setAttribute('type', User::DISABLED)){
+			Yii::Log("Setting successful", 'warning');
+		}
+		else {
+			Yii::Log("Setting unsuccessful", 'warning');
+		}
+		if($model->save(false)){
+			Yii::Log("Save successful", 'warning');
+		}
+		$this->redirect(array('organization/search'));
+	}
+	
+		/**
+	* Disables the account 
+	*/
+	public function actionOrgEnable($userID){
+		$model = User::model()->findByPk($userID);
+		$model->setScenario("register");
+		if($model->setAttribute('type', User::MANAGER)){
+			Yii::Log("Setting successful", 'warning');
+		}
+		else {
+			Yii::Log("Setting unsuccessful", 'warning');
+		}
+		if($model->save(false)){
+			Yii::Log("Save successful", 'warning');
+		}
+		$this->redirect(array('organization/search'));
+	}
+	
 	/**
 	 * View profile.
 	 */

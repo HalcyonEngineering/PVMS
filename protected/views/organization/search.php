@@ -77,18 +77,21 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 			),
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
-			'template'=>'{adminAccess} {disable} {remove} {delete}',
+			'template'=>'{adminAccess} {disable} {enable} {delete} ',
 			'buttons'=> array(
 				'adminAccess' => array(
 					'label' => 'Log in',
 					'url' => 'Yii::app()->createUrl("account/adminLogin", array("userID"=>$data->manager->id))',
 				),
+				'enable' => array(
+					'label' => 'Enable',
+					'url' => 'Yii::app()->createUrl("account/OrgEnable", array("userID"=>$data->manager->id))',
+					'visible' => '$data->manager->type == User::DISABLED',
+				),
 				'disable' => array(
 					'label' => 'Disable',
-				),
-				'remove' => array(
-					'label' => 'Remove',
-					'url' => 'Yii::app()->createUrl("organization/delete", array("id"=>$data->id))',
+					'url' => 'Yii::app()->createUrl("account/OrgDisable", array("userID"=>$data->manager->id))',
+					'visible' => '!($data->manager->type == User::DISABLED)',
 				)
             ),
         ),

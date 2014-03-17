@@ -36,6 +36,7 @@ class User extends CActiveRecord
     const ADMINISTRATOR = 0;
     const MANAGER       = 1;
     const VOLUNTEER     = 2;
+	const DISABLED     	= 3;
 
     /**
      * Returns the static model of the specified AR class.
@@ -71,11 +72,11 @@ class User extends CActiveRecord
             array('origPassword, verifyPassword, newPassword', 'length', 'min'=>6),
             array('verifyPassword', 'compare', 'compareAttribute' => 'newPassword', 'on' => 'register, settings'),
             // Do not allow changes to type unless we are registering.
-            array('type', 'unsafe', 'except' => 'register'),
+            array('type', 'unsafe', 'except' => 'register, disable'),
             array('newPassword, verifyPassword', 'safe', 'on'=>'settings'),
             array('origPassword', 'required', 'on'=> 'settings'),
             array('type, newPassword, verifyPassword', 'required', 'on' => 'register'),
-            array('type', 'in', 'on' => 'register', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR)),
+            //array('type', 'in', 'on' => 'register, disable', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR,  User::DISABLED)),
 
             // Skills and causes
             array('skillset', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Skillset can only includes skills, which must be word characters.'),
