@@ -188,9 +188,9 @@ class User extends CActiveRecord
 
             // User's organizations[] must have one that matches $org
             // Join the user table with the organization table
-            // $criteria->with = array('email', 'organizations');
+            $criteria->with = array('organizations');
             $criteria->together = true;
-            //$criteria->compare('organizations', $org->name, true);
+            $criteria->compare('organizations.name', $org->name, true);
 
             return new CActiveDataProvider($this, array(
                     'criteria'=>$criteria,

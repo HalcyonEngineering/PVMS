@@ -52,7 +52,10 @@ class VolunteerController extends Controller
     public function actionSearch()
     {
         $model = new User('search');
+        $org_model = new Organization();
+
         $model->unsetAttributes(); // Clear attributes for search
+        $org_model->unsetAttributes(); // Clear attributes for search
 
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
 
@@ -69,7 +72,7 @@ class VolunteerController extends Controller
                 }
             }
         }
-        $this->render('search', array('model'=>$model));
+        $this->render('search', array('model'=>$model, 'org_model'=>$org_model));
     }
 
     public function actionEmail()
