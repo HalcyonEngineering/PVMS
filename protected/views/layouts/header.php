@@ -81,8 +81,10 @@ $this->widget(
 				           'visible'=>Yii::app()->user->isGuest),//End user login
 			     ),//End menu items.
 		     ),//End TbMenu
-             array('class' => 'notification_TbDropdown',
-                 'htmlOptions' => array('class' =>'pull-right'))
+               array('class' => 'notification_TbDropdown',
+                 'htmlOptions' => array('class' =>'pull-right'),
+		 'visible'=>!Yii::app()->user->isGuest
+               ) //End notification dropdown
 	     ),//End navbar items.
      )//End navbar
 );//End widget instantiation
