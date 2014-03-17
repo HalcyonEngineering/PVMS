@@ -87,7 +87,7 @@ class User extends CActiveRecord
         );
     }
 
-    /**
+  /**
      * @return array relational rules.
      */
     public function relations()

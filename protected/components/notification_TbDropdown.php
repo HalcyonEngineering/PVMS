@@ -58,8 +58,11 @@ class notification_TbDropdown extends TbMenu {
         parent::run();
 
         if ($this->count > 0) {
-            echo CHtml::script("$('#notification-icon').tooltip({trigger : 'manual', title: $this->count })");
-            echo CHtml::script("$('#notification-icon').tooltip('show')");
+            echo CHtml::script("$(document).ready(
+									function(){ 
+										$('#notification-icon').tooltip({trigger : 'manual', title: $this->count,});
+										$('#notification-icon').tooltip('show');
+									})");
         }
     }
 
