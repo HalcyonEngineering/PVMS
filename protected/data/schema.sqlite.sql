@@ -158,9 +158,18 @@ INSERT INTO pvms_user (name, password, email, type) VALUES ('admin','$2a$10$xOHc
 INSERT INTO pvms_user (name, password, email, type) VALUES ('manager','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','manager', 1);
 INSERT INTO pvms_user (name, password, email, type) VALUES ('manager2','$2a$12$MO94I98I9ts.psar1DoMBOxfKAZXciOPDwqUF4UJ8P5hua.my5EPO','manager2', 1);
 INSERT INTO pvms_user (name, password, email, type) VALUES ('volunteer','$2a$12$J1n3OwZasqX3gsMG6TSzvOHEJleCYyWJ/TNAuxOmAoB/zmiBqskeq','volunteer', 2);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","type","adminAccess","profile") VALUES ('6','David','$2a$13$dEoNvuwcQ/7xRSebI6tO6edjUTXKfElOjnZz7TK6ymhT3Z.cNb.0G','david@pitchn.ca','Surrey','Project Management, Web Development, Software Engineering',NULL,'2','0',NULL);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","type","adminAccess","profile") VALUES ('7','Kenneth','$2a$13$jn1wIc/PvXQMwdF6VRcKr.1vRzWPrjAyS4D..4tBkI5fHDAwUaMFe','kenneth@pitchn.ca','Richmond','Software Engineering, School',NULL,'2','0',NULL);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","type","adminAccess","profile") VALUES ('8','Jon','$2a$13$cXjPfW2T3q/WUWsGo2tGe.xFjn1UH8VAG0qLtCS.lHOak8HE9yXjC','jon@pitchn.ca','Vancouver','Software Enginneering',NULL,'2','0',NULL);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","type","adminAccess","profile") VALUES ('9','Matt','$2a$13$7G9CXaXPM2BHMHWMnKWyD.RMZkQwYxUe4tHUg79VKeSkKdDalVUwO','matt@pitchn.ca','Vancouver','Software Engineering, Video Games',NULL,'2','0',NULL);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","type","adminAccess","profile") VALUES ('10','Andy','$2a$13$SRvsTXfWXGDuLtYjDZlcVOVVa2Wjv.eXeHYQQXSwqEKMiNcvuUc9C','andy@pitchn.ca','Whiterock','Software Engineering',NULL,'2','0',NULL);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","type","adminAccess","profile") VALUES ('12','Phat','$2a$13$TDoAQfWsoD.9t54gTysg7efNlO4.8P07GDewLiigpjWG16Y9.XOt2','phat@pitchn.ca','Vancouver','Software Engineering, Parkour',NULL,'2','0',NULL);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('Tyrone Black', '$2a$12$UCNKdKUrGLDCeqeBfwxZQ.VQ1ZqGwXl59niTxQQJEXpsor9MZzZrq', 'tyrone.black@gmail.com', 2);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('Esteban Winsmore', '$2a$12$atBoXs3Qg.N0RfOJj0rYNedrK50THc5h69L6sILWC2Bih8EzgGNu2', 'esteban@mail.com', 1);
 
 INSERT INTO pvms_organization (name, desc) VALUES ('First Org', 'We are the first here.');
 INSERT INTO pvms_organization (name, desc) VALUES ('Second Org', 'We did not finish first.');
+INSERT INTO pvms_organization (name, desc) VALUES ('Aspire', 'A uniform solid cylinder of mass M and radius R rotates.');
 
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'First Project', 'First project created.','#FFFFFF');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'First Role', 'First role created.', '#FFFFFF');
@@ -171,7 +180,13 @@ INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'exa
 
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (4, 2);
-INSERT INTO pvms_user_organization(user_id, org_id) VALUES (5,1);
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('6','1');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('7','1');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('8','1');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('9','1');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('10','1');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('12','1');
+INSERT INTO pvms_user_organization(user_id, org_id) VALUES (5,2);
 INSERT INTO pvms_user_role(user_id, role_id) VALUES (5, 1);
 
 CREATE TABLE pvms_csv(csv BLOB);
@@ -200,4 +215,6 @@ INSERT INTO pvms_skill (name) VALUES ('Public Relations');
 INSERT INTO pvms_skill (name) VALUES ('Sales');
 INSERT INTO pvms_skill (name) VALUES ('Social Media');
 INSERT INTO pvms_skill (name) VALUES ('Technology');
-INSERT INTO pvms_skill (name) VALUES ('Web Development');
+INSERT INTO pvms_skill (name) VALUES ('Software Engineering');
+INSERT INTO pvms_skill (name) VALUES ('School');
+INSERT INTO pvms_skill (name) VALUES ('Parkour');

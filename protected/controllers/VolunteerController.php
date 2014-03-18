@@ -91,4 +91,67 @@ class VolunteerController extends Controller
             }
         $this->render('search', array('model'=>$model));
     }
+	
+	//Delete volunteer
+	public function actionDeleteVolunteer($userID)
+    {
+		$user = Yii::app()->getComponent('user');
+		if (Yii::app()->user->isAdmin()){
+			$model = User::model()->findByPk($userID);
+			$model->delete();
+		}
+		if(Yii::app()->user->isAdmin()){
+			$this->redirect(array('volunteer/search'));
+		}
+    }
+	
+		/**
+	* Disables the account 
+	*/
+	public function actionVolunteerDisable($userID){
+		$model = User::model()->findByPk($userID);
+		$model->setScenario("disable");
+		if($model->setAttribute('type', User::DISABLEDVOLUNTEER)){
+			Yii::Log("Setting successful", 'warning');
+		}
+		else {
+			Yii::Log("Setting unsuccessful", 'warning');
+		}
+		if($model->save(false)){
+			Yii::Log("Save successful", 'warning');
+		}
+		 $this->redirect(array('volunteer/search'));
+	}
+	
+		/**
+	* Enables the account 
+	*/
+	public function actionVolunteerEnable($userID){
+		$model = User::model()->findByPk($userID);
+		$model->setScenario("disable");
+		if($model->setAttribute('type', User::VOLUNTEER)){
+			Yii::Log("Setting successful", 'warning');
+		}
+		else {
+			Yii::Log("Setting unsuccessful", 'warning');
+		}
+		if($model->save(false)){
+			Yii::Log("Save successful", 'warning');
+		}
+		 $this->redirect(array('volunteer/search'));
+	}
+	
+	public function actionDelete()
+    {
+        $model = new User();
+        Yii::trace("POST SUPERGLOBAL:".serialize($_POST));
+            if (isset($_POST['selectedIds']))
+            {
+                foreach ($_POST['selectedIds'] as $id)
+                {
+                    Yii::trace("user id: $id");
+                }
+            }
+        $this->render('search', array('model'=>$model));
+    }
 }

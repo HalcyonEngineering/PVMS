@@ -33,10 +33,11 @@ class User extends CActiveRecord
 
     private $_oldSkillset;
 
-    const ADMINISTRATOR = 0;
-    const MANAGER       = 1;
-    const VOLUNTEER     = 2;
-	const DISABLED     	= 3;
+    const ADMINISTRATOR 	= 0;
+    const MANAGER       	= 1;
+    const VOLUNTEER     	= 2;
+	const DISABLED     		= 3;
+	const DISABLEDVOLUNTEER	= 4;
 
     /**
      * Returns the static model of the specified AR class.
@@ -216,6 +217,7 @@ class User extends CActiveRecord
 
             // User has to be a volunteer
             $criteria->compare('type', User::VOLUNTEER, true);
+			$criteria->compare('type', User::DISABLEDVOLUNTEER, true, 'OR');
 			
             return new CActiveDataProvider($this, array(
                     'criteria'=>$criteria,
