@@ -124,7 +124,9 @@ CREATE TABLE pvms_organization_manager
 CREATE TABLE pvms_onboarding
 (
   role_id INTEGER NOT NULL PRIMARY KEY,
-  markdown BLOB,
+  onboarding_welcome VARCHAR(1024),
+  onboarding_instructions VARCHAR(1024),
+  onboarding_contact VARCHAR(1024),
   CONSTRAINT FK_role FOREIGN KEY (role_id) REFERENCES pvms_role (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -164,7 +166,7 @@ INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'First Project', 
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'First Role', 'First role created.', '#FFFFFF');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'First Task', 'First task created.');
 
-INSERT INTO pvms_onboarding(role_id, markdown) VALUES(1,'*this text is bold*');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
 INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt',19,'This is an example.');
 
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);

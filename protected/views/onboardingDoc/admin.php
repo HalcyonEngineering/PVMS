@@ -44,7 +44,9 @@ return false;
 'filter'=>$model,
 'columns'=>array(
 		'role_id',
-		'markdown',
+		'onboarding_welcome',
+		'onboarding_instructions',
+		'onboarding_contact',
 array(
 'class'=>'bootstrap.widgets.TbButtonColumn',
 ),

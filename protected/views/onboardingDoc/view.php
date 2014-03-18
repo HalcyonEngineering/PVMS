@@ -19,6 +19,8 @@ array('label'=>'Manage OnboardingDoc','url'=>array('admin')),
 'data'=>$model,
 'attributes'=>array(
 		'role_id',
-		'markdown',
+		'onboarding_welcome',
+		'onboarding_instructions',
+		'onboarding_contact',
 ),
 )); ?>

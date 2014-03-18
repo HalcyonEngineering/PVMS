@@ -9,7 +9,11 @@
 
 	<?php echo $form->textFieldRow($model,'role_id',array('class'=>'span5')); ?>
 
-	<?php echo $form->markdownEditorRow($model,'markdown',array('height' => '200px')); ?>
+	<?php echo $form->textFieldRow($model,'onboarding_welcome',array('class'=>'span5','maxlength'=>1024)); ?>
+
+	<?php echo $form->textFieldRow($model,'onboarding_instructions',array('class'=>'span5','maxlength'=>1024)); ?>
+
+	<?php echo $form->textFieldRow($model,'onboarding_contact',array('class'=>'span5','maxlength'=>1024)); ?>
 
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
