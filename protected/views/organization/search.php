@@ -64,6 +64,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 		
 		array(
 			'name' => 'Manager Name',
+			'type'=>'raw',
 			'class'=> 'bootstrap.widgets.TbDataColumn',
 			'value'=> '$data->manager !== null ? $data->manager->name : "null"'
 			),
