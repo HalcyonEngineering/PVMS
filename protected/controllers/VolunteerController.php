@@ -72,7 +72,12 @@ class VolunteerController extends Controller
                 }
             }
         }
-        $this->render('search', array('model'=>$model, 'org_model'=>$org_model));
+        if(Yii::app()->user->isAdmin()){
+			$this->render('admin', array('model'=>$model, 'org_model'=>$org_model));
+			}
+		else{
+			$this->render('search', array('model'=>$model, 'org_model'=>$org_model));
+			}
     }
 
     public function actionEmail()

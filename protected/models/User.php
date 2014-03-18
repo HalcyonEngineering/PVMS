@@ -197,6 +197,25 @@ class User extends CActiveRecord
                     'criteria'=>$criteria,
             ));
     }
+	
+	public function search_volunteers()
+    {
+            // @todo Please modify the following code to remove attributes that should not be searched.
+
+            $criteria=new CDbCriteria;
+
+            $criteria->compare('id',$this->id);
+            $criteria->compare('name',$this->name, true);
+            $criteria->compare('location',$this->location);
+            $criteria->compare('skillset',$this->skillset, true);
+
+            // User has to be a volunteer
+            $criteria->compare('type', User::VOLUNTEER, true);
+			
+            return new CActiveDataProvider($this, array(
+                    'criteria'=>$criteria,
+            ));
+    }
 
     // The username is an email.
     public function getUsername() {
