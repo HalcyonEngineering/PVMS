@@ -23,7 +23,7 @@ class VolunteerController extends Controller
             $location = $_POST['User']['location'];
             $skillset = $_POST['User']['skillset'];
 
-            User::enrollVolunteer($name, $email, $location, $skillset);
+            User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg());
         }
 
         // Pass the two partial views (csv and form) to add

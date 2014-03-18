@@ -126,6 +126,11 @@ class User extends CActiveRecord
         );
     }
 
+    public function behaviors() {
+        return array('EAdvancedArBehavior' => array(
+                'class' => 'application.extensions.EAdvancedArBehavior'));
+    }
+
     /**
      * Checks if the given password is correct.
      * @param string $password the password to be validated
@@ -261,7 +266,7 @@ class User extends CActiveRecord
      * @param volunteer location
      * @param volunteer skillset
      */
-    public static function enrollVolunteer($name, $email, $location, $skillset)
+    public static function enrollVolunteer($name, $email, $location, $skillset, $organization)
     {
         $user = new User;
         $user->name = $name;
@@ -270,6 +275,8 @@ class User extends CActiveRecord
         $user->skillset = $skillset;
 
         $user->newPassword = 'temporary'; //should have randomly generated pass, email user
+
+        $user->organizations = array($organization);
 
         if($user->validate())
         {
