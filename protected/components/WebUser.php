@@ -13,6 +13,13 @@ class WebUser extends CWebUser {
 		return $user->email;
 	}
 
+	function getName(){
+		$user = $this->loadUser(Yii::app()->user->id);
+		if ($user === null){
+			return null;
+		}
+		return $user->name;
+	}
 	function getFullName() {
 		$user = $this->loadUser(Yii::app()->user->id);
 		if ($user === null){
