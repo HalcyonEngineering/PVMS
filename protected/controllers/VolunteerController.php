@@ -59,19 +59,17 @@ class VolunteerController extends Controller
 
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
 
-        if (isset($_POST['EmailVolunteersButton']))
+        if (isset($_POST['selectedIds']))
         {
-            if (isset($_POST['selectedIds']))
+            foreach ($_POST['selectedIds'] as $id)
             {
-                foreach ($_POST['selectedIds'] as $id)
-                {
-                    Yii::trace("user id: $id");
-                    //$comment = $this->loadModel($id);
-                    //$comment->is_published = 1;
-                    //$comment->update(array('is_published'));
-                }
+                Yii::trace("user id: $id");
+                //$comment = $this->loadModel($id);
+                //$comment->is_published = 1;
+                //$comment->update(array('is_published'));
             }
         }
+
         if(Yii::app()->user->isAdmin()){
 			$this->render('admin', array('model'=>$model, 'org_model'=>$org_model));
 			}

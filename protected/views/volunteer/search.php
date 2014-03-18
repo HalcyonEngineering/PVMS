@@ -38,7 +38,9 @@ $this->widget('bootstrap.widgets.TbGridView', array(
                 'id' => 'selectedIds',
                 'class' => 'CCheckBoxColumn'
             ),
-            'email',
+            'name',
+            'location',
+            'skillset',
             array(
                 'class'=>'bootstrap.widgets.TbButtonColumn',
             ),

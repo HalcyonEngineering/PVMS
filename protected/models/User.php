@@ -275,7 +275,6 @@ class User extends CActiveRecord
         $user->skillset = $skillset;
 
         $user->newPassword = 'temporary'; //should have randomly generated pass, email user
-
         $user->organizations = array($organization);
 
         if($user->validate())
