@@ -129,7 +129,7 @@ class NotificationController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Notification');
+		$dataProvider= Notification::search_All();
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

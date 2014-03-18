@@ -15,7 +15,8 @@ body
 
 #header ul
 {
-	padding:25px 0px 16px 0px;
+	padding: 0px 0px 0px 0px;
+	top: 22px;
 }
 
 #header ul li a
@@ -105,9 +106,10 @@ body
 
 #notification-menu a .tooltip-inner
 {
-    min-width:20px;
+    top: 4px;
+	min-width:20px;
 	max-width:200px;
-	padding:4px 4px;
+	padding:8px 2px;
 	color:#ffffff;
 	text-align:center;
 	text-decoration:none;
@@ -116,12 +118,12 @@ body
 	-moz-border-radius:4px;
 	border-radius:5px;
 	position: relative;
+	line-height: 5px;
 }
 
-/*, #notification-menu a .tooltip.top .tooltip-arrow*/
 #notification-menu .tooltip.top .tooltip-arrow
 {
-	bottom:0;
+	bottom:-4px;
 	margin-left:-5px;
 	border-width:5px 5px 0;
 	border-top-color:#FF0000;

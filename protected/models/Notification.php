@@ -32,7 +32,7 @@ class Notification extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id, description, link', 'required'),
-			array('user_id, timestamp', 'numerical', 'integerOnly'=>true),
+			array('user_id, timestamp, read_status', 'numerical', 'integerOnly'=>true),
 			array('description, link', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -60,11 +60,12 @@ class Notification extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'user_id' => 'User',
+			'id' => 'Notification ID',
+			'user_id' => 'To',
 			'description' => 'Description',
-			'timestamp' => 'Timestamp',
+			'timestamp' => 'Time Sent',
 			'link' => 'Link',
+            'read_status' => 'Read',
 		);
 	}
 
@@ -80,22 +81,30 @@ class Notification extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+
+    //this method is made to return all the unread notifications of the current user.
+    public function search_unread() //THIS WILL BE USED FOR THE NOTIFICATION BUTTON AND DROPDOWN
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+		$criteria->compare('user_id',Yii::app()->user->id,true);
+		$criteria->compare('read_status',0,true);
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('user_id',$this->user_id,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('timestamp',$this->timestamp);
-		$criteria->compare('link',$this->link,true);
-
-		return new CActiveDataProvider($this, array(
+		return new CActiveDataProvider('Notification', array(
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function search_All() //THIS WILL BE USED FOR THE NOTIFICATION LOG
+    {
+
+        $criteria=new CDbCriteria;
+        $criteria->compare('user_id',Yii::app()->user->id,true);
+
+        return new CActiveDataProvider('Notification', array(
+            'criteria'=>$criteria,
+        ));
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -114,16 +123,30 @@ class Notification extends CActiveRecord
      * @param string $description - description of  the notification
      * @param string $link - redirect link to notification location
      */
-    public static function notify(int $userID, string $description, string $link)
+    public static function notify($userID,  $description, $link) //USED TO CREATE NEW NOTIFICATION
     {
-        $_notify = new Notification();
-        $_notify->userID = $userID;
-        $_notify->description = $description;
-        $_notify->link = $link;
+        $_notify = new Notification();  //make new notification
 
-        if ($_notify->validate()) {
-            $_notify->save();
+        $_notify->user_id = $userID; // add user ID of notification receiver
+        $_notify->description = $description; // add description of the notification
+        $_notify->link = $link; //add link to notification source
+        $_notify->timestamp = time(); //system generates current timestamp to be stored.*/
+        Yii::trace("Calling notify function.");
+        if ($_notify->validate()) { //check if notification object validates
+            Yii::trace("Notify validated.");
+            $_notify->save();    //add to database
 
         }
     }
+
+
+    public static function read($notification_ID) //makes the notification "read"
+    {
+        $notification = Notification::model()->findByPk($notification_ID); // finds the notification with the right ID
+        $notification->read_status = 1; //set read to 1 to show read.
+        $notification->update(array('read_status')); //update entity
+    }
+
+
+
 }
