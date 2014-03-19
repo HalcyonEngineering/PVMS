@@ -47,11 +47,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
 )); 
 
-echo CHtml::submitButton('Submit', array('name'=>'EmailVolunteersButton', 'submit'=>'email'));
+echo CHtml::submitButton('Add to Web Developer Role', array('submit'=>'assignToRole'));
 echo CHtml::endForm();
-
-//$c = new CDbCriteria;
-//$c->with = array('organization');
-//Yii::trace("C: ".serialize($c));
 
 ?>

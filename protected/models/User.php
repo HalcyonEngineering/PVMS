@@ -20,7 +20,6 @@ class User extends CActiveRecord
     * @property Messages[] $messages
     * @property Messages[] $sentMessages
     * @property Notifications[] $notifications
-    * @property Post[] $posts
     * @property Organization[] $organizations
     * @property Organization $managedOrg
     * @property Role[] $roles
@@ -33,10 +32,11 @@ class User extends CActiveRecord
 
     private $_oldSkillset;
 
-    const ADMINISTRATOR = 0;
-    const MANAGER       = 1;
-    const VOLUNTEER     = 2;
-	const DISABLED     	= 3;
+    const ADMINISTRATOR 	= 0;
+    const MANAGER       	= 1;
+    const VOLUNTEER     	= 2;
+	const DISABLED     		= 3;
+	const DISABLEDVOLUNTEER	= 4;
 
     /**
      * Returns the static model of the specified AR class.
@@ -94,7 +94,6 @@ class User extends CActiveRecord
     public function relations()
     {
         return array(
-            'posts' => array(self::HAS_MANY, 'Post', 'author_id'),
             'organizations' => array(self::MANY_MANY, 'Organization', '{{user_organization}}(user_id, org_id)'),
             'roles' => array(self::MANY_MANY, 'Role', '{{user_role}}(user_id, role_id)'),
             'managedOrgs' => array(self::MANY_MANY, 'Organization', '{{organization_manager}}(user_id, org_id)'),
@@ -216,6 +215,7 @@ class User extends CActiveRecord
 
             // User has to be a volunteer
             $criteria->compare('type', User::VOLUNTEER, true);
+			$criteria->compare('type', User::DISABLEDVOLUNTEER, true, 'OR');
 			
             return new CActiveDataProvider($this, array(
                     'criteria'=>$criteria,
@@ -285,4 +285,16 @@ class User extends CActiveRecord
         }
     }
 
+    public static function assignToRole($volunteer_ids) {
+        $target_role = Role::model()->findByPk(2);
+
+        foreach ($volunteer_ids as $vid) {
+            $model = User::model()->findByPk($vid);
+            Yii::trace('AFTER FIND: '.serialize($model->organizations));
+            $model->roles = array($target_role);
+            Yii::trace('AFTER SET: '.serialize($model->organizations));
+            $model->save();
+            Yii::trace('AFTER SAVE: '.serialize($model->organizations));
+        }
+    }
 }

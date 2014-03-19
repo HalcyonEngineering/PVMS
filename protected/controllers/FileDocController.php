@@ -60,7 +60,7 @@ class FileDocController extends Controller
  	 * Creates a new model.
  	 * If creation is successful, the browser will be redirected to the 'view' page.
  	 */
-	public function actionCreate()
+	public function actionCreate($project_id = null)
 	{
 		////Yii::log('FileDoc create action begun', 'warning', 'FileDoc');
         
@@ -84,7 +84,17 @@ class FileDocController extends Controller
         }
 
         ////Yii::log('FileDoc create action ended', 'warning', 'FileDoc');
-		$this->render('create',array(
+		/*if(isset($_POST['project_id'])) {
+			$model->project_id = $_POST['project_id'];
+		}*/
+
+		if(isset($project_id)) {
+			$model->project_id = $project_id;
+		}
+
+		//$model->project_id = 1;
+
+		$this->renderModal('create',array(
 			'model'=>$model,
 		));
 
@@ -93,14 +103,14 @@ class FileDocController extends Controller
 	public function actionDownload()
 	{
 		$id = $_GET['id']; // $_POST['id']; //we used to do this over POST, but there are instances where it's hard to do POST, so we use GET
-		Yii::log('downloadmodel input: id:'.$id, 'warning', 'FileDoc');
+		//Yii::log('downloadmodel input: id:'.$id, 'warning', 'FileDoc');
 
 		$dataProvider=new CActiveDataProvider('FileDoc', array('criteria'=>array('condition'=>'id='.$id,),));
 		$model = $dataProvider->getData()[0];
-		Yii::log('downloadmodel db: id:'.$model->id, 'warning', 'FileDoc');
-		Yii::log('downloadmodel db: file_name:'.$model->file_name, 'warning', 'FileDoc');
-		Yii::log('downloadmodel db: file_size:'.$model->file_size, 'warning', 'FileDoc');
-		Yii::log('downloadmodel db: file_data:'.$model->file_data, 'warning', 'FileDoc');
+		//Yii::log('downloadmodel db: id:'.$model->id, 'warning', 'FileDoc');
+		//Yii::log('downloadmodel db: file_name:'.$model->file_name, 'warning', 'FileDoc');
+		//Yii::log('downloadmodel db: file_size:'.$model->file_size, 'warning', 'FileDoc');
+		//Yii::log('downloadmodel db: file_data:'.$model->file_data, 'warning', 'FileDoc');
 
 		//echo CHtml::script("window.alert('id is: ".$id."');"); //works: this is how you create a popup
 		// note: documentation on sendFile: http://www.yiiframework.com/doc/api/1.1/CHttpRequest#sendFile-detail

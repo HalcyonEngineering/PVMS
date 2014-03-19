@@ -11,8 +11,18 @@
 <?php $this->widget('ModalOpenButton',
                     array(
                       'button_id'=>'list-files-btn',
-                      'url' => Yii::app()->createUrl("fileDoc/listFiles",array("projectid"=>$model->id)),
+                      'url' => Yii::app()->createUrl("fileDoc/listFiles",array("projectid"=>$model->id)), //TODO: make that an underscored project_id
                       'label' => 'View files in project',
+                      'type' => 'common',
+                    ));
+?>
+</div>
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('ModalOpenButton',
+                    array(
+                      'button_id'=>'list-files-btn',
+                      'url' => Yii::app()->createUrl("fileDoc/create",array("project_id"=>$model->id)),
+                      'label' => 'Add file to project',
                       'type' => 'common',
                     ));
 ?>
@@ -35,15 +45,23 @@
         'colour',
 ),
 )); ?>
-
+<?php $this->widget('bootstrap.widgets.TbGridView', array(
+	'dataProvider' => $roleDataProvider,
+	'columns' => array(
+					   'id',
+					   'name'
+					   )
+	
+	)); ?>
 <div class="span-3" style="padding:5px;" >
 
-<?php $this->widget('ModalOpenButton',
-                    array(
-                          'button_id'=>'add-role-btn',
-                          'url' => Yii::app()->createUrl("role/create"),
-                          'label' => 'Add Role',
-                          'type' => 'common',
-                          ));
+<?php //$this->widget('ModalOpenButton',
+      //              array(
+      //                    'button_id'=>'add-role-btn',
+      //                    'url' => Yii::app()->createUrl("role/create"),
+      //                    'label' => 'Add Role',
+      //                    'type' => 'common',
+      //                    ));
     ?>
+<?php echo CHtml::link('Create Role', array("role/create", 'project_id' => $model->id)); ?>
 </div>

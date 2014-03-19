@@ -5,7 +5,9 @@
  *
  * The followings are the available columns in table '{{onboarding}}':
  * @property integer $role_id
- * @property string $markdown
+ * @property string $onboarding_welcome
+ * @property string $onboarding_instructions
+ * @property string $onboarding_contact
  *
  * The followings are the available model relations:
  * @property Role $role
@@ -30,10 +32,10 @@ class OnboardingDoc extends CActiveRecord
 		return array(
 			array('role_id', 'unique'),
 			array('role_id', 'exist', 'className'=>'Role','attributeName'=>'id'),
-			array('markdown', 'safe'),
+			array('onboarding_welcome, onboarding_instructions, onboarding_contact', 'length', 'max'=>1024),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('role_id, markdown', 'safe', 'on'=>'search'),
+			array('role_id, onboarding_welcome, onboarding_instructions, onboarding_contact', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,8 +57,9 @@ class OnboardingDoc extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'role_id' => 'Role',
-			'markdown' => 'Markdown',
+			'onboarding_welcome' => 'Onboarding Welcome',
+			'onboarding_instructions' => 'Onboarding Instructions',
+			'onboarding_contact' => 'Onboarding Contact',
 		);
 	}
 
@@ -79,7 +82,9 @@ class OnboardingDoc extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('role_id',$this->role_id);
-		$criteria->compare('markdown',$this->markdown,true);
+		$criteria->compare('onboarding_welcome',$this->onboarding_welcome,true);
+		$criteria->compare('onboarding_instructions',$this->onboarding_instructions,true);
+		$criteria->compare('onboarding_contact',$this->onboarding_contact,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
