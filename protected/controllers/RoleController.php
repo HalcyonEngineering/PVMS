@@ -51,8 +51,12 @@ class RoleController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$model = $this->loadModel($id);
+		$model->users = User::model()->findByPk(Yii::app()->user->id);
+		Yii::trace("HEY YOU.");
+		$model->save();
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
 		));
 	}
 

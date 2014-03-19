@@ -35,7 +35,14 @@
         'colour',
 ),
 )); ?>
-
+<?php $this->widget('bootstrap.widgets.TbGridView', array(
+	'dataProvider' => $roleDataProvider,
+	'columns' => array(
+					   'id',
+					   'name'
+					   )
+	
+	)); ?>
 <div class="span-3" style="padding:5px;" >
 
 <?php //$this->widget('ModalOpenButton',
