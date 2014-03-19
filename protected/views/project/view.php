@@ -11,8 +11,18 @@
 <?php $this->widget('ModalOpenButton',
                     array(
                       'button_id'=>'list-files-btn',
-                      'url' => Yii::app()->createUrl("fileDoc/listFiles",array("projectid"=>$model->id)),
+                      'url' => Yii::app()->createUrl("fileDoc/listFiles",array("projectid"=>$model->id)), //TODO: make that an underscored project_id
                       'label' => 'View files in project',
+                      'type' => 'common',
+                    ));
+?>
+</div>
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('ModalOpenButton',
+                    array(
+                      'button_id'=>'list-files-btn',
+                      'url' => Yii::app()->createUrl("fileDoc/create",array("project_id"=>$model->id)),
+                      'label' => 'Add file to project',
                       'type' => 'common',
                     ));
 ?>

@@ -1,3 +1,38 @@
+<?php 
+	// (in the future) for educational purposes: a collapse button coded with a TbButton and JS
+	//TODO: replace this jerryrig with a TbCollapse or something
+	/*echo 'Upload a file:  ';
+	$this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType' => 'link',
+        'type' => 'primary', // the chrome of the button
+        'label' => 'upload', // text of the button
+        'htmlOptions' => array('onclick'=>"$('.upload-form').toggle();"),
+        ));
+	echo '<div class="upload-form" style="display:none">';
+
+		$model=new FileDoc; //broken file upload form
+		$model->project_id=1;
+
+		$form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+			'id'=>'file-doc-form',
+			'enableAjaxValidation'=>false,
+			'htmlOptions' => array('enctype' => 'multipart/form-data', 'id'=>'myidentifier'), //TODO: is this myidentifier thing enough to defuse the modal problems?
+			)); 
+
+			echo $form->errorSummary($model);
+				
+			echo $form->fileFieldRow($model,'uploadedfile',array());
+
+			$this->widget('ModalSubmitButton', array( //basically broken here
+						'modelName'=>'FileDoc',
+						'label'=>'Create',
+					));
+
+		$this->endWidget();*/
+
+	echo '</div>'
+ ?>
+
 <?php $this->widget('bootstrap.widgets.TbGridView',array('id'=>'file-doc-grid',
 														'dataProvider'=>$dataProvider,
 														'columns'=>array(//'id',
