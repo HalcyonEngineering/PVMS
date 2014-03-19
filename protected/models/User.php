@@ -20,7 +20,6 @@ class User extends CActiveRecord
     * @property Messages[] $messages
     * @property Messages[] $sentMessages
     * @property Notifications[] $notifications
-    * @property Post[] $posts
     * @property Organization[] $organizations
     * @property Organization $managedOrg
     * @property Role[] $roles
@@ -286,4 +285,16 @@ class User extends CActiveRecord
         }
     }
 
+    public static function assignToRole($volunteer_ids) {
+        $target_role = Role::model()->findByPk(2);
+
+        foreach ($volunteer_ids as $vid) {
+            $model = User::model()->findByPk($vid);
+            Yii::trace('AFTER FIND: '.serialize($model->organizations));
+            $model->roles = array($target_role);
+            Yii::trace('AFTER SET: '.serialize($model->organizations));
+            $model->save();
+            Yii::trace('AFTER SAVE: '.serialize($model->organizations));
+        }
+    }
 }

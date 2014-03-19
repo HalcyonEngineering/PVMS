@@ -52,23 +52,12 @@ class VolunteerController extends Controller
     public function actionSearch()
     {
         $model = new User('search');
-        $org_model = new Organization();
-
         $model->unsetAttributes(); // Clear attributes for search
-        $org_model->unsetAttributes(); // Clear attributes for search
+
+        $org_model = new Organization();
+        $org_model->unsetAttributes();
 
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
-
-        if (isset($_POST['selectedIds']))
-        {
-            foreach ($_POST['selectedIds'] as $id)
-            {
-                Yii::trace("user id: $id");
-                //$comment = $this->loadModel($id);
-                //$comment->is_published = 1;
-                //$comment->update(array('is_published'));
-            }
-        }
 
         if(Yii::app()->user->isAdmin()){
 			$this->render('admin', array('model'=>$model, 'org_model'=>$org_model));
@@ -78,17 +67,17 @@ class VolunteerController extends Controller
 			}
     }
 
-    public function actionEmail()
+    public function actionAssignToRole()
     {
-        $model = new User();
-        Yii::trace("POST SUPERGLOBAL:".serialize($_POST));
-            if (isset($_POST['selectedIds']))
-            {
-                foreach ($_POST['selectedIds'] as $id)
-                {
-                    Yii::trace("user id: $id");
-                }
-            }
+        $model = new User('search');
+        $model->unsetAttributes(); // Clear attributes for search
+
+        if (isset($_POST['selectedIds']))
+        {
+            Yii::trace('selectedIds: '.serialize($_POST['selectedIds']));
+            User::assignToRole($_POST['selectedIds']);
+        }
+
         $this->render('search', array('model'=>$model));
     }
 	
