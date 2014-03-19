@@ -19,6 +19,26 @@
     ?>
 
 </div>
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('ModalOpenButton',
+                    array(
+                      'button_id'=>'list-tasks-btn',
+                      'url' => Yii::app()->createUrl("task/listTasks",array("role_id"=>$model->id)),
+                      'label' => 'View tasks in project',
+                      'type' => 'common',
+                    ));
+?>
+</div>
+<div class="span-3" style="padding:5px;" >
+<?php $this->widget('ModalOpenButton',
+                    array(
+                      'button_id'=>'create-task-btn',
+                      'url' => Yii::app()->createUrl("task/create",array("role_id"=>$model->id)),
+                      'label' => 'Create task in project',
+                      'type' => 'common',
+                    ));
+?>
+</div>
 </div><!--End of Buttons-->
 
 <h1> <?php echo $model->name; ?></h1>

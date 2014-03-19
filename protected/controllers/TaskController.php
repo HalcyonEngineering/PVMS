@@ -32,11 +32,11 @@ class TaskController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','listTasks','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin'),
 				'users'=>array('admin'),
 			),
 //			array('deny',  // deny all users
@@ -60,7 +60,7 @@ class TaskController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($role_id = null)
 	{
 		$model=new Task;
 
@@ -72,6 +72,10 @@ class TaskController extends Controller
 			$model->attributes=$_POST['Task'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		if(isset($role_id)) {
+			$model->role_id = $role_id;
 		}
 
 		$this->render('create',array(
@@ -148,6 +152,15 @@ class TaskController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * Render a modal showing all Tasks for the role id passed in
+	 */
+	public function actionListTasks($role_id)
+	{
+		$dataProvider=new CActiveDataProvider('Task',array('criteria'=>array('condition'=>'role_id='.$role_id,),));
+		$this->renderModal('_tasks',array('dataProvider'=>$dataProvider,));
 	}
 
 	/**
