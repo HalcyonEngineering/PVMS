@@ -51,7 +51,7 @@ $this->widget(
 			     ),//End menu items.
 		     ),//End TbMenu
                array('class' => 'notification_TbDropdown',
-                 'htmlOptions' => array('class' =>'pull-right'),
+                 'htmlOptions' => array('class' =>'pull-right', 'id' =>'notification-button'),
 		         'visible'=>!Yii::app()->user->isGuest
                ) //End notification dropdown
 	     ),//End navbar items.
