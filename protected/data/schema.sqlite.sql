@@ -180,6 +180,7 @@ INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'exa
 
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (4, 2);
+INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (14, 3);
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('6','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('7','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('8','1');
