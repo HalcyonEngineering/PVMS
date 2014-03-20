@@ -286,17 +286,16 @@ class User extends CActiveRecord
     }
 
     public static function assignToRole($volunteer_ids, $role_id) {
-        $target_role = Role::model()->findByPk($role_id);
-        //$target_role2 = Role::model()->findByPk(2);
-        //$target_role3 = Role::model()->findByPk(3);
-        //$role_group = array($target_role, $target_role2);
-        //$r = array_push($role_group, $target_role3);
+        $new_role = Role::model()->findByPk($role_id);
 
         foreach ($volunteer_ids as $vid) {
             $model = User::model()->findByPk($vid);
-            $model->roles = array($target_role);
-            //Yii::trace("ROLE GROUP: ".serialize($role_group));
-            Yii::trace("MODEL ROLES: ".serialize($model->roles));
+
+            // Make another array with existing roles + new_role
+            $new_roles = $model->roles;
+            array_push($new_roles, $new_role);
+
+            $model->roles = $new_roles;
             $model->save();
         }
     }
