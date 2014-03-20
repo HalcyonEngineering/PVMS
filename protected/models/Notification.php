@@ -100,6 +100,7 @@ class Notification extends CActiveRecord
 
         $criteria=new CDbCriteria;
         $criteria->compare('user_id',Yii::app()->user->id,true);
+        $criteria->order = 'timestamp DESC';
 
         return new CActiveDataProvider('Notification', array(
             'criteria'=>$criteria,
@@ -131,7 +132,6 @@ class Notification extends CActiveRecord
         $_notify->description = $description; // add description of the notification
         $_notify->link = $link; //add link to notification source
         $_notify->timestamp = time(); //system generates current timestamp to be stored.*/
-        Yii::trace("Calling notify function.");
         if ($_notify->validate()) { //check if notification object validates
             Yii::trace("Notify validated.");
             $_notify->save();    //add to database

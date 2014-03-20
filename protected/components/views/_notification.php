@@ -5,7 +5,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('timestamp')); ?>:</b>
-	<?php echo CHtml::encode($data->timestamp); ?>
+	<?php echo CHtml::encode(Yii::app()->dateFormatter->formatDateTime($data->timestamp), 'YY/DD/MM'); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('link')); ?>:</b>
