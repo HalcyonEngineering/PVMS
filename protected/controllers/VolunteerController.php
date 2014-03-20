@@ -59,28 +59,25 @@ class VolunteerController extends Controller
 
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
 
-        if(Yii::app()->user->isAdmin()){
-			$this->render('admin', array('model'=>$model, 'org_model'=>$org_model));
-			}
-		else{
-			$this->render('search', array('model'=>$model, 'org_model'=>$org_model));
-			}
+        if(Yii::app()->user->isAdmin()) {
+            $this->render('admin', array('model'=>$model, 'org_model'=>$org_model));
+        } else {
+            $role_model = new Role('search');
+            $role_model->unsetAttributes();
+
+            if (isset($_POST['selectedIds']) && isset($_POST['role_list']))
+            {
+                if (!empty($_POST['role_list'])) {
+                    Yii::trace('selectedIds: '.serialize($_POST['selectedIds']));
+                    Yii::trace('role_list'.serialize($_POST['role_list']));
+                    User::assignToRole($_POST['selectedIds'], $_POST['role_list']);
+                }
+            }
+
+	    $this->render('search', array('model'=>$model, 'role_model'=>$role_model));
+	}
     }
 
-    public function actionAssignToRole()
-    {
-        $model = new User('search');
-        $model->unsetAttributes(); // Clear attributes for search
-
-        if (isset($_POST['selectedIds']))
-        {
-            Yii::trace('selectedIds: '.serialize($_POST['selectedIds']));
-            User::assignToRole($_POST['selectedIds']);
-        }
-
-        $this->render('search', array('model'=>$model));
-    }
-	
 	//Delete volunteer
 	public function actionDeleteVolunteer($userID)
     {

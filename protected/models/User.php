@@ -279,22 +279,25 @@ class User extends CActiveRecord
 
         if($user->validate())
         {
-            // Has the password before saving it.
+            // Hash the password before saving it.
             $user->password = $user->hashPassword($user->newPassword);
             $user->save();
         }
     }
 
-    public static function assignToRole($volunteer_ids) {
-        $target_role = Role::model()->findByPk(2);
+    public static function assignToRole($volunteer_ids, $role_id) {
+        $target_role = Role::model()->findByPk($role_id);
+        //$target_role2 = Role::model()->findByPk(2);
+        //$target_role3 = Role::model()->findByPk(3);
+        //$role_group = array($target_role, $target_role2);
+        //$r = array_push($role_group, $target_role3);
 
         foreach ($volunteer_ids as $vid) {
             $model = User::model()->findByPk($vid);
-            Yii::trace('AFTER FIND: '.serialize($model->organizations));
             $model->roles = array($target_role);
-            Yii::trace('AFTER SET: '.serialize($model->organizations));
+            //Yii::trace("ROLE GROUP: ".serialize($role_group));
+            Yii::trace("MODEL ROLES: ".serialize($model->roles));
             $model->save();
-            Yii::trace('AFTER SAVE: '.serialize($model->organizations));
         }
     }
 }
