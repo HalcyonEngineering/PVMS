@@ -221,20 +221,20 @@ INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'Web Developer'
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'PHP Programmer', 'First.', '#000000');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'Marketing Assistant', 'First.', '#111111');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'Sponsorship Assistant', 'First.', '#222222');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (2, 'First Role', 'First role created.', '#FFFFFF');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Route Patrol', 'First role created.', '#FFFFFF');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Wall Spotter', 'First role created.', '#000000');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'DJ && MC', 'First role created.', '#111111');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Cycle Transition', 'First role created.', '#222222');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Pool Transition', 'First role created.', '#333333');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Communications Assistant Director', 'First role created.', '#444444');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Media Assistant Director', 'First.', '#555555');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Eligibility Assistant Director', 'First.', '#666666');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Scheduling Assistant Director', 'First.', '#777777');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Social Assistant Director', 'First.', '#8888888');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Referee Development Assistant Director', 'First .', '#aaaaaa');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Referee CoordinatorAssistant Director', 'First .', '#bbbbbb');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Community Assistant Director', 'First.', '#cccccc');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (6, 'First Role', 'First role created.', '#FFFFFF');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Route Patrol', 'First role created.', '#FFFFFF');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Wall Spotter', 'First role created.', '#000000');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'DJ && MC', 'First role created.', '#111111');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Cycle Transition', 'First role created.', '#222222');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Pool Transition', 'First role created.', '#333333');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Communications Assistant Director', 'First role created.', '#444444');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Media Assistant Director', 'First.', '#555555');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Eligibility Assistant Director', 'First.', '#666666');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Scheduling Assistant Director', 'First.', '#777777');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Social Assistant Director', 'First.', '#8888888');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Referee Development Assistant Director', 'First .', '#aaaaaa');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Referee CoordinatorAssistant Director', 'First .', '#bbbbbb');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Community Assistant Director', 'First.', '#cccccc');
 
 --Role onboarding pages
 INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
@@ -243,19 +243,21 @@ INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions
 
 -- Tasks
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Create new UI', 'This task needs to be completed.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Get Sponsorship', 'Contact smaller companies to get earn sponsorships.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Update Database', 'Add more volunteers.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Meet with Jason', 'Meeting is at Pitchn HQ in Downtown Vancouver on Monday at noon.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Hand in documents', 'This task needs to be completed.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(2, 'A Task', 'Do stuff.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(3, 'Another Task', 'Do more.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(3, 'Yet another Task', 'Do even more.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(4, 'Get Sponsorship', 'Contact smaller companies to get earn sponsorships.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(2, 'Update Database', 'Add more volunteers.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(3, 'Meet with Jason', 'Meeting is at Pitchn HQ in Downtown Vancouver on Monday at noon.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(2, 'Hand in documents', 'This task needs to be completed.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(5, 'A Task', 'Do stuff.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(5, 'Another Task', 'Do more.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(5, 'Yet another Task', 'Do even more.');
 
+--Organization and Manager Relationship
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (4, 2);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (13, 3);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (14, 4);
 
+--Organziation and Volunteer Relationship
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('6','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('7','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('8','1');
@@ -278,6 +280,7 @@ INSERT INTO pvms_user_role(user_id, role_id) VALUES (5, 1);
 CREATE TABLE pvms_csv(csv BLOB);
 CREATE TABLE pvms_skill(skill NOT NULL PRIMARY KEY, frequency INTEGER DEFAULT 1);
 
+--Skills
 INSERT INTO pvms_skill (name) VALUES ('Accounting');
 INSERT INTO pvms_skill (name) VALUES ('Advertising');
 INSERT INTO pvms_skill (name) VALUES ('Branding');

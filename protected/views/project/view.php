@@ -37,7 +37,8 @@
 
 <h3> Volunteers and Roles</h3>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+<!-- Remove after debugging
+ <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
 		'id',
@@ -45,6 +46,8 @@
         'colour',
 ),
 )); ?>
+-->
+
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'dataProvider' => $roleDataProvider,
 	'columns' => array(
