@@ -78,7 +78,7 @@ class TaskController extends Controller
 			$model->role_id = $role_id;
 		}
 
-		$this->render('create',array(
+		$this->renderModal('create',array(
 			'model'=>$model,
 		));
 	}
@@ -160,7 +160,13 @@ class TaskController extends Controller
 	public function actionListTasks($role_id)
 	{
 		$dataProvider=new CActiveDataProvider('Task',array('criteria'=>array('condition'=>'role_id='.$role_id,),));
-		$this->renderModal('_tasks',array('dataProvider'=>$dataProvider,));
+		if (Yii::app()->user->isVolunteer()) {
+			$this->renderModal('_tasks',array('dataProvider'=>$dataProvider,
+												'template'=>'{view}{update}',));
+		} else {
+			$this->renderModal('_tasks',array('dataProvider'=>$dataProvider,
+												'template'=>'{view}{update}{delete}',));
+		}
 	}
 
 	/**

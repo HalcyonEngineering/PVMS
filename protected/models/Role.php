@@ -54,7 +54,7 @@ class Role extends CActiveRecord
 			'project' => array(self::BELONGS_TO, 'Project', 'project_id'),
 			'tasks' => array(self::HAS_MANY, 'Task', 'role_id'),
 			'users' => array(self::MANY_MANY, 'User', '{{user_role}}(role_id, user_id)'),
-			'onboardingdocs' => array(self::HAS_MANY, 'OnboardingDoc', 'role_id'),
+			'onboardingDoc' => array(self::HAS_ONE, 'OnboardingDoc', 'role_id'),
 		);
 	}
 

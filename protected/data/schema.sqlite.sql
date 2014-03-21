@@ -211,6 +211,11 @@ INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Football', 'The 
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ultimate', 'The Ultimate league is not the ultimate league.','#22222');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Storm the Wall', 'Storm the wall is March 23-25th.','#2e2e2e');
 
+--Project files
+INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt',19,'This is an example.');
+INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example2.txt',24,'This is another example.');
+INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example3.txt',28,'This is yet another example.');
+
 --Roles
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'Web Developer', 'First.', '#FFFFFF');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'PHP Programmer', 'First.', '#000000');
@@ -231,17 +236,20 @@ INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Referee Develo
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Referee CoordinatorAssistant Director', 'First .', '#bbbbbb');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (3, 'Community Assistant Director', 'First.', '#cccccc');
 
+--Role onboarding pages
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+
 -- Tasks
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Create new UI', 'This task needs to be completed.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Get Sponsorship', 'Contact smaller companies to get earn sponsorships.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Update Database', 'Add more volunteers.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Meet with Jason', 'Meeting is at Pitchn HQ in Downtown Vancouver on Monday at noon.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Hand in documents', 'This task needs to be completed.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(2, 'First Task', 'First task created.');
-
-
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
-INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt',19,'This is an example.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(2, 'A Task', 'Do stuff.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(3, 'Another Task', 'Do more.');
+INSERT INTO pvms_task(role_id, name, desc) VALUES(3, 'Yet another Task', 'Do even more.');
 
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (4, 2);
@@ -297,4 +305,3 @@ INSERT INTO pvms_skill (name) VALUES ('Software Engineering');
 INSERT INTO pvms_skill (name) VALUES ('School');
 
 INSERT INTO pvms_skill (name) VALUES ('Parkour');
-
