@@ -2,11 +2,15 @@
 
 <p><?php echo $model->desc; ?></p>
 
-<p><?php echo $onboardingModel->onboarding_welcome; ?></p>
+<?php
+if ($onboardingModel != null){
+echo "<p>".$onboardingModel->onboarding_welcome."</p>";
 
-<p>Instructions: <?php echo $onboardingModel->onboarding_instructions; ?></p>
+echo "<p>Instructions: ".$onboardingModel->onboarding_instructions." </p>";
 
-<p>Contact information: <?php echo $onboardingModel->onboarding_contact; ?></p>
+echo "<p>Contact information: ".$onboardingModel->onboarding_contact."</p>";
+}
+?>
 
 <div class="span-9 pull-right" ><!--Buttons-->
 <div class="span-3" style="padding:5px;" >
