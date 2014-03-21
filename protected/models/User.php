@@ -197,6 +197,7 @@ class User extends CActiveRecord
             $criteria->compare('t.name',$this->name, true);
             $criteria->compare('location',$this->location);
             $criteria->compare('skillset',$this->skillset, true);
+            $criteria->compare('availability',$this->availability, true);
 
             // User has to be a volunteer
             $criteria->compare('type', User::VOLUNTEER, true);
