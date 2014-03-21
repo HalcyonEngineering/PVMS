@@ -18,6 +18,21 @@ class Skill extends CActiveRecord
         return parent::model($className);
     }
 
+    public function search()
+    {
+            // @todo Please modify the following code to remove attributes that should not be searched.
+
+            $criteria=new CDbCriteria;
+
+            $criteria->compare('id',$this->id, true);
+            $criteria->compare('name',$this->name, true);
+
+            return new CActiveDataProvider($this, array(
+                    'criteria'=>$criteria,
+            ));
+    }
+
+
     /**
      * @return string the associated database table name
      */

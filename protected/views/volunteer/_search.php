@@ -1,28 +1,30 @@
-<br>
+<div class="form">
+<?php echo CHtml::beginForm(); ?>
 
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'action'=>Yii::app()->createUrl($this->route),
-	'method'=>'get',
-)); ?>
+     <div class="row">
+        <?php echo CHtml::activeLabel($model,'username'); ?>
+        <?php echo CHtml::activeTextField($model,'username') ?>
+    </div>
+<?php 
 
-<?php echo $form->textFieldRow($model,'name',array('class'=>'span3')); ?>
-<?php echo $form->textFieldRow($model,'location',array('class'=>'span3')); ?>
-<?php echo '<br>Skillset<br>'; ?>
-<?php $this->widget('CAutoComplete', array(
-    'model'=>$model,
-    'attribute'=>'skillset',
-    'url'=>array('suggestSkillset'),
-    'multiple'=>true,
-    'htmlOptions'=>array('size'=>50),
-    'inputClass'=>'span3',
-)); ?>
+$skill = new Skill('search');
+$list = CHtml::listData($skill->search()->getData(), 'id', 'name');
+Yii::trace("SKILL SEARCH: ".serialize($skill->search()->getData()));
 
-<div class="form-actions">
-<?php $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType' => 'submit',
-        'type'=>'primary',
-        'label'=>'Search',
-)); ?>
+echo CHtml::activeLabel($model,'Skill');
+echo CHtml::dropDownList('skill_list', 'empty', $list, array('empty' => 'Any'));
+
+ echo CHtml::activeLabel($model,'Availability'); ?>
+
+<div class="row checkbox">
+    <?php echo CHtml::checkBox('Morning', true);  echo ' Morning<br>'; ?>
+    <?php echo CHtml::checkBox('Evening', true);  echo ' Evening<br>'; ?>
+    <?php echo CHtml::checkBox('Weekdays', true); echo ' Weekdays<br>'; ?>
+    <?php echo CHtml::checkBox('Weekends', true); echo ' Weekends<br>'; ?>
 </div>
 
-<?php $this->endWidget(); ?>
+    <div class="row submit">
+        <?php echo CHtml::submitButton('David', array('submit'=>'search')); ?>
+    </div>
+ 
+<?php echo CHtml::endForm(); ?>

@@ -82,8 +82,10 @@ class VolunteerController extends Controller
                 }
             }
 
-	    $this->render('search', array('model'=>$model, 'role_model'=>$role_model));
-	}
+            Yii::trace("SUPERGLOBAL: ".serialize($_POST));
+            $data = $model->search_volunteers_in_org(Yii::app()->user->getManagedOrg());
+            $this->render('search', array('data'=>$data, 'model'=>$model, 'role_model'=>$role_model));
+        }
     }
 
 	//Delete volunteer
