@@ -193,9 +193,9 @@ class FileDocController extends Controller
 	/**
 	 * Render a modal showing all FileDocs for the project id passed in
 	 */
-	public function actionListFiles($projectid)
+	public function actionListFiles($project_id)
 	{
-		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$projectid,),));
+		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$project_id,),));
 		$this->renderModal('_files',array('dataProvider'=>$dataProvider,));
 	}
 
