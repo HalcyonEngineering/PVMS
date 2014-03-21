@@ -13,6 +13,7 @@ class User extends CActiveRecord
     * @property string $location
     * @property string $skillset
     * @property string $causes
+    * @property integer $availability
     * @property string $type
     * @property string $profile
     *
@@ -35,8 +36,14 @@ class User extends CActiveRecord
     const ADMINISTRATOR 	= 0;
     const MANAGER       	= 1;
     const VOLUNTEER     	= 2;
-	const DISABLED     		= 3;
-	const DISABLEDVOLUNTEER	= 4;
+    const DISABLED              = 3;
+    const DISABLEDVOLUNTEER     = 4;
+
+    // Bitmap, using bitwise OR to combine these fields
+    const AVAILABLE_MORNING      = 1;
+    const AVAILABLE_EVENING      = 2;
+    const AVAILABLE_WEEKDAYS     = 4;
+    const AVAILABLE_WEEKENDS     = 8;
 
     /**
      * Returns the static model of the specified AR class.
@@ -84,7 +91,7 @@ class User extends CActiveRecord
 
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('name, location, skillset', 'safe', 'on'=>'search'),
+            array('name, location, skillset, availability', 'safe', 'on'=>'search'),
         );
     }
 
@@ -120,6 +127,7 @@ class User extends CActiveRecord
             'skillset' => 'Skillset',
             'causes' => 'Causes',
             'profile' => 'Profile',
+            'availability' => 'Availability',
             'type' => 'Type',
             'adminAccess' => 'Allow Admin Access'
         );
@@ -265,8 +273,10 @@ class User extends CActiveRecord
      * @param volunteer email
      * @param volunteer location
      * @param volunteer skillset
+     * @param volunteer organization
+     * @param volunteer availability
      */
-    public static function enrollVolunteer($name, $email, $location, $skillset, $organization)
+    public static function enrollVolunteer($name, $email, $location, $skillset, $organization, $availability)
     {
         // If the email does not exist in the database, create a new volunteer
         $user = User::model()->findByAttributes(array('email'=>$email));
@@ -276,6 +286,7 @@ class User extends CActiveRecord
             $user->email = $email;
             $user->location = $location;
             $user->skillset = $skillset;
+            $user->availability = $availability;
 
             $user->newPassword = 'temporary'; //should have randomly generated pass, email user
             $user->organizations = array($organization);
@@ -303,6 +314,7 @@ class User extends CActiveRecord
 
             // Only add role if the volunteer is not already enrolled
             if (!in_array($new_role, $model->roles)) {
+
                 // Make another array with existing roles + new_role
                 $new_roles = $model->roles;
                 array_push($new_roles, $new_role);
