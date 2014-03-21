@@ -29,8 +29,6 @@
 					));
 
 		$this->endWidget();*/
-
-	echo '</div>'
  ?>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array('id'=>'file-doc-grid',
@@ -41,7 +39,7 @@
 																		'file_size',
 																		'file_data',
 																		array('class'=>'bootstrap.widgets.TbButtonColumn', // buttoncolumn customized with documentation at: http://www.yiiframework.com/wiki/106/using-cbuttoncolumn-to-customize-buttons-in-cgridview/
-																			'template'=>'{download}{view}{update}{delete}',
+																			'template'=>$template,
 																			'buttons'=>array('download' => array('label'=>'Download file',
 																									            'imageUrl'=>Yii::app()->request->baseUrl.'/images/downloadSmall.png',
 																												'icon' => 'circle-arrow-down',

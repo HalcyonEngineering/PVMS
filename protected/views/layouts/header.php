@@ -7,7 +7,6 @@ $messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png' , 'm
 $this->widget(
      'bootstrap.widgets.TbNavbar',
      array(
-	     'type' => 'inverse',
 	     'brand' => CHtml::image(Yii::app()->getBaseUrl().'/images/Pitchn-Logo-Mark-317x150.png', "Pitch'n", array("width"=>"140px", "height"=>"100px")),
 	     'brandOptions' =>  array('style' => 'margin-left: -15px;'),
 	     'brandUrl' => Yii::app()->homeUrl,

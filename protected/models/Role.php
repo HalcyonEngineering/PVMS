@@ -54,7 +54,7 @@ class Role extends CActiveRecord
 			'project' => array(self::BELONGS_TO, 'Project', 'project_id'),
 			'tasks' => array(self::HAS_MANY, 'Task', 'role_id'),
 			'users' => array(self::MANY_MANY, 'User', '{{user_role}}(role_id, user_id)'),
-			'onboardingdocs' => array(self::HAS_MANY, 'OnboardingDoc', 'role_id'),
+			'onboardingDoc' => array(self::HAS_ONE, 'OnboardingDoc', 'role_id'),
 		);
 	}
 
@@ -98,6 +98,20 @@ class Role extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+        public function search_in_organization($org) {
+            $criteria=new CDbCriteria;
+            $criteria->compare('id',$this->id);
+
+            // Role's project's organization must equal to $org
+            $criteria->with = array('project');
+            $criteria->together = true;
+            $criteria->compare('project.org_id', $org->id, true);
+
+            return new CActiveDataProvider($this, array(
+                    'criteria'=>$criteria,
+            ));
+        }
 
 	/**
 	 * Returns the static model of the specified AR class.

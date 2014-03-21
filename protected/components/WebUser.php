@@ -59,6 +59,49 @@ class WebUser extends CWebUser {
 		return $this->isAdminAccess;
 	}
 
+	/**
+	 * Checks if the user has the role.
+	 * @param null $id
+	 *
+	 * @return bool
+	 */
+	public function hasRole($id = null){
+		$user = $this->loadUser(Yii::app()->user->id);
+		if ($id !== null){
+			$exists = Yii::app()->db->createCommand()
+			                        ->select('*')
+			                        ->from('{{user_role}}')
+			                        ->where(array('and','role_id=:rid', 'user_id=:uid'), array(':rid'=> $id, ':uid'=>$user->id))
+			                        ->queryScalar();
+			if ($exists){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Checks if the user is a manager for the organization.
+	 * @param $id
+	 *
+	 * @return bool
+	 */
+	public function isManagerForOrg($org_id = null){
+		$user = $this->loadUser(Yii::app()->user->id);
+		if ($org_id !== null){
+			$exists = Yii::app()->db->createCommand()
+			                        ->select('*')
+			                        ->from('{{organization_manager}}')
+			                        ->where(array('and','org_id=:oid', 'user_id=:uid'), array(':oid'=> $org_id, ':uid'=>$user->id))
+			                        ->queryScalar();
+			if ($exists){
+				Yii::trace("Is manager for org true.");
+				return true;
+			}
+		}
+		Yii::trace("Is manager for org false.");
+		return false;
+	}
 
 	protected function loadUser($id = null) {
 		if ($this->_model === null) {

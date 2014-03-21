@@ -39,12 +39,10 @@ return array(
 	),
 	// application components
 	'components'=>array(
-		'user'=>array(
-			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
-			'loginUrl' => array('/account/login'),
-			'class' => 'WebUser',
+		'authManager'=>array(
+			'class'=>'CPhpAuthManager',
 		),
+
 		'bootstrap'=> array(
 			'class' => 'ext.yii-booster.components.Bootstrap',
 		),
@@ -81,6 +79,12 @@ return array(
 	    'request'=>array(
 		    //'enableCsrfValidation'=>true,
 		    'enableCookieValidation'=>true,
+	    ),
+	    'user'=>array(
+		    // enable cookie-based authentication
+		    'allowAutoLogin'=>true,
+		    'loginUrl' => array('/account/login'),
+		    'class' => 'WebUser',
 	    ),
 	),
 

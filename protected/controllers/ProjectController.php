@@ -27,21 +27,13 @@ class ProjectController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+			array('allow',
+				'actions'=>array('index','create','view','update','delete', 'admin'),
+				'expression'=>'Yii::app()->user->isManager()',
+			),
+			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete', 'createRole'),
-				'users'=>array('admin'),
-			),
-//			array('deny',  // deny all users
-//				'users'=>array('*'),
-//			),
 		);
 	}
 
@@ -52,19 +44,23 @@ class ProjectController extends Controller
 	public function actionView($id)
 	{
 		$model = $this->loadModel($id);
-		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$id,),));
-		$roleDataProvider = new CArrayDataProvider($model->roles, 
-							array('sort'=>array(
-										        'attributes'=>array(
-																	'id', 'name',
-																	)
-												)
-								  )
-							);
-		$this->render('view', array('model'=>$model,
-		                   		'dataProvider'=>$dataProvider,
-								'roleDataProvider'=>$roleDataProvider)
-		);
+		if(Yii::app()->user->isManagerForOrg($model->org_id)){
+			$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$id,),));
+			$roleDataProvider = new CArrayDataProvider($model->roles,
+								array('sort'=>array(
+											        'attributes'=>array(
+																		'id', 'name',
+																		)
+													)
+									  )
+								);
+			$this->render('view', array('model'=>$model,
+			                        'dataProvider'=>$dataProvider,
+									'roleDataProvider'=>$roleDataProvider)
+			);
+		} else {
+			throw new CHttpException(403);
+		}
 	}
 
 	/**
@@ -88,21 +84,6 @@ class ProjectController extends Controller
 		$this->renderModal('create',array('model'=>$model));
 	}
 
-	/**
-	 * Creates a role under the specified project.
-	 */
-	public function actionCreateRole($id){
-		$model=new Role;
-		$model->project_id=$_GET['id'];
-		if(isset($_POST['Role'])){
-			$model->attributes=$_POST['Role'];
-			if($model->save()){
-				$this->redirect(array('/role/view', 'id'=>$model->id));
-			}
-		}
-
-		$this->render('/role/create', array('model'=>$model));
-	}
 
 	/**
 	 * Updates a particular model.
@@ -112,22 +93,25 @@ class ProjectController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+		if(Yii::app()->user->isManagerForOrg($model->org_id)){
+			// Uncomment the following line if AJAX validation is needed
+			$this->performAjaxValidation($model);
 
-		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
-
-		if(isset($_POST['Project']))
-		{
-			$model->attributes=$_POST['Project'];
-			if($model->save())
+			if(isset($_POST['Project']))
 			{
-				$this->redirect(array('index'));
+				$model->attributes=$_POST['Project'];
+				if($model->save())
+				{
+					$this->redirect(array('index'));
+				}
 			}
-		}
 
-		$this->renderModal('update',
-		                   array('model'=>$model)
-		);
+			$this->renderModal('update',
+			                   array('model'=>$model)
+			);
+		} else {
+			throw new CHttpException(403);
+		}
 	}
 
 	/**
@@ -139,8 +123,12 @@ class ProjectController extends Controller
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
+			$model = $this->loadModel($id);
+			if(!Yii::app()->user->isManagerForOrg($model->org_id)){
+				throw new CHttpException(403);
+			}
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			$model->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax'])) {

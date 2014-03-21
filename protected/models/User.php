@@ -268,33 +268,50 @@ class User extends CActiveRecord
      */
     public static function enrollVolunteer($name, $email, $location, $skillset, $organization)
     {
-        $user = new User;
-        $user->name = $name;
-        $user->email = $email;
-        $user->location = $location;
-        $user->skillset = $skillset;
+        // If the email does not exist in the database, create a new volunteer
+        $user = User::model()->findByAttributes(array('email'=>$email));
+        if ($user === null) {
+            $user = new User;
+            $user->name = $name;
+            $user->email = $email;
+            $user->location = $location;
+            $user->skillset = $skillset;
 
-        $user->newPassword = 'temporary'; //should have randomly generated pass, email user
-        $user->organizations = array($organization);
+            $user->newPassword = 'temporary'; //should have randomly generated pass, email user
+            $user->organizations = array($organization);
+                if($user->validate())
+                {
+                    // Hash the password before saving it.
+                    $user->password = $user->hashPassword($user->newPassword);
+                    $user->save();
+                }
 
-        if($user->validate())
-        {
-            // Has the password before saving it.
-            $user->password = $user->hashPassword($user->newPassword);
+        } else {
+            // Just update the organization, don't change anything else
+            $new_orgs = $user->organizations;
+            array_push($new_orgs, $organization);
+            $user->organizations = $new_orgs;
             $user->save();
         }
     }
 
-    public static function assignToRole($volunteer_ids) {
-        $target_role = Role::model()->findByPk(2);
+    public static function assignToRole($volunteer_ids, $role_id) {
+        $new_role = Role::model()->findByPk($role_id);
 
         foreach ($volunteer_ids as $vid) {
             $model = User::model()->findByPk($vid);
-            Yii::trace('AFTER FIND: '.serialize($model->organizations));
-            $model->roles = array($target_role);
-            Yii::trace('AFTER SET: '.serialize($model->organizations));
-            $model->save();
-            Yii::trace('AFTER SAVE: '.serialize($model->organizations));
+
+            // Only add role if the volunteer is not already enrolled
+            if (!in_array($new_role, $model->roles)) {
+                // Make another array with existing roles + new_role
+                $new_roles = $model->roles;
+                array_push($new_roles, $new_role);
+                $model->roles = $new_roles;
+                if ($model->save()) {
+                    $note_url = Yii::app()->getBaseUrl(true).'/role/view?id='.$role_id;
+                    Notification::notify($model->id, 'A new role has been assigned for you!', $note_url);
+                }
+            }
         }
     }
 }

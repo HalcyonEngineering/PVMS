@@ -52,12 +52,14 @@ class RoleController extends Controller
 	public function actionView($id)
 	{
 		$model = $this->loadModel($id);
-		$model->users = User::model()->findByPk(Yii::app()->user->id);
-		Yii::trace("HEY YOU.");
-		$model->save();
-		$this->render('view',array(
-			'model'=>$model,
-		));
+		$onboardingModel = $model->onboardingDoc;
+		if (Yii::app()->user->isVolunteer()) {
+			$this->render('volunteerView',array('model'=>$model,
+												'onboardingModel'=>$onboardingModel,));
+		} else {
+			$this->render('view',array('model'=>$model,
+										'onboardingModel'=>$onboardingModel,));
+		}
 	}
 
 	/**

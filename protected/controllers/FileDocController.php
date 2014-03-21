@@ -32,7 +32,7 @@ class FileDocController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','download','listFiles','delete'),
+				'actions'=>array('create','update','download','listFiles','listParentFiles','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -193,10 +193,27 @@ class FileDocController extends Controller
 	/**
 	 * Render a modal showing all FileDocs for the project id passed in
 	 */
-	public function actionListFiles($projectid)
+	public function actionListFiles($project_id)
 	{
-		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$projectid,),));
-		$this->renderModal('_files',array('dataProvider'=>$dataProvider,));
+		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$project_id,),));
+		$this->renderModal('//FileDoc/_files',array('dataProvider'=>$dataProvider,));
+	}
+
+	/**
+	 * Render a modal showing all FileDocs for the project for the role id passed in
+	 */
+	public function actionListParentFiles($role_id)
+	{
+		//$project_id = 1;
+		$project_id = Role::model()->findByPk($role_id)->project_id; //TODO: do something with these
+		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$project_id,),));
+		if (Yii::app()->user->isVolunteer()) {
+			$this->renderModal('_files',array('dataProvider'=>$dataProvider,
+												'template'=>'{download}',));
+		} else {
+			$this->renderModal('_files',array('dataProvider'=>$dataProvider,
+												'template'=>'{download}{view}{update}{delete}',));
+		}
 	}
 
 	/**
