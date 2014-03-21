@@ -32,6 +32,7 @@ class User extends CActiveRecord
     public $adminAccess;
 
     private $_oldSkillset;
+    private $_oldLocation;
 
     const ADMINISTRATOR 	= 0;
     const MANAGER       	= 1;
@@ -84,6 +85,10 @@ class User extends CActiveRecord
             array('origPassword', 'required', 'on'=> 'settings'),
             array('type, newPassword, verifyPassword', 'required', 'on' => 'register'),
             //array('type', 'in', 'on' => 'register, disable', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR,  User::DISABLED)),
+
+            // Location and causes
+            array('location', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Location can only includes skills, which must be word characters.'),
+            array('location', 'normalizeLocation'),
 
             // Skills and causes
             array('skillset', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Skillset can only includes skills, which must be word characters.'),
@@ -195,7 +200,7 @@ class User extends CActiveRecord
 
             // Name needs to be disambiguated from 
             $criteria->compare('t.name',$this->name, true);
-            $criteria->compare('location',$this->location);
+            $criteria->compare('location',$this->location, true);
             $criteria->compare('skillset',$this->skillset, true);
             $criteria->compare('availability',$this->availability, true);
 
@@ -221,7 +226,7 @@ class User extends CActiveRecord
 
             $criteria->compare('id',$this->id);
             $criteria->compare('name',$this->name, true);
-            $criteria->compare('location',$this->location);
+            $criteria->compare('location',$this->location, true);
             $criteria->compare('skillset',$this->skillset, true);
 
             // User has to be a volunteer
@@ -250,6 +255,11 @@ class User extends CActiveRecord
 		}
 	}
 
+    // Normalizes the manager-entered Location.
+    public function normalizeLocation($attribute, $params) {
+        $this->location = Skill::array2string(array_unique(Skill::string2array($this->location)));
+    }
+
     // Normalizes the manager-entered skillset.
     public function normalizeSkillset($attribute, $params) {
         $this->skillset = Skill::array2string(array_unique(Skill::string2array($this->skillset)));
@@ -258,11 +268,13 @@ class User extends CActiveRecord
     protected function afterFind() {
         parent::afterFind();
         $this->_oldSkillset = $this->skillset;
+        $this->_oldLocation = $this->location;
     }
 
     protected function afterSave() {
         parent::afterSave();
         Skill::model()->updateFrequency($this->_oldSkillset, $this->skillset);
+        Location::model()->updateFrequency($this->_oldLocation, $this->location);
     }
 
     protected function afterDelete() {

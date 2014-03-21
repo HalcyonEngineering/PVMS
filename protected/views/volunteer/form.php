@@ -29,7 +29,14 @@
 
 <div class="row">
     <?php echo $form->labelEx($userModel,'location'); ?>
-    <?php echo $form->textField($userModel,'location', array('size' => 30, 'maxlength' => 30)); ?>
+    <?php $this->widget('CAutoComplete', array(
+        'model'=>$userModel,
+        'attribute'=>'location',
+        'url'=>array('suggestLocation'),
+        'multiple'=>true,
+        'htmlOptions'=>array('size'=>50),
+    )); ?>
+    <p class="hint">Please separate different locations with commas.</p>
     <?php echo $form->error($userModel,'location'); ?>
 </div>
 

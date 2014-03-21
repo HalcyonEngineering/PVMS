@@ -41,6 +41,20 @@ class VolunteerController extends Controller
     }
 
     /**
+     * Suggests location based on the current user input.
+     * This is called via AJAX when the user is entering the project input.
+     */
+    public function actionSuggestLocation()
+    {
+        if(isset($_GET['q']) && ($keyword=trim($_GET['q']))!=='')
+        {
+            $location=Location::model()->suggestLocation($keyword);
+            if($location!==array())
+                echo implode("\n", $location);
+        }
+    }
+
+    /**
      * Suggests skillset based on the current user input.
      * This is called via AJAX when the user is entering the skillset input.
      */

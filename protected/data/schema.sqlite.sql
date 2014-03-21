@@ -92,6 +92,13 @@ CREATE TABLE pvms_skill
 	frequency INTEGER DEFAULT 1
 );
 
+CREATE TABLE pvms_location
+(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR(32) NOT NULL,
+	frequency INTEGER DEFAULT 1
+);
+
 -- Various join tables.
 CREATE TABLE pvms_user_organization
 (
@@ -306,5 +313,10 @@ INSERT INTO pvms_skill (name) VALUES ('Social Media');
 INSERT INTO pvms_skill (name) VALUES ('Technology');
 INSERT INTO pvms_skill (name) VALUES ('Software Engineering');
 INSERT INTO pvms_skill (name) VALUES ('School');
-
 INSERT INTO pvms_skill (name) VALUES ('Parkour');
+
+--Locations
+INSERT INTO pvms_location (name) VALUES ('Surrey');
+INSERT INTO pvms_location (name) VALUES ('Whiterock');
+INSERT INTO pvms_location (name) VALUES ('Richmond');
+INSERT INTO pvms_location (name) VALUES ('Vancouver');
