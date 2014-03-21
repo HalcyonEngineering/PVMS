@@ -192,7 +192,7 @@ class User extends CActiveRecord
             $criteria=new CDbCriteria;
 
             $criteria->compare('id',$this->id);
-            $criteria->compare('name',$this->name, true);
+            $criteria->compare('t.name',$this->name, true);
             $criteria->compare('location',$this->location);
             $criteria->compare('skillset',$this->skillset, true);
 
