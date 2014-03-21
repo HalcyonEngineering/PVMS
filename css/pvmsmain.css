@@ -28,15 +28,8 @@ body
 	padding:8px 8px;
 }
 
-#header ul li a:hover 
-{
-	background-color:#282828;
-}
-
 #header ul li a:hover, #mainmenu ul li.active a
 {
-	color: #1AAB9F;
-	background-color:#282828;
 }
 
 #inside-page
@@ -174,6 +167,8 @@ div.view
 	width: 950px;
 }
 
+.navbar-inner .container
+
 .pagination
 {
 	clear: both;
@@ -232,6 +227,11 @@ position:absolute;
 	background-color:#FFFFFF;
 	padding: 8px 8px;
 	border-top: thin solid #B2B2B2;
+}
+
+#header .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus
+{
+	background-image: linear-gradient(to bottom, #B2B2B2, #FFFFFF);
 }
 
 
