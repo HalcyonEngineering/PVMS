@@ -18,7 +18,7 @@
 	<br /><br />
 
     <b><?php echo CHtml::encode('Project'); ?>:</b>
-    <?php echo CHtml::encode(count($data->project_id)); ?>
+    <?php echo CHtml::encode($data->project_id); ?>
     <br /><br />
 
 	<b><?php echo CHtml::encode('Number of Volunteers'); ?>:</b>

@@ -268,20 +268,31 @@ class User extends CActiveRecord
      */
     public static function enrollVolunteer($name, $email, $location, $skillset, $organization)
     {
-        $user = new User;
-        $user->name = $name;
-        $user->email = $email;
-        $user->location = $location;
-        $user->skillset = $skillset;
+        // If the email does not exist in the database, create a new volunteer
+        $user = User::model()->findByAttributes(array('email'=>$email));
+        if ($user === null) {
+            $user = new User;
+            $user->name = $name;
+            $user->email = $email;
+            $user->location = $location;
+            $user->skillset = $skillset;
 
-        $user->newPassword = 'temporary'; //should have randomly generated pass, email user
-        $user->organizations = array($organization);
+            $user->newPassword = 'temporary'; //should have randomly generated pass, email user
+            $user->organizations = array($organization);
+                if($user->validate())
+                {
+                    // Hash the password before saving it.
+                    $user->password = $user->hashPassword($user->newPassword);
+                    $user->save();
+                }
 
-        if($user->validate())
-        {
-            // Hash the password before saving it.
-            $user->password = $user->hashPassword($user->newPassword);
+        } else {
+            // Just update the organization, don't change anything else
+            $new_orgs = $user->organizations;
+            array_push($new_orgs, $organization);
+            $user->organizations = $new_orgs;
             $user->save();
+            Yii::trace("USER ORGS: ".serialize($user->organizations));
         }
     }
 
