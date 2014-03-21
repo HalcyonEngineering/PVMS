@@ -1,6 +1,12 @@
 <?php if(Yii::app()->user->isManager()){
-	$this->breadcrumbs = array();
+	$projectName = $model->project->name;
+	$this->breadcrumbs=array(
+		"$projectName"=>array('project/view', 'id'=>$model->project->id),
+		$model->name,
+	);
 } ?>
+
+
 
 <h1>Role model:</h1>
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
