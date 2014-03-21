@@ -1,3 +1,7 @@
+<?php if(Yii::app()->user->isManager()){
+	$this->breadcrumbs = array();
+} ?>
+
 <h1>Role model:</h1>
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,

@@ -53,7 +53,10 @@
 	'columns' => array(
 					   'id',
 					   'name',
-             array('class'=>'bootstrap.widgets.TbButtonColumn'), //TODO: FIX THESE BUTTONS
+             array('class'=>'bootstrap.widgets.TbButtonColumn',
+                   'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->primaryKey))',
+                   'updateButtonUrl'=>'Yii::app()->controller->createUrl("/role/update",array("id"=>$data->primaryKey))',
+                   'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->primaryKey))',),
 					   )
 	
 	)); ?>
