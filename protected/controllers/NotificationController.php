@@ -32,7 +32,7 @@ class NotificationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'readAll'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -177,4 +177,16 @@ class NotificationController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    public function actionRead($id){
+        $current_user = Yii::app()->user->id;
+        $model = Notification::model()->findByPk($id);
+        $model->read();
+        $model->save();
+    }
+
+    public function actionReadAll(){
+        //Fill in here/
+        //redirecxt here.
+    }
 }

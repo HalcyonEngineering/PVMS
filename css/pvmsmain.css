@@ -137,11 +137,9 @@ body
 
 div.smallNotification
 {
-	padding: 4px 4px;
 	color: #000000;
 	text-align:left;
-	border:2px solid;
-	width: 130px;
+	position:relative;
 }
 
 #notification-menu .dropdown 
@@ -160,9 +158,7 @@ div.smallNotification
 div.view
 {
 	margin: 10px 10px;
-	padding: 5px;
 	border: 2px solid #000000;
-	border-color: #1AAB9F;
 }
 
 .tile
@@ -183,17 +179,6 @@ div.view
 	clear: both;
 }
 
-#yw6 .nav-header
-{
-	font-weight:normal;
-	padding: 0px 0px;
-	text-transform: none;
-	margin-left:9px;
-}
-#yw6 .list-view
-{
-	padding-top: 0px;
-}
  .dropdown-menu .divider
 {
 	height: 2px;
@@ -203,8 +188,52 @@ div.view
 	border-bottom: 0px #ffffff;
 }
 
-#content .list-view{
+#notification-menu .nav-header .list-view{
 	padding-top:0px
 }
+
+.read {
+	position:relative;
+	background-color:#FFFFFF;
+	padding: 8px 8px;
+}
+
+.unread {
+	position:relative;
+	background-color:#AAFFC6;
+	padding: 8px 8px;
+}
+
+#notification-menu .nav-header{
+	padding-left: 0px;
+	padding-right: 0px; 
+}
+
+#span_read
+{
+position:absolute; 
+  width:95%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+  background-image: url('empty.gif');
+}
+
+.small_unread {
+	position:relative;
+	background-color:#AAFFC6;
+	padding: 8px 8px;
+	border-top: thin solid #B2B2B2;
+}
+
+.small_read {
+	position:relative;
+	background-color:#FFFFFF;
+	padding: 8px 8px;
+	border-top: thin solid #B2B2B2;
+}
+
+
 
 

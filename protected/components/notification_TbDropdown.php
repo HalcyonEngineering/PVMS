@@ -33,7 +33,7 @@ class notification_TbDropdown extends TbMenu {
                     'url' => '#',
                     'items' => array(array('label' => $nWidget), //THIS SECTION WILL REQUIRE LIST OF NOTIFICATIONS GENERATION
                         '---',
-                        array('label' => 'View All Notifications', 'url' => array('notification/index')),
+                        array('label' => 'View All Notifications', 'itemOptions' => array('id' => 'link_allNotifications'), 'url' => array('notification/index')),
                     ), //End notifications drop down menu items
                     'visible' => !Yii::app()->user->isGuest,
             )); //End notifications drop down menu
@@ -66,18 +66,16 @@ class notification_TbDropdown extends TbMenu {
     public function run() {
         parent::run();
 
-        if ($this->count > 0 && $this->count < 99 ) {
+        if ($this->count > 0 && $this->count < 10 ) {
             echo CHtml::script("$(document).ready(
 									function(){ 
 										$('#notification-icon').tooltip({trigger : 'manual', title: $this->count,});
 										$('#notification-icon').tooltip('show');
 									})");
-        }
-
-        if ($this->count > 99 ) {
+        }else{
             echo CHtml::script("$(document).ready(
 									function(){
-										$('#notification-icon').tooltip({trigger : 'manual', title: '99+',});
+										$('#notification-icon').tooltip({trigger : 'manual', title:  '10+',});
 										$('#notification-icon').tooltip('show');
 									})");
         }

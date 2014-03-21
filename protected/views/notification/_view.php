@@ -1,24 +1,54 @@
-<div class="view">
+<?php
+/*
+ *  @var $this NotificationController
+ */
+  $status = ($data->read_status == 1) ? 'read' : 'unread';
+   echo "<div class='view $status'>";
+    ?>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</b>
-	<?php echo CHtml::encode($data->user->name); ?>
-	<br />
+    <b><?php echo CHtml::encode($data->getAttributeLabel('timestamp')); ?>:</b>
+    <?php echo CHtml::encode(Yii::app()->dateFormatter->formatDateTime($data->timestamp), 'YY/DD/MM'); ?>
+    <br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
 	<?php echo CHtml::encode($data->description); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('timestamp')); ?>:</b>
-	<?php echo CHtml::encode($data->timestamp); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('link')); ?>:</b>
 	<?php echo CHtml::encode($data->link); ?>
 	<br />
 
+    <a href="<?php echo CHtml::encode($data->link); ?>"><span id="span_read"></span></a>
+
+
+<div align="right">
+<?php
+ $this->widget(
+    'bootstrap.widgets.TbButton',
+    array(
+        'label' => '.',
+        'type' => 'success',
+        'size' => 'mini',
+        'tooltip' => true,
+        'htmlOptions' => array('href'=>$this->createURL('notification/read', array('id'=>$data->id)),),
+        'tooltipOptions' => array(
+            'placement' => 'top',
+            'title' => 'Tooltip title',
+            'delay' => array(
+                'show' => 0,
+                'hide' => 0,
+               ),
+           ),
+    'htmlOptions' => array(
+    'title' => 'Mark as  "Unread"',
+            ),
+       )
+    );
+
+?>
+</div>
 
 </div>
+
+<!--</a>
+</html>-->

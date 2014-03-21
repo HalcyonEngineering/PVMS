@@ -140,13 +140,24 @@ class Notification extends CActiveRecord
     }
 
 
-    public static function read($notification_ID) //makes the notification "read"
+    public function read() //makes the notification "read"
+    {
+       $this->read_status = 1;
+       $this->save();
+    }
+
+    public static function unread($notification_ID) //makes the notification "read"
     {
         $notification = Notification::model()->findByPk($notification_ID); // finds the notification with the right ID
-        $notification->read_status = 1; //set read to 1 to show read.
+        $notification->read_status = 0; //set read to 1 to show read.
         $notification->update(array('read_status')); //update entity
     }
 
+    public static function read_ALL()
+    {
+     $current_user = Yii::app()->user->id;
+      Notification::model()->updateAll(array('read_status' => 1), 'user_id =  $current_user');
 
+    }
 
 }
