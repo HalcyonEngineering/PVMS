@@ -292,7 +292,6 @@ class User extends CActiveRecord
             array_push($new_orgs, $organization);
             $user->organizations = $new_orgs;
             $user->save();
-            Yii::trace("USER ORGS: ".serialize($user->organizations));
         }
     }
 
@@ -302,12 +301,17 @@ class User extends CActiveRecord
         foreach ($volunteer_ids as $vid) {
             $model = User::model()->findByPk($vid);
 
-            // Make another array with existing roles + new_role
-            $new_roles = $model->roles;
-            array_push($new_roles, $new_role);
-
-            $model->roles = $new_roles;
-            $model->save();
+            // Only add role if the volunteer is not already enrolled
+            if (!in_array($new_role, $model->roles)) {
+                // Make another array with existing roles + new_role
+                $new_roles = $model->roles;
+                array_push($new_roles, $new_role);
+                $model->roles = $new_roles;
+                if ($model->save()) {
+                    $note_url = Yii::app()->getBaseUrl(true).'/role/view?id='.$role_id;
+                    Notification::notify($model->id, 'A new role has been assigned for you!', $note_url);
+                }
+            }
         }
     }
 }
