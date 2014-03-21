@@ -11,21 +11,22 @@ body
 #header
 {
 	height:87px;
+    font: Helvetica;
 }
 
 #header ul
 {
 	padding: 0px 0px 0px 0px;
-	top: 22px;
+	top: 16px;
 }
 
 #header ul li a
 {
-	color:#1AAB9F;
-	font-size:15px;
+	color:#2A867D;
+	font-size:16px;
 	text-align: center;
-	font-weight:bold;
 	padding:8px 8px;
+	line-height: 2.4;
 }
 
 #header ul li a:hover, #mainmenu ul li.active a
@@ -58,11 +59,10 @@ body
 
 #mainmenu ul li a
 {
-	color:#1AAB9F;
+	color:#2A867D;
+	font-size:16px;
 	background-color:transparent;
-	font-size:15px;
 	text-align: left;
-	font-weight:bold;
 	text-decoration:none;
     padding:0px 0px 0px 0px;
 }
@@ -133,6 +133,8 @@ div.smallNotification
 	color: #000000;
 	text-align:left;
 	position:relative;
+	text-transform: none;
+}
 }
 
 #notification-menu .dropdown 
@@ -167,8 +169,6 @@ div.view
 	width: 950px;
 }
 
-.navbar-inner .container
-
 .pagination
 {
 	clear: both;
@@ -187,18 +187,6 @@ div.view
 	padding-top:0px
 }
 
-.read {
-	position:relative;
-	background-color:#FFFFFF;
-	padding: 8px 8px;
-}
-
-.unread {
-	position:relative;
-	background-color:#AAFFC6;
-	padding: 8px 8px;
-}
-
 #notification-menu .nav-header{
 	padding-left: 0px;
 	padding-right: 0px; 
@@ -215,6 +203,23 @@ position:absolute;
   background-image: url('empty.gif');
 }
 
+#header .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus
+{
+	background-image: linear-gradient(to bottom, #B2B2B2, #FFFFFF);
+}
+
+.read {
+	position:relative;
+	background-color:#FFFFFF;
+	padding: 8px 8px;
+}
+
+.unread {
+	position:relative;
+	background-color:#AAFFC6;
+	padding: 8px 8px;
+}
+
 .small_unread {
 	position:relative;
 	background-color:#AAFFC6;
@@ -229,14 +234,18 @@ position:absolute;
 	border-top: thin solid #B2B2B2;
 }
 
-#header .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus
-{
-	background-image: linear-gradient(to bottom, #B2B2B2, #FFFFFF);
-}
-
- a {
+a {
 	text-decoration: none;
 }
+
+h1, h2, h3, h4, h5{
+ font-family: Georgia;
+}
+
+label {
+	font-family: Georgia;
+}
+
 
 
 
