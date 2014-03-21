@@ -39,12 +39,10 @@ return array(
 	),
 	// application components
 	'components'=>array(
-		'user'=>array(
-			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
-			'loginUrl' => array('/account/login'),
-			'class' => 'WebUser',
+		'authManager'=>array(
+			'class'=>'CPhpAuthManager',
 		),
+
 		'bootstrap'=> array(
 			'class' => 'ext.yii-booster.components.Bootstrap',
 		),
@@ -62,6 +60,7 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		    'showScriptName'=>false,
+		    'caseSensitive'=>false,
 		),
 		'log'=>array(
 			'class'=>'CLogRouter',
@@ -81,6 +80,12 @@ return array(
 	    'request'=>array(
 		    //'enableCsrfValidation'=>true,
 		    'enableCookieValidation'=>true,
+	    ),
+	    'user'=>array(
+		    // enable cookie-based authentication
+		    'allowAutoLogin'=>true,
+		    'loginUrl' => array('/account/login'),
+		    'class' => 'WebUser',
 	    ),
 	),
 

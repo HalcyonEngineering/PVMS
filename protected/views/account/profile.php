@@ -1,5 +1,5 @@
 <?php
-	echo CHtml::encode('In these roles:');
+echo CHtml::encode('In these roles:');
 	foreach ($model->roles as $role) {
 		$this->renderPartial('/role/_view', array ('data' => $role));
 	}
@@ -12,4 +12,27 @@
 		echo CHtml::encode('Managing this org:');
 		$this->renderPartial('/organization/_view', array('data' => $model->managedOrg));
 	}
+$result = Yii::app()->user->isManagerFor(1);;
+if ($result){
+	echo 'true';
+}else {
+	echo 'false';
+}
+$auth=Yii::app()->authManager;
+/**
+ * @var $auth CPhpAuthManager
+ */
+$auth->clearAll();
+
+$role=$auth->createRole('volunteer','Volunteers', 'return Yii::app()->user->hasRole($role_id)');
+
+$role=$auth->createRole('manager');
+$role->addChild('volunteer');
+
+$role=$auth->createRole('admin');
+
+
+$auth->save();
+
+
 ?>
