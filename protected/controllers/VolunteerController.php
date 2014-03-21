@@ -23,8 +23,16 @@ class VolunteerController extends Controller
             $location = $_POST['User']['location'];
             $skillset = $_POST['User']['skillset'];
 
-            User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg());
+            $availability = 0;
+            if (isset($_POST['Morning'])) $availability = $availability |  User::AVAILABLE_MORNING;
+            if (isset($_POST['Evening'])) $availability = $availability |  User::AVAILABLE_EVENING;
+            if (isset($_POST['Weekdays'])) $availability = $availability | User::AVAILABLE_WEEKDAYS;
+            if (isset($_POST['Weekends'])) $availability = $availability | User::AVAILABLE_WEEKENDS;
+
+            User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg(), $availability);
         }
+
+        Yii::trace("POST SUPERGLOBAL: ".CVarDumper::dumpAsString($_POST));
 
         // Pass the two partial views (csv and form) to add
         $csvView = $this->renderPartial('csv', array('csvModel' => $csvModel), true);

@@ -53,13 +53,8 @@ class RoleController extends Controller
 	{
 		$model = $this->loadModel($id);
 		$onboardingModel = $model->onboardingDoc;
-		if (Yii::app()->user->isVolunteer()) {
-			$this->render('volunteerView',array('model'=>$model,
-												'onboardingModel'=>$onboardingModel,));
-		} else {
-			$this->render('view',array('model'=>$model,
-										'onboardingModel'=>$onboardingModel,));
-		}
+		$this->render('view',array('model'=>$model,
+		                           'onboardingModel'=>$onboardingModel,));
 	}
 
 	/**
@@ -80,7 +75,7 @@ class RoleController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->render('create',array(
+		$this->renderModal('create',array(
 			'model'=>$model,
 		));
 	}
@@ -156,7 +151,7 @@ class RoleController extends Controller
 		} elseif (Yii::app()->user->isManager()){
 			$models = Yii::app()->user->managedOrg->roles;
 		}
-		$dataProvider=new CActiveDataProvider('Role');
+		$dataProvider=new CActiveDataProvider('Role',array('data'=>$models));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

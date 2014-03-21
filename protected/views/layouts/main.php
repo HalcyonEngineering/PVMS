@@ -37,6 +37,9 @@
 		),
 	));
 	?>
+	<div class="modal-header">
+		&nbsp;<a class="close" data-dismiss="modal">&times;</a>
+	</div>
 	<div id="modal-body" class="modal-body"></div>
 	<?php $this->endWidget();?> <!--End modal-->
 

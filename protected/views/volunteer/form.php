@@ -33,6 +33,14 @@
     <?php echo $form->error($userModel,'location'); ?>
 </div>
 
+<?php echo $form->labelEx($userModel, 'availability'); ?>
+<div class="row checkbox">
+    <?php echo CHtml::checkBox('Morning', true);  echo ' Morning<br>'; ?>
+    <?php echo CHtml::checkBox('Evening', true);  echo ' Evening<br>'; ?>
+    <?php echo CHtml::checkBox('Weekdays', true); echo ' Weekdays<br>'; ?>
+    <?php echo CHtml::checkBox('Weekends', true); echo ' Weekends<br>'; ?>
+</div>
+
 <div class="row">
     <?php echo $form->labelEx($userModel,'skillset'); ?>
     <?php $this->widget('CAutoComplete', array(

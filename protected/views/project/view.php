@@ -1,3 +1,11 @@
+<?php
+/**
+ * @var $model Project
+ */
+$this->breadcrumbs=array(
+	                   $model->name
+                   );
+?>
 <div class="span-9 pull-right" ><!--Buttons-->
 <div class="span-3" style="padding:5px;" >
 <?php $this->widget('bootstrap.widgets.TbButton',
@@ -37,7 +45,8 @@
 
 <h3> Volunteers and Roles</h3>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+<!-- Remove after debugging
+ <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
 		'id',
@@ -45,24 +54,29 @@
         'colour',
 ),
 )); ?>
+-->
+
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'dataProvider' => $roleDataProvider,
 	'columns' => array(
 					   'id',
 					   'name',
-             array('class'=>'bootstrap.widgets.TbButtonColumn'), //TODO: FIX THESE BUTTONS
+             array('class'=>'bootstrap.widgets.TbButtonColumn',
+                   'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->primaryKey))',
+                   'updateButtonUrl'=>'Yii::app()->controller->createUrl("/role/update",array("id"=>$data->primaryKey))',
+                   'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->primaryKey))',),
 					   )
 	
 	)); ?>
 <div class="span-3" style="padding:5px;" >
 
-<?php //$this->widget('ModalOpenButton',
-      //              array(
-      //                    'button_id'=>'add-role-btn',
-      //                    'url' => Yii::app()->createUrl("role/create"),
-      //                    'label' => 'Add Role',
-      //                    'type' => 'common',
-      //                    ));
+<?php $this->widget('ModalOpenButton',
+                    array(
+                          'button_id'=>'add-role-btn',
+                          'url' => Yii::app()->createUrl("role/create?project_id=$model->id"),
+                          'label' => 'Add Role',
+                          'type' => 'common',
+                          ));
     ?>
 <?php echo CHtml::link('Create Role', array("role/create", 'project_id' => $model->id)); ?>
 </div>

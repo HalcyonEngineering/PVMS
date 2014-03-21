@@ -21,7 +21,14 @@
 
 	<?php echo $form->textFieldRow($model,'actual',array('class'=>'span5')); ?>
 
-	<?php echo $form->dropDownListRow($model, 'status', Lookup::items('TaskStatus')); ?>
+	<?php
+	$taskStatus = Lookup::items('TaskStatus');
+	if (Yii::app()->user->isVolunteer()){
+		unset($taskStatus[3]);
+	}
+	echo $form->dropDownListRow($model, 'status', $taskStatus);
+
+	?>
 
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
