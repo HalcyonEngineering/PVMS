@@ -60,7 +60,6 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		    'showScriptName'=>false,
-		    'caseSensitive'=>false,
 		),
 		'log'=>array(
 			'class'=>'CLogRouter',

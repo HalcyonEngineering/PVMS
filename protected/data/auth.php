@@ -1,24 +1,24 @@
 <?php
 return array (
-  'volunteer' => 
+  'Volunteer' => 
   array (
     'type' => 2,
     'description' => 'Volunteers',
-    'bizRule' => 'return Yii::app()->user->hasRole($role_id)',
+    'bizRule' => 'return Yii::app()->user->hasRole($params{\'role_id\']);',
     'data' => NULL,
   ),
-  'manager' => 
+  'Manager' => 
   array (
     'type' => 2,
-    'description' => '',
-    'bizRule' => NULL,
+    'description' => 'Managers',
+    'bizRule' => 'return true;',
     'data' => NULL,
     'children' => 
     array (
-      0 => 'volunteer',
+      0 => 'Volunteer',
     ),
   ),
-  'admin' => 
+  'Admin' => 
   array (
     'type' => 2,
     'description' => '',
