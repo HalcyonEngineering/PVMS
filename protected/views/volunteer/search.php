@@ -38,18 +38,24 @@ $this->widget('bootstrap.widgets.TbGridView', array(
                 'id' => 'selectedIds',
                 'class' => 'CCheckBoxColumn'
             ),
-            'email',
+            'name',
+            'location',
+            'skillset',
             array(
                 'class'=>'bootstrap.widgets.TbButtonColumn',
             ),
         ),
 )); 
 
-echo CHtml::submitButton('Submit', array('name'=>'EmailVolunteersButton', 'submit'=>'email'));
-echo CHtml::endForm();
+$models = $role_model->search_in_organization(Yii::app()->user->getManagedOrg());
+$l = $models->getData();
+$list = CHtml::listData($l, 'id', 'name');
+Yii::trace("LOL: ".serialize($list));
 
-//$c = new CDbCriteria;
-//$c->with = array('organization');
-//Yii::trace("C: ".serialize($c));
+echo 'Add selected volunteers to role: ';
+echo CHtml::dropDownList('role_list', 'empty', $list, array('empty' => '(Select a role to assign)'));
+echo '  ';
+echo CHtml::submitButton('Confirm', array('submit'=>'search'));
+echo CHtml::endForm();
 
 ?>

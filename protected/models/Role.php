@@ -99,6 +99,20 @@ class Role extends CActiveRecord
 		));
 	}
 
+        public function search_in_organization($org) {
+            $criteria=new CDbCriteria;
+            $criteria->compare('id',$this->id);
+
+            // Role's project's organization must equal to $org
+            $criteria->with = array('project');
+            $criteria->together = true;
+            $criteria->compare('project.org_id', $org->id, true);
+
+            return new CActiveDataProvider($this, array(
+                    'criteria'=>$criteria,
+            ));
+        }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

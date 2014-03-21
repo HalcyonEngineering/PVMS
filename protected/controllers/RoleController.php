@@ -51,8 +51,12 @@ class RoleController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$model = $this->loadModel($id);
+		$model->users = User::model()->findByPk(Yii::app()->user->id);
+		Yii::trace("HEY YOU.");
+		$model->save();
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
 		));
 	}
 
@@ -60,12 +64,12 @@ class RoleController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($project_id)
 	{
 		$model=new Role;
-
+		$model->project_id = $project_id;
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Role']))
 		{

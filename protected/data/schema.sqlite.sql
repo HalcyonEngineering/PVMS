@@ -181,12 +181,12 @@ INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","c
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","type","adminAccess","profile") VALUES ('22','Emma','$2a$13$SRvsTXfWXGDuLtYjDZlcVOVVa2Wjv.eXeHYQQXSwqEKMiNcvuUc9C','emma@rec.ubc.ca','Vancouver','School',NULL,'2','0',NULL);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","type","adminAccess","profile") VALUES ('23','Olivia','$2a$13$SRvsTXfWXGDuLtYjDZlcVOVVa2Wjv.eXeHYQQXSwqEKMiNcvuUc9C','olivia@rec.ubc.ca','Vancouver','School',NULL,'2','0',NULL);
 
-
 -- Organizations
 INSERT INTO pvms_organization (name, desc) VALUES ('Pitchn', 'This is Pitchn Solutions.');
 INSERT INTO pvms_organization (name, desc) VALUES ('Test', 'Test organization');
 INSERT INTO pvms_organization (name, desc) VALUES ('UBC REC', 'This is UBC Recreation');
 INSERT INTO pvms_organization (name, desc) VALUES ('The Cave', 'This is Jons Organization.');
+
 
 --Projects
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Volunteer Management System, 'To be complete by multiple CPSC319 students at UBC','#FFFFFF');
@@ -237,6 +237,7 @@ INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (4, 2);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (13, 3);
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (14, 4);
+
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('6','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('7','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('8','1');
@@ -252,6 +253,7 @@ INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('20','3');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('21','3');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('22','3');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('23','3');
+
 INSERT INTO pvms_user_organization(user_id, org_id) VALUES (5,2);
 INSERT INTO pvms_user_role(user_id, role_id) VALUES (5, 1);
 
@@ -283,4 +285,6 @@ INSERT INTO pvms_skill (name) VALUES ('Social Media');
 INSERT INTO pvms_skill (name) VALUES ('Technology');
 INSERT INTO pvms_skill (name) VALUES ('Software Engineering');
 INSERT INTO pvms_skill (name) VALUES ('School');
+
 INSERT INTO pvms_skill (name) VALUES ('Parkour');
+

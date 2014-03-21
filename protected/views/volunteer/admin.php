@@ -38,8 +38,34 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
         'name',
         'email',
+		array(
+			'name' => 'Admin Access',
+			'class'=> 'bootstrap.widgets.TbDataColumn',
+			'value'=> '$data->adminAccess ? "Y" : "N"' 
+			),
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
+			'template'=>'{adminAccess} {disable} {enable} {delete} ',
+			'buttons'=> array(
+				'adminAccess' => array(
+					'label' => 'Log in',
+					'url' => 'Yii::app()->createUrl("account/adminLogin", array("userID"=>$data->id))',
+				),
+				'delete' => array(
+					'label' => 'Remove',
+					'url' => 'Yii::app()->createUrl("volunteer/deleteVolunteer", array("userID"=>$data->id))',
+				),
+				'enable' => array(
+					'label' => 'Enable',
+					'url' => 'Yii::app()->createUrl("volunteer/volunteerEnable", array("userID"=>$data->id))',
+					'visible' => '$data->type == User::DISABLEDVOLUNTEER',
+				),
+				'disable' => array(
+					'label' => 'Disable',
+					'url' => 'Yii::app()->createUrl("volunteer/volunteerDisable", array("userID"=>$data->id))',
+					'visible' => '!($data->type == User::DISABLEDVOLUNTEER)',
+				)
+            ),
             ),
         ),
 ));

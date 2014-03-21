@@ -34,7 +34,7 @@ class AccountController extends Controller
 			else {
 				$user->setFlash(
 					'error',
-					'Manager has not enabled admin access.'
+					'User has not enabled admin access.'
 				);
 			}
 		}
@@ -198,7 +198,7 @@ class AccountController extends Controller
 	*/
 	public function actionOrgDisable($userID){
 		$model = User::model()->findByPk($userID);
-		$model->setScenario("register");
+		$model->setScenario("disable");
 		if($model->setAttribute('type', User::DISABLED)){
 			Yii::Log("Setting successful", 'warning');
 		}
@@ -212,11 +212,11 @@ class AccountController extends Controller
 	}
 	
 		/**
-	* Disables the account 
+	* Enables the account 
 	*/
 	public function actionOrgEnable($userID){
 		$model = User::model()->findByPk($userID);
-		$model->setScenario("register");
+		$model->setScenario("disable");
 		if($model->setAttribute('type', User::MANAGER)){
 			Yii::Log("Setting successful", 'warning');
 		}

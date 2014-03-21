@@ -15,7 +15,8 @@ body
 
 #header ul
 {
-	padding:25px 0px 16px 0px;
+	padding: 0px 0px 0px 0px;
+	top: 22px;
 }
 
 #header ul li a
@@ -24,7 +25,7 @@ body
 	font-size:15px;
 	text-align: center;
 	font-weight:bold;
-	padding:0px 8px;
+	padding:8px 8px;
 }
 
 #header ul li a:hover 
@@ -105,9 +106,10 @@ body
 
 #notification-menu a .tooltip-inner
 {
-    min-width:20px;
+    top: 4px;
+	min-width:20px;
 	max-width:200px;
-	padding:4px 4px;
+	padding:8px 2px;
 	color:#ffffff;
 	text-align:center;
 	text-decoration:none;
@@ -116,12 +118,12 @@ body
 	-moz-border-radius:4px;
 	border-radius:5px;
 	position: relative;
+	line-height: 5px;
 }
 
-/*, #notification-menu a .tooltip.top .tooltip-arrow*/
 #notification-menu .tooltip.top .tooltip-arrow
 {
-	bottom:0;
+	bottom:-4px;
 	margin-left:-5px;
 	border-width:5px 5px 0;
 	border-top-color:#FF0000;
@@ -135,10 +137,18 @@ body
 
 div.smallNotification
 {
+	padding: 4px 4px;
 	color: #000000;
 	text-align:left;
+	border:2px solid;
+	width: 130px;
 }
 
+#notification-menu .dropdown 
+{
+	padding-left: 0px;
+	padding-right: 0px;
+}
 /*
 * Makes colorpicker show up on top of modal window.
 */
@@ -149,9 +159,10 @@ div.smallNotification
 
 div.view
 {
-margin: 10px 10px;
-padding: 0;
-border: 1px solid #000000;
+	margin: 10px 10px;
+	padding: 5px;
+	border: 2px solid #000000;
+	border-color: #1AAB9F;
 }
 
 .tile
@@ -169,6 +180,31 @@ border: 1px solid #000000;
 
 .pagination
 {
-clear: both;
+	clear: both;
 }
+
+#yw6 .nav-header
+{
+	font-weight:normal;
+	padding: 0px 0px;
+	text-transform: none;
+	margin-left:9px;
+}
+#yw6 .list-view
+{
+	padding-top: 0px;
+}
+ .dropdown-menu .divider
+{
+	height: 2px;
+	margin: 5px 0px;
+	overflow: hidden;
+	background-color: #1AAB9F;
+	border-bottom: 0px #ffffff;
+}
+
+#content .list-view{
+	padding-top:0px
+}
+
 

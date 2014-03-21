@@ -7,7 +7,11 @@
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'role_id',array('class'=>'span5')); ?>
+	<?php if (isset($model->role_id)) {
+				echo $form->hiddenField($model,'role_id');
+			} else {
+				echo $form->textFieldRow($model,'role_id',array('class'=>'span5'));
+			}  ?>
 
 	<?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>128)); ?>
 

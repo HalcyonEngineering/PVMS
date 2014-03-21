@@ -33,6 +33,7 @@ class FileDoc extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('uploadedfile', 'file', 'types'=>'txt,doc,docx','safe'=>true, 'maxSize'=>16*1024*1024, 'allowEmpty'=>true, 'tooLarge'=>'{attribute} is too large to be uploaded. Maximum size is 16MB.'),
+			array('uploadedfile', 'required'),
 			array('project_id', 'required'),
 			array('project_id', 'exist', 'className'=>'Project','attributeName'=>'id'),
 			array('project_id, file_size', 'numerical', 'integerOnly'=>true),

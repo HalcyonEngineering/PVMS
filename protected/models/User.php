@@ -20,7 +20,6 @@ class User extends CActiveRecord
     * @property Messages[] $messages
     * @property Messages[] $sentMessages
     * @property Notifications[] $notifications
-    * @property Post[] $posts
     * @property Organization[] $organizations
     * @property Organization $managedOrg
     * @property Role[] $roles
@@ -33,10 +32,11 @@ class User extends CActiveRecord
 
     private $_oldSkillset;
 
-    const ADMINISTRATOR = 0;
-    const MANAGER       = 1;
-    const VOLUNTEER     = 2;
-	const DISABLED     	= 3;
+    const ADMINISTRATOR 	= 0;
+    const MANAGER       	= 1;
+    const VOLUNTEER     	= 2;
+	const DISABLED     		= 3;
+	const DISABLEDVOLUNTEER	= 4;
 
     /**
      * Returns the static model of the specified AR class.
@@ -94,7 +94,6 @@ class User extends CActiveRecord
     public function relations()
     {
         return array(
-            'posts' => array(self::HAS_MANY, 'Post', 'author_id'),
             'organizations' => array(self::MANY_MANY, 'Organization', '{{user_organization}}(user_id, org_id)'),
             'roles' => array(self::MANY_MANY, 'Role', '{{user_role}}(user_id, role_id)'),
             'managedOrgs' => array(self::MANY_MANY, 'Organization', '{{organization_manager}}(user_id, org_id)'),
@@ -124,6 +123,11 @@ class User extends CActiveRecord
             'type' => 'Type',
             'adminAccess' => 'Allow Admin Access'
         );
+    }
+
+    public function behaviors() {
+        return array('EAdvancedArBehavior' => array(
+                'class' => 'application.extensions.EAdvancedArBehavior'));
     }
 
     /**
@@ -211,6 +215,7 @@ class User extends CActiveRecord
 
             // User has to be a volunteer
             $criteria->compare('type', User::VOLUNTEER, true);
+			$criteria->compare('type', User::DISABLEDVOLUNTEER, true, 'OR');
 			
             return new CActiveDataProvider($this, array(
                     'criteria'=>$criteria,
@@ -261,22 +266,48 @@ class User extends CActiveRecord
      * @param volunteer location
      * @param volunteer skillset
      */
-    public static function enrollVolunteer($name, $email, $location, $skillset)
+    public static function enrollVolunteer($name, $email, $location, $skillset, $organization)
     {
-        $user = new User;
-        $user->name = $name;
-        $user->email = $email;
-        $user->location = $location;
-        $user->skillset = $skillset;
+        // If the email does not exist in the database, create a new volunteer
+        $user = User::model()->findByAttributes(array('email'=>$email));
+        if ($user === null) {
+            $user = new User;
+            $user->name = $name;
+            $user->email = $email;
+            $user->location = $location;
+            $user->skillset = $skillset;
 
-        $user->newPassword = 'temporary'; //should have randomly generated pass, email user
+            $user->newPassword = 'temporary'; //should have randomly generated pass, email user
+            $user->organizations = array($organization);
+                if($user->validate())
+                {
+                    // Hash the password before saving it.
+                    $user->password = $user->hashPassword($user->newPassword);
+                    $user->save();
+                }
 
-        if($user->validate())
-        {
-            // Has the password before saving it.
-            $user->password = $user->hashPassword($user->newPassword);
+        } else {
+            // Just update the organization, don't change anything else
+            $new_orgs = $user->organizations;
+            array_push($new_orgs, $organization);
+            $user->organizations = $new_orgs;
             $user->save();
+            Yii::trace("USER ORGS: ".serialize($user->organizations));
         }
     }
 
+    public static function assignToRole($volunteer_ids, $role_id) {
+        $new_role = Role::model()->findByPk($role_id);
+
+        foreach ($volunteer_ids as $vid) {
+            $model = User::model()->findByPk($vid);
+
+            // Make another array with existing roles + new_role
+            $new_roles = $model->roles;
+            array_push($new_roles, $new_role);
+
+            $model->roles = $new_roles;
+            $model->save();
+        }
+    }
 }
