@@ -139,6 +139,18 @@ class Notification extends CActiveRecord
         }
     }
 
+	/**
+	 * Notifies every user in the array.
+	 *
+	 * @param array $users - Array of Users to send the notifications to.
+	 * @param string $description - description of  the notification
+	 * @param string $link - redirect link to notification location
+	 */
+	public static function notifyAll($users, $description, $link){
+		foreach ($users as $user){
+			Notification::notify($user->id, $description, $link);
+		}
+	}
 
     public function read() //makes the notification "read"
     {

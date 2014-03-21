@@ -93,13 +93,26 @@ class TaskController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Task']))
 		{
 			$model->attributes=$_POST['Task'];
-			if($model->save())
+			if($model->save()){
+				if(Yii::app()->user->isManager()){
+					Notification::notifyAll($model->role->users,
+					                        "A task has been updated.",
+											Yii::app()->createUrl("task/view?id=$id")
+					);
+				} elseif (Yii::app()->user->isVolunteer()){
+					Notification::notify($model->role->project->org->getManager()->id,
+					                     "A user has marked a task as complete.",
+					                      Yii::app()->createUrl("task/view?id=$id")
+					);
+
+				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

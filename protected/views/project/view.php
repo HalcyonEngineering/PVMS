@@ -59,13 +59,13 @@
 	)); ?>
 <div class="span-3" style="padding:5px;" >
 
-<?php //$this->widget('ModalOpenButton',
-      //              array(
-      //                    'button_id'=>'add-role-btn',
-      //                    'url' => Yii::app()->createUrl("role/create"),
-      //                    'label' => 'Add Role',
-      //                    'type' => 'common',
-      //                    ));
+<?php $this->widget('ModalOpenButton',
+                    array(
+                          'button_id'=>'add-role-btn',
+                          'url' => Yii::app()->createUrl("role/create?project_id=$model->id"),
+                          'label' => 'Add Role',
+                          'type' => 'common',
+                          ));
     ?>
 <?php echo CHtml::link('Create Role', array("role/create", 'project_id' => $model->id)); ?>
 </div>
