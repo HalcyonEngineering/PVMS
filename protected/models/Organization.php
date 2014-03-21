@@ -49,7 +49,7 @@ class Organization extends CActiveRecord
 		return array(
 			'managers' => array(self::MANY_MANY, 'User', '{{organization_manager}}(org_id, user_id)'),
 			'projects' => array(self::HAS_MANY, 'Project', 'org_id'),
-			
+			'roles' => array(self::HAS_MANY, 'Role', array('id'=>'project_id'), 'through' => 'projects'),
 			'users' => array(self::MANY_MANY, 'User', '{{user_organization}}(org_id, user_id)'),
 		);
 	}

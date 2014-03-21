@@ -47,10 +47,8 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
 )); 
 
-$models = $role_model->search_in_organization(Yii::app()->user->getManagedOrg());
-$l = $models->getData();
-$list = CHtml::listData($l, 'id', 'name');
-Yii::trace("LOL: ".serialize($list));
+$models = Yii::app()->user->getManagedOrg()->roles;
+$list = CHtml::listData($models, 'id', 'name');
 
 echo 'Add selected volunteers to role: ';
 echo CHtml::dropDownList('role_list', 'empty', $list, array('empty' => '(Select a role to assign)'));
