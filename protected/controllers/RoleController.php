@@ -80,7 +80,7 @@ class RoleController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->render('create',array(
+		$this->renderModal('create',array(
 			'model'=>$model,
 		));
 	}
