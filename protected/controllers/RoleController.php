@@ -151,6 +151,11 @@ class RoleController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if(Yii::app()->user->isVolunteer()){
+			$models = User::model()->findByPk(Yii::app()->user->id)->roles;
+		} elseif (Yii::app()->user->isManager()){
+			$models = Yii::app()->user->managedOrg->roles;
+		}
 		$dataProvider=new CActiveDataProvider('Role');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

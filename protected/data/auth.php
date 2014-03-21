@@ -3,14 +3,14 @@ return array (
   'Volunteer' => 
   array (
     'type' => 2,
-    'description' => 'Volunteers',
+    'description' => 'Volunteer',
     'bizRule' => 'return Yii::app()->user->hasRole($params{\'role_id\']);',
     'data' => NULL,
   ),
   'Manager' => 
   array (
     'type' => 2,
-    'description' => 'Managers',
+    'description' => 'Manager',
     'bizRule' => 'return true;',
     'data' => NULL,
     'children' => 

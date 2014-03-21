@@ -10,7 +10,7 @@
                         'stacked'=>true,
                         'items' => array(
                                          array('label'=>$organizationsIcon, 'url'=>array('organization/search')),
-                                         array('label'=>$volunteerIcon, 'url'=>array('volunteer/search', 'view'=>'import')),
+                                         array('label'=>$volunteerIcon, 'url'=>array('volunteer/search')),
                                          ),
                         ));
 

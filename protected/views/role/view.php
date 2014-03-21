@@ -9,14 +9,17 @@
 ?>
 
 <h1>OnboardingDoc model:</h1>
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-'data'=>$onboardingModel,
-'attributes'=>array(
-    'onboarding_welcome',
-    'onboarding_instructions',
-    'onboarding_contact',
-),
-));
+<?php
+if ($onboardingModel != null){
+	$this->widget('bootstrap.widgets.TbDetailView',array(
+	'data'=>$onboardingModel,
+	'attributes'=>array(
+	    'onboarding_welcome',
+	    'onboarding_instructions',
+	    'onboarding_contact',
+	),
+	));
+}
 ?>
 
 <div class="span-9 pull-right" ><!--Buttons-->
