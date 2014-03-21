@@ -53,13 +53,8 @@ class RoleController extends Controller
 	{
 		$model = $this->loadModel($id);
 		$onboardingModel = $model->onboardingDoc;
-		if (Yii::app()->user->isVolunteer()) {
-			$this->render('volunteerView',array('model'=>$model,
-												'onboardingModel'=>$onboardingModel,));
-		} else {
-			$this->render('view',array('model'=>$model,
-										'onboardingModel'=>$onboardingModel,));
-		}
+		$this->render('view',array('model'=>$model,
+		                           'onboardingModel'=>$onboardingModel,));
 	}
 
 	/**

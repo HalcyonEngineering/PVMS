@@ -1,4 +1,11 @@
-<?php $this->widget('bootstrap.widgets.TbGridView',array('id'=>'file-doc-grid',
+<?php
+
+$template = '{view}{update}';
+if (Yii::app()->user->isManager()) {
+	$template .= '{delete}';
+}
+
+$this->widget('bootstrap.widgets.TbGridView',array('id'=>'file-doc-grid',
 														'dataProvider'=>$dataProvider,
 														'columns'=>array('name',
 																		'desc',
