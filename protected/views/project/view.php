@@ -1,3 +1,11 @@
+<?php
+/**
+ * @var $model Project
+ */
+$this->breadcrumbs=array(
+	                   $model->name
+                   );
+?>
 <div class="span-9 pull-right" ><!--Buttons-->
 <div class="span-3" style="padding:5px;" >
 <?php $this->widget('bootstrap.widgets.TbButton',
@@ -53,7 +61,10 @@
 	'columns' => array(
 					   'id',
 					   'name',
-             array('class'=>'bootstrap.widgets.TbButtonColumn'), //TODO: FIX THESE BUTTONS
+             array('class'=>'bootstrap.widgets.TbButtonColumn',
+                   'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->primaryKey))',
+                   'updateButtonUrl'=>'Yii::app()->controller->createUrl("/role/update",array("id"=>$data->primaryKey))',
+                   'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->primaryKey))',),
 					   )
 	
 	)); ?>
