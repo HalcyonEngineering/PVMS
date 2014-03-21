@@ -156,7 +156,7 @@ class RoleController extends Controller
 		} elseif (Yii::app()->user->isManager()){
 			$models = Yii::app()->user->managedOrg->roles;
 		}
-		$dataProvider=new CActiveDataProvider('Role');
+		$dataProvider=new CActiveDataProvider('Role',array('data'=>$models));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
