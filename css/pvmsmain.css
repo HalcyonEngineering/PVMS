@@ -234,6 +234,10 @@ position:absolute;
 	background-image: linear-gradient(to bottom, #B2B2B2, #FFFFFF);
 }
 
+ a {
+	text-decoration: none;
+}
+
 
 
 
