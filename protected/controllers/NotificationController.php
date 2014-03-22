@@ -32,7 +32,7 @@ class NotificationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'readAll'),
+				'actions'=>array('create','update', 'readAll','unread'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -186,7 +186,20 @@ class NotificationController extends Controller
     }
 
     public function actionReadAll(){
-        //Fill in here/
-        //redirecxt here.
+        $user = User::model()->findByPk(Yii::app()->user->id);
+        $notify = $user->notifications;
+        foreach ($notify as $notification){
+            $notification->read_status = 1;
+            $notification->save();
+        }
+
+    $this->redirect(array('/notification/index'));
+    }
+
+    public function actionUnread($noti_id){
+        $notification = Notification::model()->findByPk($noti_id);
+            $notification->read_status = 0;
+            $notification->save();
+        $this->redirect(array('/notification/index'));
     }
 }

@@ -35,6 +35,7 @@ $this->widget(
 				     array(
 					     'label' => Yii::app()->user->name,
 					     'url' => '#',
+                         'itemOptions' => array('id' => 'login-dropdown',),
 					     'items' => array(
 						     array('label' => 'My Profile', 'url' => array('account/profile')),
 						     array('label'=>'Take a Tour', 'url'=>'#'),

@@ -26,7 +26,7 @@
         'type' => 'success',
         'size' => 'mini',
         'tooltip' => true,
-        'htmlOptions' => array('href'=>$this->createURL('notification/read', array('id'=>$data->id)),),
+        'url'=>$this->createURL('/notification/unread',array('noti_id'=>$data->id)),
         'tooltipOptions' => array(
             'placement' => 'top',
             'title' => 'Tooltip title',

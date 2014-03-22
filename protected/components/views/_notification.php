@@ -1,21 +1,17 @@
 <?php
 
 $status = ($data->read_status == 1) ? 'small_read' : 'small_unread';
-echo "<div class='smallNotification $status'>";
+echo CHtml::tag('div', array('class'=>"smallNotification ".$status));
 ?>
 
-
-<!--	<b><?php /*echo CHtml::encode($data->getAttributeLabel('description')); */?>:</b>-->
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
 
-<!--	<b><?php /*echo CHtml::encode($data->getAttributeLabel('timestamp')); */?>:</b>-->
 	<?php echo CHtml::encode(Yii::app()->dateFormatter->formatDateTime($data->timestamp), 'YY/DD/MM'); ?>
 	<br />
 
-<!--	<b><?php /*echo CHtml::encode($data->getAttributeLabel('link')); */?>:</b>
-	<?php /*echo CHtml::encode($data->link); */?>
-	<br />-->
+    <a href="<?php echo CHtml::encode($data->link); ?>" id="my_a" ><span id="span_read"></span></a>
+<?php
+echo CHtml::closeTag("div");
 
-    <?php ($data->read_status == 1) ? 'read' : 'unread'; ?>
-</div>
+?>

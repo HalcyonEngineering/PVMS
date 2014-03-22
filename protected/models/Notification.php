@@ -165,11 +165,4 @@ class Notification extends CActiveRecord
         $notification->update(array('read_status')); //update entity
     }
 
-    public static function read_ALL()
-    {
-     $current_user = Yii::app()->user->id;
-      Notification::model()->updateAll(array('read_status' => 1), 'user_id =  $current_user');
-
-    }
-
 }
