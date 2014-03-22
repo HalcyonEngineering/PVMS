@@ -9,22 +9,27 @@
 
 <div class="location-dropdown">
     <?php 
-    $location = new Location('search');
-    $list = CHtml::listData($location->search()->getData(), 'id', 'name');
-
-    echo CHtml::activeLabel($model, 'Location');
-    echo CHtml::dropDownList('location_list', 'empty', $list, array('empty' => 'Any'));
+        $location = new Location('search');
+        echo CHtml::activeLabel($model,'Location');
+        echo CHtml::activeDropDownList(
+            $location,
+            'id',
+            CHtml::listData( Location::model()->findAll(), 'id', 'name' ),
+            array('prompt'=>'Any')
+            );
     ?>
 </div>
 
 <div class="project-dropdown">
     <?php 
-    $project = new Project('search');
-    $list = CHtml::listData($project->search()->getData(), 'id', 'name');
-    Yii::trace("PROJECt SEARCH: ".serialize($project->search()->getData()));
-
-    echo CHtml::activeLabel($model, 'Project');
-    echo CHtml::dropDownList('project_list', 'empty', $list, array('empty' => 'Any'));
+        $project = new Project('search');
+        echo CHtml::activeLabel($model,'Project');
+        echo CHtml::activeDropDownList(
+            $project,
+            'id',
+            CHtml::listData( Project::model()->findAll(), 'id', 'name' ),
+            array('prompt'=>'Any')
+            );
     ?>
 </div>
 
@@ -38,12 +43,14 @@
 
 <div class="skillset-dropdown">
     <?php 
-    $skill = new Skill('search');
-    $list = CHtml::listData($skill->search()->getData(), 'id', 'name');
-    Yii::trace("SKILL SEARCH: ".serialize($skill->search()->getData()));
-
-    echo CHtml::activeLabel($model,'Skill');
-    echo CHtml::dropDownList('skill_list', 'empty', $list, array('empty' => 'Any'));
+        $skill = new Skill('search');
+        echo CHtml::activeLabel($model,'Skill');
+        echo CHtml::activeDropDownList(
+            $skill,
+            'id',
+            CHtml::listData( Skill::model()->findAll(), 'id', 'name' ),
+            array('prompt'=>'Any')
+            );
     ?>
 </div>
 

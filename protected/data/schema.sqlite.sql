@@ -169,7 +169,7 @@ INSERT INTO pvms_user (name, password, email, type) VALUES ('manager2','$2a$12$M
 INSERT INTO pvms_user (name, password, email, type) VALUES ('volunteer','$2a$12$J1n3OwZasqX3gsMG6TSzvOHEJleCYyWJ/TNAuxOmAoB/zmiBqskeq','volunteer', 2);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('6','David','$2a$13$dEoNvuwcQ/7xRSebI6tO6edjUTXKfElOjnZz7TK6ymhT3Z.cNb.0G','david@pitchn.ca','Surrey','Project Management, Web Development, Software Engineering',NULL, 15, '2','0',NULL);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('7','Kenneth','$2a$13$jn1wIc/PvXQMwdF6VRcKr.1vRzWPrjAyS4D..4tBkI5fHDAwUaMFe','kenneth@pitchn.ca','Richmond','Software Engineering, School',NULL,                        15, '2','0',NULL);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('8','Jon','$2a$13$cXjPfW2T3q/WUWsGo2tGe.xFjn1UH8VAG0qLtCS.lHOak8HE9yXjC','jon@pitchn.ca','Vancouver','Software Enginneering',NULL,                                      15, '2','0',NULL);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('8','Jon','$2a$13$cXjPfW2T3q/WUWsGo2tGe.xFjn1UH8VAG0qLtCS.lHOak8HE9yXjC','jon@pitchn.ca','Vancouver','Software Engineering',NULL,                                      15, '2','0',NULL);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('9','Matt','$2a$13$7G9CXaXPM2BHMHWMnKWyD.RMZkQwYxUe4tHUg79VKeSkKdDalVUwO','matt@pitchn.ca','Vancouver','Software Engineering, Video Games',NULL,                        15, '2','0',NULL);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('10','Andy','$2a$13$SRvsTXfWXGDuLtYjDZlcVOVVa2Wjv.eXeHYQQXSwqEKMiNcvuUc9C','andy@pitchn.ca','Whiterock','Software Engineering',NULL,                                    15, '2','0',NULL);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('11','Phat','$2a$13$TDoAQfWsoD.9t54gTysg7efNlO4.8P07GDewLiigpjWG16Y9.XOt2','phat@pitchn.ca','Vancouver','Software Engineering, Parkour',NULL,                           15, '2','0',NULL);
@@ -270,6 +270,7 @@ INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('7','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('8','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('9','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('10','1');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('11','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('12','1');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('15','3');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('16','3');

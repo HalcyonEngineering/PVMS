@@ -229,14 +229,14 @@ class User extends CActiveRecord
                 $criteria->compare('t.name', $args['User']['username'], true);
             }
 
-            if ($args['skill_list']) {
-                $wanted_s_id = $args['skill_list'];
+            if ($args['Skill']['id']) {
+                $wanted_s_id = $args['Skill']['id'];
                 $wanted_s = Skill::model()->findByPk($wanted_s_id)->name;
                 $criteria->compare('skillset', $wanted_s, true);
             }
 
-            if ($args['location_list'] !== '') {
-                $wanted_location_id = $args['location_list'];
+            if ($args['Location']['id'] !== '') {
+                $wanted_location_id = $args['Location']['id'];
                 $wanted_location = Location::model()->findByPk($wanted_location_id)->name;
                 $criteria->compare('location', $wanted_location);
             }
@@ -266,8 +266,8 @@ class User extends CActiveRecord
             $criteria->compare('organizations.name', $org->name, true);
 
             // User's roles[] must have one that matches project
-            if ($args['project_list'] !== '') {
-                $criteria->compare('roles.project_id', $args['project_list']);
+            if ($args['Project']['id'] !== '') {
+                $criteria->compare('roles.project_id', $args['Project']['id']);
             }
 
             return new CActiveDataProvider($this, array(
