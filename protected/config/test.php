@@ -8,7 +8,7 @@ return CMap::mergeArray(
 				'class'=>'system.test.CDbFixtureManager',
 			),
 			'db'=>array(
-				'connectionString'=>'sqlite:'.dirname(__FILE__).'/../data/blog-test.db',
+				'connectionString'=>'sqlite:'.dirname(__FILE__).'/../data/pvms-test.sqlite',
 			),
 			// uncomment the following to use a MySQL database
 			/*
