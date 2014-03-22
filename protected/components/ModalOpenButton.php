@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Class ModalOpenButton
+ * Creates a modal open button. This button opens a modal window.
+ */
 class ModalOpenButton extends CWidget{
 
 	public $buttonOptions;
