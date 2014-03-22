@@ -229,20 +229,6 @@ class User extends CActiveRecord
                 $criteria->compare('t.name', $args['User']['username'], true);
             }
 
-            //if ($args['project_list'] !== '') {
-            //    $criteria->with = array('roles.project');
-            //    $criteria->together = true;
-            //    $criteria->compare('roles.project.id', $args['project_list']);
-            //}
-            //$criteria->compare('skillset',$this->skillset, true);
-            //$criteria->compare('availability',$this->availability, true);
-
-            //if ($args['skill_list'] !== '') {
-            //    $wanted_skillset_id = $args['skill_list'];
-            //    $wanted_skillset = Location::model()->findByPk($wanted_skillset_id)->name;
-            //    $criteria->compare('skillset', $wanted_skillset);
-            //}
-
             if ($args['skill_list']) {
                 $wanted_s_id = $args['skill_list'];
                 $wanted_s = Skill::model()->findByPk($wanted_s_id)->name;
@@ -251,8 +237,8 @@ class User extends CActiveRecord
 
             if ($args['location_list'] !== '') {
                 $wanted_location_id = $args['location_list'];
-                $wanted_location = Skill::model()->findByPk($wanted_location_id)->name;
-                $criteria->compare('location', $wanted_location, true);
+                $wanted_location = Location::model()->findByPk($wanted_location_id)->name;
+                $criteria->compare('location', $wanted_location);
             }
 
             // User has to be a volunteer
@@ -274,9 +260,15 @@ class User extends CActiveRecord
 
             // User's organizations[] must have one that matches $org
             // Join the user table with the organization table
-            $criteria->with = array('organizations');
+            // samething with roles
+            $criteria->with = array('organizations', 'roles');
             $criteria->together = true;
             $criteria->compare('organizations.name', $org->name, true);
+
+            // User's roles[] must have one that matches project
+            if ($args['project_list'] !== '') {
+                $criteria->compare('roles.project_id', $args['project_list']);
+            }
 
             return new CActiveDataProvider($this, array(
                     'criteria'=>$criteria,
