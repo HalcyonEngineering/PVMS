@@ -75,11 +75,16 @@ class VolunteerController extends Controller
     {
         $model = new User('search');
         $model->unsetAttributes(); // Clear attributes for search
+        
+        // data should initially contain all the volunteers in an organization
+        $o = Yii::app()->user->getManagedOrg();
+        $data = $model->search_volunteers_in_org($o);
 
         $org_model = new Organization();
         $org_model->unsetAttributes();
 
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
+        if(isset($_POST['User'])) $data = $model->search_volunteers_in_org_adv($o, $_POST);
 
         if(Yii::app()->user->isAdmin()) {
             $this->render('admin', array('model'=>$model, 'org_model'=>$org_model));
@@ -96,8 +101,7 @@ class VolunteerController extends Controller
                 }
             }
 
-            Yii::trace("SUPERGLOBAL: ".serialize($_POST));
-            $data = $model->search_volunteers_in_org(Yii::app()->user->getManagedOrg());
+            Yii::trace("SUPERGLOBAL: ".CVarDumper::dumpAsString($_POST));
             $this->render('search', array('data'=>$data, 'model'=>$model, 'role_model'=>$role_model));
         }
     }

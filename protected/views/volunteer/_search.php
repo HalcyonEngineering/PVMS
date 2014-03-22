@@ -2,18 +2,18 @@
 <?php echo CHtml::beginForm(); ?>
 
 <div class="row">
-    <?php echo CHtml::activeLabel($model,'username'); ?>
+    <?php echo CHtml::activeLabel($model,'Name'); ?>
     <?php echo CHtml::activeTextField($model,'username') ?>
+    <p class="hint">Leave blank to search all volunteers.</p>
 </div>
 
-<div class="skillset-dropdown">
+<div class="location-dropdown">
     <?php 
-    $skill = new Skill('search');
-    $list = CHtml::listData($skill->search()->getData(), 'id', 'name');
-    Yii::trace("SKILL SEARCH: ".serialize($skill->search()->getData()));
+    $location = new Location('search');
+    $list = CHtml::listData($location->search()->getData(), 'id', 'name');
 
-    echo CHtml::activeLabel($model,'Skill');
-    echo CHtml::dropDownList('skill_list', 'empty', $list, array('empty' => 'Any'));
+    echo CHtml::activeLabel($model, 'Location');
+    echo CHtml::dropDownList('location_list', 'empty', $list, array('empty' => 'Any'));
     ?>
 </div>
 
@@ -36,8 +36,19 @@
     <?php echo CHtml::checkBox('Weekends', true); echo ' Weekends<br>'; ?>
 </div>
 
+<div class="skillset-dropdown">
+    <?php 
+    $skill = new Skill('search');
+    $list = CHtml::listData($skill->search()->getData(), 'id', 'name');
+    Yii::trace("SKILL SEARCH: ".serialize($skill->search()->getData()));
+
+    echo CHtml::activeLabel($model,'Skill');
+    echo CHtml::dropDownList('skill_list', 'empty', $list, array('empty' => 'Any'));
+    ?>
+</div>
+
 <div class="row submit">
-    <?php echo CHtml::submitButton('David', array('submit'=>'search')); ?>
+    <?php echo CHtml::submitButton('Refine Volunteer List', array('submit'=>'search')); ?>
 </div>
  
 <?php echo CHtml::endForm(); ?>
