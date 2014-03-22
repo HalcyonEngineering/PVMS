@@ -165,7 +165,7 @@ INSERT INTO pvms_user (name, password, email, type) VALUES ('demo','$2a$10$JTJf6
 INSERT INTO pvms_user (name, password, email, type) VALUES ('admin','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin', 0);
 --pw for Sean is manager
 INSERT INTO pvms_user (name, password, email, type) VALUES ('Sean Kennedy','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','sean@pitchn.ca', 1);
-INSERT INTO pvms_user (name, password, email, type) VALUES ('manager2','$2a$12$MO94I98I9ts.psar1DoMBOxfKAZXciOPDwqUF4UJ8P5hua.my5EPO','manager2', 1);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('Manager','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','manager@pitchn.ca', 1);
 INSERT INTO pvms_user (name, password, email, type) VALUES ('volunteer','$2a$12$J1n3OwZasqX3gsMG6TSzvOHEJleCYyWJ/TNAuxOmAoB/zmiBqskeq','volunteer', 2);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('6','David','$2a$13$dEoNvuwcQ/7xRSebI6tO6edjUTXKfElOjnZz7TK6ymhT3Z.cNb.0G','david@pitchn.ca','Surrey','Project Management, Web Development, Software Engineering',NULL, 15, '2','0',NULL);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type","adminAccess","profile") VALUES ('7','Kenneth','$2a$13$jn1wIc/PvXQMwdF6VRcKr.1vRzWPrjAyS4D..4tBkI5fHDAwUaMFe','kenneth@pitchn.ca','Richmond','Software Engineering, School',NULL,                        15, '2','0',NULL);
