@@ -66,6 +66,6 @@
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
 
-    <a href="<?php echo CHtml::encode($data->link); ?>"><span id="span_read"></span></a>
+<a href="<?php echo Yii::app()->createUrl('notification/readOnSelect',array('noti_id' =>$data->id)); ?>"><span id="span_read"></span></a>
 
 </div>

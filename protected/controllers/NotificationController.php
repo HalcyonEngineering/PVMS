@@ -32,7 +32,7 @@ class NotificationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'readAll','unread', 'read'),
+				'actions'=>array('create','update', 'readAll','unread', 'read','readOnSelect'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -197,9 +197,16 @@ class NotificationController extends Controller
     }
 
     public function actionRead($noti_id){
+    $notification = Notification::model()->findByPk($noti_id);
+    $notification->read_status = Notification::STATUS_READ;
+    $notification->save();
+    $this->redirect(array('/notification/index'));
+    }
+
+    public function actionReadOnSelect($noti_id){
         $notification = Notification::model()->findByPk($noti_id);
         $notification->read_status = Notification::STATUS_READ;
         $notification->save();
-        $this->redirect(array('/notification/index'));
+        echo CHtml::script("window.location.href = '$notification->link';");
     }
 }
