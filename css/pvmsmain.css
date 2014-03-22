@@ -233,7 +233,8 @@ position:absolute;
 	padding: 8px 8px;
 	border-top: thin solid #B2B2B2;
 }
-
+.caret {
+	 border-top: 0px solid #000000; 
 a {
 	text-decoration: none;
 }

@@ -14,10 +14,6 @@
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('link')); ?>:</b>
-	<?php echo CHtml::encode($data->link); ?>
-	<br />
-
     <a href="<?php echo CHtml::encode($data->link); ?>"><span id="span_read"></span></a>
 
 
