@@ -25,6 +25,7 @@
 		              )
 		);
 
+		$this->renderPartial('/task/_progressBar',array('data'=>$data));
 		?>
 	</div>
 </div>

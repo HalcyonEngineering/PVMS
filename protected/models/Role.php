@@ -55,6 +55,9 @@ class Role extends CActiveRecord
 			'tasks' => array(self::HAS_MANY, 'Task', 'role_id'),
 			'users' => array(self::MANY_MANY, 'User', '{{user_role}}(role_id, user_id)'),
 			'onboardingDoc' => array(self::HAS_ONE, 'OnboardingDoc', 'role_id'),
+		    'taskComplete' => array(self::STAT, 'Task', 'role_id', 'condition'=>'t.status=3'),
+		    'taskPending' => array(self::STAT, 'Task', 'role_id', 'condition'=>'t.status=2'),
+		    'taskInProgress' => array(self::STAT, 'Task', 'role_id', 'condition'=>'t.status=1'),
 		);
 	}
 

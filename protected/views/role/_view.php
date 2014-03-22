@@ -24,5 +24,8 @@
 	<b><?php echo CHtml::encode('Number of Volunteers'); ?>:</b>
 	<?php echo CHtml::encode(count($data->users)); ?>
 	<br />
+	<?php
+		$this->renderPartial('/task/_progressBar',array('data'=>$data));
+	?>
 </div>
 </div>

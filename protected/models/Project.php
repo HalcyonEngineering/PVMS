@@ -57,7 +57,21 @@ class Project extends CActiveRecord
 		return array(
 			'org' => array(self::BELONGS_TO, 'Organization', 'org_id'),
 			'roles' => array(self::HAS_MANY, 'Role', 'project_id'),
+			'tasks' => array(self::HAS_MANY, 'Task', array('id'=>'role_id'), 'through'=>'roles'),
 			'filedocs' => array(self::HAS_MANY, 'FileDoc', 'project_id'),
+		    'roleProgress'=>array(self::STAT, 'Role', 'project_id'),
+		    'taskComplete'=>array(self::STAT, 'Role', 'project_id',
+		                          'join'=>'INNER JOIN {{role}} ON t.id = {{role}}.project_id INNER JOIN {{task}} ON {{role}}.id = {{task}}.role_id',
+		                          'condition'=>"{{task}}.status=3",
+		    ),
+		    'taskPending'=>array(self::STAT, 'Role', 'project_id',
+		                          'join'=>'INNER JOIN {{role}} ON t.id = {{role}}.project_id INNER JOIN {{task}} ON {{role}}.id = {{task}}.role_id',
+		                          'condition'=>"{{task}}.status=2",
+		    ),
+		    'taskInProgress'=>array(self::STAT, 'Role', 'project_id',
+		                         'join'=>'INNER JOIN {{role}} ON t.id = {{role}}.project_id INNER JOIN {{task}} ON {{role}}.id = {{task}}.role_id',
+		                         'condition'=>"{{task}}.status=2",
+		    ),
 		);
 	}
 
