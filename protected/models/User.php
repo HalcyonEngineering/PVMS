@@ -237,8 +237,40 @@ class User extends CActiveRecord
             //$criteria->compare('skillset',$this->skillset, true);
             //$criteria->compare('availability',$this->availability, true);
 
+            //if ($args['skill_list'] !== '') {
+            //    $wanted_skillset_id = $args['skill_list'];
+            //    $wanted_skillset = Location::model()->findByPk($wanted_skillset_id)->name;
+            //    $criteria->compare('skillset', $wanted_skillset);
+            //}
+
+            if ($args['skill_list']) {
+                $wanted_s_id = $args['skill_list'];
+                $wanted_s = Skill::model()->findByPk($wanted_s_id)->name;
+                $criteria->compare('skillset', $wanted_s, true);
+            }
+
+            if ($args['location_list'] !== '') {
+                $wanted_location_id = $args['location_list'];
+                $wanted_location = Skill::model()->findByPk($wanted_location_id)->name;
+                $criteria->compare('location', $wanted_location, true);
+            }
+
             // User has to be a volunteer
-            $criteria->compare('type', User::VOLUNTEER, true);
+            $criteria->compare('type', User::VOLUNTEER);
+
+            //// User availability
+            //// d is the desired availability
+            //$d = 0;
+            //if (isset($args['Morning'])) $d = $d |  User::AVAILABLE_MORNING;
+            //if (isset($args['Evening'])) $d = $d |  User::AVAILABLE_EVENING;
+            //if (isset($args['Weekdays'])) $d = $d | User::AVAILABLE_WEEKDAYS;
+            //if (isset($args['Weekends'])) $d = $d | User::AVAILABLE_WEEKENDS;
+
+            //// Bitwise OR with the volunteer's actual ability,
+            //// if the result == $this->availability, then the volunteer fulfills availability criteria
+            //$result = $this->availability | $d;
+            //$criteria->compare('availability', $result);
+            //Yii::trace('D:'.$d.' V:'.'15'.' r:'.(15|$d));
 
             // User's organizations[] must have one that matches $org
             // Join the user table with the organization table

@@ -30,10 +30,10 @@
 
 <?php echo CHtml::activeLabel($model,'Availability'); ?>
 <div class="row checkbox">
-    <?php echo CHtml::checkBox('Morning', true);  echo ' Morning<br>'; ?>
-    <?php echo CHtml::checkBox('Evening', true);  echo ' Evening<br>'; ?>
-    <?php echo CHtml::checkBox('Weekdays', true); echo ' Weekdays<br>'; ?>
-    <?php echo CHtml::checkBox('Weekends', true); echo ' Weekends<br>'; ?>
+    <?php echo CHtml::checkBox('Morning', false);  echo ' Morning<br>'; ?>
+    <?php echo CHtml::checkBox('Evening', false);  echo ' Evening<br>'; ?>
+    <?php echo CHtml::checkBox('Weekdays', false); echo ' Weekdays<br>'; ?>
+    <?php echo CHtml::checkBox('Weekends', false); echo ' Weekends<br>'; ?>
 </div>
 
 <div class="skillset-dropdown">
