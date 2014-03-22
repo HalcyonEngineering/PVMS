@@ -15,7 +15,7 @@ class TaskController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			'postOnly + delete, dynamicUpdate', // we only allow deletion via POST request
 		);
 	}
 
@@ -125,16 +125,18 @@ class TaskController extends Controller
 	public function actionDynamicUpdate(){
 
 		if(isset($_POST['pk'])){
-			$model = $this->loadModel($_POST['pk']);
-			$model->setAttribute($_POST['name'],$_POST['value']);
+				$model = $this->loadModel($_POST['pk']);
+				$model->setAttribute($_POST['name'],$_POST['value']);
+
+			if (Yii::app()->user->isVolunteer()){
+				$model->setScenario('volunteerUpdate');
+			}
+			if($model->validate() && $model->save()){
+				Yii::app()->end(200);
+			}
+			throw new CHttpException(400, "Could not update value");
 		}
-		if (Yii::app()->user->isVolunteer()){
-			$model->setScenario('volunteerUpdate');
-		}
-		if($model->validate() && $model->save()){
-			Yii::app()->end(200);
-		}
-		throw new CHttpException(400, "Could not update value");
+		throw new CHttpException(403);
 	}
 
 	/**

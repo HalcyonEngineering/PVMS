@@ -6,20 +6,32 @@
 	);
 } ?>
 
+<h1>
+<?php
+	$this->widget('bootstrap.widgets.TbEditableField',
+	              array(
+		              'type'=>'text',
+		              'model'=>$model,
+		              'attribute'=>'name',
+		              'apply'=>false,
+	              )
+	);
 
 
-<h1>Role model:</h1>
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-'data'=>$model,
-'attributes'=>array(
-    'id',
-    'project_id',
-),
-));
 ?>
-<h1> <?php echo $model->name; ?></h1>
+</h1>
 
-<p><?php echo $model->desc; ?></p>
+<p><?php
+	$this->widget('bootstrap.widgets.TbEditableField',
+	              array(
+		              'type'=>'textarea',
+		              'model'=>$model,
+		              'attribute'=>'desc',
+		              'apply'=>false,
+	              )
+	);
+
+	?></p>
 
 <h1>OnboardingDoc model:</h1>
 <?php
