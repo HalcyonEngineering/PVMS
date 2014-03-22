@@ -53,6 +53,16 @@ class ModalOpenButton extends CWidget{
 		} else {
 			$this->buttonOptions['label'] = 'Missing button id';
 		}
+
+		if(Yii::app()->request->enableCsrfValidation)
+		{
+			$csrfTokenName = Yii::app()->request->csrfTokenName;
+			$csrfToken = Yii::app()->request->csrfToken;
+			$csrf = "$csrfTokenName=$csrfToken";
+			if(!isset($this->buttonOptions['htmlOptions']['ajax']['data'])) {
+				$this->buttonOptions['htmlOptions']['ajax']['data'] = $csrf;
+			}
+		}
 	}
 
 	public function run(){

@@ -77,7 +77,7 @@ return array(
 			),
 		),
 	    'request'=>array(
-		    //'enableCsrfValidation'=>true,
+		    'enableCsrfValidation'=>true,
 		    'enableCookieValidation'=>true,
 	    ),
 	    'user'=>array(
