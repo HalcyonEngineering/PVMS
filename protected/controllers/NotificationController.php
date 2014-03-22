@@ -32,7 +32,7 @@ class NotificationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'readAll','unread'),
+				'actions'=>array('create','update', 'readAll','unread', 'read'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -178,18 +178,11 @@ class NotificationController extends Controller
 		}
 	}
 
-    public function actionRead($id){
-        $current_user = Yii::app()->user->id;
-        $model = Notification::model()->findByPk($id);
-        $model->read();
-        $model->save();
-    }
-
     public function actionReadAll(){
         $user = User::model()->findByPk(Yii::app()->user->id);
         $notify = $user->notifications;
         foreach ($notify as $notification){
-            $notification->read_status = 1;
+            $notification->read_status = Notification::STATUS_READ;
             $notification->save();
         }
 
@@ -198,8 +191,15 @@ class NotificationController extends Controller
 
     public function actionUnread($noti_id){
         $notification = Notification::model()->findByPk($noti_id);
-            $notification->read_status = 0;
+            $notification->read_status = Notification::STATUS_UNREAD;
             $notification->save();
+        $this->redirect(array('/notification/index'));
+    }
+
+    public function actionRead($noti_id){
+        $notification = Notification::model()->findByPk($noti_id);
+        $notification->read_status = Notification::STATUS_READ;
+        $notification->save();
         $this->redirect(array('/notification/index'));
     }
 }

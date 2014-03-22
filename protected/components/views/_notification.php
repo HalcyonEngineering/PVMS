@@ -10,7 +10,7 @@ echo CHtml::tag('div', array('class'=>"smallNotification ".$status));
 	<?php echo CHtml::encode(Yii::app()->dateFormatter->formatDateTime($data->timestamp), 'YY/DD/MM'); ?>
 	<br />
 
-    <a href="<?php echo CHtml::encode($data->link); ?>" id="my_a" ><span id="span_read"></span></a>
+    <a href="<?php echo CHtml::encode($data->link); ?>" id="my_a" style="line-height: 0px;"><span id="span_read2"></span></a>
 <?php
 echo CHtml::closeTag("div");
 

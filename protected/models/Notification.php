@@ -15,6 +15,9 @@
  */
 class Notification extends CActiveRecord
 {
+    const STATUS_UNREAD = 0;
+    const STATUS_READ = 1;
+
 	/**
 	 * @return string the associated database table name
 	 */
