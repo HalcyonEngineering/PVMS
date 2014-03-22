@@ -1,5 +1,8 @@
 <div class="form">
-<?php echo CHtml::beginForm(); ?>
+<?php echo CHtml::beginForm();
+    $c = new CDbCriteria;
+    $c->order = 'name';
+?>
 
 <div class="row">
     <?php echo CHtml::activeLabel($model,'Name'); ?>
@@ -14,7 +17,7 @@
         echo CHtml::activeDropDownList(
             $location,
             'id',
-            CHtml::listData( Location::model()->findAll(), 'id', 'name' ),
+            CHtml::listData( Location::model()->findAll($c), 'id', 'name' ),
             array('prompt'=>'Any')
             );
     ?>
@@ -27,7 +30,7 @@
         echo CHtml::activeDropDownList(
             $project,
             'id',
-            CHtml::listData( Project::model()->findAll(), 'id', 'name' ),
+            CHtml::listData( Project::model()->findAll($c), 'id', 'name' ),
             array('prompt'=>'Any')
             );
     ?>
@@ -48,7 +51,7 @@
         echo CHtml::activeDropDownList(
             $skill,
             'id',
-            CHtml::listData( Skill::model()->findAll(), 'id', 'name' ),
+            CHtml::listData( Skill::model()->findAll($c), 'id', 'name' ),
             array('prompt'=>'Any')
             );
     ?>
