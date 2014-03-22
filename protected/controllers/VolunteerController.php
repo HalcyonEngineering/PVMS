@@ -76,21 +76,22 @@ class VolunteerController extends Controller
         $model = new User('search');
         $model->unsetAttributes(); // Clear attributes for search
         
-        // data should initially contain all the volunteers in an organization
-        $o = Yii::app()->user->getManagedOrg();
-        $data = $model->search_volunteers_in_org($o);
-
         $org_model = new Organization();
         $org_model->unsetAttributes();
 
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
-        if(isset($_POST['User'])) $data = $model->search_volunteers_in_org_adv($o, $_POST);
 
         if(Yii::app()->user->isAdmin()) {
             $this->render('admin', array('model'=>$model, 'org_model'=>$org_model));
         } else {
             $role_model = new Role('search');
             $role_model->unsetAttributes();
+
+            // data should initially contain all the volunteers in an organization
+            $o = Yii::app()->user->getManagedOrg();
+            $data = $model->search_volunteers_in_org($o);
+
+            if(isset($_POST['User'])) $data = $model->search_volunteers_in_org_adv($o, $_POST);
 
             if (isset($_POST['selectedIds']) && isset($_POST['role_list']))
             {

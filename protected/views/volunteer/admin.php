@@ -28,7 +28,7 @@ return false;
 
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'user-search-grid',
-    'dataProvider'=>$model->search_volunteers(),
+    'dataProvider'=>$model->search(),
     'selectableRows' => 2,
     //'filter'=>$model,
     'columns'=>array(
