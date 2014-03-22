@@ -33,11 +33,12 @@ class Task extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('role_id, name, status', 'required'),
+			array('role_id, name, status, desc', 'required'),
 			array('role_id, expected, actual, status', 'numerical', 'integerOnly'=>true),
 			array('role_id', 'exist', 'className' => 'Role', 'attributeName'=>'id'),
-			array('name', 'length', 'max'=>128),
-			array('desc', 'safe'),
+			array('name', 'length', 'max'=>128, 'on' => 'update, insert'),
+			array('role_id, name, desc', 'unsafe', 'on'=>'volunteerUpdate'),
+			array('desc', 'safe', 'except'=>'volunteerUpdate'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, role_id, name, desc, expected, actual, status', 'safe', 'on'=>'search'),

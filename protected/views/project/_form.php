@@ -18,8 +18,6 @@ echo $form->errorSummary($model);
 
 echo $form->hiddenField($model, 'org_id');
 
-/*echo $form->textFieldRow($model,'org_id',array('class'=>'span5'));*/
-
 echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>128));
 
 echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span5'));
