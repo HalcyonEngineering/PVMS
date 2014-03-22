@@ -58,7 +58,8 @@ class notification_TbDropdown extends TbMenu {
 		$this->widget('bootstrap.widgets.TbListView',
 					  array('dataProvider' => $Notification_dataprovider,
 							'itemView' => '/_notification',
-                            'template' =>'{items}')
+                            'template' =>'{items}',
+                            'emptyText' => '  No new notifications')
 					  );
         $this->count = $Notification_dataprovider->itemCount;
 	}

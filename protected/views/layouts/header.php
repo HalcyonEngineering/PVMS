@@ -20,6 +20,7 @@ $this->widget(
 			     'items' => array(
 				     // This is the messages Drop Down Menu
 				     array('label' => $messagesIcon,
+                          'itemOptions' => array('id' => 'hide_arrowForMessage',),
 				           'url' => '#',
 				           'items' => array(
 					           array('label' => 'Inbox', 'url' => array('site/page', 'view'=>'messages')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES

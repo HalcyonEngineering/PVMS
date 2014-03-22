@@ -25,12 +25,20 @@ body
 	color:#2A867D;
 	font-size:16px;
 	text-align: center;
-	padding:8px 8px;
+	padding:4px 8px;
 	line-height: 2.4;
 }
 
-#header ul li a:hover, #mainmenu ul li.active a
+#header .navbar .pull-right>li>.dropdown-menu, .navbar .nav>li>.dropdown-menu.pull-right
 {
+	left: auto;
+	right: 23px;
+	margin: 20px 0 0;
+}
+
+#header .navbar .nav li.dropdown.open>.dropdown-toggle, .navbar .nav 
+{
+	background-color: transparent;
 }
 
 #inside-page
@@ -192,6 +200,14 @@ div.view
 	padding-right: 0px; 
 }
 
+#notification-button .empty{
+	padding:4px; 
+}
+
+#notification-button .dropdown-menu .divider {
+	margin: 0px 0px;
+}
+
 #span_read
 {
 position:absolute; 
@@ -233,8 +249,15 @@ position:absolute;
 	padding: 8px 8px;
 	border-top: thin solid #B2B2B2;
 }
-.caret {
+
+#notification-button .caret {
 	 border-top: 0px solid #000000; 
+}
+
+#hide_arrowForMessage .caret {
+	 border-top: 0px solid #000000; 
+}
+
 a {
 	text-decoration: none;
 }
