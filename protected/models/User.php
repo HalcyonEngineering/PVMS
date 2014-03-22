@@ -218,6 +218,39 @@ class User extends CActiveRecord
             ));
     }
 	
+    public function search_volunteers_in_org_adv($org, $args)
+    {
+
+            $criteria=new CDbCriteria;
+            $criteria->compare('id',$this->id);
+
+            // Name needs to be disambiguated from 
+            if ($args['User']['username'] !== '') {
+                $criteria->compare('t.name', $args['User']['username'], true);
+            }
+
+            //if ($args['project_list'] !== '') {
+            //    $criteria->with = array('roles.project');
+            //    $criteria->together = true;
+            //    $criteria->compare('roles.project.id', $args['project_list']);
+            //}
+            //$criteria->compare('skillset',$this->skillset, true);
+            //$criteria->compare('availability',$this->availability, true);
+
+            // User has to be a volunteer
+            $criteria->compare('type', User::VOLUNTEER, true);
+
+            // User's organizations[] must have one that matches $org
+            // Join the user table with the organization table
+            $criteria->with = array('organizations');
+            $criteria->together = true;
+            $criteria->compare('organizations.name', $org->name, true);
+
+            return new CActiveDataProvider($this, array(
+                    'criteria'=>$criteria,
+            ));
+    }
+	
 	public function search_volunteers()
     {
             // @todo Please modify the following code to remove attributes that should not be searched.

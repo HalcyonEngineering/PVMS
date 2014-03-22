@@ -36,7 +36,7 @@
         'multiple'=>true,
         'htmlOptions'=>array('size'=>50),
     )); ?>
-    <p class="hint">Please separate different locations with commas.</p>
+    <p class="hint">City name only. Please separate all available cities with commas.</p>
     <?php echo $form->error($userModel,'location'); ?>
 </div>
 
