@@ -197,7 +197,19 @@ div.view
     padding: 10px;
     height: 300px;
     border-left: 10px solid #ffc0cb;
-    overflow: auto;
+	position: relative;
+}
+
+.tile-top {
+    height: 90px;
+	overflow: auto;
+}
+
+.tile-bottom {
+	bottom: 10px;
+	width: 91%;
+	position: absolute;
+	line-height: 17px;
 }
 
 .navbar-inner .container
@@ -290,6 +302,10 @@ div.view
 	position:relative;
 	background-color:#B2FFB2;
 	padding: 8px 8px;
+}
+
+.tile-bottom .progress {
+	margin-bottom: 10px;
 }
 
 .small_unread {
