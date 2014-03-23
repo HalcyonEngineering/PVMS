@@ -287,7 +287,11 @@ INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('20','3');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('21','3');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('22','3');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('23','3');
-
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('24','2');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('25','2');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('26','2');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('27','2');
+INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('28','2');
 INSERT INTO pvms_user_organization(user_id, org_id) VALUES (5,2);
 INSERT INTO pvms_user_role(user_id, role_id) VALUES (5, 1);
 

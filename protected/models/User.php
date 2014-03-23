@@ -377,6 +377,7 @@ class User extends CActiveRecord
             array_push($new_orgs, $organization);
             $user->organizations = $new_orgs;
             $user->save();
+            Notification::notify($user->id, "Welcome " . $user->name . ", you've been added as a member of  " . $organization->name . ".", '#');
         }
 
         Yii::log('User enrollVolunteer: touch','warning','User'); //TODO: remove debug
