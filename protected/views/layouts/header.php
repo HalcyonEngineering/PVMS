@@ -1,6 +1,6 @@
 <?php
 
-$messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png' , 'messages', array('class'=>'img-circle'));
+$messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png' , 'messages', array('class'=>'img-circle', 'id' => 'message-icon'));
     
 //@TODO Add settings on conditions of displayed notificatons
 

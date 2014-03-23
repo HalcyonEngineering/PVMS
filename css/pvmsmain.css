@@ -2,6 +2,17 @@
 body
 {
 	background-color: #F0F0F0;
+	margin: 0;
+	padding: 0;
+	font: normal 11pt Calibri;
+}
+
+select {
+font-family: "Calibri";
+}
+
+input {
+font-family: "Calibri";
 }
 
 #content
@@ -19,22 +30,20 @@ body
 #header
 {
 	height:87px;
-    font-family: Helvetica;
 }
 
 #header ul
 {
 	padding: 0px 0px 0px 0px;
-	top: 16px;
+	top: 28px;
 }
 
 #header ul li a
 {
 	color:#2A867D;
-	font-size:16px;
 	text-align: center;
  	padding:4px 8px;
-	line-height: 2.4; 
+	line-height: 3; 
 }
 
 #header .dropdown-menu>li>a:hover {
@@ -46,7 +55,7 @@ body
 #header .navbar .pull-right>li>.dropdown-menu, .navbar .nav>li>.dropdown-menu.pull-right
 {
 	left: auto;
-	right: 23px;
+	right: 18px;
 	margin: 20px 0 0;
 }
 
@@ -115,8 +124,14 @@ body
 */
 #notification-icon
 {
-	width: 40px;
-	height: 40px;
+	width: 35px;
+	height: 35px;
+}
+
+#message-icon
+{
+	width: 35px;
+	height: 35px;
 }
 
 #notification-menu a .tooltip-inner
@@ -315,6 +330,12 @@ label {
 {
  right: -7px;
 } 
+
+#login-dropdown {
+	top: -6px;
+}
+
+
 
 
 
