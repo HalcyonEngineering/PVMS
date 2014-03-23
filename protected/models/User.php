@@ -289,6 +289,8 @@ class User extends CActiveRecord
             // User has to be a volunteer
             $criteria->compare('type', User::VOLUNTEER, true);
 	    $criteria->compare('type', User::DISABLEDVOLUNTEER, true, 'OR');
+
+            $criteria->order = 'name';
 			
             return new CActiveDataProvider($this, array(
                     'criteria'=>$criteria,
