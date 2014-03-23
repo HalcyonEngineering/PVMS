@@ -10,6 +10,7 @@ if (Yii::app()->user->isVolunteer()){
 	unset($taskStatus[3]);
 }
 $params=array();
+
 if (Yii::app()->request->enableCsrfValidation) {
 	$csrfTokenName = Yii::app()->request->csrfTokenName;
 	$csrfToken = Yii::app()->request->csrfToken;
