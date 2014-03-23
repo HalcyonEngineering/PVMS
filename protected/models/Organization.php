@@ -102,6 +102,8 @@ class Organization extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('desc',$this->desc,true);
+		$criteria->with = array('managers');
+		$criteria->together = true;
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
