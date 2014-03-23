@@ -255,8 +255,8 @@ INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions
 INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
 
 -- Tasks
-INSERT INTO pvms_task(role_id, name, desc) VALUES(1, 'Create new UI', 'This task needs to be completed.');
-INSERT INTO pvms_task(role_id, name, desc) VALUES(4, 'Get Sponsorship', 'Contact smaller companies to get earn sponsorships.');
+INSERT INTO pvms_task(role_id, name, desc, status) VALUES(1, 'Create new UI', 'This task needs to be completed.', 2);
+INSERT INTO pvms_task(role_id, name, desc, status) VALUES(4, 'Get Sponsorship', 'Contact smaller companies to get earn sponsorships.', 3);
 INSERT INTO pvms_task(role_id, name, desc) VALUES(2, 'Update Database', 'Add more volunteers.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(3, 'Meet with Jason', 'Meeting is at Pitchn HQ in Downtown Vancouver on Monday at noon.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(2, 'Hand in documents', 'This task needs to be completed.');
