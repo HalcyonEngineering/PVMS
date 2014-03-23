@@ -1,30 +1,5 @@
-<?php
-
-// Make sure you change yiiGridView.update js BELOW!
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-$('.search-form').toggle();
-return false;
-});
-$('.search-form form').submit(function(){
-$.fn.yiiGridView.update('user-search-grid', {
-data: $(this).serialize()
-});
-return false;
-});
-");
-?>
-
 <h1>Search Organizations</h1>
-<p>Here are your list of Organizations. You can also refine the list by searching.</p>
-
-
-
-<?php echo CHtml::link('Search Organizations','#',array('class'=>'search-button btn')); ?>
-
-<div class="search-form" style="display:none">
-    <?php $this->renderPartial('_search',array('model'=>$model)); ?>
-</div><!-- search-form -->
+<p>Here are your list of Organizations.</p>
 
 <p></p>
 
@@ -53,13 +28,7 @@ $this->widget('bootstrap.widgets.TbAlert', array(
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'org-search-grid',
     'dataProvider'=>$model->search_Orgs(),
-    'selectableRows' => 2,
-    //'filter'=>$model,
     'columns'=>array(
-        array(
-            'name' => 'selectedNames',
-            'class' => 'CCheckBoxColumn'
-        ),
 		'name',
 		
 		array(
@@ -70,10 +39,10 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 			),
 			'manager.email:html:Manager Email',
 		array(
-			'name' => 'Admin Access',
+			'name' => 'Enabled',
 			'class'=> 'bootstrap.widgets.TbDataColumn',
 			'value'=> '$data->manager !== null ? 
-				($data->manager->adminAccess ? "Y" : "N") 
+				($data->manager->type == User::DISABLED ? "N" : "Y") 
 				: "N"'
 			),
         array(
@@ -82,15 +51,18 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 			'buttons'=> array(
 				'adminAccess' => array(
 					'label' => 'Log in',
+                                        'icon'=>'arrow-up',
 					'url' => 'Yii::app()->createUrl("account/adminLogin", array("userID"=>$data->manager->id))',
 				),
 				'enable' => array(
 					'label' => 'Enable',
+                                        'icon'=>'ok',
 					'url' => 'Yii::app()->createUrl("account/OrgEnable", array("userID"=>$data->manager->id))',
 					'visible' => '$data->manager->type == User::DISABLED',
 				),
 				'disable' => array(
 					'label' => 'Disable',
+                                        'icon'=>'ban-circle',
 					'url' => 'Yii::app()->createUrl("account/OrgDisable", array("userID"=>$data->manager->id))',
 					'visible' => '!($data->manager->type == User::DISABLED)',
 				)

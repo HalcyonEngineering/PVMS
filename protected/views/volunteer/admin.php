@@ -9,12 +9,9 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'selectableRows' => 2,
     'filter'=>$model,
     'columns'=>array(
-        array(
-            'name' => 'selectedNames',
-            'class' => 'CCheckBoxColumn'
-        ),
         'name',
         'email',
+        'skillset',
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
 			'template'=>'{adminAccess} {disable} {enable} {delete} ',
