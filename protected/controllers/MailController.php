@@ -7,7 +7,7 @@ class MailController extends Controller
 	 * Displays the contact page
 	 */
 	public function actionContact()
-	{
+	{// TODO: remove this code if not necessary, or update it to use the model sendMail() function if it is necessary
 		$model=new Mail;
 		if(isset($_POST['Mail']))
 		{
