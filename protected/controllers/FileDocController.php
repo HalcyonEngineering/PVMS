@@ -80,6 +80,15 @@ class FileDocController extends Controller
                 //$model->uploadedfile->saveAs(Yii::getPathOfAlias('webroot').'/assets/tempupload/'.$model->uploadedfile->name); // uncomment and modify if you want to save the file on the filesystem
                 ////Yii::log('FileDoc create action ended with redir', 'warning', 'FileDoc');
                 $this->redirect(array('view','id'=>$model->id)); // redirect to success page
+                $project = Project::model()->findByAttributes(array('id' => $model->project_id,));
+                $user_List = $project->users;
+                foreach ($user_List as $user){
+                    $user_id = $user->id;
+                    $project_name = $project->name;
+                    $file_id = $model->id;
+                    $file_name = $model->file_name;
+                    Notification::notify($user_id, $file_name . " added to " . $project_name . " project files. Click here for download."  , createUrl('/FileDoc/download', array('id' => $file_id)));
+                }
             }
         }
 

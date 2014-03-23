@@ -9,6 +9,13 @@ body
     min-height:450px;
 }
 
+#content div.flash-success 
+{
+	width: 825px;
+	padding: 4px 8px;
+	text-align: center;
+}
+
 #header
 {
 	height:87px;
