@@ -66,12 +66,6 @@ $this->pageTitle=Yii::app()->name . ' - Settings';
         <?php echo $form->error($model,'verifyPassword'); ?>
     </div>
 	
-	<div class="row">
-        <?php echo $form->labelEx($model,'adminAccess'); ?>
-        <?php echo $form->checkBox($model,'adminAccess'); ?>
-		<?php echo $form->error($model,'adminAccess'); ?>
-    </div>
-	
     <div class="row buttons">
         <?php echo CHtml::submitButton('Submit'); ?>
     </div>

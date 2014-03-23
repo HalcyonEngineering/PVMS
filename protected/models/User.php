@@ -29,7 +29,6 @@ class User extends CActiveRecord
     public $origPassword;
     public $newPassword;
     public $verifyPassword;
-    public $adminAccess;
 
     private $_oldSkillset;
     private $_oldLocation;
@@ -73,8 +72,6 @@ class User extends CActiveRecord
         return array(
             array('name, email', 'required'),
             array('email', 'unique'),
-            array('adminAccess', 'boolean', 'on' => 'settings'),
-            array('adminAccess', 'safe'),
             array('email', 'email'),
             array('name, origPassword, email, newPassword', 'length', 'max'=>128),
             array('origPassword, verifyPassword, newPassword', 'length', 'min'=>6),
@@ -134,7 +131,6 @@ class User extends CActiveRecord
             'profile' => 'Profile',
             'availability' => 'Availability',
             'type' => 'Type',
-            'adminAccess' => 'Allow Admin Access'
         );
     }
 

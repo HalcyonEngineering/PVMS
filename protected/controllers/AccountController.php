@@ -4,18 +4,6 @@ class AccountController extends Controller
 {
 	public $layout = 'column2';
 	public $defaultAction = 'login';
-
-	/**
-	 * Makeshift attempt to login through admin account as current user.
-	 * @TODO Request admin password. Check access.
-	 */
-	public function actionAdmin() {
-		if (!Yii::app()->user->isGuest) {
-			$identity = new AccessIdentity(Yii::app()->user->id, new UserIdentity('admin', 'admin'));
-			Yii::app()->user->login($identity);
-			$this->redirect(Yii::app()->user->returnUrl);
-		}
-	}
 	
 	/**
 	* Second login admin attempt
@@ -23,26 +11,13 @@ class AccountController extends Controller
 	*/
 	public function actionAdminLogin($userID) {
 	// First check that the manager has allowed admin access
-		$user = Yii::app()->getComponent('user');
 		if (Yii::app()->user->isAdmin()) { 
-			if (User::model()->findByPk($userID)->adminAccess == 1) {
+			if (User::model()->findByPk($userID)) {
 				$identity = new AccessIdentity($userID, new UserIdentity('admin', 'admin'));
 				Yii::app()->user->login($identity);
 				Yii::app()->user->setAdminAccess();
 				$this->redirect(Yii::app()->user->returnUrl);
 			}
-			else {
-				$user->setFlash(
-					'error',
-					'User has not enabled admin access.'
-				);
-			}
-		}
-		else {
-			$user->setFlash(
-				'error',
-				'You do not have admin access.'
-			);
 		}
 		$this->redirect(array('organization/search'));
 	}

@@ -38,13 +38,6 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 			'value'=> '$data->manager !== null ? $data->manager->name : "null"'
 			),
 			'manager.email:html:Manager Email',
-		array(
-			'name' => 'Enabled',
-			'class'=> 'bootstrap.widgets.TbDataColumn',
-			'value'=> '$data->manager !== null ? 
-				($data->manager->type == User::DISABLED ? "N" : "Y") 
-				: "N"'
-			),
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
 			'template'=>'{adminAccess} {disable} {enable} {delete} ',
