@@ -193,7 +193,7 @@ INSERT INTO pvms_organization (name, desc) VALUES ('The Cave', 'This is Jons Org
 
 
 --Projects
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Volunteer Management System', 'To be complete by multiple CPSC319 students at UBC','#FFFFFF');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Volunteer Management System', 'To be complete by multiple CPSC319 students at UBC','#1AAB9F');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Sponsors', 'Ongoing project to obtain more sponsors','#00FFFF');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Website Relaunch', 'Redesign the Pitchn website.','#FFFF00');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Promotions', 'A project to promote Pitchn.','#FF0000');
