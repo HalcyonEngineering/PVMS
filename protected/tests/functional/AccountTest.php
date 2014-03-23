@@ -13,20 +13,22 @@ class AccountTest extends WebTestCase
 		$this->pause(2000);
 		$this->clickAndWait('link=Login');
 		$this->assertElementPresent('name=LoginForm[username]');
-		$this->type('name=LoginForm[username]','admin');
+		$this->type('name=LoginForm[username]','admin@pitchn.ca');
 		$this->pause(2000);
 		$this->clickAndWait("//input[@value='Login']");
 		$this->assertTextPresent('Password cannot be blank.');
 		$this->type('name=LoginForm[password]','admin');
 		$this->pause(2000);
 		$this->clickAndWait("//input[@value='Login']");
+		$this->pause(5000);
 		$this->assertTextNotPresent('Password cannot be blank.');
-		$this->assertTextPresent('Logout');
+
+		//Test clicking organization
+		$this->clickAndWait("//*[@src='/PVMS/images/wlm.png']");
+		$this->pause(5000);
 
 		// test logout process
 		$this->assertTextNotPresent('Login');
-		$this->clickAndWait('link=Logout');
-		$this->assertTextPresent('Login');
 	}
 }
 ?>

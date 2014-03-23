@@ -1,7 +1,7 @@
 <?php
 
-$dbFile=dirname(__FILE__).'/../data/pvms-test.db';
-$sqlFile=dirname(__FILE__).'/../data/schema.sqlite.sql';
+$dbFile=dirname(__FILE__).'/../../data/pvms-test.sqlite';
+$sqlFile=dirname(__FILE__).'/../../data/schema.sqlite.sql';
 
 @unlink($dbFile);
 $db=new PDO('sqlite:'.$dbFile);
