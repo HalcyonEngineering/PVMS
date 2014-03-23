@@ -172,7 +172,7 @@ div.view
 
 .tile
 {
-    padding: 5px;
+    padding: 10px;
     height: 300px;
     border-left: 10px solid #ffc0cb;
     overflow: auto;

@@ -10,7 +10,7 @@ foreach ($data->tasks as $task){
 }
 
 if($taskcount > 0){
-
+	echo CHtml::encode("Progress:");
 	$this->widget('bootstrap.widgets.TbProgress',
 	              array(
 		              'stacked'=>array(
@@ -23,7 +23,7 @@ if($taskcount > 0){
 				              ),
 			              ),
 			              array(
-				              'type'=>'info',
+				              'type'=>'warning',
 				              'percent'=>($statusCount[2]/$taskcount)*100,
 				              'htmlOptions'=>array(
 					              'data-toggle'=>'tooltip',
@@ -31,7 +31,7 @@ if($taskcount > 0){
 				              ),
 			              ),
 			              array(
-				              'type'=>'warning',
+				              'type'=>'info',
 				              'percent'=>($statusCount[1]/$taskcount)*100,
 				              'htmlOptions'=>array(
 					              'data-toggle'=>'tooltip',

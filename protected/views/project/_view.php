@@ -13,19 +13,26 @@
 		<?php echo CHtml::link(CHtml::encode($data->org->name), array('/organization/view', 'id'=>$data->org->id)); ?>
 		<br />  <br />-->
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('target')); ?>:</b>
-		<?php echo CHtml::encode($data->target);?>	<br /><br />
+		<b><?php echo CHtml::encode($data->getAttributeLabel('target').":"); ?></b><br />
+		<?php echo CHtml::encode($data->target); ?><br /><br />
+		<b>
+		<?php
+
+		$this->renderPartial('/task/_progressBar',array('data'=>$data));
+		?></b>
+		<br />
+
 
 		<?php
 		$this->widget('ModalOpenButton',
 		              array('label' => 'Edit Project',
-		                    'type' => 'link',
+		                    'type' => 'primary',
 		                    'button_id'=>'edit-project-'.$data->id,
 		                    'url' => Yii::app()->createUrl("project/update", array("id"=>$data->id))
 		              )
 		);
 
-		$this->renderPartial('/task/_progressBar',array('data'=>$data));
+
 		?>
 	</div>
 </div>
