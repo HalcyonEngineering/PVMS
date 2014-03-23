@@ -1,6 +1,14 @@
 <?php
-
+//CVarDumper::dump($data->tasks);
 $taskcount = count($data->tasks);
+$statusCount = array(1 => 0, 2 => 0, 3=>0);
+//$statusCount[1] number of in progress
+//$statusCount[2] number of complete (pending)
+//$statusCount[3] number of complete (verified)
+foreach ($data->tasks as $task){
+	$statusCount[$task->attributes['status']]++;
+}
+
 if($taskcount > 0){
 
 	$this->widget('bootstrap.widgets.TbProgress',
@@ -8,26 +16,26 @@ if($taskcount > 0){
 		              'stacked'=>array(
 			              array(
 				              'type'=>'success',
-				              'percent'=>($data->taskComplete/$taskcount)*100,
+				              'percent'=>($statusCount[3]/$taskcount)*100,
 				              'htmlOptions'=>array(
 					              'data-toggle'=>'tooltip',
-					              'title'=>"Tasks Complete: $data->taskComplete",
+					              'title'=>"Tasks Complete: $statusCount[3]",
 				              ),
 			              ),
 			              array(
 				              'type'=>'info',
-				              'percent'=>($data->taskPending/$taskcount)*100,
+				              'percent'=>($statusCount[2]/$taskcount)*100,
 				              'htmlOptions'=>array(
 					              'data-toggle'=>'tooltip',
-					              'title'=>"Tasks Pending: $data->taskPending",
+					              'title'=>"Tasks Pending: $statusCount[2]",
 				              ),
 			              ),
 			              array(
 				              'type'=>'warning',
-				              'percent'=>($data->taskInProgress/$taskcount)*100,
+				              'percent'=>($statusCount[1]/$taskcount)*100,
 				              'htmlOptions'=>array(
 					              'data-toggle'=>'tooltip',
-					              'title'=>"Tasks In Progress: $data->taskInProgress",
+					              'title'=>"Tasks In Progress: $statusCount[1]",
 				              ),
 			              ),
 		              )
