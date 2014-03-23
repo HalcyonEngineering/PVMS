@@ -393,8 +393,8 @@ class User extends CActiveRecord
         foreach ($volunteer_ids as $vid) {
             $model = User::model()->findByPk($vid);
 
-            // Only add role if the volunteer is not already enrolled
-            if (!in_array($new_role, $model->roles)) {
+            // Only add role if the volunteer is not already enrolled AND is a volunteer
+            if (!in_array($new_role, $model->roles) && $model->type == User::VOLUNTEER) {
 
                 // Make another array with existing roles + new_role
                 $new_roles = $model->roles;
