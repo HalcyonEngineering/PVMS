@@ -9,23 +9,29 @@ echo CHtml::beginForm();
 
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'user-search-grid',
-    // Need to make sure only volunteers in manager's org show up
-    //'dataProvider'=>$model->search_volunteers_in_org(Yii::app()->user->getManagedOrg()),
     'dataProvider'=>$data,
     'selectableRows' => 2,
-    //'filter'=>$model,
     'columns'=>array(
-            array(
-                'id' => 'selectedIds',
-                'class' => 'CCheckBoxColumn'
-            ),
-            'name',
-            'location',
-            'skillset',
-            array(
-                'class'=>'bootstrap.widgets.TbButtonColumn',
+        array(
+            'id' => 'selectedIds',
+            'class' => 'CCheckBoxColumn'
+        ),
+        'name',
+        'location',
+        'skillset',
+        array(
+            'class'=>'bootstrap.widgets.TbButtonColumn',
+            'template'=>'{remove}',
+            'buttons'=>array(
+                'remove'=>array(
+                    'label'=>'Remove from organization',
+                    'icon' => 'trash',
+                    'url'=>'Yii::app()->createUrl("volunteer/remove",array("id"=>$data->id))',
+                    'options'=>array('confirm'=>'Are you sure you want to remove this volunteer from your organization?')
+                ),
             ),
         ),
+    ),
 )); 
 
 $models = Yii::app()->user->getManagedOrg()->roles;
