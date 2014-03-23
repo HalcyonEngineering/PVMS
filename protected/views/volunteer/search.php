@@ -35,7 +35,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 )); 
 
 $models = Yii::app()->user->getManagedOrg()->roles;
-$list = CHtml::listData($models, 'id', 'name');
+$list = CHtml::listData($models, 'id', function($model) {return $model->name.' -- '.$model->project->name;});
 asort($list);
 
 echo 'Add selected volunteers to role: ';
