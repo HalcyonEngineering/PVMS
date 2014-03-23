@@ -194,22 +194,28 @@ INSERT INTO pvms_organization (name, desc) VALUES ('The Cave', 'This is Jons Org
 
 --Projects
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Volunteer Management System', 'To be complete by multiple CPSC319 students at UBC','#FFFFFF');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Sponsors', 'Ongoing project to obtain more sponsors','#000000');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Website Relaunch', 'Redesign the Pitchn website.','#111111');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Promotions', 'A project to promote Pitchn.','#222222');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Networking', 'Creating new connections in the Startup Company.','#333333');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Misc', 'Random roles and tasks to be completed','#444444');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'First Project', 'First project created','#444444');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Soccer', 'Handley Cup Soccer League is great','#aaaaaa');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Futsal', 'SRC Futsal league still needs a name','#bbbbbb');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ball Hockey', 'Bodin Ball Hockey league','#ababab');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ice Hockey', 'Todd Ice Hockey league is great','#cdcdcd');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Basketball', 'Nitobe Basketball league','#dddddd');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Volleyball', 'Cross Volleyball has multiple leagues.','#121212');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Dodgeball', 'The is an amazing league to play.','#efefef');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Football', 'The Point Grey football league runs Sunday nights.','#000000');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ultimate', 'The Ultimate league is not the ultimate league.','#22222');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Storm the Wall', 'Storm the wall is March 23-25th.','#2e2e2e');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Sponsors', 'Ongoing project to obtain more sponsors','#00FFFF');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Website Relaunch', 'Redesign the Pitchn website.','#FFFF00');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Promotions', 'A project to promote Pitchn.','#FF0000');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Networking', 'Creating new connections in the Startup Company.','#2EFE2E');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Misc', 'Random roles and tasks to be completed','#0404B4');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 1', 'First project created','#00FF00');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Soccer', 'Handley Cup Soccer League is great','#DF013A');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Futsal', 'SRC Futsal league still needs a name','#81F7F3');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ball Hockey', 'Bodin Ball Hockey league','#6E6E6E');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ice Hockey', 'Todd Ice Hockey league is great','#F8E0E0');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Basketball', 'Nitobe Basketball league','#76189A');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Volleyball', 'Cross Volleyball has multiple leagues.','#E4E437');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Dodgeball', 'The is an amazing league to play.','#D06C42');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Football', 'The Point Grey football league runs Sunday nights.','#FA58F4');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ultimate', 'The Ultimate league is not the ultimate league.','#8A0829');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Storm the Wall', 'Storm the wall is March 23-25th.','#FF8000');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 2', 'A project','#329E07');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 3', 'A project','#187B1B');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 4', 'A project','#11D418');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 5', 'A project','#097231');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 6', 'A project','#00FF62');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 7', 'A project','#194F04');
 
 --Project files
 INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt',19,'This is an example.');
@@ -227,14 +233,21 @@ INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Wall Spotter'
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'DJ && MC', 'First role created.', '#111111');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Cycle Transition', 'First role created.', '#222222');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Pool Transition', 'First role created.', '#333333');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Communications Assistant Director', 'First role created.', '#444444');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Media Assistant Director', 'First.', '#555555');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Eligibility Assistant Director', 'First.', '#666666');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Scheduling Assistant Director', 'First.', '#777777');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Social Assistant Director', 'First.', '#8888888');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Referee Development Assistant Director', 'First .', '#aaaaaa');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Referee CoordinatorAssistant Director', 'First .', '#bbbbbb');
-INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Community Assistant Director', 'First.', '#cccccc');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Communications Assistant Director', 'First role created.', '#444444');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Media Assistant Director', 'First.', '#555555');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Eligibility Assistant Director', 'First.', '#666666');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Scheduling Assistant Director', 'First.', '#777777');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Social Assistant Director', 'First.', '#8888888');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Referee Development Assistant Director', 'First .', '#aaaaaa');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Referee CoordinatorAssistant Director', 'First .', '#bbbbbb');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 1', 'Test.', '#2A867D');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 2', 'Test.', '#2A867D');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 3', 'Test.', '#2A867D');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 4', 'Test.', '#2A867D');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 5', 'Test.', '#2A867D');
+INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 6', 'Test.', '#2A867D');
+
+
 
 --Role onboarding pages
 INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
