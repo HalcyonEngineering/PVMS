@@ -12,6 +12,13 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         'name',
         'email',
         'skillset',
+        //array(
+        //        'name' => 'Enabled',
+        //        'class'=> 'bootstrap.widgets.TbDataColumn',
+        //        'value'=> '$data !== null ? 
+        //                ($data->type == User::DISABLEDVOLUNTEER ? "N" : "Y") 
+        //                : "N"'
+        //            ),
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
 			'template'=>'{adminAccess} {disable} {enable} {delete} ',
