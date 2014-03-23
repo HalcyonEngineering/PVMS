@@ -383,7 +383,7 @@ class User extends CActiveRecord
         $mail->Remail = $user->email;
         $mail->subject = 'Welcome to Pitch\'n!';
         $mail->body = "Welcome to Pitch'n!\n\nPlease login with this email address:\n".$user->email."\n\nYour password is:\n".$user->newPassword;
-        $mail->sendMail();    
+        $mail->sendMail();
     }
 
     public static function assignToRole($volunteer_ids, $role_id) {
@@ -420,5 +420,20 @@ class User extends CActiveRecord
         $volunteer->organizations = $new_orgs;
 
         $volunteer->save();
+    }
+
+    public static function availabilityString($availability) {
+        $result = '';
+        if ($availability === 0) {
+            $result .= 'Not available';
+        } else {
+            if ($availability & 1) $result .= 'Morning ';
+            if (($availability & 2) >> 1) $result .= 'Evening ';
+            if (($availability & 4) >> 2) $result .= 'Weekdays ';
+            if (($availability & 8) >> 3) $result .= 'Weekends ';
+            $result = rtrim(str_replace(' ', ', ', $result), ', ');
+        }
+
+        return $result;
     }
 }
