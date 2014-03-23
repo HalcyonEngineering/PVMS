@@ -46,17 +46,11 @@ class ProjectController extends Controller
 		$model = $this->loadModel($id);
 		if(Yii::app()->user->isManagerForOrg($model->org_id)){
 			$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$id,),));
-			$roleDataProvider = new CArrayDataProvider($model->roles,
-								array('sort'=>array(
-											        'attributes'=>array(
-																		'id', 'name',
-																		)
-													)
-									  )
-								);
+			$roleDataProvider = UserRole::model()->search($id);
+			//CVarDumper::dump($roleDataProvider->getData());
 			$this->render('view', array('model'=>$model,
 			                        'dataProvider'=>$dataProvider,
-									'roleDataProvider'=>$roleDataProvider)
+			                        'roleDataProvider'=>$roleDataProvider)
 			);
 		} else {
 			throw new CHttpException(403);
