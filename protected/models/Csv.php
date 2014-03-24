@@ -116,11 +116,12 @@ class Csv extends CActiveRecord
                     // If the csv has both availabilities
                     if (count($fields) > 5) {
                         $weekdays = ($fields[4] == 'Y') ? 1 : 0;
-                        $weekends = ($fields[5] == 'Y') ? 1 : 0;
+                        $weekends = ($fields[5] == 'Y') ? 2 : 0;
                         $availability = $weekends & $weekdays;
                     }
 
                     User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg(), $availability);
+                    Yii::trace("AVAIL::: ".CVarDumper::dumpAsString($fields));
                 }
             }
         }
