@@ -53,6 +53,19 @@ class RoleController extends Controller
 	{
 		$model = $this->loadModel($id);
 		$onboardingModel = $model->onboardingDoc;
+
+		if (isset($_POST['Role']))
+		{
+			$model->attributes=$_POST['Role'];
+			$model->save();
+		}
+
+		if (isset($_POST['OnboardingDoc']))
+		{
+			$onboardingModel->attributes=$_POST['OnboardingDoc'];
+			$onboardingModel->save();
+		}
+
 		$this->render('view',array('model'=>$model,
 		                           'onboardingModel'=>$onboardingModel,));
 	}
@@ -64,20 +77,26 @@ class RoleController extends Controller
 	public function actionCreate($project_id)
 	{
 		$model=new Role;
+		$onboardingModel=new OnboardingDoc;
 		$model->project_id = $project_id;
-		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
 
-		if(isset($_POST['Role']))
+		// Uncomment the following line if AJAX validation is needed
+		$this->performAjaxValidation($model,$onboardingModel);
+
+		if(isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
 		{
 			$model->attributes=$_POST['Role'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$model->save();
+
+			$onboardingModel->attributes=$_POST['OnboardingDoc'];
+			$onboardingModel->role_id = $model->id; // we're chaining it on
+			$onboardingModel->save();
+
+			$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->renderModal('create',array(
-			'model'=>$model,
-		));
+		$this->renderModal('create',array('model'=>$model,
+										'onboardingModel'=>$onboardingModel,));
 	}
 
 	/**
@@ -191,11 +210,12 @@ class RoleController extends Controller
 	 * Performs the AJAX validation.
 	 * @param Role $model the model to be validated
 	 */
-	protected function performAjaxValidation($model)
+	protected function performAjaxValidation($model,$onboardingModel)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='role-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='role-onboarding-form')
 		{
 			echo CActiveForm::validate($model);
+			//echo CActiveForm::validate($onboardingModel);
 			Yii::app()->end();
 		}
 	}

@@ -71,7 +71,8 @@ class TaskController extends Controller
 		{
 			$model->attributes=$_POST['Task'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				//$this->redirect(array('view','id'=>$model->id)); // this is what we would normally do, but we have to reroute it to make the role workflow workflow
+				$this->redirect(array('/role/view','id'=>$model->role_id));
 		}
 
 		if(isset($role_id)) {
