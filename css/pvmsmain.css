@@ -136,7 +136,7 @@ font-family: "Calibri";
 
 #notification-menu a .tooltip-inner
 {
-    top: 6.4px;
+    top: 6px;
 	min-width:20px;
 	max-width:200px;
 	padding:8px 2px;
@@ -214,9 +214,16 @@ div.view
 
 .navbar-inner .container
 {
-	width: 950px;
+	max-width: 950px;
 }
-
+/**
+*  We have to explicitly set the position to fixed so the
+* title bar stays at the top of the screen for all widths.
+*/
+.navbar-fixed-top
+{
+    position: fixed;
+}
 .pagination
 {
 	clear: both;
