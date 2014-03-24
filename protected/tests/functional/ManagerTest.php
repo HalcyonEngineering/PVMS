@@ -4,12 +4,14 @@ class AccountTest extends WebTestCase
 {
 	public function testLoginLogout()
 	{
+
 		$this->open('');
 		// ensure the user is logged out
 		if($this->isTextPresent('Logout'))
 			$this->clickAndWait('link=Logout');
 
 		// test login process, including validation
+		// First test the case of invalid password
 		$this->pause(1000);
 		$this->clickAndWait('link=Login');
 		$this->assertElementPresent('name=LoginForm[username]');
@@ -17,19 +19,38 @@ class AccountTest extends WebTestCase
 		$this->pause(1000);
 		$this->clickAndWait("//input[@value='Login']");
 		$this->assertTextPresent('Password cannot be blank.');
+		$this->type('name=LoginForm[password]','manageer');
+		$this->pause(1000);
+		$this->clickAndWait("//input[@value='Login']");
+		$this->assertTextPresent('Incorrect username or password.');
+		$this->pause(1000);
+		
+		// Now log into the manager account properly
+		$this->assertElementPresent('name=LoginForm[username]');
+		$this->pause(1000);
 		$this->type('name=LoginForm[password]','manager');
 		$this->pause(1000);
 		$this->clickAndWait("//input[@value='Login']");
 		$this->pause(1000);
 		$this->assertTextNotPresent('Exception');
 		$this->assertTextPresent('Welcome, Sean');
-		$this->assertElementPresent('id=create-project-btn');
-		$this->click("//a[@id='create-project-btn']");
+		
+		//Test the import of volunteers
+		$this->assertElementPresent('id=yw8');	
+		$this->clickAndWait("//img[@src='/PVMS/images/addvolunteers.png']");
+		$this->pause(5000);
 		//"Cancer Run"
 		//"Running away from cancer"
 		//#f30d0d
 		
+		//Logout
+		$this->assertElementPresent('id=login-dropdown');
+		
 		// Creating the project in the modal
+		// First attempt to create a project without fields
+		/*
+		$this->assertElementPresent('id=create-project-btn');
+		$this->click("//a[@id='create-project-btn']");
 		
 		$this->click("//a[@id='create-project-btn']");
 		$this->pause(1000);
@@ -49,6 +70,11 @@ class AccountTest extends WebTestCase
 		$this->pause(1000);
 		
 		$this->assertElementPresent('name=Project[colour]');
+		$this->click("//form[@id='project-form']");
+		$this->keyPress("//form[@id='project-form']", "\40");
+		$this->keyPress("//form[@id='project-form']", "\40");
+		$this->keyPress("//form[@id='project-form']", "\40");
+		$this->pause(3000);
 		$this->type('name=Project[colour]', '#f30d0d');
 		$this->assertTextNotPresent('Colour is invalid.');
 		$this->pause(1000);
@@ -64,10 +90,11 @@ class AccountTest extends WebTestCase
 
 		//Test clicking organization
 		//$this->clickAndWait("//*[@src='/PVMS/images/wlm.png']");
-		$this->pause(5000);
-
+		$this->pause(1000);
+		*/
+		
 		// test logout process
-		$this->assertTextNotPresent('Login');
+		//$this->assertTextNotPresent('Login');
 	}
 }
 ?>
