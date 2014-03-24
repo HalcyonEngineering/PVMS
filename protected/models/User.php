@@ -350,30 +350,44 @@ class User extends CActiveRecord
 
             $user->newPassword = 'temporary'; //should have randomly generated pass, email user
             $user->organizations = array($organization);
-                if($user->validate())
-                {
-                    // Hash the password before saving it.
-                    $user->password = $user->hashPassword($user->newPassword);
-                    $user->save();
-                }
 
+            if($user->validate())
+            {
+                // Hash the password before saving it.
+                $user->password = $user->hashPassword($user->newPassword);
+                if ($user->save()) {
+                    emailWelcome($user);
+                    //Notification::notify($user->id, "Welcome " . $user->name . 
+                        //", you've been added as a member of  " . $organization->name . ".", '#');
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        // @todo Abstract save/notify/return logic
         } else {
             // Just update the organization, don't change anything else
             $new_orgs = $user->organizations;
             array_push($new_orgs, $organization);
             $user->organizations = $new_orgs;
-            $user->save();
-            Notification::notify($user->id, "Welcome " . $user->name . ", you've been added as a member of  " . $organization->name . ".", '#');
+            if ($user->save()) {
+                Notification::notify($user->id, "Welcome " . $user->name . 
+                    ", you've been added as a member of  " . $organization->name . ".", '#');
+                return true;
+            } else {
+                return false;
+            }
         }
+    }
 
-        Yii::log('User enrollVolunteer: touch','warning','User'); //TODO: remove debug
+    public static function emailWelcome($user) {
         $mail = new Mail;
-	    $mail->name = 'Pitch\'n';
-	    $mail->email = 'noreply@pitchin.ca';
-	    $mail->Remail = $user->email;
-	    $mail->subject = 'Welcome to Pitch\'n!';
-	    $mail->body = "Welcome to Pitch'n!\n\nPlease login with this email address:\n".$user->email."\n\nYour password is:\n".$user->newPassword;
-	    $mail->sendMail();
+        $mail->name = 'Pitch\'n';
+        $mail->email = 'noreply@pitchin.ca';
+        $mail->Remail = $user->email;
+        $mail->subject = 'Welcome to Pitch\'n!';
+        $mail->body = "Welcome to Pitch'n!\n\nPlease login with this email address:\n".$user->email."\n\nYour password is:\n".$user->newPassword;
+        $mail->sendMail();
     }
 
     public static function assignToRole($volunteer_ids, $role_id) {

@@ -6,6 +6,7 @@ class VolunteerController extends Controller
 
     public function actionAdd()
     {
+        
         $csvModel = new Csv;
         $userModel = new User;
 
@@ -24,7 +25,16 @@ class VolunteerController extends Controller
             $skillset = $_POST['User']['skillset'];
             $availability = $_POST['User']['availability'];
 
-            User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg(), $availability);
+            $success = User::enrollVolunteer($name, $email, $location, $skillset,
+                Yii::app()->user->getManagedOrg(), $availability);
+
+            if ($success) {
+                Yii::app()->user->setFlash('success', 
+                    '<strong>Well done!</strong> You successfully read this important alert message.'); 
+            } else {
+                Yii::app()->user->setFlash('error',
+                    '<strong>Oh snap!</strong> Change a few things up and try submitting again.');
+            }
         }
 
         Yii::trace("POST SUPERGLOBAL: ".CVarDumper::dumpAsString($_POST));
