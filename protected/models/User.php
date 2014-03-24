@@ -348,7 +348,13 @@ class User extends CActiveRecord
             $user->skillset = $skillset;
             $user->availability = $availability;
 
-            $user->newPassword = 'temporary'; //should have randomly generated pass, email user
+            $character = 'etaoinshrduy';
+            $pass = '';
+                for ($i = 0; $i < 8; $i++) {
+                    $string .= $characters[rand(0, strlen($characters) - 1)];
+            }
+
+            $user->newPassword = $pass; //should have randomly generated pass, email user
             $user->organizations = array($organization);
 
             if($user->validate())
@@ -356,9 +362,9 @@ class User extends CActiveRecord
                 // Hash the password before saving it.
                 $user->password = $user->hashPassword($user->newPassword);
                 if ($user->save()) {
-                    emailWelcome($user);
-                    //Notification::notify($user->id, "Welcome " . $user->name . 
-                        //", you've been added as a member of  " . $organization->name . ".", '#');
+                    User::emailWelcome($user);
+                    Notification::notify($user->id, "Welcome " . $user->name . 
+                        ", you've been added as a member of  " . $organization->name . ".", '#');
                     return true;
                 } else {
                     return false;
@@ -386,7 +392,7 @@ class User extends CActiveRecord
         $mail->email = 'noreply@pitchin.ca';
         $mail->Remail = $user->email;
         $mail->subject = 'Welcome to Pitch\'n!';
-        $mail->body = "Welcome to Pitch'n!\n\nPlease login with this email address:\n".$user->email."\n\nYour password is:\n".$user->newPassword;
+        $mail->body = "Welcome to Pitch'n!\n\nPlease login with this email address:\n".$user->email."\n\nYour password is:\n".$user->newPassword."\n\nYou can log in at http://chivalry.cloudapp.net/PVMS\n\nThank you!\nPitch'n Team";
         $mail->sendMail();
     }
 
