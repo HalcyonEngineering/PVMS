@@ -8,6 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Volunteer Management System',
+    'timeZone'=>'America/Vancouver',
 
 	// preloading 'log' component
 	'preload'=>array(
