@@ -1,24 +1,18 @@
 <?php
+ob_start();
 
 class UserTest extends CDbTestCase
 {
-	public $fixtures=array(
-		'users'=>'User',
-	);
-
-	public function testValidatePassword()
-	{
-		$this->assertTrue($this->users(0)->validatePassword('demo'));
-		$this->assertFalse($this->users(0)->validatePassword('wrong'));
-
+	public function testLoginUser() {
+		$this->assertTrue(Yii::app()->user->isGuest);
+        $identity = new UserIdentity('admin@pitchn.ca', 'admin');
+        $identity->authenticate();
+        Yii::app()->user->login($identity);
+		$this->assertTrue(Yii::app()->user->isAdmin());
 	}
-
-	public function testChangePassword()
-	{
-		$user=$this->users(0);
-		$user->password=$user->hashPassword('newpwd');
-		$this->assertFalse($user->validatePassword('demo'));
-		$this->assertTrue($user->validatePassword('newpwd'));
-
+	
+		public function testCreateUser() {
+		$model = new User();
+		$this->assertTrue($model->save(false));
 	}
 }
