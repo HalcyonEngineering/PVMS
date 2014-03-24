@@ -18,9 +18,9 @@ class User extends CActiveRecord
     * @property string $profile
     *
     * The followings are the available model relations:
-    * @property Messages[] $messages
-    * @property Messages[] $sentMessages
-    * @property Notifications[] $notifications
+    * @property Message[] $messages
+    * @property Message[] $sentMessages
+    * @property Notification[] $notifications
     * @property Organization[] $organizations
     * @property Organization $managedOrg
     * @property Role[] $roles
@@ -328,12 +328,12 @@ class User extends CActiveRecord
 
     /**
      * Given the name, email, and skillset of the volunteer, enrolls the volunteer in the database
-     * @param volunteer name
-     * @param volunteer email
-     * @param volunteer location
-     * @param volunteer skillset
-     * @param volunteer organization
-     * @param volunteer availability
+     * @param string $name
+     * @param string $email
+     * @param string $location
+     * @param string $skillset
+     * @param Organization $organization
+     * @param int $availability
      */
     public static function enrollVolunteer($name, $email, $location, $skillset, $organization, $availability)
     {
