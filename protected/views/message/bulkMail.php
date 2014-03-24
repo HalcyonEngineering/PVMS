@@ -7,13 +7,12 @@
 	                         array('id'=>'role-form',
 	                               'enableAjaxValidation'=>false,
 	                         ));
-
 	echo $form->errorSummary($model);
-
+	echo $form->hiddenField($model, 'bulkUserId');
 	echo $form->textFieldRow($model,'subject');
 
 	echo $form->textAreaRow($model, 'body');
-
+	Yii::log("BULKMAILLOGGER".CVarDumper::dumpAsString($model), "error");
 ?>
 
 <div class="form-actions">
@@ -23,3 +22,6 @@
 	                          'label'=>'Send'));
 	?>
 </div>
+<?php
+	$this->endWidget();
+?>

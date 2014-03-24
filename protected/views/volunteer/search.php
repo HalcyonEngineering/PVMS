@@ -39,14 +39,15 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     ),
 )); 
 
+echo CHtml::submitButton('Bulk Mail', array('submit'=>$this->createURL('//message/bulkMail')));
 $models = Yii::app()->user->getManagedOrg()->roles;
 $list = CHtml::listData($models, 'id', function($model) {return $model->name.' -- '.$model->project->name;});
 asort($list);
-
 echo 'Add selected volunteers to role: ';
 echo CHtml::dropDownList('role_list', 'empty', $list, array('empty' => '(Select a role to assign)'));
 echo '  ';
 echo CHtml::submitButton('Confirm', array('submit'=>'search'));
+
 echo CHtml::endForm();
 
 ?>

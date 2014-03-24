@@ -7,13 +7,16 @@ class Mail extends CFormModel
 	public $email;
 	public $Remail;
 	public $subject;
+	public $bulkUserId;
 	public $body;
 	
 	public function rules()
 	{
 		return array(
 			// name, email, subject and body are required
-			array('name, email, subject, body, Remail', 'required'),
+			array('name, email, subject, body', 'required'),
+			array('Remail', 'required', 'except'=>'bulk'),
+		    array('bulkUserId, Remail', 'safe', 'on'=>'bulk'),
 			// email has to be a valid email address
 			array('email, Remail', 'email'),
 		);
