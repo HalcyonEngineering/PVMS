@@ -45,12 +45,15 @@ class notification_TbDropdown extends TbMenu {
 	public function renderNotifications(){
 		$notify_criteria = new CDbCriteria;
         $notify_criteria->compare('user_id', Yii::app()->user->id); //TO-DO: Add Criteria to show unread only items
-        $notify_criteria->compare('read_status', 0);
         $notify_criteria->order = 'timestamp DESC';
         //The above section is a DBCriteria called "notify_criteria" used to select the notification entities with criteria of having the currently login ID.
+		$countCriteria = new CDbCriteria;
+		$countCriteria->compare('user_id', Yii::app()->user->id);
+		$countCriteria->compare('read_status', Notification::STATUS_UNREAD);
         $Notification_dataprovider = new CActiveDataProvider('Notification',
             array('criteria' => $notify_criteria,
                 'pagination' => array('pageSize' => 10),
+                'countCriteria'=>$countCriteria,
             )
         );
 
@@ -61,7 +64,7 @@ class notification_TbDropdown extends TbMenu {
                             'template' =>'{items}',
                             'emptyText' => '  No new notifications')
 					  );
-        $this->count = $Notification_dataprovider->itemCount;
+        $this->count = $Notification_dataprovider->totalItemCount;
 	}
 	
     public function run() {
