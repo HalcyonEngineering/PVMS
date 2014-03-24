@@ -57,9 +57,9 @@ class OnboardingDoc extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'onboarding_welcome' => 'Onboarding Welcome',
-			'onboarding_instructions' => 'Onboarding Instructions',
-			'onboarding_contact' => 'Onboarding Contact',
+			'onboarding_welcome' => 'Welcome',
+			'onboarding_instructions' => 'Instructions',
+			'onboarding_contact' => 'Contact Info',
 		);
 	}
 
