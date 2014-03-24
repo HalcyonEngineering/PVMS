@@ -1,9 +1,30 @@
 <?php
 
+	/**
+	 * Class ModalSubmitButton
+	 * Submit button to be used in a modal.
+	 *
+	 * This button generates a random id to avoid name clashes with other ids.
+	 * This helps us avoid javascript name conflicts where actions may give
+	 * different results depending on the id of element.
+	 *
+
+	 *
+	 */
 class ModalSubmitButton extends CWidget{
 
-	public $buttonOptions;
+	/**
+	 * @var $buttonOptions array Options for the button.
+	 */
+	private $buttonOptions;
+	/**
+	 * @var $modelName string Name of the model.
+	 * @deprecated
+	 */
 	public $modelName;
+	/**
+	 * @var $label string Label on the button.
+	 */
 	public $label;
 
 	public function init(){
@@ -32,11 +53,9 @@ class ModalSubmitButton extends CWidget{
 			$this->buttonOptions['label'] = $this->label;
 		}
 
-		if(!isset($this->modelName)){
-			$this->buttonOptions['label'] = 'Missing Model Name';
-		} else {
-			$this->buttonOptions['htmlOptions']['id'] = $this->modelName."-submit";
-		}
+
+		$this->buttonOptions['htmlOptions']['id'] = "btn-submit-".mt_rand();
+
 
 
 	}
