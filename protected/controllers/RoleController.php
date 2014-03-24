@@ -86,13 +86,13 @@ class RoleController extends Controller
 		if(isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
 		{
 			$model->attributes=$_POST['Role'];
-			$model->save();
+			if ($model->save()) {
+				$onboardingModel->attributes=$_POST['OnboardingDoc'];
+				$onboardingModel->role_id = $model->id; // we're chaining it on
+				$onboardingModel->save();
 
-			$onboardingModel->attributes=$_POST['OnboardingDoc'];
-			$onboardingModel->role_id = $model->id; // we're chaining it on
-			$onboardingModel->save();
-
-			$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->renderModal('create',array('model'=>$model,
@@ -215,7 +215,7 @@ class RoleController extends Controller
 		if(isset($_POST['ajax']) && $_POST['ajax']==='role-onboarding-form')
 		{
 			echo CActiveForm::validate($model);
-			//echo CActiveForm::validate($onboardingModel);
+			echo CActiveForm::validate($onboardingModel);
 			Yii::app()->end();
 		}
 	}

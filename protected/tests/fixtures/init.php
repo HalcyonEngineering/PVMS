@@ -1,8 +1,11 @@
 <?php
 
 $dbFile=dirname(__FILE__).'/../../data/pvms-test.sqlite';
+//$dbFile=dirname(__FILE__).'/pvms-test.sqlite';
 $sqlFile=dirname(__FILE__).'/../../data/schema.sqlite.sql';
 
+echo 'Regenerating test database';
+ 
 @unlink($dbFile);
 $db=new PDO('sqlite:'.$dbFile);
 $sqls=file_get_contents($sqlFile);

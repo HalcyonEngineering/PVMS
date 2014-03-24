@@ -11,8 +11,27 @@ class UserTest extends CDbTestCase
 		$this->assertTrue(Yii::app()->user->isAdmin());
 	}
 	
-		public function testCreateUser() {
+	/**
+	* @expectedException CDbException
+	*/
+	public function testCreateNullUser() {
+		$this->setExpectedExceptionFromAnnotation(); 	
 		$model = new User();
-		$this->assertTrue($model->save(false));
+		$model->save(false);
 	}
-}
+	
+	public function testCreateUser() {	
+		$model = new User();
+		$password = $model->hashPassword("kenshiro");
+		$model->password = $password;
+		$model->setAttributes(
+			array(
+			'name'=>'Kenshiro Kasumi',
+			'email'=>'kenshiro@hokuto.jp',
+			)
+		);
+		$model->save(false);
+	}
+		
+}	
+?>

@@ -6,8 +6,8 @@
 	);
 } ?>
 
-<h1></h1>
-	<?php /* delete that closing h1 above
+
+	<?php /*echo <h1>
 		$this->widget('bootstrap.widgets.TbEditableField',
 		              array(
 			              'type'=>'text',
@@ -47,35 +47,39 @@ if ($onboardingModel != null){
 }
 */?>
 
-<?php echo $this->renderPartial('/role/_form', array('model'=>$model,'onboardingModel'=>$onboardingModel,'displayButton'=>true,'defaultToForm'=>false)); ?>
-
-<?php
-	$taskDataProvider = new CActiveDataProvider('Task', array ('criteria' => array ('condition' => 'role_id=' . $model->id,),));
-	$this->renderPartial('/task/_tasks', array ('dataProvider' => $taskDataProvider));
-?>
-
 <div class="span-9 pull-right" ><!--Buttons-->
-	<div class="span-3" style="padding:5px;" >
+	<div class="span-3 pull-right" style="padding:5px;" >
 		<?php $this->widget('ModalOpenButton',
 		                    array(
 		                      'button_id'=>'list-project-files-btn',
 		                      'url' => Yii::app()->createUrl("fileDoc/listParentFiles",array("role_id"=>$model->id)),
-		                      'label' => 'View files in project',
+		                      'label' => 'View project document repository	',
 		                      'type' => 'common',
 		                    ));
 		?>
 	</div>
-	<div class="span-3" style="padding:5px;" >
+</div>
+
+<?php echo $this->renderPartial('/role/_form', array('model'=>$model,'onboardingModel'=>$onboardingModel,'displayButton'=>true,'defaultToForm'=>false)); ?>
+
+
+<div class="span-19" >
+	<b>Tasks: </b>
+	<div class="span-3 pull-right" style="padding:5px;" ><!--Buttons-->
 		<?php
 		if (Yii::app()->user->isManager()) {
 			$this->widget('ModalOpenButton',
 		                    array(
 		                      'button_id'=>'create-task-btn',
 		                      'url' => Yii::app()->createUrl("task/create",array("role_id"=>$model->id)),
-		                      'label' => 'Create task for role',
+		                      'label' => 'Create new task for role',
 		                      'type' => 'common',
 		                    ));
 		}
 		?>
 	</div>
 </div><!--End of Buttons-->
+<?php
+	$taskDataProvider = new CActiveDataProvider('Task', array ('criteria' => array ('condition' => 'role_id=' . $model->id,),));
+	$this->renderPartial('/task/_tasks', array ('dataProvider' => $taskDataProvider));
+?>

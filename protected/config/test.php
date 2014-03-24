@@ -9,6 +9,7 @@ return CMap::mergeArray(
 			),
 			'db'=>array(
 				'connectionString'=>'sqlite:'.dirname(__FILE__).'/../data/pvms-test.sqlite',
+				//'connectionString'=>'sqlite:'.dirname(__FILE__).'/../tests/fixtures/pvms-test.sqlite',
 			),
 			// uncomment the following to use a MySQL database
 			/*
