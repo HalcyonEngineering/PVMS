@@ -109,10 +109,18 @@ class Csv extends CActiveRecord
                 {
                     $name = $fields[0]; 
                     $email = $fields[1];
-                    $location = (count($fields) > 3) ? $fields[3] : null;
                     $skillset = (count($fields) > 2) ? $fields[2] : null;
+                    $location = (count($fields) > 3) ? $fields[3] : null;
+                    $availability = 3;
+                    
+                    // If the csv has both availabilities
+                    if (count($fields) > 5) {
+                        $weekdays = ($fields[4] == 'Y') ? 1 : 0;
+                        $weekends = ($fields[5] == 'Y') ? 1 : 0;
+                        $availability = $weekends & $weekdays;
+                    }
 
-                    User::enrollVolunteer($name, $email, $location, $skillset);
+                    User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg(), $availability);
                 }
             }
         }
