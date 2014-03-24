@@ -51,14 +51,6 @@ if ($onboardingModel != null){
 ?>
 <div class="span-9 pull-right" ><!--Buttons-->
 <div class="span-3" style="padding:5px;" >
-<?php $this->widget('bootstrap.widgets.TbButton',
-                    array(
-                          'url' => Yii::app()->createUrl("role/index"),
-                          'label' => 'Back to Roles',
-                          ));
-    ?>
-</div>
-<div class="span-3" style="padding:5px;" >
 <?php $this->widget('ModalOpenButton',
                     array(
                       'button_id'=>'list-project-files-btn',

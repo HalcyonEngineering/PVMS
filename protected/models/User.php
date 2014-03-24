@@ -367,12 +367,12 @@ class User extends CActiveRecord
 
         Yii::log('User enrollVolunteer: touch','warning','User'); //TODO: remove debug
         $mail = new Mail;
-        $mail->name = 'Pitch\'n';
-        $mail->email = 'noreply@pitchin.ca';
-        $mail->Remail = $user->email;
-        $mail->subject = 'Welcome to Pitch\'n!';
-        $mail->body = "Welcome to Pitch'n!\n\nPlease login with this email address:\n".$user->email."\n\nYour password is:\n".$user->newPassword;
-        $mail->sendMail();
+	    $mail->name = 'Pitch\'n';
+	    $mail->email = 'noreply@pitchin.ca';
+	    $mail->Remail = $user->email;
+	    $mail->subject = 'Welcome to Pitch\'n!';
+	    $mail->body = "Welcome to Pitch'n!\n\nPlease login with this email address:\n".$user->email."\n\nYour password is:\n".$user->newPassword;
+	    $mail->sendMail();
     }
 
     public static function assignToRole($volunteer_ids, $role_id) {
