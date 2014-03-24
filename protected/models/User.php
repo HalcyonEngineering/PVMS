@@ -348,10 +348,10 @@ class User extends CActiveRecord
             $user->skillset = $skillset;
             $user->availability = $availability;
 
-            $character = 'etaoinshrduy';
+            $characters = 'ABCDEF1234567890';
             $pass = '';
-                for ($i = 0; $i < 8; $i++) {
-                    $string .= $characters[rand(0, strlen($characters) - 1)];
+                for ($i = 0; $i < 6; $i++) {
+                    $pass .= $characters[rand(0, strlen($characters) - 1)];
             }
 
             $user->newPassword = $pass; //should have randomly generated pass, email user
