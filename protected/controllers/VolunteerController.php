@@ -108,6 +108,12 @@ class VolunteerController extends Controller
         User::removeFromOrg($id, Yii::app()->user->getManagedOrg());
         $this->actionSearch();
     }
+
+    public function actionRemoveFromRole($volunteer_id, $role_id) {
+        User::removeFromRole($volunteer_id, $role_id);
+        $role = Role::model()->findByPk($role_id);
+        $this->redirect(array('project/view', 'id'=>$role->project->id));
+    }
     
     //Delete volunteer
     public function actionDeleteVolunteer($userID)

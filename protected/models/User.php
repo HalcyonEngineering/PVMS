@@ -396,6 +396,19 @@ class User extends CActiveRecord
         }
     }
 
+    public static function removeFromRole($volunteer_id, $role_id) {
+        $volunteer = User::model()->findByPk($volunteer_id);
+
+        // remove ONLY the one role the volunteer is in
+        $role = Role::model()->findByPk($role_id);
+        $new_roles = $volunteer->roles;
+        $pos = array_search($role, $new_roles);
+        unset($new_roles[$pos]);
+        $volunteer->roles = $new_roles;
+
+        $volunteer->save();
+    }
+
     public static function removeFromOrg($volunteer_id, $org) {
         $volunteer = User::model()->findByPk($volunteer_id);
 

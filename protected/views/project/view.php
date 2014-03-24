@@ -56,12 +56,32 @@ $this->breadcrumbs=array(
 		array('class'=>'bootstrap.widgets.TbButtonColumn',
 		      'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->role->primaryKey))',
 		      'updateButtonUrl'=>'Yii::app()->controller->createUrl("/role/update",array("id"=>$data->role->primaryKey))',
-		      'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->role->primaryKey))',),
+		      'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->role->primaryKey))',
+                      'buttons'=>array(
+                        'view'=>array('label'=>'View role details'),
+                        'update'=>array('label'=>'Edit role'),
+                        'delete'=>array('label'=>'Delete role'),
+                      ),
+                ),
 		'user.name',
-		array('class'=>'bootstrap.widgets.TbButtonColumn',
-		      'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->role->primaryKey))',
-		      'updateButtonUrl'=>'Yii::app()->controller->createUrl("/role/update",array("id"=>$data->role->primaryKey))',
-		      'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->role->primaryKey))',),
+		array(
+                    'class'=>'bootstrap.widgets.TbButtonColumn',
+                    'template'=>'{remove}',
+                    'buttons'=> array(
+                        'remove'=> array(
+                            'icon'=>'fire',
+                            'label'=>'Unassign volunteer from role',
+                            'url'=>'Yii::app()->controller->createUrl("/volunteer/removeFromRole",
+                                array("volunteer_id"=>$data->user->primaryKey, "role_id"=>$data->role->primaryKey))',
+                            'htmlOptions' => array('confirm' => 'Download file?', 'target'=>'_blank'),
+                        )
+                    )
+                )
+		//array('class'=>'bootstrap.widgets.TbButtonColumn',
+                //      'template'=>'{delete}',
+		//      'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/volunteer/removeFromRole",
+                //        array("volunteer_id"=>$data->user->primaryKey, "role_id"=>$data->role->primaryKey)
+                //)',),
 	),
 
 )); ?>
