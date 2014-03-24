@@ -72,6 +72,7 @@ class User extends CActiveRecord
             array('name, email', 'required'),
             array('email', 'unique'),
             array('email', 'email'),
+            array('name', 'match', 'pattern'=>'/[A-Za-z][A-Za-z -.]*[A-Za-z.]/'),
             array('name, origPassword, email, newPassword', 'length', 'max'=>128),
             array('origPassword, verifyPassword, newPassword', 'length', 'min'=>6),
             array('verifyPassword', 'compare', 'compareAttribute' => 'newPassword', 'on' => 'register, settings'),
@@ -80,7 +81,7 @@ class User extends CActiveRecord
             array('newPassword, verifyPassword', 'safe', 'on'=>'settings'),
             array('origPassword', 'required', 'on'=> 'settings'),
             array('type, newPassword, verifyPassword', 'required', 'on' => 'register'),
-            //array('type', 'in', 'on' => 'register, disable', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR,  User::DISABLED)),
+            array('type', 'in', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR,  User::DISABLED)),
 
             // Location and causes
             array('location', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Location can only includes skills, which must be word characters.'),
