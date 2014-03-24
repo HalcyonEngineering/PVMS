@@ -39,11 +39,10 @@ class User extends CActiveRecord
     const DISABLED              = 3;
     const DISABLEDVOLUNTEER     = 4;
 
-    // Bitmap, using bitwise OR to combine these fields
-    const AVAILABLE_MORNING      = 1;
-    const AVAILABLE_EVENING      = 2;
-    const AVAILABLE_WEEKDAYS     = 4;
-    const AVAILABLE_WEEKENDS     = 8;
+    const AVAILABLE_NONE        = 0;
+    const AVAILABLE_WEEKDAYS    = 1;
+    const AVAILABLE_WEEKENDS    = 2;
+    const AVAILABLE_ALL         = 3;
 
     /**
      * Returns the static model of the specified AR class.
@@ -237,22 +236,12 @@ class User extends CActiveRecord
                 $criteria->compare('location', $wanted_location);
             }
 
+            if ($args['User']['availability'] !== '') {
+                $criteria->compare('availability', $args['User']['availability']);
+            }
+
             // User has to be a volunteer
             $criteria->compare('type', User::VOLUNTEER);
-
-            //// User availability
-            //// d is the desired availability
-            //$d = 0;
-            //if (isset($args['Morning'])) $d = $d |  User::AVAILABLE_MORNING;
-            //if (isset($args['Evening'])) $d = $d |  User::AVAILABLE_EVENING;
-            //if (isset($args['Weekdays'])) $d = $d | User::AVAILABLE_WEEKDAYS;
-            //if (isset($args['Weekends'])) $d = $d | User::AVAILABLE_WEEKENDS;
-
-            //// Bitwise OR with the volunteer's actual ability,
-            //// if the result == $this->availability, then the volunteer fulfills availability criteria
-            //$result = $this->availability | $d;
-            //$criteria->compare('availability', $result);
-            //Yii::trace('D:'.$d.' V:'.'15'.' r:'.(15|$d));
 
             // User's organizations[] must have one that matches $org
             // Join the user table with the organization table
@@ -423,17 +412,9 @@ class User extends CActiveRecord
     }
 
     public static function availabilityString($availability) {
-        $result = '';
-        if ($availability === 0) {
-            $result .= 'Not available';
-        } else {
-            if ($availability & 1) $result .= 'Morning ';
-            if (($availability & 2) >> 1) $result .= 'Evening ';
-            if (($availability & 4) >> 2) $result .= 'Weekdays ';
-            if (($availability & 8) >> 3) $result .= 'Weekends ';
-            $result = rtrim(str_replace(' ', ', ', $result), ', ');
-        }
-
-        return $result;
+        if ($availability == 0) return 'Not Available';
+        if ($availability == 1) return 'Weekdays';
+        if ($availability == 2) return 'Weekends';
+        if ($availability == 3) return 'Weekdays & Weekends';
     }
 }

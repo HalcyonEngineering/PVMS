@@ -22,12 +22,7 @@ class VolunteerController extends Controller
             $email = $_POST['User']['email'];
             $location = $_POST['User']['location'];
             $skillset = $_POST['User']['skillset'];
-
-            $availability = 0;
-            if (isset($_POST['Morning'])) $availability = $availability |  User::AVAILABLE_MORNING;
-            if (isset($_POST['Evening'])) $availability = $availability |  User::AVAILABLE_EVENING;
-            if (isset($_POST['Weekdays'])) $availability = $availability | User::AVAILABLE_WEEKDAYS;
-            if (isset($_POST['Weekends'])) $availability = $availability | User::AVAILABLE_WEEKENDS;
+            $availability = $_POST['User']['availability'];
 
             User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg(), $availability);
         }

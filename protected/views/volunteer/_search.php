@@ -4,6 +4,18 @@
     $c->order = 'name';
 ?>
 
+<?php 
+    $form = $this->beginWidget(
+        'bootstrap.widgets.TbActiveForm', 
+        array(
+            'id'=>'add-volunteer-manual-form',
+            'enableClientValidation'=>true,
+            'clientOptions'=>array('validateOnSubmit'=>true,),
+            'enableAjaxValidation'=>false,
+        )
+    ); 
+?>
+
 <div class="row">
     <?php echo CHtml::activeLabel($model,'Name'); ?>
     <?php echo CHtml::activeTextField($model,'username') ?>
@@ -36,12 +48,18 @@
     ?>
 </div>
 
-<?php echo CHtml::activeLabel($model,'Availability'); ?>
-<div class="row checkbox">
-    <?php echo CHtml::checkBox('Morning', false);  echo ' Morning<br>'; ?>
-    <?php echo CHtml::checkBox('Evening', false);  echo ' Evening<br>'; ?>
-    <?php echo CHtml::checkBox('Weekdays', false); echo ' Weekdays<br>'; ?>
-    <?php echo CHtml::checkBox('Weekends', false); echo ' Weekends<br>'; ?>
+<div class="row radiogroup">
+    <?php
+        $status = array(
+            0=>'Not available',
+            1=>'Weekdays',
+            2=>'Weekends',
+            3=>'Weekdays & Weekends',
+        );
+        echo $form->radioButtonListRow($model, 'availability', $status,
+            array('labelOptions'=>array('style'=>'font: normal 11pt Calibri;'))
+        );
+    ?>
 </div>
 
 <div class="skillset-dropdown">
@@ -62,3 +80,5 @@
 </div>
  
 <?php echo CHtml::endForm(); ?>
+
+<?php $this->endWidget(); ?>

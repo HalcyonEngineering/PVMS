@@ -1,6 +1,6 @@
 <?php 
     $form = $this->beginWidget(
-        'CActiveForm', 
+        'bootstrap.widgets.TbActiveForm', 
         array(
             'id'=>'add-volunteer-manual-form',
             'enableClientValidation'=>true,
@@ -40,12 +40,18 @@
     <?php echo $form->error($userModel,'location'); ?>
 </div>
 
-<?php echo $form->labelEx($userModel, 'availability'); ?>
-<div class="row checkbox">
-    <?php echo CHtml::checkBox('Morning', true);  echo ' Morning<br>'; ?>
-    <?php echo CHtml::checkBox('Evening', true);  echo ' Evening<br>'; ?>
-    <?php echo CHtml::checkBox('Weekdays', true); echo ' Weekdays<br>'; ?>
-    <?php echo CHtml::checkBox('Weekends', true); echo ' Weekends<br>'; ?>
+<div class="row radiogroup">
+    <?php
+        $status = array(
+            0=>'Not available',
+            1=>'Weekdays',
+            2=>'Weekends',
+            3=>'Weekdays & Weekends',
+        );
+        echo $form->radioButtonListRow($userModel, 'availability', $status,
+            array('labelOptions'=>array('style'=>'font: normal 11pt Calibri;'))
+        );
+    ?>
 </div>
 
 <div class="row">

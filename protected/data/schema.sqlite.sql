@@ -16,7 +16,7 @@ CREATE TABLE pvms_user
 	location VARCHAR(32),
 	skillset VARCHAR(256),
 	causes VARCHAR(256),
-  availability INTEGER NOT NULL DEFAULT 15,
+  availability INTEGER NOT NULL DEFAULT 3,
 	type VARCHAR(128) NOT NULL DEFAULT 2
 );
 
@@ -160,13 +160,13 @@ INSERT INTO pvms_user (name, password, email, type) VALUES ('admin','$2a$10$xOHc
 INSERT INTO pvms_user (name, password, email, type) VALUES ('Sean Kennedy','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','sean@pitchn.ca', 1);
 INSERT INTO pvms_user (name, password, email, type) VALUES ('Manager','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','manager@pitchn.ca', 1);
 INSERT INTO pvms_user (name, password, email, type) VALUES ('volunteer','$2a$12$J1n3OwZasqX3gsMG6TSzvOHEJleCYyWJ/TNAuxOmAoB/zmiBqskeq','volunteer@pitchn.ca', 2);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('6','David','$2a$13$dEoNvuwcQ/7xRSebI6tO6edjUTXKfElOjnZz7TK6ymhT3Z.cNb.0G','david@pitchn.ca','Surrey','Project Management, Web Development, Software Engineering',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('7','Kenneth','$2a$13$jn1wIc/PvXQMwdF6VRcKr.1vRzWPrjAyS4D..4tBkI5fHDAwUaMFe','kenneth@pitchn.ca','Richmond','Software Engineering, School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('8','Jon','$2a$13$cXjPfW2T3q/WUWsGo2tGe.xFjn1UH8VAG0qLtCS.lHOak8HE9yXjC','jon@pitchn.ca','Vancouver','Software Engineering',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('9','Matt','$2a$13$7G9CXaXPM2BHMHWMnKWyD.RMZkQwYxUe4tHUg79VKeSkKdDalVUwO','matt@pitchn.ca','Vancouver','Software Engineering, Video Games',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('10','Andy','$2a$13$SRvsTXfWXGDuLtYjDZlcVOVVa2Wjv.eXeHYQQXSwqEKMiNcvuUc9C','andy@pitchn.ca','Whiterock','Software Engineering', NULL,  15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('11','Phat','$2a$13$TDoAQfWsoD.9t54gTysg7efNlO4.8P07GDewLiigpjWG16Y9.XOt2','phat@pitchn.ca','Vancouver','Software Engineering, Parkour',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('12','Deepak','$2a$13$TDoAQfWsoD.9t54gTysg7efNlO4.8P07GDewLiigpjWG16Y9.XOt2','dazad@gmail.com','Vancouver','Education',NULL, 15);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('6','David','$2a$13$dEoNvuwcQ/7xRSebI6tO6edjUTXKfElOjnZz7TK6ymhT3Z.cNb.0G','david@pitchn.ca','Surrey','Project Management, Web Development, Software Engineering',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('7','Kenneth','$2a$13$jn1wIc/PvXQMwdF6VRcKr.1vRzWPrjAyS4D..4tBkI5fHDAwUaMFe','kenneth@pitchn.ca','Richmond','Software Engineering, School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('8','Jon','$2a$13$cXjPfW2T3q/WUWsGo2tGe.xFjn1UH8VAG0qLtCS.lHOak8HE9yXjC','jon@pitchn.ca','Vancouver','Software Engineering',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('9','Matt','$2a$13$7G9CXaXPM2BHMHWMnKWyD.RMZkQwYxUe4tHUg79VKeSkKdDalVUwO','matt@pitchn.ca','Vancouver','Software Engineering, Video Games',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('10','Andy','$2a$13$SRvsTXfWXGDuLtYjDZlcVOVVa2Wjv.eXeHYQQXSwqEKMiNcvuUc9C','andy@pitchn.ca','Whiterock','Software Engineering', NULL,  3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('11','Phat','$2a$13$TDoAQfWsoD.9t54gTysg7efNlO4.8P07GDewLiigpjWG16Y9.XOt2','phat@pitchn.ca','Vancouver','Software Engineering, Parkour',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('12','Deepak','$2a$13$TDoAQfWsoD.9t54gTysg7efNlO4.8P07GDewLiigpjWG16Y9.XOt2','dazad@gmail.com','Vancouver','Education',NULL, 3);
 --pw for Jenny is jenny
 INSERT INTO pvms_user (name, password, email, type) VALUES ('Jenny', '$2a$12$BN7dwapvVqvDaBlRBQPYneNUFkMwdjhlRFNwrtcNKs80zuKt5vNvq', 'jenny@rec.ubc.ca', 1);
 --pw for Jonathan is password
@@ -174,15 +174,15 @@ INSERT INTO pvms_user (name, password, email, type) VALUES ('Jonathan Wou', '$2a
 
 --Volunteers start
 -- pw for Volunteers is password
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('15','Harry','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','harry@rec.ubc.ca','Vancouver','School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('16','Billy','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','billy@rec.ubc.ca','Vancouver','School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('17','Rex','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','rex@rec.ubc.ca','Vancouver','School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('18','Joel','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','joel@rec.ubc.ca','Vancouver','School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('19','Melissa','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','melissa@rec.ubc.ca','Vancouver','School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('20','Gord','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','gord@rec.ubc.ca','Vancouver','School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('21','Lucas','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','lucas@rec.ubc.ca','Vancouver','School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('22','Emma','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','emma@rec.ubc.ca','Vancouver','School',NULL, 15);
-INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('23','Olivia','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','olivia@rec.ubc.ca','Vancouver','School',NULL, 15);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('15','Harry','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','harry@rec.ubc.ca','Vancouver','School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('16','Billy','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','billy@rec.ubc.ca','Vancouver','School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('17','Rex','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','rex@rec.ubc.ca','Vancouver','School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('18','Joel','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','joel@rec.ubc.ca','Vancouver','School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('19','Melissa','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','melissa@rec.ubc.ca','Vancouver','School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('20','Gord','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','gord@rec.ubc.ca','Vancouver','School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('21','Lucas','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','lucas@rec.ubc.ca','Vancouver','School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('22','Emma','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','emma@rec.ubc.ca','Vancouver','School',NULL, 3);
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('23','Olivia','$2a$12$L7Bt02zTY.35HCHODI3IDecUTLWG.iEEC1njyIBqJf/ZJXPgbbMmC','olivia@rec.ubc.ca','Vancouver','School',NULL, 3);
 -- Volunteers end
 
 -- Organizations
