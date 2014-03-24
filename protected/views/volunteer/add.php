@@ -1,3 +1,15 @@
+<?php 
+    $this->widget('bootstrap.widgets.TbAlert', array(
+        'block'=>true, // display a larger alert block?
+        'fade'=>true, // use transitions?
+        'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+        'alerts'=>array( // configurations per alert type
+            'success'=>array(), // success, info, warning, error or danger
+            'error'=>array(), // success, info, warning, error or danger
+        ),
+    ));
+?>
+
 <?php
     $this->pageTitle=Yii::app()->name . ' - Add Volunteers';
 ?>
@@ -13,14 +25,8 @@
 <?php endif; ?>
 
 <div class="form">
-<div class="span-6">
-<?php 
-    echo $formView;
-?>
-</div>
-<div class="span-6">
-<?php
-    echo $csvView;
-    ?>
-</div>
+    <table style="width:600px; padding:0px;"><tr>
+        <td style="padding:0px"><?php echo $formView; ?></td>
+        <td style="padding:0px; vertical-align:top;"><?php echo $csvView; ?></td>
+    </tr></table>
 </div><!-- form -->
