@@ -28,7 +28,7 @@
 </div><!-- header -->
 
 
-<div id="menu-background" class="span-24 last">
+<div id="menu-background" class="span-23 last">
 	<!--Begin modal -->
 	<?php $this->beginWidget('bootstrap.widgets.TbModal', array(
 		'id'=>'modal',
@@ -55,7 +55,7 @@
 		?>
 	</div><!-- mainmenu -->
 
-<div id="inside-page" class="span-22 pull-right last">
+<div id="inside-page" class="span-21 pull-right last">
 
 	<?php echo $content; ?>
 

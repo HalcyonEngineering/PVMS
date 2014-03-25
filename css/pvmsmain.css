@@ -18,6 +18,7 @@ font-family: "Calibri";
 #content
 {
     min-height:450px;
+    margin-left: 0px;
 }
 
 #content div.flash-success 
@@ -163,6 +164,7 @@ font-family: "Calibri";
 {
 	background: #F0F0F0;
     clear:both;
+    max-width: 910px;
 }
 
 div.smallNotification
@@ -186,7 +188,7 @@ div.smallNotification
 	z-index: 1060;
 }
 
-div.view
+div.tile-view
 {
 	margin: 10px 0px;
 	margin-right: 20px;
@@ -213,9 +215,13 @@ div.view
 	line-height: 17px;
 }
 
+.tile-bottom .progress .bar-info{
+    background-color: #d0d0d0;
+    background-image: linear-gradient(to bottom, #dadada, #bababa);
+}
 .navbar-inner .container
 {
-	max-width: 950px;
+	max-width: 910px;
 }
 /**
 *  We have to explicitly set the position to fixed so the
@@ -225,6 +231,7 @@ div.view
 {
     position: fixed;
 }
+
 .pagination
 {
 	clear: both;
@@ -330,36 +337,8 @@ div.view
 	border-top: thin solid #B2B2B2;
 }
 
-.btn-primary {
-	border-radius: 0px;
-}
-
-.btn-success {
-	border-radius: 0px;
-}
-
-.btn-default {
-	border-radius: 0px;
-}
-
-.btn-info {
-	border-radius: 0px;
-}
-
-.btn-warning {
-	border-radius: 0px;
-}
-
-.btn-danager {
-	border-radius: 0px;
-}
-
 .btn {
 	border-radius: 0px;
-}
-
-.view .span-6 {
-
 }
 
 #notification-button .caret {
@@ -389,10 +368,6 @@ label {
 
 #login-dropdown {
 	top: -5px;
-}
-
-#yt2 {
-margin-right: 4px
 }
 
 

@@ -1,4 +1,4 @@
-<div class="view span-6">
+<div class="tile-view span-6">
 	<div class="tile" style=<?php echo "border-color:" . CHtml::encode($data->colour).";";?>>
 
 <h3> <b><?php echo CHtml::link(CHtml::encode($data->name),array('/role/view','id'=>$data->id)); ?></b></h3>

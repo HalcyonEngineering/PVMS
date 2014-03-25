@@ -8,7 +8,7 @@ $this->widget(
      'bootstrap.widgets.TbNavbar',
      array(
 	     'brand' => CHtml::image(Yii::app()->getBaseUrl().'/images/Pitchn-Logo-Mark-317x150.png', "Pitch'n", array("width"=>"140px", "height"=>"100px")),
-	     'brandOptions' =>  array('class'=>'pull-left'),
+	     'brandOptions' =>  array('class'=>'navbar-left'),
 	     'brandUrl' => Yii::app()->homeUrl,
 	     'collapse' => false, // requires bootstrap-responsive.css
 	     'fixed' => 'top',

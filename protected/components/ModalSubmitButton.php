@@ -54,7 +54,7 @@ class ModalSubmitButton extends CWidget{
 		}
 
 
-		$this->buttonOptions['htmlOptions']['id'] = "btn-submit-".mt_rand();
+		$this->buttonOptions['htmlOptions']['id'] = "btn-submit-".uniqid($this->modelName);
 
 
 

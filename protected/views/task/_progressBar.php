@@ -1,10 +1,10 @@
 <?php
-//CVarDumper::dump($data->tasks);
 $taskcount = count($data->tasks);
 $statusCount = array(1 => 0, 2 => 0, 3=>0);
-//$statusCount[1] number of in progress
-//$statusCount[2] number of complete (pending)
-//$statusCount[3] number of complete (verified)
+/**$statusCount[1] number of in progress
+* $statusCount[2] number of complete (pending)
+* $statusCount[3] number of complete (verified)
+ */
 foreach ($data->tasks as $task){
 	$statusCount[$task->attributes['status']]++;
 }
@@ -31,7 +31,7 @@ if($taskcount > 0){
 				              ),
 			              ),
 			              array(
-				              'type'=>'danger',
+				              'type'=>'info',
 				              'percent'=>($statusCount[1]/$taskcount)*100,
 				              'htmlOptions'=>array(
 					              'data-toggle'=>'tooltip',
