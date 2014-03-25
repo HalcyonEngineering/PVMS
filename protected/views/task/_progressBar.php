@@ -31,7 +31,7 @@ if($taskcount > 0){
 				              ),
 			              ),
 			              array(
-				              'type'=>'info',
+				              'type'=>'danger',
 				              'percent'=>($statusCount[1]/$taskcount)*100,
 				              'htmlOptions'=>array(
 					              'data-toggle'=>'tooltip',

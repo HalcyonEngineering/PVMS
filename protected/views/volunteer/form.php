@@ -63,7 +63,7 @@
         'multiple'=>true,
         'htmlOptions'=>array('size'=>50),
     )); ?>
-    <p class="hint">Please separate different skills with commas.</p>
+    <p class="hint">Auto-completable. Please separate different skills with commas.</p>
     <?php echo $form->error($userModel,'skillset'); ?>
 </div>
 

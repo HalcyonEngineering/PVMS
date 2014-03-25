@@ -30,10 +30,10 @@ class VolunteerController extends Controller
 
             if ($success) {
                 Yii::app()->user->setFlash('success', 
-                    '<strong>Well done!</strong> You successfully read this important alert message.'); 
+                    '<strong>Volunteer added!</strong>Check the "Manage Volunteers" tab!.'); 
             } else {
                 Yii::app()->user->setFlash('error',
-                    '<strong>Oh snap!</strong> Change a few things up and try submitting again.');
+                    '<strong>Uh-oh!</strong>Volunteer could not be added, try again later.');
             }
         }
 
