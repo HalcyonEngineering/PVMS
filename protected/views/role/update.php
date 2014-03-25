@@ -15,4 +15,4 @@ $this->breadcrumbs=array(
 
 	<h1>Update Role <?php echo $model->id; ?></h1>
 
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form',array('model'=>$model, 'onboardingModel'=>$model->onboardingDoc)); ?>

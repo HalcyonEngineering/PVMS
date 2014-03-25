@@ -58,7 +58,7 @@ if ($onboardingModel != null){
 	?>
 </div>
 
-<?php echo $this->renderPartial('/role/_form', array('model'=>$model,'onboardingModel'=>$onboardingModel,'displayButton'=>true,'defaultToForm'=>false)); ?>
+<?php echo $this->renderPartial('/role/_fancyform', array('model'=>$model,'onboardingModel'=>$onboardingModel,'displayButton'=>true,'defaultToForm'=>false)); ?>
 
 
 <div class="span-19" >

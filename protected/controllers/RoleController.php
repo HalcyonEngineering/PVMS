@@ -54,16 +54,15 @@ class RoleController extends Controller
 		$model = $this->loadModel($id);
 		$onboardingModel = $model->onboardingDoc;
 
-		if (isset($_POST['Role']))
+		if (isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
 		{
 			$model->attributes=$_POST['Role'];
-			$model->save();
-		}
-
-		if (isset($_POST['OnboardingDoc']))
-		{
 			$onboardingModel->attributes=$_POST['OnboardingDoc'];
-			$onboardingModel->save();
+			if($model->validate() && $onboardingModel->validate()){
+				if($model->save() && $onboardingModel->save()){
+					Yii::app()->user->setFlash('success', "Updated Role and Onboarding.");
+				}
+			}
 		}
 
 		$this->render('view',array('model'=>$model,
@@ -107,37 +106,25 @@ class RoleController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+		$onboardingModel=$model->onboardingDoc;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model, $onboardingModel);
 
-		if(isset($_POST['Role']))
+		if(isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
 		{
 			$model->attributes=$_POST['Role'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$onboardingModel->attributes=$_POST['OnboardingDoc'];
+			if($model->validate() && $onboardingModel->validate()){
+				if($model->save() && $onboardingModel->save())
+					$this->redirect(array('view','id'=>$model->id));
+			}
 		}
-
 		$this->render('update',array(
 			'model'=>$model,
 		));
 	}
 
-	/**
-	 * Creates a task under the specified role.
-	 */
-	public function actionCreateTask(){
-		$model=new Task;
-		$model->role_id=$_GET['id'];
-		if(isset($_POST['Task'])){
-			$model->attributes=$_POST['Task'];
-			if($model->save()){
-				$this->redirect(array('/task/view', 'id'=>$model->id));
-			}
-		}
-
-		$this->render('/task/create', array('model'=>$model));
-	}
 
 	/**
 	 * Deletes a particular model.
@@ -200,7 +187,7 @@ class RoleController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Role::model()->findByPk($id);
+		$model=Role::model()->with('onboardingDoc')->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
