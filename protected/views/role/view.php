@@ -58,26 +58,28 @@ if ($onboardingModel != null){
 	?>
 </div>
 
-<?php echo $this->renderPartial('/role/_fancyform', array('model'=>$model,'onboardingModel'=>$onboardingModel,'displayButton'=>true,'defaultToForm'=>false)); ?>
+<?php
+	echo $this->renderPartial('/role/_fancyform', array(
+		'model'=>$model,
+		'onboardingModel'=>$onboardingModel));
+?>
 
 
-<div class="span-19" >
-	<b>Tasks: </b>
-	<div class="span-3 pull-right" style="padding:5px;" ><!--Buttons-->
-		<?php
-		if (Yii::app()->user->isManager()) {
-			$this->widget('ModalOpenButton',
-		                    array(
-		                      'button_id'=>'create-task-btn',
-		                      'url' => Yii::app()->createUrl("task/create",array("role_id"=>$model->id)),
-		                      'label' => 'Create new task for role',
-		                      'type' => 'common',
-		                    ));
-		}
-		?>
-	</div>
-</div><!--End of Buttons-->
+<div><b>Tasks </b></div>
 <?php
 	$taskDataProvider = new CActiveDataProvider('Task', array ('criteria' => array ('condition' => 'role_id=' . $model->id,),));
 	$this->renderPartial('/task/_tasks', array ('dataProvider' => $taskDataProvider));
 ?>
+<div class="span-3 pull-left" ><!--Buttons-->
+	<?php
+		if (Yii::app()->user->isManager()) {
+			$this->widget('ModalOpenButton',
+			              array(
+				              'button_id'=>'create-task-btn',
+				              'url' => Yii::app()->createUrl("task/create",array("role_id"=>$model->id)),
+				              'label' => 'Create new task for role',
+				              'type' => 'common',
+			              ));
+		}
+	?>
+</div>

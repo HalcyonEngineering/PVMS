@@ -6,7 +6,8 @@
  */
 class ModalOpenButton extends CWidget{
 
-	public $buttonOptions;
+	private $buttonOptions;
+	public $style;
 	public $label;
 	public $type;
 	public $button_id;
@@ -62,6 +63,9 @@ class ModalOpenButton extends CWidget{
 			if(!isset($this->buttonOptions['htmlOptions']['ajax']['data'])) {
 				$this->buttonOptions['htmlOptions']['ajax']['data'] = $csrf;
 			}
+		}
+		if(isset($this->style)){
+			$this->buttonOptions['htmlOptions']['style'];
 		}
 	}
 

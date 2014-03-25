@@ -103,12 +103,12 @@ class TaskController extends Controller
 				if(Yii::app()->user->isManager()){
 					Notification::notifyAll($model->role->users,
 					                        "A task has been updated.",
-					                        Yii::app()->createUrl("task/view?id=$id")
+					                        Yii::app()->createUrl("role/view?id=$model->role_id")
 					);
 				} elseif (Yii::app()->user->isVolunteer()){
 					Notification::notify($model->role->project->org->getManager()->id,
 					                     "A user has marked a task as complete.",
-					                     Yii::app()->createUrl("task/view?id=$id")
+					                     Yii::app()->createUrl("role/view?id=$model->role_id")
 					);
 				}
 				$this->redirect(array('view','id'=>$model->id));
@@ -133,6 +133,7 @@ class TaskController extends Controller
 				$model->setScenario('volunteerUpdate');
 			}
 			if($model->validate() && $model->save()){
+
 				Yii::app()->end(200);
 			}
 			throw new CHttpException(400, "Could not update value");
