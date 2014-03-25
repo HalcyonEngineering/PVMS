@@ -27,6 +27,6 @@
 <div class="form">
     <table style="width:600px; padding:0px;"><tr>
         <td style="padding:0px"><?php echo $formView; ?></td>
-        <td style="padding:0px; vertical-align:top;"><?php echo $csvView; ?></td>
+        <td style="padding:0px; width:300px; vertical-align:top;"><?php echo $csvView; ?></td>
     </tr></table>
 </div><!-- form -->

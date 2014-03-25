@@ -27,6 +27,21 @@
     <?php echo $form->error($userModel,'email'); ?>
 </div>
 
+<div class="row radiogroup">
+    <?php
+        $status = array(
+            0=>'Not available',
+            1=>'Weekdays',
+            2=>'Weekends',
+            3=>'Weekdays & Weekends',
+        );
+        $userModel->availability = 0;
+        echo $form->radioButtonListRow($userModel, 'availability', $status,
+            array('labelOptions'=>array('style'=>'font: normal 11pt Calibri;'))
+        );
+    ?>
+</div>
+
 <div class="row">
     <?php echo $form->labelEx($userModel,'location'); ?>
     <?php $this->widget('CAutoComplete', array(
@@ -36,22 +51,9 @@
         'multiple'=>true,
         'htmlOptions'=>array('size'=>50),
     )); ?>
-    <p class="hint">City name only. Please separate all available cities with commas.</p>
+    <p class="hint">City name only.</p>
+    <p class="hint">Separate all available cities with commas.</p>
     <?php echo $form->error($userModel,'location'); ?>
-</div>
-
-<div class="row radiogroup">
-    <?php
-        $status = array(
-            0=>'Not available',
-            1=>'Weekdays',
-            2=>'Weekends',
-            3=>'Weekdays & Weekends',
-        );
-        echo $form->radioButtonListRow($userModel, 'availability', $status,
-            array('labelOptions'=>array('style'=>'font: normal 11pt Calibri;'))
-        );
-    ?>
 </div>
 
 <div class="row">
@@ -63,7 +65,8 @@
         'multiple'=>true,
         'htmlOptions'=>array('size'=>50),
     )); ?>
-    <p class="hint">Auto-completable. Please separate different skills with commas.</p>
+    <p class="hint">Auto-completable.</p>
+    <p class="hint">Please separate different skills with commas.</p>
     <?php echo $form->error($userModel,'skillset'); ?>
 </div>
 
