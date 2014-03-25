@@ -47,17 +47,15 @@ if ($onboardingModel != null){
 }
 */?>
 
-<div class="span-9 pull-right" ><!--Buttons-->
-	<div class="span-3 pull-right" style="padding:5px;" >
-		<?php $this->widget('ModalOpenButton',
-		                    array(
-		                      'button_id'=>'list-project-files-btn',
-		                      'url' => Yii::app()->createUrl("fileDoc/listParentFiles",array("role_id"=>$model->id)),
-		                      'label' => 'View project document repository	',
-		                      'type' => 'common',
-		                    ));
-		?>
-	</div>
+<div class="span-3 pull-right" style="padding:5px;" >
+	<?php $this->widget('ModalOpenButton',
+	                    array(
+		                    'button_id'=>'list-project-files-btn',
+		                    'url' => Yii::app()->createUrl("fileDoc/listParentFiles",array("role_id"=>$model->id)),
+		                    'label' => 'View project document repository	',
+		                    'type' => 'common',
+	                    ));
+	?>
 </div>
 
 <?php echo $this->renderPartial('/role/_form', array('model'=>$model,'onboardingModel'=>$onboardingModel,'displayButton'=>true,'defaultToForm'=>false)); ?>

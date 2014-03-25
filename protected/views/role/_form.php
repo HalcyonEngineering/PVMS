@@ -13,7 +13,7 @@
 	if (isset($displayButton)) {
 		if ($displayButton == true) {
 			$this->widget('bootstrap.widgets.TbButton', array('buttonType' => 'link',
-														    'type' => 'primary', // the chrome of the button
+														    'type' => 'link', // the chrome of the button
 														    'label' => 'edit', // text of the button
 														    'htmlOptions' => array('onclick'=>"$('.form-rows').toggle();$('.data-display').toggle();$('.toggle-button').toggle();"),
 		    ));
@@ -23,7 +23,7 @@
 </div>
 
 <div class="data-display" style="<?php echo $displayVisibilityDefault?>">
-	<h1><?php echo $model->name; ?>:</h1>
+	<h1><?php echo $model->name; ?></h1>
 	<?php echo $model->desc; ?><br /><br /><br />
 	<h4>Onboarding information:</h4>
 	<?php $this->widget('bootstrap.widgets.TbDetailView',array(

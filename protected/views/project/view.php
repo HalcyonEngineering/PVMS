@@ -50,16 +50,15 @@ $this->breadcrumbs=array(
 
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'dataProvider' => $roleDataProvider,
-	'type'=>'bordered',
+	'type'=>'bordered hover',
 	'columns' => array(
 		'role.name',
 		array('class'=>'bootstrap.widgets.TbButtonColumn',
+		      'template'=>'{view} {delete}',
 		      'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->role->primaryKey))',
-		      'updateButtonUrl'=>'Yii::app()->controller->createUrl("/role/update",array("id"=>$data->role->primaryKey))',
 		      'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->role->primaryKey))',
                       'buttons'=>array(
                         'view'=>array('label'=>'View role details'),
-                        'update'=>array('label'=>'Edit role'),
                         'delete'=>array('label'=>'Delete role'),
                       ),
                 ),

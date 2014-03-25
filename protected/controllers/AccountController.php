@@ -54,7 +54,7 @@ class AccountController extends Controller
 		} elseif (Yii::app()->user->isManager()){
 			$this->redirect(array('project/index'));
 		} elseif (Yii::app()->user->isAdmin()){
-			$this->redirect(array('organization/index'));
+			$this->redirect(array('organization/search'));
 		}
 	}
 
