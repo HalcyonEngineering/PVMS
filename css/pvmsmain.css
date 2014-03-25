@@ -188,7 +188,8 @@ div.smallNotification
 
 div.view
 {
-	margin: 10px 10px;
+	margin: 10px 0px;
+	margin-right: 20px;
 	border: 2px solid #000000;
 }
 
@@ -329,6 +330,38 @@ div.view
 	border-top: thin solid #B2B2B2;
 }
 
+.btn-primary {
+	border-radius: 0px;
+}
+
+.btn-success {
+	border-radius: 0px;
+}
+
+.btn-default {
+	border-radius: 0px;
+}
+
+.btn-info {
+	border-radius: 0px;
+}
+
+.btn-warning {
+	border-radius: 0px;
+}
+
+.btn-danager {
+	border-radius: 0px;
+}
+
+.btn {
+	border-radius: 0px;
+}
+
+.view .span-6 {
+
+}
+
 #notification-button .caret {
 	 border-top: 0px solid #000000; 
 }
@@ -358,6 +391,9 @@ label {
 	top: -5px;
 }
 
+#yt2 {
+margin-right: 4px
+}
 
 
 
