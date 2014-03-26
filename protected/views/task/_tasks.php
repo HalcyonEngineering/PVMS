@@ -24,7 +24,7 @@ if (Yii::app()->request->enableCsrfValidation) {
 <div><h2 style="margin-bottom:0em; line-height:0px;">Tasks </h2></div>
 <?php
 $this->widget('bootstrap.widgets.TbGridView',
-              array('id'=>'file-doc-grid',
+              array('id'=>'task-grid',
                     'dataProvider'=>$dataProvider,
                     'template'=>'{items}',
                     'columns'=>array(
@@ -82,7 +82,15 @@ $this->widget('bootstrap.widgets.TbGridView',
 		                          'emptytext'=>'Complete (Verified)',
 		                          'params'=>$params,
 	                              'options'=>array(
-		                              'emptyclass'=>'fake-empty', //@TODO Disable clicking on link.
+		                              'emptyclass'=>'fake-empty',
+	                                  'display'=> 'js: function(value, sourceData) {
+	                                      if (value == 3){
+		                                      $(this).off("click").click(function (e) {
+		                                          e.preventDefault();
+		                                      });
+										  }
+	                                    }',
+
 	                              ),
 	                          ),
 	                    ),
@@ -95,4 +103,10 @@ $this->widget('bootstrap.widgets.TbGridView',
                     ),
               )
 );
+
+//	echo CHtml::script('$().ready(function (){
+//	$(".fake-empty").click(function(e) {
+//		e.preventDefault();
+//		});
+//	});');
 ?>
