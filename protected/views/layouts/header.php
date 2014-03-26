@@ -1,6 +1,7 @@
 <?php
 
 $messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png' , 'messages', array('class'=>'img-circle', 'id' => 'message-icon'));
+
     
 //@TODO Add settings on conditions of displayed notificatons
 $this->widget(
@@ -28,7 +29,7 @@ $this->widget(
 				           'visible'=>!Yii::app()->user->isGuest,
 				     ),//End Messages drop down.
 
-				     '---', //Divider
+				    /* '---',*/ //Divider
 
 				     // This is the User Drop Down Menu
 					 
@@ -47,9 +48,9 @@ $this->widget(
 					     'visible'=>!Yii::app()->user->isGuest,
 				     ),//End user drop down.
 
-				     array('label'=>'Login',
+				    /* array('label'=>'Login',
 				           'url'=>array('account/login'),
-				           'visible'=>Yii::app()->user->isGuest),//End user login
+				           'visible'=>Yii::app()->user->isGuest),*///End user login
 			     ),//End menu items.
 		     ),//End TbMenu
                array('class' => 'notification_TbDropdown',
