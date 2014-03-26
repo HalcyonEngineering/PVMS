@@ -62,11 +62,7 @@ if ($onboardingModel != null){
 	echo $this->renderPartial('/role/_fancyform', array(
 		'model'=>$model,
 		'onboardingModel'=>$onboardingModel));
-?>
 
-
-<div><b>Tasks </b></div>
-<?php
 	$taskDataProvider = new CActiveDataProvider('Task', array ('criteria' => array ('condition' => 'role_id=' . $model->id,),));
 	$this->renderPartial('/task/_tasks', array ('dataProvider' => $taskDataProvider));
 ?>

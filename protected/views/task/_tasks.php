@@ -18,6 +18,11 @@ if (Yii::app()->request->enableCsrfValidation) {
 		$params[$csrfTokenName] = $csrfToken;
 	}
 }
+?>
+<br>
+<br>
+<div><h2 style="margin-bottom:0em; line-height:0px;">Tasks </h2></div>
+<?php
 $this->widget('bootstrap.widgets.TbGridView',
               array('id'=>'file-doc-grid',
                     'dataProvider'=>$dataProvider,

@@ -10,11 +10,11 @@
 				);
 			}
 		?></h1>
-	<?php if(Yii::app()->user->isManager()) echo "<i>This is what your volunteers will see: </i>";?><br /><br />
-	<i><?php echo $model->desc; ?></i><br /><br />
-	<?php if(Yii::app()->user->isManager()) echo "<b>Welcome message: </b>";?><?php echo $onboardingModel->onboarding_welcome; ?><br /><br />
-	<b>Instructions: </b><?php echo $onboardingModel->onboarding_instructions; ?><br /><br />
-	<b>Contact information: </b><?php echo $onboardingModel->onboarding_contact; ?><br /><br />
+	<?php echo $model->desc; ?><br /><br />
+	<?php if(Yii::app()->user->isManager()) echo "<i>(Below is what your volunteers will see)</i>";?><br /><br />
+	<?php if(Yii::app()->user->isManager()) echo "<b>Welcome message:</b><br>";?><?php echo $onboardingModel->onboarding_welcome; ?><br /><br />
+	<b>Instructions:</b><br><?php echo $onboardingModel->onboarding_instructions; ?><br /><br />
+	<b>Contact information:</b><br><?php echo $onboardingModel->onboarding_contact; ?><br /><br />
 </div>
 
 <?php
