@@ -1,11 +1,15 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'task-form',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
 <p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
-<?php echo $form->errorSummary($model); ?>
+<?php
+	/**
+	 * $form TbActiveForm
+	 */
+	echo $form->errorSummary($model); ?>
 
 	<?php if (isset($model->role_id)) {
 				echo $form->hiddenField($model,'role_id');
@@ -19,7 +23,9 @@
 
 	<?php echo $form->textFieldRow($model,'expected',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'actual',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'actual',array('class'=>'span5', 'append'=>' Hours'));
+
+	?>
 
 	<?php
 	$taskStatus = Lookup::items('TaskStatus');

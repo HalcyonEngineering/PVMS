@@ -65,21 +65,26 @@ class TaskController extends Controller
 		$model=new Task;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Task']))
 		{
 			$model->attributes=$_POST['Task'];
 			if($model->save())
 				//$this->redirect(array('view','id'=>$model->id)); // this is what we would normally do, but we have to reroute it to make the role workflow workflow
+				Notification::notifyAll($model->role->users,
+				"Your manager has added a new task.",
+					Yii::app()->createUrl('/role/view', array('id'=>$model->role_id))
+				);
 				$this->redirect(array('/role/view','id'=>$model->role_id));
 		}
 
 		if(isset($role_id)) {
 			$model->role_id = $role_id;
+			$model->actual = 0;
 		}
 
-		$this->renderModal('create',array(
+		$this->renderModal('/task/create',array(
 			'model'=>$model,
 		));
 	}
@@ -100,17 +105,7 @@ class TaskController extends Controller
 		{
 			$model->attributes=$_POST['Task'];
 			if($model->save()){
-				if(Yii::app()->user->isManager()){
-					Notification::notifyAll($model->role->users,
-					                        "A task has been updated.",
-					                        Yii::app()->createUrl("role/view?id=$model->role_id")
-					);
-				} elseif (Yii::app()->user->isVolunteer()){
-					Notification::notify($model->role->project->org->getManager()->id,
-					                     "A user has marked a task as complete.",
-					                     Yii::app()->createUrl("role/view?id=$model->role_id")
-					);
-				}
+				$this->taskNotify($model);
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -133,7 +128,8 @@ class TaskController extends Controller
 				$model->setScenario('volunteerUpdate');
 			}
 			if($model->validate() && $model->save()){
-
+				$generalChange = ($_POST['name'] == 'status') ? false : true;
+				$this->taskNotify($model, $generalChange);
 				Yii::app()->end(200);
 			}
 			throw new CHttpException(400, "Could not update value");
@@ -228,6 +224,37 @@ class TaskController extends Controller
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
+		}
+	}
+
+	protected function taskNotify($model, $generalChange=false){
+		$url = Yii::app()->createUrl("role/view?id=$model->role_id");
+		$statusName = Lookup::item('TaskStatus', $model->status);
+
+		if ($generalChange === true){
+			if(Yii::app()->user->isManager()){
+				Notification::notifyAll($model->role->users,
+				                        "A task has been updated.",
+				                        $url
+				);
+			} elseif (Yii::app()->user->isVolunteer()){
+				Notification::notify($model->role->project->org->getManager()->id,
+				                     "A user has marked a task as complete.",
+				                     $url
+				);
+			}
+		} else {
+			if(Yii::app()->user->isManager()){
+				Notification::notifyAll($model->role->users,
+				                        "Your manager has marked $model->name as $statusName.",
+				                        $url
+				);
+			} elseif (Yii::app()->user->isVolunteer()){
+				Notification::notify($model->role->project->org->getManager()->id,
+				                     "A volunteer has marked $model->name as $statusName.",
+				                     $url
+				);
+			}
 		}
 	}
 }
