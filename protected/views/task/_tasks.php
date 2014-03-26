@@ -83,13 +83,13 @@ $this->widget('bootstrap.widgets.TbGridView',
 		                          'params'=>$params,
 	                              'options'=>array(
 		                              'emptyclass'=>'fake-empty',
-	                                  'display'=> 'js: function(value, sourceData) {
+	                                  /*'display'=> 'js: function(value, sourceData) {
 	                                      if (value == 3){
 		                                      $(this).off("click").click(function (e) {
 		                                          e.preventDefault();
 		                                      });
 										  }
-	                                    }',
+	                                    }',*/
 
 	                              ),
 	                          ),

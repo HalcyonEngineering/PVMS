@@ -193,8 +193,8 @@ div.tile-view
 	margin: 10px 0px;
 	margin-right: 20px;
 	border:3px solid #D8CACA;
-	margin-right: 13.35px;
-	margin-left: 13.35px;
+	margin-right: 13px;
+	margin-left: 13px;
 }
 
 div.view {
@@ -349,7 +349,7 @@ div.view {
 .small_read {
 	position:relative;
 	background-color:#FFFFFF;
-	padding: 8px 8px;F
+	padding: 8px 8px;
 	border-top: thin solid #B2B2B2;
 }
 
