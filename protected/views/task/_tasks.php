@@ -81,6 +81,9 @@ $this->widget('bootstrap.widgets.TbGridView',
 		                          'source'=>$taskStatus,
 		                          'emptytext'=>'Complete (Verified)',
 		                          'params'=>$params,
+	                              'options'=>array(
+		                              'emptyclass'=>'fake-empty', //@TODO Disable clicking on link.
+	                              ),
 	                          ),
 	                    ),
 	                    array('class'=>'bootstrap.widgets.TbButtonColumn', // buttoncolumn customized with documentation at: http://www.yiiframework.com/wiki/106/using-cbuttoncolumn-to-customize-buttons-in-cgridview/

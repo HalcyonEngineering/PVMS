@@ -201,6 +201,12 @@ div.view {
 	border:3px solid #D8CACA;
 
 }
+.fake-empty, .fake-empty:hover
+{
+    color: #000000;
+    border: none !important;
+    font-style: normal;
+}
 
 .tile
 {
