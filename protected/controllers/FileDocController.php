@@ -109,19 +109,10 @@ class FileDocController extends Controller
 
 	}
 
-	public function actionDownload()
+	public function actionDownload($id)
 	{
-		$id = $_GET['id']; // $_POST['id']; //we used to do this over POST, but there are instances where it's hard to do POST, so we use GET
-		//Yii::log('downloadmodel input: id:'.$id, 'warning', 'FileDoc');
+            $model = FileDoc::model()->findByPk($id);
 
-		$dataProvider=new CActiveDataProvider('FileDoc', array('criteria'=>array('condition'=>'id='.$id,),));
-		$model = $dataProvider->getData()[0];
-		//Yii::log('downloadmodel db: id:'.$model->id, 'warning', 'FileDoc');
-		//Yii::log('downloadmodel db: file_name:'.$model->file_name, 'warning', 'FileDoc');
-		//Yii::log('downloadmodel db: file_size:'.$model->file_size, 'warning', 'FileDoc');
-		//Yii::log('downloadmodel db: file_data:'.$model->file_data, 'warning', 'FileDoc');
-
-		//echo CHtml::script("window.alert('id is: ".$id."');"); //works: this is how you create a popup
 		// note: documentation on sendFile: http://www.yiiframework.com/doc/api/1.1/CHttpRequest#sendFile-detail
 		Yii::app()->getRequest()->sendFile($model->file_name,$model->file_data); //TODO: put actual useful file data here //getRequest returns the request component of Yii
 		
