@@ -10,19 +10,11 @@
 				);
 			}
 		?></h1>
-	<?php
-
-	?>
-	<?php echo $model->desc; ?><br /><br /><br />
-	<h4>Onboarding information:</h4>
-	<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-		'data'=>$onboardingModel,
-		'attributes'=>array(
-			'onboarding_welcome',
-			'onboarding_instructions',
-			'onboarding_contact',
-		),
-	)); ?>
+	<?php if(Yii::app()->user->isManager()) echo "<i>This is what your volunteers will see: </i>";?><br /><br />
+	<i><?php echo $model->desc; ?></i><br /><br />
+	<?php if(Yii::app()->user->isManager()) echo "<b>Welcome message: </b>";?><?php echo $onboardingModel->onboarding_welcome; ?><br /><br />
+	<b>Instructions: </b><?php echo $onboardingModel->onboarding_instructions; ?><br /><br />
+	<b>Contact information: </b><?php echo $onboardingModel->onboarding_contact; ?><br /><br />
 </div>
 
 <?php
