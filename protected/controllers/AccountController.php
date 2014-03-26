@@ -13,10 +13,13 @@ class AccountController extends Controller
 	// First check that the manager has allowed admin access
 		if (Yii::app()->user->isAdmin()) { 
 			if (User::model()->findByPk($userID)) {
+				Yii::app()->user->setState('adminName', Yii::app()->user->name);
 				$identity = new AccessIdentity($userID, new UserIdentity('admin', 'admin'));
 				Yii::app()->user->login($identity);
 				Yii::app()->user->setAdminAccess();
-				$this->redirect(Yii::app()->user->returnUrl);
+				if(Yii::app()->user->isAdminAccess()){
+					$this->redirect(Yii::app()->user->returnUrl);
+				}
 			}
 		}
 		$this->redirect(array('organization/search'));

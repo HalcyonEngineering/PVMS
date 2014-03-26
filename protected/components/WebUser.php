@@ -3,7 +3,7 @@
 class WebUser extends CWebUser {
 
 	private $_model;
-	public $isAdminAccess = false;
+	private $isAdminAccess = false;
 
 	function getEmail() {
 		$user = $this->loadUser(Yii::app()->user->id);
@@ -53,6 +53,7 @@ class WebUser extends CWebUser {
 	
 	function setAdminAccess() {
 		$this->isAdminAccess = true;
+		$this->setState("adminAccess", Yii::app()->user->isAdminAccess);
 	}
 	
 	function isAdminAccess() {

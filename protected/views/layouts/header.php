@@ -3,7 +3,6 @@
 $messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png' , 'messages', array('class'=>'img-circle', 'id' => 'message-icon'));
     
 //@TODO Add settings on conditions of displayed notificatons
-
 $this->widget(
      'bootstrap.widgets.TbNavbar',
      array(
@@ -32,8 +31,10 @@ $this->widget(
 				     '---', //Divider
 
 				     // This is the User Drop Down Menu
+					 
 				     array(
-					     'label' => Yii::app()->user->name,
+					 //This was changed to explicitly show admin access
+					     'label' => Yii::app()->user->getState('adminAccess') ? Yii::app()->user->getState('adminName') . " as " . Yii::app()->user->name : Yii::app()->user->name,
 					     'url' => '#',
                          'itemOptions' => array('id' => 'login-dropdown',),
 					     'items' => array(
