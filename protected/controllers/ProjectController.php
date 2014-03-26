@@ -197,7 +197,6 @@ class ProjectController extends Controller
 		if(isset($_POST['ajax']) && $_POST['ajax']==='project-form')
 		{
 			echo CActiveForm::validate($model);
-			Yii::log("Ajax validation. Ending now./r/n");
 			Yii::app()->end();
 		}
 	}

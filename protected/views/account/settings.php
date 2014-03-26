@@ -1,25 +1,26 @@
 <?php
 /* @var $this AccountController */
 /* @var $model User */
-/* @var $form CActiveForm */
+/* @var $form bootstrap.widgets.TbActiveForm */
 $this->pageTitle=Yii::app()->name . ' - Settings';
 ?>
 
-<?php if(Yii::app()->user->hasFlash('success')): ?>
-
-    <div class="flash-success">
-        <?php echo Yii::app()->user->getFlash('success'); ?>
-    </div>
-
-<?php elseif(Yii::app()->user->hasFlash('error')): ?>
-    <div class="flash-error">
-        <?php echo Yii::app()->user->getFlash('error'); ?>
-    </div>
-<?php endif; ?>
+<?php
+	$this->widget('bootstrap.widgets.TbAlert', array(
+		'block'=>true, // display a larger alert block?
+		'fade'=>true, // use transitions?
+		'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+		'alerts'=>array( // configurations per alert type
+		                 'success'=>array(), // success, info, warning, error or danger
+		                 'error'=>array(), // success, info, warning, error or danger
+		),
+	)
+);
+?>
 
 <div class="form">
 
-    <?php $form=$this->beginWidget('CActiveForm', array(
+    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'user-settings-form',
         'enableClientValidation'=>true,
         'clientOptions'=>array(
@@ -36,35 +37,15 @@ $this->pageTitle=Yii::app()->name . ' - Settings';
 
     <?php echo $form->errorSummary($model); ?>
 
-    <div class="row">
-        <?php echo $form->labelEx($model,'name'); ?>
-        <?php echo $form->textField($model,'name'); ?>
-        <?php echo $form->error($model,'name'); ?>
-    </div>
+	<?php echo $form->textFieldRow($model, 'name'); ?>
 
-    <div class="row">
-        <?php echo $form->labelEx($model,'email'); ?>
-        <?php echo $form->textField($model,'email'); ?>
-        <?php echo $form->error($model,'email'); ?>
-    </div>
+	<?php echo $form->emailFieldRow($model, 'email'); ?>
 
-    <div class="row">
-        <?php echo $form->labelEx($model,'origPassword'); ?>
-        <?php echo $form->passwordField($model,'origPassword'); ?>
-        <?php echo $form->error($model,'origPassword'); ?>
-    </div>
+    <?php echo $form->passwordFieldRow($model,'origPassword'); ?>
 
-    <div class="row">
-        <?php echo $form->labelEx($model,'newPassword'); ?>
-        <?php echo $form->passwordField($model,'newPassword'); ?>
-        <?php echo $form->error($model,'newPassword'); ?>
-    </div>
-	
-    <div class="row">
-        <?php echo $form->labelEx($model,'verifyPassword'); ?>
-        <?php echo $form->passwordField($model,'verifyPassword'); ?>
-        <?php echo $form->error($model,'verifyPassword'); ?>
-    </div>
+    <?php echo $form->passwordFieldRow($model,'newPassword'); ?>
+
+    <?php echo $form->passwordFieldRow($model,'verifyPassword'); ?>
 	
     <div class="row buttons">
         <?php echo CHtml::submitButton('Submit'); ?>
