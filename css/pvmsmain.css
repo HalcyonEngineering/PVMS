@@ -232,7 +232,7 @@ div.view {
 	line-height: 17px;
 }
 
-.tile-bottom .progress .bar-info{
+.tile-view .progress .bar-info{
     background-color: #d0d0d0;
     background-image: linear-gradient(to bottom, #dadada, #bababa);
 }

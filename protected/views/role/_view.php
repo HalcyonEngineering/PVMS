@@ -5,7 +5,7 @@
     <br />
 
 
-	<!--<b><?php echo CHtml::encode($data->getAttributeLabel('desc')); ?>:</b>-->
+
 	<?php echo CHtml::encode($data->desc); ?>
 	<br /><br />
 

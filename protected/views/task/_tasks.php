@@ -7,7 +7,7 @@ if (Yii::app()->user->isManager()) {
 
 $taskStatus = Lookup::items('TaskStatus');
 if (Yii::app()->user->isVolunteer()){
-	unset($taskStatus[3]);
+	unset($taskStatus[Task::STATUS_COMPLETE_VERIFIED]);
 }
 $params=array();
 
@@ -83,13 +83,30 @@ $this->widget('bootstrap.widgets.TbGridView',
 		                          'params'=>$params,
 	                              'options'=>array(
 		                              'emptyclass'=>'fake-empty',
-	                                  /*'display'=> 'js: function(value, sourceData) {
-	                                      if (value == 3){
-		                                      $(this).off("click").click(function (e) {
-		                                          e.preventDefault();
+									  'display'=> 'js: function(value, sourceData) {
+
+									                // Putting this into scope.
+									                var newText;
+
+													// Iterate through data and set text to matching.
+									                $(sourceData).each(function( index ) {
+									                    if(value == sourceData[index].value){
+									                        newText = sourceData[index].text;
+									                    }
+									                });
+													// Set
+									                $(this).html(newText);
+
+									                // If value has no match, prevent changes.
+									                // This works since status is always required.
+									                // The unset verified status cannot be modified by volunteers.
+									                // There is a server side check to be sure.
+	                                                if (typeof newText === "undefined"){
+		                                                $(this).off("click").click(function (e) {
+		                                            e.preventDefault();
 		                                      });
 										  }
-	                                    }',*/
+	                                    }',
 
 	                              ),
 	                          ),

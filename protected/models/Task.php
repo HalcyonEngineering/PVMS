@@ -17,6 +17,10 @@
  */
 class Task extends CActiveRecord
 {
+
+	const STATUS_IN_PROGRESS = 1;
+	const STATUS_COMPLETE_PENDING = 2;
+	const STATUS_COMPLETE_VERIFIED = 3;
 	/**
 	 * @return string the associated database table name
 	 */
