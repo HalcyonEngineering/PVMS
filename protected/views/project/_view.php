@@ -12,9 +12,10 @@
 		<br />  <br />-->
        </div>
       <div class="tile-bottom">
+<?php if ($data->target !== null):?>
         <b><?php echo CHtml::encode($data->getAttributeLabel('target').":"); ?></b><br />
 		<?php echo CHtml::encode($data->target); ?></br>
-
+<?php endif; ?>
 		<?php
 
 		$this->renderPartial('/task/_progressBar',array('data'=>$data));

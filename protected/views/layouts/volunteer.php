@@ -11,8 +11,8 @@
                         'stacked'=>true,
                         'items' => array(
                                          array('label'=>$roleIcon, 'url'=>array('role/index')),
-                                         array('label'=>$teamIcon, 'url'=>'#'),
-                                         array('label'=>$calendarIcon, 'url'=>array('site/page', 'view'=>'calendar')),
+                                        /* array('label'=>$teamIcon, 'url'=>'#'),
+                                         array('label'=>$calendarIcon, 'url'=>array('site/page', 'view'=>'calendar')), */
                                          ),
                         ));
     
