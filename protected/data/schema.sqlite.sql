@@ -280,6 +280,8 @@ INSERT INTO pvms_task(role_id, name, desc) VALUES(2, 'Hand in documents', 'This 
 INSERT INTO pvms_task(role_id, name, desc) VALUES(5, 'A Task', 'Do stuff.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(5, 'Another Task', 'Do more.');
 INSERT INTO pvms_task(role_id, name, desc) VALUES(5, 'Yet another Task', 'Do even more.');
+INSERT INTO pvms_task(role_id, name, desc, status) VALUES(1, 'Make calls to database', 'Make call to the database before another Web Developer does.', 1);
+INSERT INTO pvms_task(role_id, name, desc, status) VALUES(1, 'Meeting with client', 'This task needs to be completed.', 3);
 
 --Organization and Manager Relationship
 INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (3, 1);
