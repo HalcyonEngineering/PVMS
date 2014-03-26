@@ -23,7 +23,7 @@ $this->widget(
                           'itemOptions' => array('id' => 'hide_arrowForMessage',),
 				           'url' => '#',
 				           'items' => array(
-					           array('label' => 'Inbox', 'url' => array('site/page', 'view'=>'messages')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES
+					           /*array('label' => 'Inbox', 'url' => array('site/page', 'view'=>'messages')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES*/
 					           array('label' => 'Send Email', 'url' => array('mail/contact')),
 				           ),
 				           'visible'=>!Yii::app()->user->isGuest,
@@ -39,9 +39,9 @@ $this->widget(
 					     'url' => '#',
                          'itemOptions' => array('id' => 'login-dropdown',),
 					     'items' => array(
-						     array('label' => 'My Profile', 'url' => array('account/profile')),
-						     array('label'=>'Take a Tour', 'url'=>'#'),
-						     array('label'=>'FAQ', 'url'=>'#'),
+						    /* array('label' => 'My Profile', 'url' => array('account/profile')),
+						     array('label'=>'Take a Tour', 'url'=>'#'),*/
+						     array('label'=>'FAQ', 'url'=>'https://www.pitchn.ca/faq/'),
 						     array('label'=>'Settings', 'url'=>array('account/settings')),
 						     array('label' => 'Signout', 'url' => array('account/logout')),
 					     ),
