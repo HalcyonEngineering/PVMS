@@ -68,14 +68,12 @@ class ProjectController extends Controller
 //						'desc'=>'user.name DESC'),
 //				),
 //			));
-			$emptyRolesProvider = new CActiveDataProvider('Role',array(
-				'data'=>$emptyRoles,
+			$emptyRolesProvider = new CArrayDataProvider('Role',array(
+				'rawData'=>$emptyRoles,
 				'sort'=>array(
+					'defaultOrder'=>'name',
 					'attributes'=>array(
-						//	'defaultOrder'=>'role.name',
-						'name'=>array(
-							'asc'=>'name',
-							'desc'=>'name DESC')
+						'name',
 					)
 				)
 			));

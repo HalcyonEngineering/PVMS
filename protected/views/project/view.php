@@ -38,15 +38,18 @@ $this->breadcrumbs=array(
 <h3> Volunteers and Roles</h3>
 
 
- <?php if(isset($emptyRolesProvider)){
-	 
+ <?php if(count($emptyRolesProvider->getData()) !== 0){
+	 echo "You have not assigned a volunteer for these roles.";
 	 $this->widget('bootstrap.widgets.TbGridView', array(
+		 'id'=>'unassigned-role-grid',
 		 'dataProvider' => $emptyRolesProvider,
+		 'template'=>'{items}',
 	     'columns' => array(
 		     'name:text:Role Name',
-	         array('class'=>'bootstrap.widgets.TbButtonColumn',
-	         'template'=>'{view}',
-	         'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->role->primaryKey))',
+	         array(
+		         'class'=>'bootstrap.widgets.TbButtonColumn',
+	             'template'=>'{view}',
+	             'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->primaryKey))',
 	         ),
 	     ),
 	 ));
