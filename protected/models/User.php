@@ -398,6 +398,7 @@ class User extends CActiveRecord
 
     public static function assignToRole($volunteer_ids, $role_id) {
         $new_role = Role::model()->findByPk($role_id);
+        $count = 0;
 
         foreach ($volunteer_ids as $vid) {
             $model = User::model()->findByPk($vid);
@@ -412,9 +413,11 @@ class User extends CActiveRecord
                 if ($model->save()) {
                     $note_url = Yii::app()->getBaseUrl(true).'/role/view?id='.$role_id;
                     Notification::notify($model->id, 'A new role has been assigned for you!', $note_url);
+                    $count += 1;
                 }
             }
         }
+        return $count;
     }
 
     public static function removeFromRole($volunteer_id, $role_id) {

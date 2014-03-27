@@ -112,7 +112,15 @@ class VolunteerController extends Controller
                 if (!empty($_POST['role_list'])) {
                     Yii::trace('selectedIds: '.serialize($_POST['selectedIds']));
                     Yii::trace('role_list'.serialize($_POST['role_list']));
-                    User::assignToRole($_POST['selectedIds'], $_POST['role_list']);
+                    $role_name = Role::model()->findByPk($_POST['role_list'])->name;
+                    $success_count = User::assignToRole($_POST['selectedIds'], $_POST['role_list']);
+                    if ($success_count > 0) {
+                        Yii::app()->user->setFlash('success', 
+                            "<strong>Role assigned!</strong> You assigned $success_count volunteer(s) to the \"$role_name\" role."); 
+                    } else {
+                        Yii::app()->user->setFlash('error',
+                            '<strong>Uh-oh!</strong> Something happened...');
+                    }
                 }
             }
 
