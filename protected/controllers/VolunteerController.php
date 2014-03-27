@@ -6,7 +6,6 @@ class VolunteerController extends Controller
 
     public function actionAdd()
     {
-        
         $csvModel = new Csv;
         $userModel = new User;
 
@@ -17,7 +16,7 @@ class VolunteerController extends Controller
             if($csvModel->save()) {
                 $count = $csvModel->csv2volunteers();
                 if ($count > 0) {
-                    Yii::app()->user->setFlash('success', 
+                    Yii::app()->user->setFlash('success',
                         "<strong>$count volunteer(s) added!</strong> Check the \"Manage Volunteers\" tab!");
                 } else {
                     Yii::app()->user->setFlash('error',
@@ -25,7 +24,7 @@ class VolunteerController extends Controller
                 }
             }
        }
-        
+
         if(isset($_POST['User']))
         {
             $name = $_POST['User']['name'];
@@ -38,8 +37,8 @@ class VolunteerController extends Controller
                 Yii::app()->user->getManagedOrg(), $availability);
 
             if ($success) {
-                Yii::app()->user->setFlash('success', 
-                    '<strong>Volunteer added!</strong> Check the "Manage Volunteers" tab!.'); 
+                Yii::app()->user->setFlash('success',
+                    '<strong>Volunteer added!</strong> Check the "Manage Volunteers" tab!.');
             } else {
                 Yii::app()->user->setFlash('error',
                     '<strong>Uh-oh!</strong> Volunteer could not be added, try again later.');

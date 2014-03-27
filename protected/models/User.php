@@ -154,9 +154,9 @@ class User extends CActiveRecord
      * @param string $password
      * @return string hash
      */
-    public function hashPassword($password)
+    public function hashPassword($password, $cost=13)
     {
-        return CPasswordHelper::hashPassword($password);
+        return CPasswordHelper::hashPassword($password, $cost);
     }
 
     /**
@@ -359,9 +359,13 @@ class User extends CActiveRecord
             if($user->validate())
             {
                 // Hash the password before saving it.
-                $user->password = $user->hashPassword($user->newPassword);
+	            Yii::beginProfile('bcrypt');
+                $user->password = $user->hashPassword($user->newPassword, 5);
+	            Yii::endProfile('bcrypt');
                 if ($user->save()) {
+	                Yii::beginProfile('email');
                     User::emailWelcome($user);
+	                Yii::endProfile('email');
                     Notification::notify($user->id, "Welcome " . $user->name . 
                         ", you've been added as a member of  " . $organization->name . ".", '#');
                     return true;
@@ -369,6 +373,7 @@ class User extends CActiveRecord
                     return false;
                 }
             }
+
         // @todo Abstract save/notify/return logic
         } else {
             // Just update the organization, don't change anything else

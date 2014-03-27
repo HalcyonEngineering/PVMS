@@ -42,8 +42,9 @@ class Mail extends CFormModel
 			"Reply-To: {$this->email}\r\n".
 			"MIME-Version: 1.0\r\n".
 			"Content-Type: text/plain; charset=UTF-8";
-
+		Yii::beginProfile('phpMail');
 		$success = mail($this->Remail,$sent_subject,$this->body,$sent_headers);
+		Yii::endProfile('phpMail');
 		if (!$success)
 			Yii::log('Warning sendmail failed','warning','Mail');
 		return $success;

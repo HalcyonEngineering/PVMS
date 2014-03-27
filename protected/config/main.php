@@ -72,11 +72,17 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
 				),
+				array(
+					'class'=>'CProfileLogRoute',
+					'report'=>'summary',
+					'enabled'=>YII_DEBUG,
+				),
 				// uncomment the following to show log messages on web pages
-				
-				/*array(
+
+				array(
 					'class'=>'CWebLogRoute',
-				),*/
+					'enabled'=>YII_DEBUG,
+				),
 				
 			),
 		),
