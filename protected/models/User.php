@@ -265,22 +265,21 @@ class User extends CActiveRecord
     {
             // @todo Please modify the following code to remove attributes that should not be searched.
 
-            $criteria=new CDbCriteria;
+	    $criteria=new CDbCriteria;
+	    // User has to be a volunteer
+	    $criteria->compare('type', User::VOLUNTEER);
+	    $criteria->compare('type', User::DISABLEDVOLUNTEER, false, 'OR');
 
-            $criteria->compare('id',$this->id);
-            $criteria->compare('name',$this->name, true);
-            $criteria->compare('location',$this->location, true);
-            $criteria->compare('skillset',$this->skillset, true);
+	    $criteria->compare('id',$this->id);
+	    $criteria->compare('name',$this->name, true);
+	    $criteria->compare('email', $this->email, true);
+	    $criteria->compare('location',$this->location, true);
+	    $criteria->compare('skillset',$this->skillset, true);
 
-            // User has to be a volunteer
-            $criteria->compare('type', User::VOLUNTEER, true);
-	    $criteria->compare('type', User::DISABLEDVOLUNTEER, true, 'OR');
 
-            $criteria->order = 'name';
-			
-            return new CActiveDataProvider($this, array(
-                    'criteria'=>$criteria,
-            ));
+	    return new CActiveDataProvider($this, array(
+		    'criteria'=>$criteria,
+	    ));
     }
 
     // The username is an email.

@@ -18,7 +18,7 @@ class VolunteerController extends Controller
                 $count = $csvModel->csv2volunteers();
                 if ($count > 0) {
                     Yii::app()->user->setFlash('success', 
-                        "<strong>$count volunteer(s) added!</strong> Check the \"Manage Volunteers\" tab!."); 
+                        "<strong>$count volunteer(s) added!</strong> Check the \"Manage Volunteers\" tab!");
                 } else {
                     Yii::app()->user->setFlash('error',
                         '<strong>Uh-oh!</strong> No volunteers were added. Check your CSV formatting.');
@@ -96,7 +96,8 @@ class VolunteerController extends Controller
         if(isset($_GET['User'])) $model->attributes=$_GET['User'];
 
         if(Yii::app()->user->isAdmin()) {
-            $this->render('admin', array('model'=>$model, 'org_model'=>$org_model));
+	        $dataProvider = $model->search_volunteers();
+            $this->render('admin', array('model'=>$model, 'org_model'=>$org_model, 'dataProvider'=>$dataProvider));
         } else {
             $role_model = new Role('search');
             $role_model->unsetAttributes();
