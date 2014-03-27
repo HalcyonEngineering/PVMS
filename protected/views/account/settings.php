@@ -34,7 +34,8 @@ $this->pageTitle=Yii::app()->name . ' - Settings';
     )); ?>
 
     <p class="note">Fields with <span class="required">*</span> are required.</p>
-
+<div class="span-16">
+<div class="span-7">
     <?php echo $form->errorSummary($model); ?>
 
 	<?php echo $form->textFieldRow($model, 'name'); ?>
@@ -42,15 +43,16 @@ $this->pageTitle=Yii::app()->name . ' - Settings';
 	<?php echo $form->emailFieldRow($model, 'email'); ?>
 
     <?php echo $form->passwordFieldRow($model,'origPassword'); ?>
-
+</div>
+<div class="span-7">
     <?php echo $form->passwordFieldRow($model,'newPassword'); ?>
 
     <?php echo $form->passwordFieldRow($model,'verifyPassword'); ?>
-	
+
     <div class="row buttons">
         <?php echo CHtml::submitButton('Submit'); ?>
     </div>
-
+</div></div>
     <?php $this->endWidget();
 	unset($form);
 	?>
