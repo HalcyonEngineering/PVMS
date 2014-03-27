@@ -160,6 +160,7 @@ INSERT INTO pvms_user (name, password, email, type) VALUES ('Jason Tseng','$2a$1
 INSERT INTO pvms_user (name, password, email, type) VALUES ('Sean Kennedy','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','manager@pitchn.ca', 1);
 --pw for test is test
 INSERT INTO pvms_user (name, password, email, type) VALUES ('test','$2a$12$JlW4rCFOdwD.NdS0kkuC2OVR7AfMHHqpIhIVeAT.FVvv7F6vEXeIm','test@pitchn.ca', 1);
+INSERT INTO pvms_user (name, password, email, type) VALUES ('John Smith','$2a$12$J1n3OwZasqX3gsMG6TSzvOHEJleCYyWJ/TNAuxOmAoB/zmiBqskeq','volunteer@pitchn.ca', 2);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('6','David','$2a$13$dEoNvuwcQ/7xRSebI6tO6edjUTXKfElOjnZz7TK6ymhT3Z.cNb.0G','david@pitchn.ca','Surrey','Project Management, Web Development, Software Engineering',NULL, 3);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('7','Kenneth','$2a$13$jn1wIc/PvXQMwdF6VRcKr.1vRzWPrjAyS4D..4tBkI5fHDAwUaMFe','kenneth@pitchn.ca','Richmond','Software Engineering, School',NULL, 3);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('8','Jon','$2a$13$cXjPfW2T3q/WUWsGo2tGe.xFjn1UH8VAG0qLtCS.lHOak8HE9yXjC','jon@pitchn.ca','Vancouver','Software Engineering',NULL, 3);
@@ -199,6 +200,7 @@ INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Website Relaunch
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Promotions', 'A project to promote Pitchn.','#FF0000');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Networking', 'Creating new connections in the Startup Company.','#2EFE2E');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Misc', 'Random roles and tasks to be completed','#0404B4');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 1', 'First project created','#00FF00');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Soccer', 'Handley Cup Soccer League is great','#DF013A');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Futsal', 'SRC Futsal league still needs a name','#81F7F3');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ball Hockey', 'Bodin Ball Hockey league','#6E6E6E');
@@ -209,6 +211,12 @@ INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Dodgeball', 'The
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Football', 'The Point Grey football league runs Sunday nights.','#FA58F4');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ultimate', 'The Ultimate league is not the ultimate league.','#8A0829');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Storm the Wall', 'Storm the wall is March 23-25th.','#FF8000');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 2', 'A project','#329E07');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 3', 'A project','#187B1B');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 4', 'A project','#11D418');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 5', 'A project','#097231');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 6', 'A project','#00FF62');
+INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 7', 'A project','#194F04');
 
 --Project files
 INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt',19,'This is an example.');
