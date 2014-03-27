@@ -98,7 +98,7 @@ class Notification extends CActiveRecord
 		));
 	}
 
-    public function search_All() //THIS WILL BE USED FOR THE NOTIFICATION LOG
+    public static function search_All() //THIS WILL BE USED FOR THE NOTIFICATION LOG
     {
 
         $criteria=new CDbCriteria;

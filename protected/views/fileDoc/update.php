@@ -5,14 +5,8 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-	$this->menu=array(
-	array('label'=>'List FileDoc','url'=>array('index')),
-	array('label'=>'Create FileDoc','url'=>array('create')),
-	array('label'=>'View FileDoc','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage FileDoc','url'=>array('admin')),
-	);
 	?>
 
-	<h1>Update FileDoc <?php echo $model->id; ?></h1>
+	<h1>Update Document <?php echo $model->file_name; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

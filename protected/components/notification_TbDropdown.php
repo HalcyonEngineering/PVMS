@@ -52,7 +52,7 @@ class notification_TbDropdown extends TbMenu {
 		$countCriteria->compare('read_status', Notification::STATUS_UNREAD);
         $Notification_dataprovider = new CActiveDataProvider('Notification',
             array('criteria' => $notify_criteria,
-                'pagination' => array('pageSize' => 10),
+                'pagination' => array('pageSize' => 3),
                 'countCriteria'=>$countCriteria,
             )
         );

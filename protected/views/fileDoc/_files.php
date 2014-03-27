@@ -32,9 +32,9 @@
  ?>
 <?php
 
-$template = '{download}{view}{update}';
+$template = '{download}';
 if (Yii::app()->user->isManager()) {
-	$template .= '{delete}';
+	$template .= '{update}{delete}';
 }
 $this->widget('bootstrap.widgets.TbGridView',
               array(

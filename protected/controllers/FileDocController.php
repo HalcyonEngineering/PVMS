@@ -60,7 +60,7 @@ class FileDocController extends Controller
  	 * Creates a new model.
  	 * If creation is successful, the browser will be redirected to the 'view' page.
  	 */
-	public function actionCreate($project_id = null)
+	public function actionCreate($project_id)
 	{
 		////Yii::log('FileDoc create action begun', 'warning', 'FileDoc');
         
@@ -79,16 +79,22 @@ class FileDocController extends Controller
     	        ////Yii::log('file to be saved in path: '.Yii::getPathOfAlias('webroot').'/assets/tempupload/'.$model->uploadedfile->name, 'warning', 'FileDoc');
                 //$model->uploadedfile->saveAs(Yii::getPathOfAlias('webroot').'/assets/tempupload/'.$model->uploadedfile->name); // uncomment and modify if you want to save the file on the filesystem
                 ////Yii::log('FileDoc create action ended with redir', 'warning', 'FileDoc');
-                $this->redirect(array('view','id'=>$model->id)); // redirect to success page
+	            $this->redirect(array('/project/view','id'=>$project_id)); // redirect to success page
                 $project = Project::model()->findByAttributes(array('id' => $model->project_id,));
-                $user_List = $project->users;
-                foreach ($user_List as $user){
-                    $user_id = $user->id;
-                    $project_name = $project->name;
-                    $file_id = $model->id;
-                    $file_name = $model->file_name;
-                    Notification::notify($user_id, $file_name . " added to " . $project_name . " project files. Click here for download."  , createUrl('/FileDoc/download', array('id' => $file_id)));
+                //$user_List = $project->users;
+	            $roleList = $project->roles;
+	            $userList = array();
+                foreach ($roleList as $role){
+	                $userList = CMap::mergeArray($userList, $role->users);
                 }
+	            Yii::log(CVarDumper::dumpAsString($userList), 'error');
+	            $project_name = $project->name;
+	            $file_id = $model->id;
+	            $file_name = $model->file_name;
+	            Notification::notifyAll($userList,
+	                                    $file_name . " added to " . $project_name . " project files. Click here for download."  ,
+	                                    $this->createUrl('/FileDoc/download', array('id' => $file_id)));
+
             }
         }
 
