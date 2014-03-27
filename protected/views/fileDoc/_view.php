@@ -18,9 +18,9 @@
 	<?php echo CHtml::encode($data->file_size); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('file_data')); ?>:</b>
+	/*<b><?php echo CHtml::encode($data->getAttributeLabel('file_data')); ?>:</b>
 	<?php echo CHtml::encode($data->file_data); ?>
-	<br />
+	<br />*/
 
 
 </div>

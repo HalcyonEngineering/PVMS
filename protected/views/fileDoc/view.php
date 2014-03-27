@@ -22,7 +22,7 @@ array('label'=>'Manage FileDoc','url'=>array('admin')),
 		'project_id',
 		'file_name',
 		'file_size',
-		'file_data',
+		/*'file_data',*/
 ),
 )); ?>
 
