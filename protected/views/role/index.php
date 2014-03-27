@@ -1,9 +1,9 @@
-<?php
+<center><?php
     $user = Yii::app()->user->name;
-    echo "<h1>Welcome, ". $user ."</h1>";
+    echo "<h1>Hello, ". $user ."</h1>";
     ?>
-<p>Here are your roles.</p></br>
-
+<p>Welcome to Pitch'n, Here are your roles. Please make sure to keep your profile updated.</p></br>
+</center>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
