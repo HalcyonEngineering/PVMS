@@ -435,5 +435,10 @@ label {
 	border-radius:10px;
 }
 
+#errormsg {
+	color:red;
+	font-style:italic;
+}
+
 
 

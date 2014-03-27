@@ -39,7 +39,7 @@ $this->breadcrumbs=array(
 
 
  <?php if(count($emptyRolesProvider->getData()) !== 0){
-	 echo "You have not assigned a volunteer for these roles.";
+	 echo '<div id="errormsg">  You have not assigned a volunteer for these roles:</div>';
 	 $this->widget('bootstrap.widgets.TbGridView', array(
 		 'id'=>'unassigned-role-grid',
 		 'dataProvider' => $emptyRolesProvider,
