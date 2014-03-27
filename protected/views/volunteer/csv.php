@@ -20,6 +20,9 @@ echo '<br>';
 
 echo $form->fileField($csvModel, 'csv');
 echo $form->error($csvModel, 'csv');
+
+echo '<br>';
+
 echo CHtml::submitButton('Submit');
 
 $this->endWidget();
