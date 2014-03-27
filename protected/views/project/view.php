@@ -59,7 +59,7 @@ $this->breadcrumbs=array(
 
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'dataProvider' => $roleDataProvider,
-	'type'=>'bordered hover',
+	//'type'=>'bordered',
 	'columns' => array(
 //		array('class'=>'bootstrap.widgets.TbDataColumn',
 //		      'name'=>'Role Name',

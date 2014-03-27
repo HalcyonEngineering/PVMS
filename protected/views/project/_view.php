@@ -12,7 +12,7 @@
 		<br />  <br />-->
        </div>
       <div class="tile-bottom">
-<?php if ($data->target !== null):?>
+<?php if (!empty($data->target)):?>
         <b><?php echo CHtml::encode($data->getAttributeLabel('target').":"); ?></b><br />
 		<?php echo CHtml::encode($data->target); ?></br>
 <?php endif; ?>

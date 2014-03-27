@@ -96,6 +96,7 @@ return array(
 		    'loginUrl' => array('/account/login'),
 		    'class' => 'WebUser',
 	    ),
+	    'widgetFactory'=>require(dirname(__FILE__).'/widgets.php')
 	),
 
 	// application-level parameters that can be accessed
