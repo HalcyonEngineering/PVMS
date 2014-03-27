@@ -29,6 +29,7 @@ class Csv extends CActiveRecord
         // will receive user inputs.
         return array(
             array('csv', 'file', 'allowEmpty' => 'false', 'types' => 'csv', 'safe' => true),
+            array('csv', 'required', 'message'=>'You must select a file to upload.'),
         );
     }
 
