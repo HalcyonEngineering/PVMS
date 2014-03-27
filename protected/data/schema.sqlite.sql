@@ -160,7 +160,6 @@ INSERT INTO pvms_user (name, password, email, type) VALUES ('Jason Tseng','$2a$1
 INSERT INTO pvms_user (name, password, email, type) VALUES ('Sean Kennedy','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','manager@pitchn.ca', 1);
 --pw for test is test
 INSERT INTO pvms_user (name, password, email, type) VALUES ('test','$2a$12$JlW4rCFOdwD.NdS0kkuC2OVR7AfMHHqpIhIVeAT.FVvv7F6vEXeIm','test@pitchn.ca', 1);
-INSERT INTO pvms_user (name, password, email, type) VALUES ('John Smith','$2a$12$J1n3OwZasqX3gsMG6TSzvOHEJleCYyWJ/TNAuxOmAoB/zmiBqskeq','volunteer@pitchn.ca', 2);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('6','David','$2a$13$dEoNvuwcQ/7xRSebI6tO6edjUTXKfElOjnZz7TK6ymhT3Z.cNb.0G','david@pitchn.ca','Surrey','Project Management, Web Development, Software Engineering',NULL, 3);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('7','Kenneth','$2a$13$jn1wIc/PvXQMwdF6VRcKr.1vRzWPrjAyS4D..4tBkI5fHDAwUaMFe','kenneth@pitchn.ca','Richmond','Software Engineering, School',NULL, 3);
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability") VALUES ('8','Jon','$2a$13$cXjPfW2T3q/WUWsGo2tGe.xFjn1UH8VAG0qLtCS.lHOak8HE9yXjC','jon@pitchn.ca','Vancouver','Software Engineering',NULL, 3);
@@ -200,7 +199,6 @@ INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Website Relaunch
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Promotions', 'A project to promote Pitchn.','#FF0000');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Networking', 'Creating new connections in the Startup Company.','#2EFE2E');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (1,'Misc', 'Random roles and tasks to be completed','#0404B4');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 1', 'First project created','#00FF00');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Soccer', 'Handley Cup Soccer League is great','#DF013A');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Futsal', 'SRC Futsal league still needs a name','#81F7F3');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ball Hockey', 'Bodin Ball Hockey league','#6E6E6E');
@@ -211,12 +209,6 @@ INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Dodgeball', 'The
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Football', 'The Point Grey football league runs Sunday nights.','#FA58F4');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Ultimate', 'The Ultimate league is not the ultimate league.','#8A0829');
 INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (3,'Storm the Wall', 'Storm the wall is March 23-25th.','#FF8000');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 2', 'A project','#329E07');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 3', 'A project','#187B1B');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 4', 'A project','#11D418');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 5', 'A project','#097231');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 6', 'A project','#00FF62');
-INSERT INTO pvms_project(org_id, name, desc, colour) VALUES (2,'Project 7', 'A project','#194F04');
 
 --Project files
 INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'example.txt',19,'This is an example.');
@@ -225,51 +217,51 @@ INSERT INTO pvms_file(project_id, file_name, file_size, file_data) VALUES(1,'exa
 
 --Roles + onboarding pages
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'Web Developer', 'First.', '#CC9900');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(1,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'PHP Programmer', 'First.', '#009933');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(2,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(2,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'Marketing Assistant', 'First.', '#FF0000');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(3,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(3,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (1, 'Sponsorship Assistant', 'First.', '#2EFE2E');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(4,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(4,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (6, 'First Role', 'First role created.', '#81F7F3');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(5,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(5,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Route Patrol', 'First role created.', '#76189A');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(6,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(6,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Wall Spotter', 'First role created.', '#E4E437');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(7,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(7,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'DJ && MC', 'First role created.', '#8A0829');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(8,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(8,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Cycle Transition', 'First role created.', '#FA58F4');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(9,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(9,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (16, 'Pool Transition', 'First role created.', '#009933');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(10,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(10,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Communications Assistant Director', 'First role created.', '#2EFE2E');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(11,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(11,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Media Assistant Director', 'First.', '#8A0829');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(12,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(12,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Eligibility Assistant Director', 'First.', '#DF013A');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(13,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(13,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Scheduling Assistant Director', 'First.', '#8A0829');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(14,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(14,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Social Assistant Director', 'First.', '#76189A');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(15,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(15,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Referee Development Assistant Director', 'First .', '#81F7F3');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(16,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(16,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (8, 'Referee CoordinatorAssistant Director', 'First .', '#FF0000');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(17,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(17,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 1', 'Test.', '#2A867D');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(18,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(18,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 2', 'Test.', '#2A867D');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(19,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(19,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 3', 'Test.', '#2A867D');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(20,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(20,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 4', 'Test.', '#2A867D');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(21,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(21,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 5', 'Test.', '#2A867D');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(22,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(22,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 INSERT INTO pvms_role(project_id, name, desc, colour) VALUES (7, 'Test Role 6', 'Test.', '#2A867D');
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(23,'Welcome!', 'get work done', 'kimjongun@wpk.kp');
+INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES(23,'Welcome!', 'get work done', 'david.d.li@gmail.com');
 
 -- Tasks
 INSERT INTO pvms_task(role_id, name, desc, status) VALUES(1, 'Create new UI', 'This task needs to be completed.', 2);
