@@ -1,3 +1,5 @@
+<div class="Login-content">
+<div class="Login-wallpaper">
 <?php
 /* @var $this AccountController */
 $this->pageTitle=Yii::app()->name . ' - Login';
@@ -37,3 +39,5 @@ $this->breadcrumbs=array(
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+</div>
+</div>
