@@ -239,19 +239,19 @@ class TaskController extends Controller
 				);
 			} elseif (Yii::app()->user->isVolunteer()){
 				Notification::notify($model->role->project->org->getManager()->id,
-				                     "A user has marked a task as complete.",
+				                     "Your volunteer(s) have updated the time spent working on \"$model->name.\"",
 				                     $url
 				);
 			}
 		} else {
 			if(Yii::app()->user->isManager()){
 				Notification::notifyAll($model->role->users,
-				                        "Your manager has marked $model->name as $statusName.",
+				                        "Your manager has marked \"$model->name\" as $statusName.",
 				                        $url
 				);
 			} elseif (Yii::app()->user->isVolunteer()){
 				Notification::notify($model->role->project->org->getManager()->id,
-				                     "A volunteer has marked $model->name as $statusName.",
+				                     "A volunteer has marked \"$model->name\" as $statusName.",
 				                     $url
 				);
 			}
