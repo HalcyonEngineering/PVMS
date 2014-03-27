@@ -17,7 +17,7 @@ font-family: "Calibri";
 
 #content
 {
-    min-height:450px;
+    min-height:500px;
     margin-left: 0px;
 }
 
@@ -404,7 +404,7 @@ label {
  margin:10px;
 }
 
-#content .form-actions {
+.form-actions {
 	padding: 0;
 	margin-top: 10px;
 	margin-bottom: 0px;
@@ -419,9 +419,10 @@ label {
 .Login-content {
 	position: absolute;
 	top: 88px;
-	background-color: #F0F0F0;
-	min-height: 489px;
-	 left:0;
+	background-image:url('Homepage-Banner21.jpg');
+	background-size:100% 100%;
+	min-height: 539px;
+	left:0;
     right:0;
 } 
 
@@ -440,5 +441,13 @@ label {
 	font-style:italic;
 }
 
+#create-task-btn {
+	position: relative;
+	right: 29px;
+}
 
+#add-role-btn {
+position: relative;
+right: 34px;
+}
 
