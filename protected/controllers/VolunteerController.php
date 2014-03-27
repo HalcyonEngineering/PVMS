@@ -21,7 +21,7 @@ class VolunteerController extends Controller
                         "<strong>$count volunteer(s) added!</strong> Check the \"Manage Volunteers\" tab!."); 
                 } else {
                     Yii::app()->user->setFlash('error',
-                        '<strong>Uh-oh!</strong> No volunteers were added. Were they already in the database?');
+                        '<strong>Uh-oh!</strong> No volunteers were added. Check your CSV formatting.');
                 }
             }
        }
