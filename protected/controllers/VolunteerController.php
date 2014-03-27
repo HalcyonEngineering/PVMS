@@ -14,8 +14,17 @@ class VolunteerController extends Controller
         {
             $csvModel->attributes = $_POST['Csv'];
             $csvModel->csv = CUploadedFile::getInstance($csvModel, 'csv');
-            if($csvModel->save()) $csvModel->csv2volunteers();
-        }
+            if($csvModel->save()) {
+                $count = $csvModel->csv2volunteers();
+                if ($count > 0) {
+                    Yii::app()->user->setFlash('success', 
+                        "<strong>$count volunteer(s) added!</strong> Check the \"Manage Volunteers\" tab!."); 
+                } else {
+                    Yii::app()->user->setFlash('error',
+                        '<strong>Uh-oh!</strong> No volunteers were added. Were they already in the database?');
+                }
+            }
+       }
         
         if(isset($_POST['User']))
         {

@@ -95,6 +95,7 @@ class Csv extends CActiveRecord
      */
     public function csv2volunteers()
     {
+        $count = 0;
         $username = Yii::app()->user->name;
 	    $filepath = $this->csv->getTempName();
 
@@ -119,11 +120,13 @@ class Csv extends CActiveRecord
                         $availability = $weekends | $weekdays;
                     }
 
-                    User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg(), $availability);
+                    $success = User::enrollVolunteer($name, $email, $location, $skillset, Yii::app()->user->getManagedOrg(), $availability);
+                    if ($success) $count += 1;
                     Yii::trace("AVAIL::: ".CVarDumper::dumpAsString($fields));
                 }
             }
         }
+        return $count;
     }
 
     /**
