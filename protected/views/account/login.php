@@ -1,5 +1,3 @@
-<div class="Login-content">
-<div class="Login-wallpaper">
 <?php
 /* @var $this AccountController */
 $this->pageTitle=Yii::app()->name . ' - Login';
@@ -8,6 +6,16 @@ $this->breadcrumbs=array(
 );
 
 ?>
+<div class="Login-content">
+	<div class="Login-wallpaper">
+	<?php
+		$this->widget('bootstrap.widgets.TbAlert', array(
+			'alerts'=>array(
+			    'error',
+			),
+
+		));
+		?>
 <h1>Login</h1>
 
 <p>Please fill out the following form with your login credentials:</p>
@@ -25,9 +33,11 @@ $this->breadcrumbs=array(
 
 
 	<?php echo $form->passwordFieldRow($model,'password'); ?>
-        <p class="hint">
-            You can also register <?php echo CHtml::link('here', array('account/register')) ?>
-        </p>
+	<?php
+		//echo '<p class="hint">';
+		//echo "You can also register ".CHtml::link('here', array('account/register'));
+		//echo '</p>';
+	?>
 	</div>
 
 		<?php echo $form->checkBoxRow($model,'rememberMe'); ?>

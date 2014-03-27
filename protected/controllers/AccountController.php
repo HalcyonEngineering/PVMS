@@ -58,6 +58,11 @@ class AccountController extends Controller
 			$this->redirect(array('project/index'));
 		} elseif (Yii::app()->user->isAdmin()){
 			$this->redirect(array('organization/search'));
+		} else {
+			Yii::app()->user->logout();
+			Yii::app()->user->setFlash('error', 'User has been disabled.');
+			$model = new LoginForm;
+			$this->render('login', array('model' => $model));
 		}
 	}
 
