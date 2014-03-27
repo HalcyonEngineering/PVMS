@@ -37,32 +37,49 @@ $this->breadcrumbs=array(
 
 <h3> Volunteers and Roles</h3>
 
-<!-- Remove after debugging
- <?php $this->widget('bootstrap.widgets.TbDetailView',array(
-'data'=>$model,
-'attributes'=>array(
-		'id',
-		'org_id',
-        'colour',
-),
-)); ?>
--->
+
+ <?php if(isset($emptyRolesProvider)){
+	 
+	 $this->widget('bootstrap.widgets.TbGridView', array(
+		 'dataProvider' => $emptyRolesProvider,
+	     'columns' => array(
+		     'name:text:Role Name',
+	         array('class'=>'bootstrap.widgets.TbButtonColumn',
+	         'template'=>'{view}',
+	         'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->role->primaryKey))',
+	         ),
+	     ),
+	 ));
+ } ?>
+
+
 
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'dataProvider' => $roleDataProvider,
 	'type'=>'bordered hover',
 	'columns' => array(
+//		array('class'=>'bootstrap.widgets.TbDataColumn',
+//		      'name'=>'Role Name',
+//		      'type'=>'text',
+//		      'value'=>'$data->role->name',
+//		      'sortable'=>true,
+//		),
 		'role.name',
 		array('class'=>'bootstrap.widgets.TbButtonColumn',
 		      'template'=>'{view} {delete}',
 		      'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->role->primaryKey))',
 		      'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->role->primaryKey))',
-                      'buttons'=>array(
-                        'view'=>array('label'=>'View role details'),
-                        'delete'=>array('label'=>'Delete role'),
-                      ),
-                ),
-		'user.name',
+		      'buttons'=>array(
+			      'view'=>array('label'=>'View role details'),
+			      'delete'=>array('label'=>'Delete role'),
+		      ),
+		),
+	    'user.name',
+//		array('class'=>'bootstrap.widgets.TbDataColumn',
+//		      'name'=>'Volunteer Name',
+//		      'type'=>'text',
+//		      'value'=>'(isset($data->user)) ? $data->user->name : "No User Assigned"',
+//		),
 		array(
                     'class'=>'bootstrap.widgets.TbButtonColumn',
                     'template'=>'{remove}',
@@ -75,7 +92,7 @@ $this->breadcrumbs=array(
                             'htmlOptions' => array('confirm' => 'Download file?', 'target'=>'_blank'),
                         )
                     )
-                )
+                ),
 		//array('class'=>'bootstrap.widgets.TbButtonColumn',
                 //      'template'=>'{delete}',
 		//      'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/volunteer/removeFromRole",

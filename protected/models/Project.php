@@ -106,6 +106,16 @@ class Project extends CActiveRecord
 		));
 	}
 
+	public static function getUnassignedRolesInProject($id){
+		$model = Project::model()->with('roles', 'roles.users')->together()->findByPk($id);
+		$emptyRoles = array();
+		foreach($model->roles as $role){
+			if (count($role->users) === 0){
+				$emptyRoles[] = $role;
+			}
+		}
+		return $emptyRoles;
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

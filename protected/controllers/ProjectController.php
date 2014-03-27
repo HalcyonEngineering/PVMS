@@ -48,9 +48,43 @@ class ProjectController extends Controller
 			$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$id,),));
 			$roleDataProvider = UserRole::model()->search($id);
 			//CVarDumper::dump($roleDataProvider->getData());
+			$emptyRoles = Project::getUnassignedRolesInProject($id);
+			//CVarDumper::dump($emptyRoles);
+			$emptyUserRoles = array();
+			foreach($emptyRoles as $role){
+				$emptyUserRoles[] = UserRole::getFakeUserRole($role);
+			}
+			$fakeData = CMap::mergeArray($emptyUserRoles, $roleDataProvider->getData());
+//			$newRoleDataProvider = new CArrayDataProvider($fakeData, array(
+//				'keyField'=>false,
+//				'sort'=>array(
+//					'attributes'=>array(
+//						//	'defaultOrder'=>'role.name',
+//						'role.name'=>array(
+//							'asc'=>'role.name',
+//							'desc'=>'role.name DESC'),
+//						'user.name'=>array(
+//							'asc'=>'user.name'),
+//						'desc'=>'user.name DESC'),
+//				),
+//			));
+			$emptyRolesProvider = new CActiveDataProvider('Role',array(
+				'data'=>$emptyRoles,
+				'sort'=>array(
+					'attributes'=>array(
+						//	'defaultOrder'=>'role.name',
+						'name'=>array(
+							'asc'=>'name',
+							'desc'=>'name DESC')
+					)
+				)
+			));
+			//CVarDumper::dump($fakeData);
 			$this->render('view', array('model'=>$model,
 			                        'dataProvider'=>$dataProvider,
-			                        'roleDataProvider'=>$roleDataProvider)
+			                        'roleDataProvider'=>$roleDataProvider,
+			                        'emptyRolesProvider'=>$emptyRolesProvider,
+			                    )
 			);
 		} else {
 			throw new CHttpException(403);

@@ -99,6 +99,20 @@ class UserRole extends CActiveRecord
 	}
 
 	/**
+	 * Converts a Role into a UserRole.
+	 * This is used to add them to a role view in a project.
+	 * @param $role
+	 *
+	 */
+	public static function getFakeUserRole($role){
+		$model = new UserRole;
+		$model->role = $role;
+		$model->role_id = $role->id;
+		$model->user = null;
+		return $model;
+	}
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
