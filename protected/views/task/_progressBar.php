@@ -10,7 +10,7 @@ foreach ($data->tasks as $task){
 }
 
 if($taskcount > 0){
-	echo CHtml::encode("Progress:");
+	echo "<b>Progress:</b>";
 	$this->widget('bootstrap.widgets.TbProgress',
 	              array(
 		              'stacked'=>array(
