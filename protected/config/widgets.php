@@ -7,7 +7,7 @@
 			),
 		    'TbDatePicker'=>array(
 			    'options'=>array(
-				    'format'=>'MM dd yyyy',
+				    'format'=>'MM d yyyy',
 			        'startDate'=>'0d',
 			    ),
 		    ),

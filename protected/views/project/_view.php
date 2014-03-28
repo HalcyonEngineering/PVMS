@@ -1,8 +1,19 @@
-<div class="tile-view span-6">
-	<div class="tile" style=<?php echo "border-color:" . CHtml::encode($data->colour).";";?>>
-		<h3><b><?php echo CHtml::encode($data->name); ?></b>
+<?php
+	/**
+	 * Project $data
+	 */
+?>
 
-</h3>
+<div class="tile-view span-6">
+	<?php
+		echo CHtml::openTag('div',
+		                    array(
+			                    'class'=>'tile',
+			                    'style'=>"border-color: ".$data->colour .';'
+		                    )
+		);
+	?>
+		<h3><b><?php echo CHtml::encode($data->name); ?></b></h3>
 
         <div class="tile-top">
 	    <?php echo CHtml::encode($data->desc); ?>
@@ -12,13 +23,13 @@
       <div class="tile-bottom">
 <?php if (!empty($data->target)):?>
         <b><?php echo CHtml::encode($data->getAttributeLabel('target').":"); ?></b><br />
-	<!-- eeee MMMM d yyyy -->
 		<?php
-	echo Yii::app()->dateFormatter->format('eeee, MMMM d yyyy', $data->target);
+	echo Yii::app()->dateFormatter->format('EEEE, MMMM d yyyy', $data->target);
+	$data->getTargetDateInfo();
 
 
 
-	?></br>
+	?><br />
 <?php endif; ?>
 		<?php
 
@@ -51,5 +62,5 @@ $this->widget(
 
       </div>
 
-	</div>
+	<?php echo CHtml::closeTag('div')?>
 </div>

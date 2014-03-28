@@ -45,7 +45,7 @@ class Project extends CActiveRecord
 			      'message' => 'You must be a manager of this organization to add a project.'),
 			array('name', 'length', 'max'=>128),
 			array('colour', 'match', 'pattern'=>'/#[0-9a-fA-F]{6}/'),
-			array('targetString', 'date', 'format'=>'MMMM dd yyyy', 'timestampAttribute'=>'target'),
+			array('targetString', 'date', 'format'=>'MMMM d yyyy', 'timestampAttribute'=>'target'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, org_id, name, desc, colour, target', 'safe', 'on'=>'search')
@@ -81,6 +81,11 @@ class Project extends CActiveRecord
 			'target' => 'Target Completion',
 		    'targetString' => 'Target Completion Date',
 		);
+	}
+
+	public function afterFind(){
+		$this->targetString = Yii::app()->dateFormatter->format('MMMM d yyy', $this->target);
+		parent::afterFind();
 	}
 
 	/**
@@ -122,6 +127,32 @@ class Project extends CActiveRecord
 		}
 		return $emptyRoles;
 	}
+	/*
+	 * Returns an array of information about the target date.
+	 * formattedString contains a formatted string of the target date.
+	 * dateTime returns the DateTime object of the target date.
+	 * dateTimeInterval is the date time interval of the target date compared to the target time
+	 *
+	 */
+	public function getTargetDateInfo(){
+		$returnedArray = array();
+		$dateTime = new DateTime('@'.$this->target);
+		$now = new DateTime();
+		$dateTimeInterval = $now->diff($dateTime);
+
+		$returnedArray['formattedString'] = Yii::app()->dateFormatter->format('EEEE, MMMM d yyyy', $this->target);
+		$returnedArray['dateTime'] = $dateTime;
+		$returnedArray['dateTimeInterval'] = $dateTimeInterval;
+		$returnedArray['daysToTarget'] = $dateTimeInterval->days;
+		//If we are past our target, we are behind.
+		if ($dateTimeInterval->invert == 1){
+			$returnedArray['daysToTarget'] *= -1;
+		}
+		$returnedArray['passedTarget'] = ($dateTimeInterval->invert == 1);
+		return $returnedArray;
+
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
