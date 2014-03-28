@@ -99,11 +99,16 @@ font-family: "Calibri";
     padding:0px 0px 0px 0px;
 }
 
-#mainmenu ul li a:hover, #mainmenu ul li.active a
+
+#mainmenu ul li a:hover
 {
-	color: #1AAB9F;
+	background-color:#F8F8F8;
+}
+
+#mainmenu ul li.active a
+{
 	background-color:#ffffff;
-	text-decoration:none;
+    border-right-width: 0px;
 }
 
 #mainmenu ul li a img
