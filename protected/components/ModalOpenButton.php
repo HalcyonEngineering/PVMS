@@ -12,6 +12,7 @@ class ModalOpenButton extends CWidget{
 	public $type;
 	public $button_id;
 	public $url;
+	public $encodeLabel = true;
 
 	public function init(){
 		$this-> buttonOptions = array(
@@ -32,6 +33,9 @@ class ModalOpenButton extends CWidget{
 				),
 			),
 		);
+		if (isset($this->encodeLabel)) {
+			$this->buttonOptions['encodeLabel'] = $this->encodeLabel;
+		}
 
 		if(isset($this->label)){
 			$this->buttonOptions['label'] = $this->label;
@@ -72,4 +76,4 @@ class ModalOpenButton extends CWidget{
 	public function run(){
 		$this->widget('bootstrap.widgets.TbButton',$this->buttonOptions);
 	}
-} 
+}
