@@ -38,7 +38,7 @@ class Task extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('role_id, name, status, desc', 'required'),
-			array('role_id, expected, actual, status', 'numerical', 'integerOnly'=>true),
+			array('role_id, expected, actual', 'numerical', 'integerOnly'=>true, 'min'=>0, 'tooSmall'=>'{attribute} must be greater than {min}'),
 			array('role_id', 'exist', 'className' => 'Role', 'attributeName'=>'id'),
 			array('name', 'length', 'max'=>128, 'on' => 'update, insert'),
 			array('role_id, name, desc', 'unsafe', 'on'=>'volunteerUpdate'),
@@ -73,8 +73,8 @@ class Task extends CActiveRecord
 			'role_id' => 'Role ID',
 			'name' => 'Name',
 			'desc' => 'Details',
-			'expected' => 'Expected Time in Hours',
-			'actual' => 'Actual Time in Hours',
+			'expected' => 'Expected Time (Hours)',
+			'actual' => 'Actual Time (Hours)',
 			'status' => 'Status',
 		);
 	}

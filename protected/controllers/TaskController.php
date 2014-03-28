@@ -132,7 +132,7 @@ class TaskController extends Controller
 				$this->taskNotify($model, $generalChange);
 				Yii::app()->end(200);
 			}
-			throw new CHttpException(400, "Could not update value");
+			throw new CHttpException(400, $model->getError($_POST['name']));
 		}
 		throw new CHttpException(403);
 	}
