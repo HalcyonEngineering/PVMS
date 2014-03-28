@@ -9,10 +9,10 @@
         ),
     ));
 ?>
-
+<center>
 <h1>Search Volunteers</h1>
 <p>Here are your list of volunteers. You can also refine the list by searching.</p>
-
+</center>
 <?php $this->renderPartial('_search', array('model'=>$model)); ?>
 
 <?php 

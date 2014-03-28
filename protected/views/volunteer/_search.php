@@ -19,48 +19,43 @@
 <tr>
 <td style="padding:0px; width:300px; vertical-align:top;">
 <div class="row" style="margin:0px;">
-    <?php echo CHtml::activeLabel($model,'Name'); ?>
-    <?php echo CHtml::activeTextField($model,'username') ?>
-    <p class="hint">Leave blank to search all volunteers.</p>
+<?php echo CHtml::activeTextField($model,'username', array('placeholder'=>'Name')); ?>
 </div>
 <div class="row submit">
-<?php echo CHtml::submitButton('Refine Volunteer List', array('submit'=>'search')); ?>
+<?php echo CHtml::submitButton('Search', array('submit'=>'search')); ?>
 </div>
 </td>
 <td style="padding:0px; width:300px; vertical-align:top;">
 <div class="project-dropdown">
 <?php
     $project = new Project('search');
-    echo CHtml::activeLabel($model,'Project');
     echo CHtml::activeDropDownList(
                                    $project,
                                    'id',
                                    CHtml::listData( Project::model()->findAll($c), 'id', 'name' ),
-                                   array('prompt'=>'Any')
+                                   array('prompt'=>'All Projects')
                                    );
     ?>
 </div>
 <div class="skillset-dropdown">
     <?php 
         $skill = new Skill('search');
-        echo CHtml::activeLabel($model,'Skill');
         echo CHtml::activeDropDownList(
             $skill,
             'id',
             CHtml::listData( Skill::model()->findAll($c), 'id', 'name' ),
-            array('prompt'=>'Any')
+            array('prompt'=>'All Skills')
             );
     ?>
 </div>
 <div class="location-dropdown">
 <?php
     $location = new Location('search');
-    echo CHtml::activeLabel($model,'Location');
     echo CHtml::activeDropDownList(
                                    $location,
                                    'id',
                                    CHtml::listData( Location::model()->findAll($c), 'id', 'name' ),
-                                   array('prompt'=>'Any')
+                                   array('prompt'=>'Any Location')
                                    );
     ?>
 </div>
