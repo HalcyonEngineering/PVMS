@@ -18,6 +18,11 @@
 class Project extends CActiveRecord
 {
 	/**
+	 * @var string representation of the target date.
+	 */
+	public $targetString;
+
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -40,7 +45,7 @@ class Project extends CActiveRecord
 			      'message' => 'You must be a manager of this organization to add a project.'),
 			array('name', 'length', 'max'=>128),
 			array('colour', 'match', 'pattern'=>'/#[0-9a-fA-F]{6}/'),
-			array('target', 'length', 'max'=>10),
+			array('targetString', 'date', 'format'=>'MMMM dd yyyy', 'timestampAttribute'=>'target'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, org_id, name, desc, colour, target', 'safe', 'on'=>'search')
@@ -74,6 +79,7 @@ class Project extends CActiveRecord
 			'desc' => 'Description',
 			'colour' => 'Colour',
 			'target' => 'Target Completion',
+		    'targetString' => 'Target Completion Date',
 		);
 	}
 

@@ -34,7 +34,7 @@ CREATE TABLE pvms_project
   name VARCHAR(128) NOT NULL,
   desc TEXT NOT NULL,
   colour VARCHAR(7) NOT NULL,
-  target VARCHAR(10),
+  target INTEGER,
   CONSTRAINT FK_org FOREIGN KEY (org_id) REFERENCES pvms_organization (id) ON DELETE CASCADE ON UPDATE RESTRICT
 );
 
