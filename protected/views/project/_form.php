@@ -24,7 +24,13 @@ echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'spa
 
 echo $form->colorpickerRow($model,'colour');
 
-echo $form->datepickerRow($model,'targetString',array(),array('hint'=>'Leave blank for indefinite'));
+echo $form->datepickerRow($model,
+                          'targetString',
+                          array(),
+                          array(
+	                          'hint'=>'Leave blank for indefinite',
+	                          'prepend' => '<i class="icon-calendar"></i>'
+                          ));
 
 ?>
 
