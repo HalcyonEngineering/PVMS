@@ -22,7 +22,7 @@ if(isset($embeddedForm) && $embeddedForm){
 <?php echo $form->hiddenField($onboardingModel,'role_id'); ?>
 <?php echo $form->textAreaRow($onboardingModel,'onboarding_welcome',array('rows'=>1, 'cols'=>50, 'class'=>'span5')); ?>
 <?php echo $form->textAreaRow($onboardingModel,'onboarding_instructions',array('rows'=>1, 'cols'=>50, 'class'=>'span5')); ?>
-<?php echo $form->textAreaRow($onboardingModel,'onboarding_contact',array('rows'=>1, 'cols'=>50, 'class'=>'span5')); ?>
+<?php echo $form->textAreaRow($onboardingModel,'onboarding_contact',array('rows'=>3, 'cols'=>50, 'class'=>'span5', 'placeholder'=> "Ex. Supervisor: John Smith  Email: johnsmith@pitchn.ca Phone Number: XXX-XXX-XXXX")); ?>
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
 		'buttonType'=>'submit',
