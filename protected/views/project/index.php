@@ -9,7 +9,7 @@
 <center>
 <h2> Projects </h2>
 <p> Here are your projects. You can also create a new project by clicking on the button below</p></br>
-</center>
+
 <?php $this->widget('ModalOpenButton',
                     array(
 	                    'button_id'=>'create-project-btn',
@@ -18,7 +18,7 @@
 	                    'type' => 'primary',
                     ));
 ?>
-
+</center>
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',

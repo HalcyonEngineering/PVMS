@@ -32,11 +32,6 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         'location',
         'skillset',
         array(
-            'name' => 'Availability',
-            'class'=> 'bootstrap.widgets.TbDataColumn',
-            'value'=> 'User::availabilityString($data->availability)',
-        ),
-        array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
             'template'=>'{remove}',
             'buttons'=>array(
@@ -60,14 +55,11 @@ echo '  ';
 echo CHtml::submitButton('Confirm', array('submit'=>'search'));
 ?>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <?php
 echo CHtml::submitButton('Mail selected', array(
     'submit'=>$this->createURL('//message/bulkMail'),
+	'class'=>'pull-right',
 ));
 echo CHtml::endForm();
 ?>

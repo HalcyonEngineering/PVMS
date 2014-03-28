@@ -13,8 +13,6 @@ $this->widget('bootstrap.widgets.TbGridView',
 	              'template'=>'{items}{summary}{pager}',
 	              'columns'=> array(
 		              'file_name',
-		              'file_size',
-		              //'file_data',
 		              array(
 			              'class'=>'bootstrap.widgets.TbButtonColumn', // buttoncolumn customized with documentation at: http://www.yiiframework.com/wiki/106/using-cbuttoncolumn-to-customize-buttons-in-cgridview/
 			              'template'=>$template,

@@ -24,7 +24,7 @@
 		<?php
 		$this->widget('ModalOpenButton',
 		              array('label' => 'Edit Project',
-		                    'type' => 'primary',
+		                    'type' => 'link',
 		                    'button_id'=>'edit-project-'.$data->id,
 		                    'url' => Yii::app()->createUrl("project/update", array("id"=>$data->id))
 		              )
