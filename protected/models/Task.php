@@ -72,7 +72,7 @@ class Task extends CActiveRecord
 			'id' => 'Task ID',
 			'role_id' => 'Role ID',
 			'name' => 'Name',
-			'desc' => 'Description',
+			'desc' => 'Details',
 			'expected' => 'Expected Time in Hours',
 			'actual' => 'Actual Time in Hours',
 			'status' => 'Status',
