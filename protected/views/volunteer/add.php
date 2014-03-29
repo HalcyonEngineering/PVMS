@@ -13,10 +13,10 @@
 <?php
     $this->pageTitle=Yii::app()->name . ' - Add Volunteers';
 ?>
-
+<center>
 <h1>Add Your Volunteers</h1>
-<p>You can add a volunteer manually by filling out a form, or add many volunteers at a time by using uploading a CSV file. Any volunteers which you add will be sent an email, confirming an account creation.</p>
-
+<p style="width: 75%;">You can add a volunteer manually by filling out a form, or add many volunteers at a time by using uploading a CSV file. Any volunteers which you add will be sent an email, confirming an account creation.</p>
+</center>
 <div class="form">
     <table style="width:600px; padding:0px;"><tr>
         <td style="padding:0px"><?php echo $formView; ?></td>

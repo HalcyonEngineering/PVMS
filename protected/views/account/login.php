@@ -41,8 +41,6 @@ $this->breadcrumbs=array(
 	</div>
 
 		<?php echo $form->checkBoxRow($model,'rememberMe'); ?>
-
-
 	<div class="form-actions">
 		<?php echo CHtml::submitButton('Login');?>
 	</div>

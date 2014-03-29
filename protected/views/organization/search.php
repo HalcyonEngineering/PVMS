@@ -1,7 +1,10 @@
-<h1>Search Organizations</h1>
-<p>Here are your list of Organizations.</p>
+<center><?php
+    $user = Yii::app()->user->name;
+    echo "<h1>Hello, ". $user ."</h1>";
+    ?>
+<p style="width:75%;">Welcome to your Administrator Dashboard. Here is a list of the Organizations that are registered with Pitchn. You can Log in, Disable and Delete these organizational accounts at will.</p>
 
-<p></p>
+</center>
 
 <?php
 // Render them all with single `TbAlert`

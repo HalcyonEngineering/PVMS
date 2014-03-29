@@ -49,10 +49,9 @@
         'attribute'=>'location',
         'url'=>array('suggestLocation'),
         'multiple'=>true,
-        'htmlOptions'=>array('size'=>50),
+        'htmlOptions'=>array('size'=>50, 'placeholder'=>"City name only"),
     )); ?>
-    <p class="hint">City name only.</p>
-    <p class="hint">Separate all available cities with commas.</p>
+    <p class="hint">Separate multiple cities with commas.</p>
     <?php echo $form->error($userModel,'location'); ?>
 </div>
 
@@ -63,9 +62,8 @@
         'attribute'=>'skillset',
         'url'=>array('suggestSkillset'),
         'multiple'=>true,
-        'htmlOptions'=>array('size'=>50),
+        'htmlOptions'=>array('size'=>50, 'placeholder'=>"Separate with commas"),
     )); ?>
-    <p class="hint">Auto-completable.</p>
     <p class="hint">Please separate different skills with commas.</p>
     <?php echo $form->error($userModel,'skillset'); ?>
 </div>
