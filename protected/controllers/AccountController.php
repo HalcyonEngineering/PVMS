@@ -279,6 +279,7 @@ class AccountController extends Controller
 					}
 			}
 			else {
+				Yii::app()->user->setFlash('error', 'Invalid password reset link');
 				$this->redirect(Yii::app()->user->returnUrl);
 			}
 		}	
