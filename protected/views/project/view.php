@@ -35,7 +35,7 @@ $this->breadcrumbs=array(
 
 <p> <?php $target = $model->target;
 		if ($target!=null) {
-			echo "Target Date: ".Yii::app()->dateFormatter->format('EEEE, MMMM d yyyy', $model->target);
+			echo "Target Date: ".$model->getTargetDateInfo()['targetString'];
 		}
 	?> </p>
 
@@ -88,11 +88,6 @@ $this->breadcrumbs=array(
                         )
                     )
                 ),
-		//array('class'=>'bootstrap.widgets.TbButtonColumn',
-                //      'template'=>'{delete}',
-		//      'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/volunteer/removeFromRole",
-                //        array("volunteer_id"=>$data->user->primaryKey, "role_id"=>$data->role->primaryKey)
-                //)',),
 	),
 
 )); ?>

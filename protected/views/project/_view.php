@@ -24,10 +24,7 @@
 <?php if (!empty($data->target)):?>
         <b><?php echo CHtml::encode($data->getAttributeLabel('target').":"); ?></b><br />
 		<?php
-	echo Yii::app()->dateFormatter->format('EEEE, MMMM d yyyy', $data->target);
-	$data->getTargetDateInfo();
-
-
+	echo $data->getTargetDateInfo()['targetString'];
 
 	?><br />
 <?php endif; ?>

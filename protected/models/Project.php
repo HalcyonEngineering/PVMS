@@ -127,11 +127,17 @@ class Project extends CActiveRecord
 		}
 		return $emptyRoles;
 	}
-	/*
+	/**
+	 *
 	 * Returns an array of information about the target date.
-	 * formattedString contains a formatted string of the target date.
-	 * dateTime returns the DateTime object of the target date.
-	 * dateTimeInterval is the date time interval of the target date compared to the target time
+	 * @return array An array of values.<br \>
+	 *               <br \>
+	 * targetString contains a formatted string of the target date.<br \>
+	 * dateTime returns the DateTime object of the target date.<br \>
+	 * dateTimeInterval is the date time interval of the target date compared to the target time<br \>
+	 * passedTarget is a boolean that indicates if we've passed the deadline or not.<br \>
+	 * daysToTarget is a signed integer about how close you are to your deadline.<br \>
+	 * daysString will give you a default time to deadline string.<br \>
 	 *
 	 */
 	public function getTargetDateInfo(){
@@ -140,15 +146,21 @@ class Project extends CActiveRecord
 		$now = new DateTime();
 		$dateTimeInterval = $now->diff($dateTime);
 
-		$returnedArray['formattedString'] = Yii::app()->dateFormatter->format('EEEE, MMMM d yyyy', $this->target);
+		$returnedArray['targetString'] = Yii::app()->dateFormatter->format('EEEE, MMMM d yyyy', $this->target);
 		$returnedArray['dateTime'] = $dateTime;
 		$returnedArray['dateTimeInterval'] = $dateTimeInterval;
-		$returnedArray['daysToTarget'] = $dateTimeInterval->days;
+
 		//If we are past our target, we are behind.
-		if ($dateTimeInterval->invert == 1){
+		$returnedArray['passedTarget'] = ($dateTimeInterval->invert == 1);
+		$returnedArray['daysToTarget'] = $dateTimeInterval->days;
+		if ($returnedArray['passedTarget']){
 			$returnedArray['daysToTarget'] *= -1;
 		}
-		$returnedArray['passedTarget'] = ($dateTimeInterval->invert == 1);
+
+		$dayString = ($dateTimeInterval->days <= 1) ? "< 1 day " : $dateTimeInterval->days." days ";
+		$dayString .= ($returnedArray['passedTarget']) ? "ago" : "to go";
+		$returnedArray['daysString'] = $dayString;
+		Yii::trace(CVarDumper::dumpAsString($returnedArray));
 		return $returnedArray;
 
 	}

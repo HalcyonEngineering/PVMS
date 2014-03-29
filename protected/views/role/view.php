@@ -6,53 +6,12 @@
 	);
 } ?>
 
-
-	<?php /*echo <h1>
-		$this->widget('bootstrap.widgets.TbEditableField',
-		              array(
-			              'type'=>'text',
-			              'model'=>$model,
-			              'attribute'=>'name',
-			              'apply'=>false,
-		              )
-		);
-	?>
-</h1>
-
-<p>
-	<?php
-		$this->widget('bootstrap.widgets.TbEditableField',
-		              array(
-			              'type'=>'textarea',
-			              'model'=>$model,
-			              'attribute'=>'desc',
-			              'apply'=>false,
-		              )
-		);
-	?>
-</p>
-
-<h1>OnboardingDoc model:</h1>
-
-<?php
-if ($onboardingModel != null){
-	$this->widget('bootstrap.widgets.TbDetailView',array(
-	'data'=>$onboardingModel,
-	'attributes'=>array(
-	    'onboarding_welcome',
-	    'onboarding_instructions',
-	    'onboarding_contact',
-	),
-	));
-}
-*/?>
-
 <div class="span-3 pull-right" style="padding:5px;" >
 	<?php $this->widget('ModalOpenButton',
 	                    array(
 		                    'button_id'=>'list-project-files-btn',
 		                    'url' => Yii::app()->createUrl("fileDoc/listParentFiles",array("role_id"=>$model->id)),
-		                    'label' => 'View project document repository	',
+		                    'label' => 'View project document repository',
 		                    'type' => 'common',
 	                    ));
 	?>
