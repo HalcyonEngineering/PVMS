@@ -1,20 +1,8 @@
-<div class="view">
+<?php if(Yii::app()->user->isManager()) echo "<i>(Below is what your volunteers will see)</i>";?><br /><br />
+<center>
+	<?php //if(Yii::app()->user->isManager()) echo "<b>Welcome message:</b><br>";?>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('role_id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->role_id),array('view','id'=>$data->role_id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('onboarding_welcome')); ?>:</b>
-	<?php echo CHtml::encode($data->onboarding_welcome); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('onboarding_instructions')); ?>:</b>
-	<?php echo CHtml::encode($data->onboarding_instructions); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('onboarding_contact')); ?>:</b>
-	<?php echo CHtml::encode($data->onboarding_contact); ?>
-	<br />
-
-
-</div>
+	<?php echo nl2br($model->onboarding_welcome); ?><br /><br />
+	<b>Instructions:</b><br><?php echo nl2br($model->onboarding_instructions); ?><br /><br />
+	<b>Contact information:</b><br><?php echo nl2br($model->onboarding_contact); ?>
+</center>

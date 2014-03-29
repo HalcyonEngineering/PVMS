@@ -36,7 +36,7 @@ class RoleController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','createTask'),
+				'actions'=>array('delete'),
 				'users'=>array('admin'),
 			),
 //			array('deny',  // deny all users
@@ -160,21 +160,6 @@ class RoleController extends Controller
 		$dataProvider=new CActiveDataProvider('Role',array('data'=>$models));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Role('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Role']))
-			$model->attributes=$_GET['Role'];
-
-		$this->render('admin',array(
-			'model'=>$model,
 		));
 	}
 

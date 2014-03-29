@@ -28,7 +28,7 @@ class ProjectController extends Controller
 	{
 		return array(
 			array('allow',
-				'actions'=>array('index','create','view','update','delete', 'admin'),
+				'actions'=>array('index','create','view','update','delete'),
 				'expression'=>'Yii::app()->user->isManager()',
 			),
 			array('deny',  // deny all users
@@ -187,21 +187,6 @@ class ProjectController extends Controller
 
 		$this->renderModal('index',array(
 			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Project('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Project']))
-			$model->attributes=$_GET['Project'];
-
-		$this->render('admin',array(
-			'model'=>$model,
 		));
 	}
 
