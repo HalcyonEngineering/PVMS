@@ -21,9 +21,9 @@
 
 	<?php echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'expected',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'expected',array('class'=>'span5'), array('append'=>' Hours')); ?>
 
-	<?php echo $form->textFieldRow($model,'actual',array('class'=>'span5', 'append'=>' Hours'));
+	<?php echo $form->textFieldRow($model,'actual',array('class'=>'span5'), array('append'=>' Hours'));
 
 	?>
 
