@@ -13,26 +13,33 @@ class ModalOpenButton extends CWidget{
 	public $button_id;
 	public $url;
 	public $encodeLabel = true;
+	public $htmlOptions;
 
 	public function init(){
+		$htmlOptions = array(
+			//Generate a unique id for each button.
+			//Required to prevent id conflicts with the modal window.
+			'id'=>'no-id',
+			'href' => '#',
+			'ajax'=>array(
+				'type'=>'POST',
+				// ajax post will use 'url' specified above
+				'url'=>"js:$(this).attr('href')",
+				'update'=>'#modal-body',
+				'complete'=>"$('#modal').modal('show')",
+			),
+		);
+		if (isset($this->htmlOptions)){
+			$htmlOptions = array_merge($this->htmlOptions, $htmlOptions);
+		}
 		$this-> buttonOptions = array(
 			'label'=> 'Missing Label',
 			'type' => 'primary',
-
-			'htmlOptions'=>array(
-				//Generate a unique id for each button.
-				//Required to prevent id conflicts with the modal window.
-				'id'=>'no-id',
-				'href' => '#',
-				'ajax'=>array(
-					'type'=>'POST',
-					// ajax post will use 'url' specified above
-					'url'=>"js:$(this).attr('href')",
-					'update'=>'#modal-body',
-					'complete'=>"$('#modal').modal('show')",
-				),
-			),
+		    'htmlOptions' => $htmlOptions,
 		);
+
+
+
 		if (isset($this->encodeLabel)) {
 			$this->buttonOptions['encodeLabel'] = $this->encodeLabel;
 		}

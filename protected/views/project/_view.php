@@ -47,13 +47,18 @@ $this->widget(
 <?php
         Yii::import('bootstrap.helpers.TbHtml');
         $this->widget('ModalOpenButton',
-                      array('label' => TbHtml::icon(TbHtml::ICON_PENCIL),
-                            'type' => 'link',
-                            'encodeLabel' =>false,
-                            'button_id'=>'edit-project-'.$data->id,
-                            'url' => Yii::app()->createUrl("project/update", array("id"=>$data->id))
-                            )
-                      );
+                      array(
+	                      'label' => TbHtml::icon(TbHtml::ICON_PENCIL),
+	                      'type' => 'link',
+	                      'encodeLabel' =>false,
+	                      'button_id'=>'edit-project-'.$data->id,
+	                      'url' => Yii::app()->createUrl("project/update", array("id"=>$data->id)),
+	                      'htmlOptions'=>array(
+		                      'title' => 'Edit',
+		                      'data-toggle'=>'tooltip',
+	                      ),
+                      )
+        );
         ?>
 
 
