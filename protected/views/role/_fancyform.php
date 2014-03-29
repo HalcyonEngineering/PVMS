@@ -1,3 +1,12 @@
+<?php
+	/**
+	 * RoleController $this
+	 * Role $model
+	 * OnboardingDoc $onboardingDoc
+	 *
+	 */
+?>
+
 <div class="data-display">
 	<h1><?php echo $model->name;
 			if (Yii::app()->user->isManager()){
@@ -5,22 +14,19 @@
 				              array('buttonType' => 'link',
 				                    'type' => 'link', // the chrome of the button
 				                    'label' => 'edit', // text of the button
-				                    'htmlOptions' => array('onclick'=>"$('#role-onboarding-form').show();$('.data-display').hide();"),
+				                    'htmlOptions' => array(
+					                    'onclick'=>"$('#role-onboarding-form').show();$('.data-display').hide();"
+				                    ),
 				              )
 				);
 			}
 		?></h1>
-	<?php echo $model->desc; ?><br /><br />
-	<?php if(Yii::app()->user->isManager()) echo "<i>(Below is what your volunteers will see)</i>";?><br /><br />
-<center>
-<?php //if(Yii::app()->user->isManager()) echo "<b>Welcome message:</b><br>";?>
+	<?php echo $model->desc; ?><br />
+	<br />
+<?php $this->renderPartial('/onboardingDoc/view', array('model'=>$onboardingModel)); ?>
 
-<?php echo nl2br($onboardingModel->onboarding_welcome;) ?><br /><br />
-	<b>Instructions:</b><br><?php echo nl2br($onboardingModel->onboarding_instructions;) ?><br /><br />
-	<b>Contact information:</b><br><?php echo nl2br($onboardingModel->onboarding_contact); ?>
-</center>
-
-<br /><br />
+<br />
+	<br />
 
 </div>
 
