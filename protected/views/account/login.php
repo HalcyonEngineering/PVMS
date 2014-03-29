@@ -18,7 +18,6 @@ $this->breadcrumbs=array(
 		?>
 <h1>Login</h1>
 
-<p>Please fill out the following form with your login credentials:</p>
 
 <div class="form">
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
@@ -26,13 +25,11 @@ $this->breadcrumbs=array(
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-
-	<?php echo $form->textFieldRow($model,'username'); ?>
+    <?php echo $form->textFieldRow($model,'username'); ?>
 
 
 	<?php echo $form->passwordFieldRow($model,'password'); ?>
+
 	<?php
 		//echo '<p class="hint">';
 		//echo "You can also register ".CHtml::link('here', array('account/register'));
@@ -41,12 +38,18 @@ $this->breadcrumbs=array(
 	</div>
 
 		<?php echo $form->checkBoxRow($model,'rememberMe'); ?>
-	<div class="form-actions">
-		<?php echo CHtml::submitButton('Login');?>
-	</div>
-	
+<div>
+<?php $this->widget(
+                    'bootstrap.widgets.TbButton',
+                    array(
+                          'label' => 'Submit',
+                          'type' => 'success',
+                          'buttonType'=> 'submit',
+                          )
+                    );?>
+</div>
 	  <a href = <?php echo Yii::app()->getBaseUrl(true) . '/account/reset' ?> > 
-        Forgot your password?
+       <font size=1px > Forgot your password? </font>
       </a>
 
 <?php $this->endWidget(); ?>
