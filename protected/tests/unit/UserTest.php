@@ -32,6 +32,33 @@ class UserTest extends CDbTestCase
 		);
 		$model->save(false);
 	}
+	
+	public function testEnrollVolunteer() {
+	
+		$this->assertTrue(Yii::app()->user->isGuest);
+        $identity = new UserIdentity('sean@pitchn.ca', 'manager');
+        $identity->authenticate();
+        Yii::app()->user->login($identity);
+		$model = User::model()->findByAttributes(array('email'=>'sean@pitchn.ca'));
+		$this->assertNotNull($model);
 		
+		$name = 'Tyrone Black';
+		$email = 'tyrone.black@solutions.com';
+		$location = 'Estonia';
+		$skillset = null; 
+		$organization = Yii::app()->user->managedOrg;
+		$availability = null;
+		
+		echo "test enroll";
+		$model->enrollVolunteer($name, $email, $location, $skillset, $organization, $availability);
+		
+		$user = User::model()->findByAttributes(array('name'=>$name));
+		
+		$this->assertNotNull($user);
+		
+		$this->assertTrue($user->name, $name);
+		
+		
+	}
 }	
 ?>

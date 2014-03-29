@@ -1,7 +1,7 @@
 <?php
 
 $dbFile=dirname(__FILE__).'/pvms.sqlite';
-$testdbFile=dirname(__FILE__).'/pvms-test.sqlite';
+$testdbFile=dirname(__FILE__).'/test-pvms.sqlite';
 $sqlFile=dirname(__FILE__).'/schema.sqlite.sql';
 
 @unlink($dbFile);

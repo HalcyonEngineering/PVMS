@@ -109,7 +109,9 @@ class AccountController extends Controller
 		//If email is supplied
 		if (isset($_POST['User'])) {
 			$model->attributes = $_POST['User'];
-			if(User::model()->findByAttributes(array('email' => $model->email)) != null){
+			$user = User::model()->findByAttributes(array('email' => $model->email));
+			$hash = Yii::app()->securityManager->generateRandomString(32);
+			if($user != null){
 				Yii::app()->user->setFlash('success', 'Password reset email sent to ' . $model->email);
 				
 				$mail = new Mail;
@@ -118,7 +120,7 @@ class AccountController extends Controller
 				$mail->subject = "Pitch'n - Password Reset";
 				$mail->email = 'pitchn@pitchn.ca';
 				$mail->Remail = $model->email;
-				$mail->body = "Please follow the link below to reset your password.";
+				$mail->body = "Please follow the link below to reset your password: \r\n" . Yii::app()->getBaseUrl(true) . '/account/passreset?id=' . $user->id . '&hash=' . $hash. "\n\nThank you!\nPitch'n Team";
 				
 				$name='=?UTF-8?B?'.base64_encode($mail->name).'?=';
 				$subject='=?UTF-8?B?'.base64_encode($mail->subject).'?=';
@@ -129,6 +131,12 @@ class AccountController extends Controller
 
 				if(mail($mail->Remail,$subject,$mail->body,$headers)){
 					Yii::app()->user->setFlash('contact','Your mail has been sent');
+					$reset = new PasswordReset;
+					$reset->timestamp = time();
+					$reset->expiry = $reset->timestamp + 3600;
+					$reset->user_id = $user->id;
+					$reset->hash = $hash;
+					$reset->save(false);
 				}
 			}
 			else{
@@ -228,6 +236,51 @@ class AccountController extends Controller
 
 		$model = User::model()->findByPk(Yii::app()->user->id);
 		$this->render('profile', array('model' => $model));
+	}
+	
+	/**
+	 *
+	 */
+	public function actionPassReset($id, $hash) {
+		//find the account associated with the hash
+		$model = User::model()->findbyPk($id);
+		$reset = PasswordReset::model()->findbyPk($id);
+		if (isset($_POST['User'])) {
+			$_email = $model->email;
+			$model->attributes = $_POST['User'];
+
+			if ($model->validate()) {
+					// Show new password.
+					$_password = $model->newPassword;
+					//Hash the password before saving it.
+					if ($model->newPassword !== '') {
+						$model->password = $model->hashPassword($model->newPassword);
+					}
+					
+					if ($model->save()) {
+						// Update email if it changed.
+						$reset->delete();
+						$this->redirect(Yii::app()->user->returnUrl);
+					}
+
+			}
+		}
+		else {
+			if($reset->hash == $hash) {
+					if($reset->expiry > time()){
+						$model->setScenario('passreset');
+						$this->render('passreset', array('model' => $model));
+					}
+					else {
+						Yii::app()->user->setFlash('error', 'Password expiry link has expired');
+						$reset->delete();
+						$this->redirect(Yii::app()->user->returnUrl);
+					}
+			}
+			else {
+				$this->redirect(Yii::app()->user->returnUrl);
+			}
+		}	
 	}
 
 	// Uncomment the following methods and override them if needed

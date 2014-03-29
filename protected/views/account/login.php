@@ -44,6 +44,10 @@ $this->breadcrumbs=array(
 	<div class="form-actions">
 		<?php echo CHtml::submitButton('Login');?>
 	</div>
+	
+	  <a href = <?php echo Yii::app()->getBaseUrl(true) . '/account/reset' ?> > 
+        Forgot your password?
+      </a>
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->

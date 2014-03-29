@@ -9,13 +9,14 @@ class AccountTest extends WebTestCase
 		// ensure the user is logged out
 		if($this->isTextPresent('Logout'))
 			$this->clickAndWait('link=Logout');
-
+			
 		// test login process, including validation
 		// First test the case of invalid password
 		$this->pause(1000);
-		$this->clickAndWait('link=Login');
+		//$this->runScript(javascript{window.scrollBy(0,-1000)}");
+		$this->clickAndWait('name=yt0');
 		$this->assertElementPresent('name=LoginForm[username]');
-		$this->type('name=LoginForm[username]','sean@pitchn.ca');
+		$this->type('name=LoginForm[username]','manager@pitchn.ca');
 		$this->pause(1000);
 		$this->clickAndWait("//input[@value='Login']");
 		$this->assertTextPresent('Password cannot be blank.');
@@ -33,12 +34,8 @@ class AccountTest extends WebTestCase
 		$this->clickAndWait("//input[@value='Login']");
 		$this->pause(1000);
 		$this->assertTextNotPresent('Exception');
-		$this->assertTextPresent('Welcome, Sean');
+		$this->assertTextPresent('Hello, Sean Kennedy');
 		
-		//Test the import of volunteers
-		$this->assertElementPresent('id=yw8');	
-		$this->clickAndWait("//img[@src='/PVMS/images/addvolunteers.png']");
-		$this->pause(5000);
 		//"Cancer Run"
 		//"Running away from cancer"
 		//#f30d0d
@@ -48,13 +45,13 @@ class AccountTest extends WebTestCase
 		
 		// Creating the project in the modal
 		// First attempt to create a project without fields
-		/*
+		
 		$this->assertElementPresent('id=create-project-btn');
 		$this->click("//a[@id='create-project-btn']");
 		
 		$this->click("//a[@id='create-project-btn']");
 		$this->pause(1000);
-		$this->click("//button[@id='project-submit']");
+		$this->click("//button[@type='submit']");
 		$this->pause(1000);
 		$this->assertTextPresent('Name cannot be blank');
 		$this->assertTextPresent('Description cannot be blank');
@@ -82,16 +79,25 @@ class AccountTest extends WebTestCase
 		$this->assertElementPresent('name=Project[target]');
 		$this->type('name=Project[target]', '03/19/2014');
 		$this->pause(1000);
-		$this->clickAndWait("//button[@id='project-submit']");
+		$this->clickAndWait("//button[@type='submit']");
 
 		$this->assertTextNotPresent('Name cannot be blank');
 		$this->assertTextNotPresent('Description cannot be blank');
 		$this->assertTextPresent('Cancer Run');
-
+		
+		$this->pause(1000);
+		
+		//Test the import of volunteers
+		
+		$this->clickAndWait("//img[@src='/PVMS/images/addvolunteers.png']");
+		$this->pause(1000);
+		
+		$this->type('name=User[name]','Billy ');
+		
 		//Test clicking organization
 		//$this->clickAndWait("//*[@src='/PVMS/images/wlm.png']");
 		$this->pause(1000);
-		*/
+		
 		
 		// test logout process
 		//$this->assertTextNotPresent('Login');

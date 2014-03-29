@@ -147,6 +147,16 @@ CREATE TABLE pvms_file
   CONSTRAINT FK_project FOREIGN KEY (project_id) REFERENCES pvms_project (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-- Table for resetPasswordEntries
+CREATE TABLE pvms_passwordreset
+(
+	user_id INTEGER NOT NULL PRIMARY KEY,
+	hash VARCHAR(128) NOT NULL,
+	timestamp INTEGER NOT NULL DEFAULT (datetime('now')),
+	expiry INTEGER NOT NULL DEFAULT (datetime('now', '+60 Minute')),
+	CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE
+);
+
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Administrator', 'UserType', 0, 0);
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Manager', 'UserType', 1, 1);
 INSERT INTO pvms_lookup (name, type, code, position) VALUES ('Volunteer', 'UserType', 2, 2);
