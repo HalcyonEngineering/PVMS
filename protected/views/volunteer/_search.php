@@ -21,6 +21,20 @@
 <div class="row" style="margin:0px;">
 <?php echo CHtml::activeTextField($model,'username', array('placeholder'=>'Name')); ?>
 </div>
+<div class="row radiogroup">
+<?php
+    $status = array('Weekdays'=>'Weekdays', 'Weekends'=>'Weekends');
+    echo $form->checkBoxListRow(
+        $model,
+        'availability',
+        $status,
+        array(
+            'labelOptions'=>array('style'=>'font: normal 11pt Calibri;')
+        )
+    );
+?>
+</div>
+<p class="hint">Leave fields blank to search all volunteers.</p>
 <div class="row submit">
 <?php echo CHtml::submitButton('Search', array('submit'=>'search')); ?>
 </div>
@@ -60,21 +74,6 @@
     ?>
 </div>
 
-</td>
-<td style="padding:0px; width:300px; vertical-align:top;">
-<div class="row radiogroup">
-<?php
-    $status = array(
-                    0=>'Not available',
-                    1=>'Weekdays',
-                    2=>'Weekends',
-                    3=>'Weekdays & Weekends',
-                    );
-    echo $form->radioButtonListRow($model, 'availability', $status,
-                                   array('labelOptions'=>array('style'=>'font: normal 11pt Calibri;'))
-                                   );
-    ?>
-</div>
 </td>
 </tr>
 </table>
