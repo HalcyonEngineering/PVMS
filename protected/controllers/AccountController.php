@@ -260,6 +260,7 @@ class AccountController extends Controller
 					if ($model->save()) {
 						// Update email if it changed.
 						$reset->delete();
+						Yii::app()->user->setFlash('success', 'Password successfully reset!');
 						$this->redirect(Yii::app()->user->returnUrl);
 					}
 

@@ -11,7 +11,7 @@ $this->breadcrumbs=array(
 	<?php
 		$this->widget('bootstrap.widgets.TbAlert', array(
 			'alerts'=>array(
-			    'error',
+			    'error', 'success'
 			),
 
 		));
