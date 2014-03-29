@@ -35,7 +35,8 @@ $this->breadcrumbs=array(
 
 <p> <?php $target = $model->target;
 		if ($target!=null) {
-			echo "Target Date: ".$model->getTargetDateInfo()['targetString'];
+                        $t = $model->getTargetDateInfo();
+			echo "Target Date: ".$t['targetString'];
 		}
 	?> </p>
 

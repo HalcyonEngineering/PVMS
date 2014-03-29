@@ -162,7 +162,6 @@ class Project extends CActiveRecord
 		$returnedArray['daysString'] = $dayString;
 		Yii::trace(CVarDumper::dumpAsString($returnedArray));
 		return $returnedArray;
-
 	}
 
 	/**

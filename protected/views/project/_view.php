@@ -24,7 +24,8 @@
 <?php if (!empty($data->target)):?>
         <b><?php echo CHtml::encode($data->getAttributeLabel('target').":"); ?></b><br />
 		<?php
-	echo $data->getTargetDateInfo()['targetString'];
+        $t = $data->getTargetDateInfo();
+	echo $t['targetString'];
 
 	?><br />
 <?php endif; ?>
