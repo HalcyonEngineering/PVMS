@@ -15,6 +15,9 @@
  */
 class Organization extends CActiveRecord
 {
+
+	var $manager = null;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -105,10 +108,30 @@ class Organization extends CActiveRecord
 		$criteria->with = array('managers');
 		$criteria->together = true;
 
-		return new CActiveDataProvider($this, array(
+		$activeDP = new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+
+		$sort = array(
+			'defaultOrder'=>'name',
+		    'attributes'=>array(
+			    'manager.name',
+		        'manager.email',
+		        'name',
+		    ),
+		);
+
+		$arrayDP = new CArrayDataProvider($activeDP->getData(), array(
+			'sort'=>$sort,
+		));
+		Yii::trace(CVarDumper::dumpAsString($arrayDP));
+		return $arrayDP;
 	}
+
+	public function afterFind(){
+		$this->getManager();
+	}
+
  	public function BeforeDelete(){
 		if(!$this->manager->delete()){
 			Yii::app()->end();
@@ -135,11 +158,10 @@ class Organization extends CActiveRecord
 	 * @return User The manager of this organization.
 	 */
 	public function getManager(){
-		if (count($this->managers) !== 0){
-			return $this->managers[0];
-		} else {
-			return null;
+		if (!isset($this->manager) && count($this->managers) !== 0){
+			$this->manager = $this->managers[0];
 		}
+		return $this->manager;
 	}
 
 	/**

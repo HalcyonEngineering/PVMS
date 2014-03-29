@@ -33,14 +33,8 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider'=>$model->search_Orgs(),
     'columns'=>array(
 		'name',
-		
-		array(
-			'name' => 'Manager Name',
-			'type'=>'raw',
-			'class'=> 'bootstrap.widgets.TbDataColumn',
-			'value'=> '$data->manager !== null ? $data->manager->name : "null"'
-			),
-			'manager.email:html:Manager Email',
+		'manager.name::Manager Name',
+		'manager.email::Manager Email',
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
 			'template'=>'{adminAccess} {disable} {enable} {delete} ',
