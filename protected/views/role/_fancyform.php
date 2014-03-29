@@ -23,7 +23,7 @@
 		?></h1>
 	<?php echo $model->desc; ?><br />
 	<br />
-<?php $this->renderPartial('/onboardingDoc/view', array('model'=>$onboardingModel)); ?>
+<?php $this->renderPartial('/onboardingDoc/_view', array('model'=>$onboardingModel)); ?>
 
 <br />
 	<br />

@@ -35,10 +35,6 @@ class TaskController extends Controller
 				'actions'=>array('create','update','listTasks','delete'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin'),
-				'users'=>array('admin'),
-			),
 //			array('deny',  // deny all users
 //				'users'=>array('*'),
 //			),
@@ -166,21 +162,6 @@ class TaskController extends Controller
 		$dataProvider=new CActiveDataProvider('Task');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Task('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Task']))
-			$model->attributes=$_GET['Task'];
-
-		$this->render('admin',array(
-			'model'=>$model,
 		));
 	}
 

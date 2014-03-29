@@ -33,7 +33,11 @@ $this->breadcrumbs=array(
 
 <p><?php echo $model->desc; ?> </p>
 
-<p> <?php $target = $model->target; if ($target!=null)echo "Target Date: ".$model->target; ?> </p>
+<p> <?php $target = $model->target;
+		if ($target!=null) {
+			echo "Target Date: ".Yii::app()->dateFormatter->format('EEEE, MMMM d yyyy', $model->target);
+		}
+	?> </p>
 
 <h3> Volunteers and Roles</h3>
 
@@ -48,7 +52,7 @@ $this->breadcrumbs=array(
 		     'name:text:Role Name',
 	         array(
 		         'class'=>'bootstrap.widgets.TbButtonColumn',
-	             'template'=>'{view}',
+	             'template'=>'{view}{delete}',
 	             'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->primaryKey))',
 	         ),
 	     ),
@@ -59,14 +63,7 @@ $this->breadcrumbs=array(
 
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'dataProvider' => $roleDataProvider,
-	//'type'=>'bordered',
 	'columns' => array(
-//		array('class'=>'bootstrap.widgets.TbDataColumn',
-//		      'name'=>'Role Name',
-//		      'type'=>'text',
-//		      'value'=>'$data->role->name',
-//		      'sortable'=>true,
-//		),
 		'role.name',
 		array('class'=>'bootstrap.widgets.TbButtonColumn',
 		      'template'=>'{view} {delete}',
@@ -78,11 +75,6 @@ $this->breadcrumbs=array(
 		      ),
 		),
 	    'user.name',
-//		array('class'=>'bootstrap.widgets.TbDataColumn',
-//		      'name'=>'Volunteer Name',
-//		      'type'=>'text',
-//		      'value'=>'(isset($data->user)) ? $data->user->name : "No User Assigned"',
-//		),
 		array(
                     'class'=>'bootstrap.widgets.TbButtonColumn',
                     'template'=>'{remove}',

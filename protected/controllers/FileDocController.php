@@ -35,10 +35,6 @@ class FileDocController extends Controller
 				'actions'=>array('create','update','download','listFiles','listParentFiles','delete'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin'), //TODO: REMOVE THIS TEMP CODE
-				'users'=>array('admin'),
-			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -182,21 +178,6 @@ class FileDocController extends Controller
 	}
 
 	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new FileDoc('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['FileDoc']))
-			$model->attributes=$_GET['FileDoc'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
 	 * Render a modal showing all FileDocs for the project id passed in
 	 */
 	public function actionListFiles($project_id)
@@ -210,7 +191,6 @@ class FileDocController extends Controller
 	 */
 	public function actionListParentFiles($role_id)
 	{
-		//$project_id = 1;
 		$project_id = Role::model()->findByPk($role_id)->project_id; //TODO: do something with these
 		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$project_id,),));
 		if (Yii::app()->user->isVolunteer()) {
