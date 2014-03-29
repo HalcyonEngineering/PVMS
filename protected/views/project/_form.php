@@ -22,7 +22,24 @@ echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>128))
 
 echo $form->textAreaRow($model,'desc',array('rows'=>6, 'cols'=>50, 'class'=>'span5'));
 
-echo $form->colorpickerRow($model,'colour');
+echo $form->colorpickerRow($model,
+                           'colour',
+                           array(
+	                           'events'=>array(
+		                           'changeColor'=>'js:function(ev){
+		                                console.log(ev.color.toHex());
+		                                $(".colorpicker-inner").parents(".add-on").css("background-color", ev.color.toHex());
+		                           }'
+	                           ),
+                           ),
+                           array(
+	                           'placeholder'=>'Click here to select a colour',
+	                           'prepend'=>"<i class='colorpicker-inner'></i>",
+                               'prependOptions'=>array(
+	                               'style'=>"background-color : $model->colour;",
+                               ),
+                           )
+);
 
 echo $form->datepickerRow($model,
                           'targetString',
