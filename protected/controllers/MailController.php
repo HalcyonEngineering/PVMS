@@ -2,7 +2,6 @@
 
 class MailController extends Controller
 {
-	public $layout='column2';
 	/**
 	 * Displays the contact page
 	 */

@@ -65,7 +65,7 @@ class Message extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'sender' => array(self::BELONGS_TO, 'User', 'sender_id'),
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+			'recipient' => array(self::BELONGS_TO, 'User', 'user_id'),
 		);
 	}
 
@@ -76,7 +76,7 @@ class Message extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'user_id' => 'User',
+			'user_id' => 'Recipient',
 			'sender_id' => 'Sender',
 			'subject' => 'Subject',
 			'body' => 'Body',
@@ -107,9 +107,17 @@ class Message extends CActiveRecord
 		$criteria->compare('sender_id',$this->sender_id,true);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('body',$this->body,true);
+		$criteria->with = array('sender');
+		$criteria->together = true;
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'attributes'=>array(
+					'sender.name',
+					'*',
+				),
+			),
 		));
 	}
 
@@ -123,9 +131,17 @@ class Message extends CActiveRecord
 		$criteria->compare('sender_id',Yii::app()->user->id,true);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('body',$this->body,true);
+		$criteria->with = array('recipient');
+		$criteria->together = true;
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'attributes'=>array(
+					'recipient.name',
+					'*',
+				),
+			),
 		));
 	}
 	/**

@@ -2,7 +2,6 @@
 
 class AccountController extends Controller
 {
-	public $layout = 'column2';
 	public $defaultAction = 'login';
 	
 	/**

@@ -2,7 +2,6 @@
 
 class VolunteerController extends Controller
 {
-    public $layout = '//layouts/column2';
 
     public function actionAdd()
     {
