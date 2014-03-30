@@ -236,6 +236,24 @@ class AccountController extends Controller
 	public function actionProfile(){
 
 		$model = User::model()->findByPk(Yii::app()->user->id);
+
+		// if it is ajax validation request
+		if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+
+		if (isset($_POST['User'])){
+			$model->attributes=$_POST['User'];
+			if($model->validate() && $model->save()){
+				Yii::trace(CVarDumper::dumpAsString($model));
+				Yii::app()->user->setFlash('success', 'Profile updated.');
+			} else {
+				Yii::trace(CVarDumper::dumpAsString($model));
+				Yii::app()->user->setFlash('error', 'Profile could not be updated.');
+			}
+		}
+
 		$this->render('profile', array('model' => $model));
 	}
 	

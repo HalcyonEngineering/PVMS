@@ -70,7 +70,7 @@ class User extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('name, email', 'required'),
+            array('name, email', 'required', 'except'=>'update'),
             array('email', 'unique'),
             array('email', 'email'),
             array('name', 'match', 'pattern'=>'/^[A-Za-z][A-Za-z \'.-]*[A-Za-z.]$/'),
@@ -80,7 +80,8 @@ class User extends CActiveRecord
 
             // Do not allow changes to type unless we are registering.
             array('type', 'unsafe', 'except' => 'register, disable'),
-            array('newPassword, verifyPassword', 'safe', 'on'=>'settings'),
+
+            //array('newPassword, verifyPassword', 'safe', 'on'=>'settings'),
             array('origPassword', 'required', 'on'=> 'settings'),
             array('type, newPassword, verifyPassword', 'required', 'on' => 'register'),
             array('type', 'in', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR,  User::DISABLED)),
@@ -93,7 +94,7 @@ class User extends CActiveRecord
             array('skillset', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Skillset can only includes skills, which must be word characters.'),
             array('skillset', 'normalizeSkillset'),
 
-            array('availability', 'safe'),
+            array('availability', 'numerical', 'min'=>0, 'max'=>3),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('name, location, skillset, availability', 'safe', 'on'=>'search'),
@@ -313,12 +314,16 @@ class User extends CActiveRecord
 
     // Normalizes the manager-entered Location.
     public function normalizeLocation($attribute, $params) {
-        $this->location = Skill::array2string(array_unique(Skill::string2array($this->location)));
+	    $sortMe = array_unique(Location::string2array($this->location));
+	    sort($sortMe);
+        $this->location = Location::array2string($sortMe);
     }
 
     // Normalizes the manager-entered skillset.
     public function normalizeSkillset($attribute, $params) {
-        $this->skillset = Skill::array2string(array_unique(Skill::string2array($this->skillset)));
+	    $sortMe = array_unique(Skill::string2array($this->skillset));
+	    sort($sortMe);
+        $this->skillset = Skill::array2string($sortMe);
     }
 
     protected function afterFind() {
