@@ -42,8 +42,9 @@ $this->breadcrumbs=array(
 <?php $this->widget(
                     'bootstrap.widgets.TbButton',
                     array(
-                          'label' => 'Submit',
+                          'label' => 'Sign In',
                           'type' => 'success',
+                          'id' => 'Sign_in_button',
                           'buttonType'=> 'submit',
                           )
                     );?>

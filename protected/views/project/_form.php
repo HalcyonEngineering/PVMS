@@ -46,7 +46,7 @@ echo $form->datepickerRow($model,
                           array(),
                           array(
 	                          'hint'=>'Leave blank for indefinite',
-	                          'prepend' => '<i class="icon-calendar"></i>'
+	                          'prepend' => '<i class="icon-calendar" id="mydatepicker""></i>'
                           ));
 
 ?>

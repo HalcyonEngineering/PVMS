@@ -134,10 +134,30 @@ font-family: "Calibri";
 	height: 35px;
 }
 
+#notification-icon:hover {
+   background-image: url('Notificationbutton-hover.png');
+   background-size:35px 35px;
+}
+
+#notification-icon .dropdown-toggle:active {
+	background-image: url('Notificationbutton-hover.png');
+   background-size:35px 35px;
+}
+
 #message-icon
 {
 	width: 35px;
 	height: 35px;
+}
+
+#message-icon:hover {
+   background-image: url('messages-hover.png');
+   background-size:35px 35px;
+}
+
+#message-icon .dropdown-toggle:active {
+	background-image: url('messages-hover.png');
+   background-size:35px 35px;
 }
 
 #notification-menu a .tooltip-inner
@@ -359,15 +379,8 @@ div.view {
 }
 
 .tile-bottom .progress {
-	margin-bottom: 10px;
-	margin-top: 10px;
-	border-radius: 0px;
-	height: 17px;
-}
-
-.tile .progress {
-	margin-bottom: 10px;
-	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-top: 1px;
 	border-radius: 0px;
 	height: 17px;
 }
@@ -455,4 +468,18 @@ label {
 position: relative;
 right: 34px;
 }
+
+#Sign_in_button {
+	Margin-top:4px;
+	margin-bottom: 4px;
+}
+
+.datepicker td, .datepicker th {
+  border-radius: 0px !important;
+ -webkit-border-radius: 0px !important;
+  border:1px solid white  !important;
+}
+
+
+
 
