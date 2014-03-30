@@ -54,6 +54,7 @@ $this->widget(
 	                      'button_id'=>'edit-project-'.$data->id,
 	                      'url' => Yii::app()->createUrl("project/update", array("id"=>$data->id)),
 	                      'htmlOptions'=>array(
+                              'class' => 'pull-right',
 		                      'title' => 'Edit',
 		                      'data-toggle'=>'tooltip',
 	                      ),

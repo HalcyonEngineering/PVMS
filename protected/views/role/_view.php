@@ -46,6 +46,7 @@
                         'url'=> Yii::app()->controller->createUrl('/volunteer/removeFromRole',
                                                                   array("volunteer_id"=>Yii::app()->user->id, "role_id"=>$data->id)),
                         'htmlOptions'=>array(
+                                             'class' => 'pull-right',
                                              'title' => 'Remove Role',
                                              'data-toggle'=>'tooltip'),
                         )
