@@ -27,14 +27,8 @@ class VolunteerController extends Controller
 
         if(isset($_POST['User']))
         {
-            $name = $_POST['User']['name'];
-            $email = $_POST['User']['email'];
-            $location = $_POST['User']['location'];
-            $skillset = $_POST['User']['skillset'];
-            $availability = $_POST['User']['availability'];
-
-            $success = User::enrollVolunteer($name, $email, $location, $skillset,
-                Yii::app()->user->getManagedOrg(), $availability);
+			$userModel->attributes=$_POST['User'];
+            $success = User::enrollVolunteer($userModel, Yii::app()->user->getManagedOrg());
 
             if ($success) {
                 Yii::app()->user->setFlash('success',

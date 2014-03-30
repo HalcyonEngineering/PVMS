@@ -29,6 +29,7 @@ class User extends CActiveRecord
     public $origPassword;
     public $newPassword;
     public $verifyPassword;
+	public $availability;
 
     private $_oldSkillset;
     private $_oldLocation;
@@ -76,6 +77,7 @@ class User extends CActiveRecord
             array('name, origPassword, email, newPassword', 'length', 'max'=>128),
             array('origPassword, verifyPassword, newPassword', 'length', 'min'=>6),
             array('verifyPassword', 'compare', 'compareAttribute' => 'newPassword', 'on' => 'register, settings, passreset'),
+
             // Do not allow changes to type unless we are registering.
             array('type', 'unsafe', 'except' => 'register, disable'),
             array('newPassword, verifyPassword', 'safe', 'on'=>'settings'),
@@ -91,6 +93,7 @@ class User extends CActiveRecord
             array('skillset', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Skillset can only includes skills, which must be word characters.'),
             array('skillset', 'normalizeSkillset'),
 
+            array('availability', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('name, location, skillset, availability', 'safe', 'on'=>'search'),
@@ -344,18 +347,12 @@ class User extends CActiveRecord
      * @param Organization $organization
      * @param int $availability
      */
-    public static function enrollVolunteer($name, $email, $location, $skillset, $organization, $availability)
+    public static function enrollVolunteer($model, $organization)
     {
         // If the email does not exist in the database, create a new volunteer
-        $user = User::model()->findByAttributes(array('email'=>$email));
+        $user = User::model()->findByAttributes(array('email'=>$model->email));
         if ($user === null) {
-            $user = new User;
-            $user->name = $name;
-            $user->email = $email;
-            $user->location = $location;
-            $user->skillset = $skillset;
-            $user->availability = $availability;
-
+			$user = $model;
             $characters = 'ABCDEF1234567890';
             $pass = '';
                 for ($i = 0; $i < 6; $i++) {

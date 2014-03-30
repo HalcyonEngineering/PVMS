@@ -138,8 +138,13 @@ class Csv extends CActiveRecord
                     $count['total'] += 1;
                     continue;
                 }
-                
-                $success = User::enrollVolunteer($name, $email, $location, $skillset, $org, $availability);
+                $model = new User;
+	            $model->name = $name;
+	            $model->email = $email;
+	            $model->location = $location;
+	            $model->skillset = $skillset;
+	            $model->availability = $availability;
+                $success = User::enrollVolunteer($model, $org);
                 if ($success) $count['success'] += 1;
                 $count['total'] += 1;
             }
