@@ -10,13 +10,12 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 ?>
-<h1>View Task #<?php echo $model->id; ?></h1>
+<h1>Task: <?php echo $model->name; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
-		'id',
-		'role_id',
+		
 		'name',
 		'desc',
 		'expected',
