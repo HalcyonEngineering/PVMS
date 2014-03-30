@@ -5,10 +5,11 @@
 	 * OnboardingDoc $onboardingDoc
 	 *
 	 */
+	$purifier = new CHtmlPurifier();
 ?>
 
 <div class="data-display">
-	<h1><?php echo $model->name;
+	<h1><?php echo $purifier->purify($model->name);
 			if (Yii::app()->user->isManager()){
 				$this->widget('bootstrap.widgets.TbButton',
 				              array('buttonType' => 'link',
@@ -21,7 +22,10 @@
 				);
 			}
 		?></h1>
-	<?php echo $model->desc; ?><br />
+	<?php
+		echo $purifier->purify(nl2br($model->desc));
+	?>
+	<br />
 	<br />
 <?php $this->renderPartial('/onboardingDoc/_view', array('model'=>$onboardingModel)); ?>
 

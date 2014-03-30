@@ -1,3 +1,4 @@
+PRAGMA foreign_keys = ON;
 ----
 -- Table structure for pvms_lookup
 ----
@@ -248,13 +249,13 @@ CREATE TABLE pvms_passwordreset
 CREATE TABLE pvms_csv(csv BLOB);
 
 
-INSERT INTO pvms_organization(id, name, desc) VALUES ('1', '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>');
-INSERT INTO pvms_project(id, org_id, name, desc, colour) VALUES (1, 1, '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>', '#FF0000');
-INSERT INTO pvms_role(id, project_id, name, desc, colour) VALUES (1, 1, '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>', '#FF0000');
-INSERT INTO pvms_task(id, role_id, name, desc, expected, actual, status) VALUES (1, 1, '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>', 3, 3, 3);
-INSERT INTO pvms_onboarding(role_id, onboarding_welcome, onboarding_instructions, onboarding_contact) VALUES (1, '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>');
-INSERT INTO pvms_user (id, name, password, email, type) VALUES (1, 'Security','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 1);
-INSERT INTO pvms_organization_manager(user_id, org_id) VALUES (1, 1);
+INSERT INTO pvms_organization("id", "name", "desc") VALUES ('1', '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>');
+INSERT INTO pvms_project("id", "org_id", "name", "desc", "colour") VALUES ('1', '1', '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>', '#FF0000');
+INSERT INTO pvms_role("id", "project_id", "name", "desc", "colour") VALUES ('1', '1', '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>', '#FF0000');
+INSERT INTO pvms_task("id", "role_id", "name", "desc", "expected", "actual", "status") VALUES ('1', '1', '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>', '3', '3', '3');
+INSERT INTO pvms_onboarding("role_id", "onboarding_welcome", "onboarding_instructions", "onboarding_contact") VALUES (1, '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>', '<script> alert("Bad security");</script>');
+INSERT INTO pvms_user ("id", "name", "password", "email", "type") VALUES ('1', 'Security','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','webmaster@example.com', 1);
+INSERT INTO pvms_organization_manager("user_id", "org_id") VALUES ('1', '1');
 
 
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type") VALUES ('2','Jason Tseng','$2a$10$xOHcdC9nHnzQeOYtw3jwUu1Nc87gDo9P9YGQYWLVQNMxJEZqZiL2y','admin@pitchn.ca',NULL,NULL,NULL,'3','0');
@@ -279,7 +280,7 @@ INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('9','2');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('10','2');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('11','2');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('5','2');
-
+INSERT INTO "pvms_user_organization" ("user_id", "org_id") VALUES ('5', '1');
 
 INSERT INTO "pvms_project" ("id","org_id","name","desc","colour","target") VALUES ('2','2','Volunteer Management System','To be complete by multiple CPSC319 students at UBC','#1AAB9F',NULL);
 INSERT INTO "pvms_project" ("id","org_id","name","desc","colour","target") VALUES ('3','2','Sponsors','Ongoing project to obtain more sponsors','#009933',NULL);
