@@ -1,7 +1,7 @@
 <div class="tile-view span-6">
 	<div class="tile" style=<?php echo "border-color:" . CHtml::encode($data->colour).";";?>>
 
-<h3 style="margin: 0px;"> <b><?php echo CHtml::link(CHtml::encode($data->name),array('/role/view','id'=>$data->id)); ?></b></h3>
+<h3 style="margin: 0px;"> <b><?php echo CHtml::encode($data->name); ?></b></h3>
 
 <font size=1>
 <?php echo CHtml::encode($data->project->name); ?>
@@ -24,6 +24,17 @@
 	<?php
 		$this->renderPartial('/task/_progressBar',array('data'=>$data));
 	?>
+
+<?php
+    $this->widget(
+                  'bootstrap.widgets.TbButton',
+                  array(
+                        'label' => 'View',
+                        'type' => 'primary',
+                        'url' => array('/role/view','id'=>$data->id),
+                        )
+                  );
+    ?>
 
 <?php
     Yii::import('bootstrap.helpers.TbHtml');
