@@ -7,8 +7,8 @@
  * @property integer $id
  * @property integer $user_id
  * @property integer $sender_id
- * @property string $message_subject
- * @property string $message_body
+ * @property string $subject
+ * @property string $body
  * @property integer $timestamp
  *
  * The followings are the available model relations:
@@ -17,6 +17,12 @@
  */
 class Message extends CActiveRecord
 {
+
+	const STATUS_UNREAD = 0;
+	const STATUS_READ = 1;
+
+	var $targets;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -33,12 +39,20 @@ class Message extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, sender_id, message_subject, message_body', 'required'),
+			array('subject, body', 'required'),
+			array('user_id, sender_id', 'required', 'except'=>'compose'),
+			array('user_id', 'exist', 'className'=>'User', 'attributeName'=>'id'),
+			array('targets', 'safe', 'on'=>'compose'),
 			array('user_id, sender_id, timestamp', 'numerical', 'integerOnly'=>true),
-			array('message_subject, message_body', 'length', 'max'=>128),
+			array('subject', 'length', 'max'=>128),
+		    array('body', 'length', 'max'=>1024),
+		    array('timestamp','default', 'value'=>time(),'setOnEmpty'=>false,'on'=>'insert'),
+		    array('status', 'in', 'range'=>array(Message::STATUS_UNREAD, Message::STATUS_UNREAD)),
+		    array('status', 'default', 'value'=>0),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, sender_id, message_subject, message_body, timestamp', 'safe', 'on'=>'search'),
+			array('user_id, sender_id, subject, body', 'safe', 'on'=>'search'),
+
 		);
 	}
 
@@ -64,9 +78,10 @@ class Message extends CActiveRecord
 			'id' => 'ID',
 			'user_id' => 'User',
 			'sender_id' => 'Sender',
-			'message_subject' => 'Message Subject',
-			'message_body' => 'Message Body',
+			'subject' => 'Subject',
+			'body' => 'Body',
 			'timestamp' => 'Timestamp',
+		    'status' => 'Status',
 		);
 	}
 
@@ -82,24 +97,37 @@ class Message extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function searchInbox()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('user_id',$this->user_id,true);
+		$criteria->compare('user_id',Yii::app()->user->id,true);
 		$criteria->compare('sender_id',$this->sender_id,true);
-		$criteria->compare('message_subject',$this->message_subject,true);
-		$criteria->compare('message_body',$this->message_body,true);
-		$criteria->compare('timestamp',$this->timestamp);
+		$criteria->compare('subject',$this->subject,true);
+		$criteria->compare('body',$this->body,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 
+	public function searchOutbox()
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('user_id',$this->user_id,true);
+		$criteria->compare('sender_id',Yii::app()->user->id,true);
+		$criteria->compare('subject',$this->subject,true);
+		$criteria->compare('body',$this->body,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

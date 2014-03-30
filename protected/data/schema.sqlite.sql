@@ -11,12 +11,14 @@ CREATE TABLE pvms_lookup
 	position INTEGER NOT NULL
 );
 
-INSERT INTO "pvms_lookup" ("id","name","code","type","position") VALUES ('1','Administrator','0','UserType','0');
-INSERT INTO "pvms_lookup" ("id","name","code","type","position") VALUES ('2','Manager','1','UserType','1');
-INSERT INTO "pvms_lookup" ("id","name","code","type","position") VALUES ('3','Volunteer','2','UserType','2');
-INSERT INTO "pvms_lookup" ("id","name","code","type","position") VALUES ('4','In Progress','1','TaskStatus','1');
-INSERT INTO "pvms_lookup" ("id","name","code","type","position") VALUES ('5','Complete (Pending)','2','TaskStatus','2');
-INSERT INTO "pvms_lookup" ("id","name","code","type","position") VALUES ('6','Complete (Verified)','3','TaskStatus','3');
+INSERT INTO "pvms_lookup" ("name","code","type","position") VALUES ('Administrator','0','UserType','0');
+INSERT INTO "pvms_lookup" ("name","code","type","position") VALUES ('Manager','1','UserType','1');
+INSERT INTO "pvms_lookup" ("name","code","type","position") VALUES ('Volunteer','2','UserType','2');
+INSERT INTO "pvms_lookup" ("name","code","type","position") VALUES ('In Progress','1','TaskStatus','1');
+INSERT INTO "pvms_lookup" ("name","code","type","position") VALUES ('Complete (Pending)','2','TaskStatus','2');
+INSERT INTO "pvms_lookup" ("name","code","type","position") VALUES ('Complete (Verified)','3','TaskStatus','3');
+INSERT INTO "pvms_lookup" ("name","code","type","position") VALUES ('Unread', 0, 'MessageStatus',0);
+INSERT INTO "pvms_lookup" ("name","code","type","position") VALUES ('Read', 1, 'MessageStatus',1);
 
 ----
 -- Table structure for pvms_user
@@ -113,9 +115,10 @@ CREATE TABLE pvms_message
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	user_id INTEGER NOT NULL,
 	sender_id  INTEGER NOT NULL,
-	message_subject VARCHAR(128) NOT NULL,
-	message_body VARCHAR(128) NOT NULL,
+	subject VARCHAR(128) NOT NULL,
+	body VARCHAR(128) NOT NULL,
 	timestamp INTEGER NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  status NOT NULL,
   CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES pvms_user (id) ON DELETE CASCADE,
   CONSTRAINT FK_sender FOREIGN KEY (sender_id) REFERENCES pvms_user (id) ON DELETE CASCADE
 );

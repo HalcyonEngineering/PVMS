@@ -7,17 +7,17 @@ $this->breadcrumbs=array(
 
 <h1>Email Communication</h1>
 
-<?php if(Yii::app()->user->hasFlash('contact')): ?>
-
-<div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('contact'); ?>
-</div>
-
-<?php elseif(Yii::app()->user->hasFlash('error')): ?>
-<div class="flash-error">
-	<?php echo Yii::app()->user->getFlash('error'); ?>
-</div>
-<?php else: ?>
+<?php
+	$this->widget('bootstrap.widgets.TbAlert', array(
+		'block'=>true, // display a larger alert block?
+		'fade'=>true, // use transitions?
+		'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+		'alerts'=>array( // configurations per alert type
+		                 'success'=>array(), // success, info, warning, error or danger
+		                 'error'=>array(), // success, info, warning, error or danger
+		),
+	));
+?>
 
 <div class="form">
 
@@ -32,18 +32,6 @@ $this->breadcrumbs=array(
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name'); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'Remail'); ?>
@@ -71,5 +59,3 @@ $this->breadcrumbs=array(
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
-
-<?php endif; ?>

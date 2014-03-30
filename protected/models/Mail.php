@@ -33,12 +33,16 @@ class Mail extends CFormModel
 		);
 	}
 
+	/**
+	 * Sends an email.
+	 * @return bool
+	 */
 	public function sendMail() {
 		Yii::log('Message sendmail on email with name, email, Remail, subject, body: '.$this->name.', '.$this->email.', '.$this->Remail.', '.$this->subject.', '.$this->body, 'warning','Mail'); //TODO: remove debug
 
 		$sent_name='=?UTF-8?B?'.base64_encode($this->name).'?=';
 		$sent_subject='=?UTF-8?B?'.base64_encode($this->subject).'?=';
-		$sent_headers="From: $this->name <{$this->email}>\r\n".
+		$sent_headers="From: $sent_name <{$this->email}>\r\n".
 			"Reply-To: {$this->email}\r\n".
 			"MIME-Version: 1.0\r\n".
 			"Content-Type: text/plain; charset=UTF-8";

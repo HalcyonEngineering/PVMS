@@ -28,6 +28,51 @@ class MessageController extends Controller
 
 	}
 
+	public function actionCompose(){
+		$model = new Message('compose');
+
+		// Uncomment the following line if AJAX validation is needed
+		$this->performAjaxValidation($model);
+
+		if(isset($_POST['Message'])){
+			$model->attributes=$_POST['Message'];
+			$model->sender_id=Yii::app()->user->id;
+			//Duplicate the message per user.
+			foreach($model->targets as $user_id){
+				$perUser = new Message();
+				$perUser->attributes = $model->attributes;
+				$perUser->user_id=$user_id;
+
+				$perUser->validate();
+				$perUser->save();
+			}
+		}
+		$this->render('compose', array('model'=>$model));
+	}
+
+	public function actionInbox(){
+		$model = new Message('search');
+
+		$this->render('inbox', array('dataProvider'=>$model->searchInbox()));
+	}
+
+	public function actionOutbox(){
+		$model = new Message('search');
+
+		$this->render('outbox', array('dataProvider'=>$model->searchOutbox()));
+	}
+	/**
+	 * Performs the AJAX validation.
+	 * @param Role $model the model to be validated
+	 */
+	protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='message-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
