@@ -94,34 +94,54 @@ class Csv extends CActiveRecord
      * Given the filepath to a csv, parses the csv and adds users to the database
      * It's assumed that the csv will have at least a name and email column.
      */
-    public function csv2volunteers()
+    public function csv2volunteers(
+        $firstNameColumn=0,
+        $lastNameColumn=1,
+        $emailColumn=2
+    )
     {
-        $count = 0;
-	    $filepath = $this->csv->getTempName();
-		$org = Yii::app()->user->getManagedOrg();
+        $count = array('success'=>0, 'total'=>0);
+
+        $org = Yii::app()->user->getManagedOrg();
+        // Default availability is weekdays and weekends
+        $availability = User::AVAILABLE_ALL;
+        $skillset = '';
+        $location = '';
+
+	$filepath = $this->csv->getTempName();
         $file = fopen($filepath, 'r');
         if ($file)
         {
-            fgetcsv($file); // skip the first row, which has the labels
+            //fgetcsv($file); // skip the first row, which has the labels
             while(($fields = fgetcsv($file)) !== false)
             {
-                if(count($fields) >= 2)
-                {
-                    $name = $fields[0]; 
-                    $email = $fields[1];
-                    $skillset = (count($fields) > 2) ? $fields[2] : null;
-                    $location = (count($fields) > 3) ? $fields[3] : null;
-                    $availability = 3;
-                    
-                    // If the csv has both availabilities
-                    if (count($fields) > 5) {
-                        $weekdays = ($fields[4] == 'Y') ? 1 : 0;
-                        $weekends = ($fields[5] == 'Y') ? 2 : 0;
-                        $availability = $weekends | $weekdays;
-                    }
-                    $success = User::enrollVolunteer($name, $email, $location, $skillset, $org, $availability);
-                    if ($success) $count += 1;
+                //if(count($fields) >= 2)
+                //{
+                //    $name = $fields[0];
+                //    $email = $fields[1];
+                //    $skillset = (count($fields) > 2) ? $fields[2] : null;
+                //    $location = (count($fields) > 3) ? $fields[3] : null;
+                //    $availability = 3;
+                //    
+                //    // Default availability is weekdays and weekends
+
+                if(isset($fields[$firstNameColumn]) && isset($fields[$lastNameColumn])) {
+                    $name = $fields[$firstNameColumn].' '.$fields[$lastNameColumn];
+                } else {
+                    $count['total'] += 1;
+                    continue;
                 }
+
+                if(isset($fields[$emailColumn])) {
+                    $email = $fields[$emailColumn];
+                } else {
+                    $count['total'] += 1;
+                    continue;
+                }
+                
+                $success = User::enrollVolunteer($name, $email, $location, $skillset, $org, $availability);
+                if ($success) $count['success'] += 1;
+                $count['total'] += 1;
             }
         }
         return $count;

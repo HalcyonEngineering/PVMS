@@ -384,18 +384,24 @@ class User extends CActiveRecord
             }
 
         // @todo Abstract save/notify/return logic
+        // else the volunteer already exists in the database
         } else {
             // Just update the organization, don't change anything else
-            $new_orgs = $user->organizations;
-            array_push($new_orgs, $organization);
-            $user->organizations = $new_orgs;
-            if ($user->save()) {
-                Notification::notify($user->id, "Welcome " . $user->name . 
-                    ", you've been added as a member of  " . $organization->name . ".", '#');
-                return true;
-            } else {
-                return false;
+            // Only save if the user is not already part of the org
+            // I'm sorry for this code but Yii
+            if (!(in_array($organization->id, array_map(function ($org) {return $org->id;}, $user->organizations)))) {
+                $new_orgs = $user->organizations;
+                array_push($new_orgs, $organization);
+                $user->organizations = $new_orgs;
+                if ($user->save()) {
+                    Notification::notify($user->id, "Welcome " . $user->name . 
+                        ", you've been added as a member of  " . $organization->name . ".", '#');
+                    return true;
+                } else {
+                    return false;
+                }
             }
+            return false;
         }
     }
 
