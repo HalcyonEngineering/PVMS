@@ -133,7 +133,13 @@ class VolunteerController extends Controller
     public function actionRemoveFromRole($volunteer_id, $role_id) {
         User::removeFromRole($volunteer_id, $role_id);
         $role = Role::model()->findByPk($role_id);
+        if (Yii::app()->user->isManager()){
         $this->redirect(array('project/view', 'id'=>$role->project->id));
+        }
+        else{
+            Yii::app()->user->setFlash('success', 'You have removed yourself from role: '.$role->name.'.');
+            $this->redirect(array('role/index'));
+        }
     }
     
     //Delete volunteer

@@ -30,9 +30,13 @@
     $this->widget('bootstrap.widgets.TbButton',
                   array('label' => TbHtml::icon(TbHtml::ICON_TRASH),
                         'type' => 'link',
-                        'buttonType' => 'sumbit',
+                        'buttonType' => 'link',
                         'encodeLabel' =>false,
-                        'url'=>'Yii::app()->createUrl("volunteer/remove",array("id"=>$data->id))',
+                        'url'=> Yii::app()->controller->createUrl('/volunteer/removeFromRole',
+                                                                  array("volunteer_id"=>Yii::app()->user->id, "role_id"=>$data->id)),
+                        'htmlOptions'=>array(
+                                             'title' => 'Remove Role',
+                                             'data-toggle'=>'tooltip'),
                         )
                   );
     ?>
