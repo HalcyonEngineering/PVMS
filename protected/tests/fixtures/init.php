@@ -2,7 +2,7 @@
 
 $dbFile=dirname(__FILE__).'/../../data/test-pvms.sqlite';
 //$dbFile=dirname(__FILE__).'/pvms-test.sqlite';
-$sqlFile=dirname(__FILE__).'/../../data/schema.sqlite.sql';
+$sqlFile=dirname(__FILE__).'/../../data/schema.sqlite.sql.old.old';
 
 echo 'Regenerating test database';
  

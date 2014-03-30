@@ -72,7 +72,7 @@ class User extends CActiveRecord
             array('name, email', 'required'),
             array('email', 'unique'),
             array('email', 'email'),
-            array('name', 'match', 'pattern'=>'/[A-Za-z][A-Za-z -.]*[A-Za-z.]/'),
+            array('name', 'match', 'pattern'=>'/^[A-Za-z][A-Za-z \'.-]*[A-Za-z.]$/'),
             array('name, origPassword, email, newPassword', 'length', 'max'=>128),
             array('origPassword, verifyPassword, newPassword', 'length', 'min'=>6),
             array('verifyPassword', 'compare', 'compareAttribute' => 'newPassword', 'on' => 'register, settings, passreset'),

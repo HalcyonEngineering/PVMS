@@ -29,9 +29,9 @@ $this->breadcrumbs=array(
 </div>
 </div><!--End of Buttons-->
 
-<h1> <?php echo $model->name; ?></h1>
+<h1> <?php echo CHtml::encode($model->name); ?></h1>
 
-<p><?php echo $model->desc; ?> </p>
+<p><?php echo CHtml::encode($model->desc); ?> </p>
 
 <p> <?php $target = $model->target;
 		if ($target!=null) {
