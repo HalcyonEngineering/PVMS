@@ -30,7 +30,7 @@ $this->widget('bootstrap.widgets.TbAlert', array(
 <h1><?php echo "Forgot your password?"; ?></h1>
 
 <p>
-	Please enter your email address. A password reset email will be sent.
+	Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.
 </p>
 
 <?php
@@ -53,7 +53,7 @@ $this->widget('bootstrap.widgets.TbAlert', array(
 	<?php
 		$this->widget(
 		'bootstrap.widgets.TbButton',
-		array('buttonType' => 'submit', 'label' => 'Submit')
+		array('buttonType' => 'submit', 'label' => 'Reset Password', 'type' => 'success')
 		);
 	?>
 </div>

@@ -49,7 +49,7 @@ $this->breadcrumbs=array(
                     );?>
 </div>
 	  <a href = <?php echo Yii::app()->getBaseUrl(true) . '/account/reset' ?> > 
-       <font size=1px > Forgot your password? </font>
+       <font size=1px > Forgot Password? </font>
       </a>
 
 <?php $this->endWidget(); ?>
