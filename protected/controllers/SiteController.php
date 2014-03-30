@@ -24,6 +24,13 @@ class SiteController extends Controller
 		);
 	}
 
+    //Render tour
+    public function actionTour()
+    {
+        $this->render('tour');
+    }
+    
+    
 	/**
 	 * This is the action to handle external exceptions.
 	 */
