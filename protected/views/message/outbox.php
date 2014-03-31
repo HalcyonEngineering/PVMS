@@ -1,4 +1,16 @@
 <?php
+    
+    echo "<div class=\"span-4 pull-right\">";
+    $this->widget(
+                  'bootstrap.widgets.TbButton',
+                  array(
+                        'label' => 'Back to Inbox',
+                        'type' => 'Common',
+                        'url' => array('/message/inbox'),
+                        )
+                  );
+    echo "</div>";
+    
 	echo CHtml::tag('h1', array(), 'Outbox');
 	$columns=array(
 		array(
