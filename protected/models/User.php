@@ -470,9 +470,9 @@ class User extends CActiveRecord
     }
 
     public static function availabilityString($availability) {
-        if ($availability == 0) return 'Not Available';
-        if ($availability == 1) return 'Weekdays';
-        if ($availability == 2) return 'Weekends';
-        if ($availability == 3) return 'Weekdays & Weekends';
+        if ($availability == User::AVAILABLE_NONE) return 'Not Available';
+        if ($availability == User::AVAILABLE_WEEKDAYS) return 'Weekdays';
+        if ($availability == User::AVAILABLE_WEEKENDS) return 'Weekends';
+        if ($availability == User::AVAILABLE_ALL) return 'Weekdays & Weekends';
     }
 }

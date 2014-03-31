@@ -5,7 +5,7 @@
             'id'=>'add-volunteer-manual-form',
             'enableClientValidation'=>true,
             'clientOptions'=>array('validateOnSubmit'=>true,),
-            'enableAjaxValidation'=>false,
+            'enableAjaxValidation'=>true,
         )
     ); 
 ?>
@@ -51,7 +51,7 @@
         'multiple'=>true,
         'htmlOptions'=>array('size'=>50, 'placeholder'=>"City name only"),
     )); ?>
-    <p class="hint">Separate multiple cities with commas.</p>
+    <p class="hint">Please separate multiple cities with commas.</p>
     <?php echo $form->error($userModel,'location'); ?>
 </div>
 
@@ -66,6 +66,18 @@
     )); ?>
     <p class="hint">Please separate different skills with commas.</p>
     <?php echo $form->error($userModel,'skillset'); ?>
+</div>
+
+<div class="row">
+    <?php echo $form->labelEx($userModel,'phoneNumber'); ?>
+    <?php echo $form->textField($userModel,'phoneNumber'); ?>
+    <?php echo $form->error($userModel,'phoneNumber'); ?>
+</div>
+
+<div class="row">
+    <?php echo $form->labelEx($userModel,'address'); ?>
+    <?php echo $form->textField($userModel,'address'); ?>
+    <?php echo $form->error($userModel,'address'); ?>
 </div>
 
 <div class="row buttons">
