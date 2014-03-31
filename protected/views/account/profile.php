@@ -44,15 +44,6 @@
         echo "Not Set<br/><br/>";
     }
     
-    if ($model->skillset  != null)
-    {
-        echo "<b>Avaliable Skillsets: </b><br/>".$model->skillset ;
-        echo "<br/><br/>";
-    }else{
-        echo "<b>Avaliable Skillsets: </b><br/>" ;
-        echo "Not Set<br/><br/>";
-    }
-    
     if ($model->phoneNumber  != null)
     {
         echo "<b>Phone Number: </b><br/>".$model->phoneNumber ;
