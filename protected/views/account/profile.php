@@ -24,14 +24,25 @@
 	);
 	echo CHtml::closeTag('h1');
 
-	$this->widget('bootstrap.widgets.TbDetailView',array(
-		'data'=>$model,
-	    'attributes'=>array(
-		    'name',
-	        'location',
-	        'skillset',
-	    ),
-	));
+    echo "<b>Name: </b><br/>". $model->name;
+    echo "<br/><br/>";
+    
+    if ($model->location != null)
+    {
+        echo "<b>Avaliable Locations: </b><br/>".$model->location;
+        echo "<br/><br/>";
+    }else{
+        echo "<b>Avaliable Locations: </b><br/>".$model->location;
+        echo "Not Set<br/><br/>";
+    }
+    if ($model->skillset  != null)
+    {
+        echo "<b>Avaliable Locations: </b><br/>".$model->skillset ;
+        echo "<br/><br/>";
+    }else{
+        echo "<b>Avaliable Locations: </b><br/>".$model->skillset ;
+        echo "Not Set<br/><br/>";
+    }
 ?>
 </div>
 <div class="form" style='display:none;'>
@@ -48,8 +59,6 @@
 ?>
 
 <h2>Update Profile</h2>
-<p class="note">Fields with <span class="required">*</span> are required.</p>
-
 <?php echo $form->errorSummary($model); ?>
 
 <div class="row radiogroup">
@@ -91,6 +100,14 @@
 	<p class="hint">Please separate different skills with commas.</p>
 	<?php echo $form->error($model,'skillset'); ?>
 </div>
+<?php echo $form->labelEx($model,'Phone Number'); ?>
+<?php $this->widget('CMaskedTextField', array('mask'=>'XXX-XXX-XXXX','name'=>'someName', 'htmlOptions' => array('placeholder'=>"XXX-XXX-XXXX"))); ?>
+<?php echo "<br/>"?>
+<?php echo $form->textFieldRow($model, 'address');?>
+
+
+
+
 
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
@@ -108,6 +125,8 @@
 		              ));
 	?>
 </div>
+
+
 
 <?php $this->endWidget(); ?>
 
