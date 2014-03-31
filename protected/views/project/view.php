@@ -55,6 +55,7 @@ $this->breadcrumbs=array(
 		         'class'=>'bootstrap.widgets.TbButtonColumn',
 	             'template'=>'{view}{delete}',
 	             'viewButtonUrl'=>'Yii::app()->controller->createUrl("/role/view",array("id"=>$data->primaryKey))',
+	             'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/role/delete",array("id"=>$data->primaryKey))',
 	         ),
 	     ),
 	 ));
