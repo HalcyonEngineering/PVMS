@@ -85,6 +85,48 @@ class Message extends CActiveRecord
 	}
 
 	/**
+	 *
+	 * Returns an array of information about the target date.
+	 * @return array An array of values.<br \>
+	 *               <br \>
+	 * targetString contains a formatted string of the target date.<br \>
+	 * dateTime returns the DateTime object of the target date.<br \>
+	 * dateTimeInterval is the date time interval of the target date compared to the target time<br \>
+	 * passedTarget is a boolean that indicates if we've passed the deadline or not.<br \>
+	 * daysToTarget is a signed integer about how close you are to your deadline.<br \>
+	 * daysString will give you a default time to deadline string.<br \>
+	 *
+	 */
+	public function getTimestampInfo(){
+		$returnedArray = array();
+		$dateTime = new DateTime('@'.$this->timestamp);
+		$dateTimeInterval = $dateTime->diff(new DateTime('@'.time()));
+
+		$returnedArray['DateString'] = Yii::app()->dateFormatter->format('EEEE, MMMM d yyyy', $this->timestamp);
+		$returnedArray['dateTime'] = $dateTime;
+		$returnedArray['dateTimeInterval'] = $dateTimeInterval;
+
+
+		if ($dateTimeInterval->y > 0){
+			$timeString = $dateTimeInterval->y . " years";
+		} elseif ($dateTimeInterval->m > 0){
+			$timeString = $dateTimeInterval->m . " months";
+		} elseif ($dateTimeInterval->d > 0){
+			$timeString = $dateTimeInterval->d . " days";
+		} elseif ($dateTimeInterval->i > 0){
+		  $timeString = $dateTimeInterval->i . " minutes";
+		} elseif ($dateTimeInterval->s > 0){
+			$timeString = $dateTimeInterval->s . " seconds";
+		}
+
+		//$timeString = ($dateTimeInterval->days <= 1) ? "< 1 day " : $dateTimeInterval->days." days ";
+		$timeString .= " ago";
+		$returnedArray['timeString'] = $timeString;
+		Yii::trace(CVarDumper::dumpAsString($returnedArray));
+		return $returnedArray;
+	}
+
+	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * Typical usecase:

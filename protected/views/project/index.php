@@ -7,7 +7,24 @@
 </center>
 <hr> </hr>
 <center>
-<h2> Projects </h2>
+<h2> Volunteers: <?php echo $volunteerProvider->itemCount.' in organization';?></h2>
+<?php if($volunteerProvider->itemCount == 0) { 
+$csrfTokenName = Yii::app()->request->csrfTokenName;
+$csrfToken = Yii::app()->request->csrfToken;
+$this->widget('bootstrap.widgets.TbButton',
+                      array(
+	                      'buttonType' => 'link',
+	                      'type' => 'primary',
+	                      'label' => 'Add volunteers',
+	                      'encodeLabel' =>false,
+	                      'htmlOptions'=>array('submit'=>array('volunteer/add'),
+								'params'=>array($csrfTokenName=>$csrfToken,),
+								'title' => 'Add Volunteers',
+								'data-toggle'=>'tooltip',
+	                      ),
+              ));
+} ?>
+<h2> Projects: <?php /*if($dataProvider->itemCount != 0) {*/echo $dataProvider->itemCount.' in organization';/*}*/?></h2>
 <p> Here are your projects. You can also create a new project by clicking on the button below</p></br>
 
 <?php $this->widget('ModalOpenButton',
@@ -23,4 +40,5 @@
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
 'template'=>"{pager}\n{items}\n{pager}",
+'emptyText' =>'<center>Welcome to Pitch\'n. Create a new project above!</center>',
 )); ?>

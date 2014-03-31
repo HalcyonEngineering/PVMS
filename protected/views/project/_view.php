@@ -61,11 +61,42 @@ $this->widget(
 	                      ),
                       )
         );
+
+        $this->widget('ModalOpenButton',
+                      array(
+	                      'label' => TbHtml::icon(TbHtml::ICON_TRASH),
+	                      'type' => 'link',
+	                      'encodeLabel' =>false,
+	                      'button_id'=>'edit-project-'.$data->id,
+	                      'url' => Yii::app()->createUrl("project/delete", array("id"=>$data->id)),
+	                      'htmlOptions'=>array(
+	                      		'params'=>array('returnUrl'=>Yii::app()->createUrl('project/index')),
+                              'class' => 'pull-right',
+		                      'title' => 'Delete',
+		                      'data-toggle'=>'tooltip',
+	                      ),
+                      )
+        );
+
+        //this standard style won't work
+		/*$csrfTokenName = Yii::app()->request->csrfTokenName;
+		$csrfToken = Yii::app()->request->csrfToken;
+        $this->widget('Bootstrap.widgets.TbButton',
+                      array(
+	                      'buttonType' => 'submit',
+	                      //'type' => 'primary',
+	                      'label' => TbHtml::icon(TbHtml::ICON_TRASH),
+	                      'encodeLabel' =>false,
+	                      'htmlOptions'=>array('submit'=>array('project/delete'),
+								'params'=>array("id"=>$data->id,$csrfTokenName=>$csrfToken,'returnUrl'=>Yii::app()->createUrl('project/index'),),
+								'confirm' => 'Delete project?',
+								'class' => 'pull-right',
+								'title' => 'Delete',
+								'data-toggle'=>'tooltip',
+	                      ),
+                      )
+        );*/
         ?>
-
-
-
       </div>
-
 	<?php echo CHtml::closeTag('div')?>
 </div>
