@@ -90,6 +90,20 @@ class Csv extends CActiveRecord
         return parent::model($className);
     }
 
+    public function getTempName() {
+	return $this->csv->getTempName();
+    }
+
+    public function getFirstRow($tempName) {
+	$filepath = $this->csv->getTempName();
+        $file = fopen($filepath, 'r');
+        if ($file)
+        {
+            return fgetcsv($file); // skip the first row, which has the labels
+        }
+        return null;
+    }
+
     /**
      * Given the filepath to a csv, parses the csv and adds users to the database
      * It's assumed that the csv will have at least a name and email column.
