@@ -21,10 +21,6 @@ class FileDocController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'expression'=>'Yii::app()->user->isAdmin()'
-			),
 			array('allow',
 				'actions'=>array('download', 'listFiles'),
 			    'users'=>array('@'),
@@ -39,16 +35,6 @@ class FileDocController extends Controller
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
 
 	/**
  	 * Creates a new model.
@@ -56,8 +42,8 @@ class FileDocController extends Controller
  	 */
 	public function actionCreate($project_id)
 	{
-		////Yii::log('FileDoc create action begun', 'warning', 'FileDoc');
-        
+		$projectModel = Project::model()->findByPk($project_id);
+        if(Yii::app()->user->isManagerForOrg($projectModel->org_id)){
 		$model=new FileDoc; // remember: this is a local var
 
         if(isset($_POST['FileDoc']))
@@ -70,9 +56,6 @@ class FileDocController extends Controller
             Yii::log('FileDoc uploadedfile after set from cuploadedfile getinstance: '.$model->uploadedfile, 'warning', 'FileDoc');
             if($model->save())
             {
-    	        ////Yii::log('file to be saved in path: '.Yii::getPathOfAlias('webroot').'/assets/tempupload/'.$model->uploadedfile->name, 'warning', 'FileDoc');
-                //$model->uploadedfile->saveAs(Yii::getPathOfAlias('webroot').'/assets/tempupload/'.$model->uploadedfile->name); // uncomment and modify if you want to save the file on the filesystem
-                ////Yii::log('FileDoc create action ended with redir', 'warning', 'FileDoc');
 	            $this->redirect(array('/project/view','id'=>$project_id)); // redirect to success page
                 $project = Project::model()->findByAttributes(array('id' => $model->project_id,));
                 //$user_List = $project->users;
@@ -92,11 +75,6 @@ class FileDocController extends Controller
             }
         }
 
-        ////Yii::log('FileDoc create action ended', 'warning', 'FileDoc');
-		/*if(isset($_POST['project_id'])) {
-			$model->project_id = $_POST['project_id'];
-		}*/
-
 		if(isset($project_id)) {
 			$model->project_id = $project_id;
 		}
@@ -106,7 +84,9 @@ class FileDocController extends Controller
 		$this->renderModal('create',array(
 			'model'=>$model,
 		));
-
+        } else {
+	        throw new CHttpException(403);
+        }
 	}
 
 	public function actionDownload($id)
@@ -130,18 +110,21 @@ class FileDocController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		if(Yii::app()->user->isManagerForOrg($model->project->org_id)){
+			if(isset($_POST['FileDoc']))
+			{
+				$model->attributes=$_POST['FileDoc'];
+				$model->uploadedfile=CUploadedFile::getInstance($model,'uploadedfile');
+				if($model->save())
+					$this->redirect(array('/project/view','id'=>$model->project_id));
+			}
 
-		if(isset($_POST['FileDoc']))
-		{
-			$model->attributes=$_POST['FileDoc'];
-			$model->uploadedfile=CUploadedFile::getInstance($model,'uploadedfile');
-			if($model->save())
-				$this->redirect(array('/project/view','id'=>$model->project_id));
+			$this->render('update',array(
+				'model'=>$model,
+			));
+		} else {
+			throw new CHttpException(403);
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
 	}
 
 	/**
@@ -151,29 +134,21 @@ class FileDocController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		if(Yii::app()->request->isPostRequest)
+		$model = $this->loadModel($id);
+		if(Yii::app()->request->isPostRequest && Yii::app()->user->isManagerForOrg($model->project->org_id))
 		{
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+
+				$project_id = $model->project->id;
+				$model->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax'])) {
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('project/index'));
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('project/index', 'id'=>$project_id));
 			}
 		} else {
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 		}
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('FileDoc');
-		$this->renderModal('index',array(
-			'dataProvider'=>$dataProvider,
-		));
 	}
 
 	/**

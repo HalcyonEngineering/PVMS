@@ -68,24 +68,28 @@ class RoleController extends Controller
 		$model=new Role;
 		$onboardingModel=new OnboardingDoc;
 		$model->project_id = $project_id;
+		$project_model = Project::model()->findByPk($project_id);
+		if (Yii::app()->user->isManagerForOrg($project_model->org_id)) {
+			// Uncomment the following line if AJAX validation is needed
+			$this->performAjaxValidation($model,$onboardingModel);
 
-		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model,$onboardingModel);
+			if(isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
+			{
+				$model->attributes=$_POST['Role'];
+				if ($model->save()) {
+					$onboardingModel->attributes=$_POST['OnboardingDoc'];
+					$onboardingModel->role_id = $model->id; // we're chaining it on
+					$onboardingModel->save();
 
-		if(isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
-		{
-			$model->attributes=$_POST['Role'];
-			if ($model->save()) {
-				$onboardingModel->attributes=$_POST['OnboardingDoc'];
-				$onboardingModel->role_id = $model->id; // we're chaining it on
-				$onboardingModel->save();
-
-				$this->redirect(array('view','id'=>$model->id));
+					$this->redirect(array('view','id'=>$model->id));
+				}
 			}
-		}
 
-		$this->renderModal('create',array('model'=>$model,
-										'onboardingModel'=>$onboardingModel,));
+			$this->renderModal('create',array('model'=>$model,
+			                                  'onboardingModel'=>$onboardingModel,));
+		} else {
+			throw new CHttpException(403, null, 403);
+		}
 	}
 
 	/**
@@ -97,22 +101,25 @@ class RoleController extends Controller
 	{
 		$model=$this->loadModel($id);
 		$onboardingModel=$model->onboardingDoc;
+		if (Yii::app()->user->isManagerForOrg($model->project->org_id)){
+			// Uncomment the following line if AJAX validation is needed
+			 $this->performAjaxValidation($model, $onboardingModel);
 
-		// Uncomment the following line if AJAX validation is needed
-		 $this->performAjaxValidation($model, $onboardingModel);
-
-		if(isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
-		{
-			$model->attributes=$_POST['Role'];
-			$onboardingModel->attributes=$_POST['OnboardingDoc'];
-			if($model->validate() && $onboardingModel->validate()){
-				if($model->save() && $onboardingModel->save())
-					$this->redirect(array('view','id'=>$model->id));
+			if(isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
+			{
+				$model->attributes=$_POST['Role'];
+				$onboardingModel->attributes=$_POST['OnboardingDoc'];
+				if($model->validate() && $onboardingModel->validate()){
+					if($model->save() && $onboardingModel->save())
+						$this->redirect(array('view','id'=>$model->id));
+				}
 			}
+			$this->render('update',array(
+				'model'=>$model,
+			));
+		} else {
+			throw new CHttpException(403, 'You are not authorized to perform this system.', 403);
 		}
-		$this->render('update',array(
-			'model'=>$model,
-		));
 	}
 
 
@@ -126,11 +133,15 @@ class RoleController extends Controller
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
-
+			$model = $this->loadModel($id);
+			if (Yii::app()->user->isManagerForOrg($model->project->org_id)){
+				$model->delete();
+			} else {
+				throw new CHttpException(403, 'You are not authorized to perform this action', 403);
+			}
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax'])) {
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('role/index'));
 			}
 		} else {
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
