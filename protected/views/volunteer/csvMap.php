@@ -17,5 +17,46 @@
 <p style="width: 75%;">Choose your CSV mapping here:</p>
 
 <?php
-    echo CVarDumper::dumpAsString($fields);
+    echo CVarDumper::dumpAsString($csvModel->getFirstRow($csvModel->getTempName()));
 ?>
+    
+<div class="form">
+
+	<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+		'id'=>'csv-upload-form',
+		'enableClientValidation'=>false,
+		'clientOptions'=>array(
+			'validateOnSubmit'=>true,
+		),
+		// Please note: When you enable ajax validation, make sure the corresponding
+		// controller action is handling ajax validation correctly.
+		// See class documentation of CActiveForm for details on this,
+		// you need to use the performAjaxValidation()-method described there.
+		'enableAjaxValidation'=>false,
+	)); ?>
+
+	<?php echo $form->errorSummary($csvModel); ?>
+
+        <?php echo 'First Name:'; ?>
+        <br>
+	<?php echo CHtml::dropDownList('first-name-csv', '', $csvModel->getFirstRow($csvModel->getTempName())) ?>
+        <br>
+        <br>
+        <?php echo 'Last Name'; ?>
+        <br>
+	<?php echo CHtml::dropDownList('last-name-csv', '', $csvModel->getFirstRow($csvModel->getTempName())) ?>
+        <br>
+        <br>
+        <?php echo 'Email'; ?>
+        <br>
+	<?php echo CHtml::dropDownList('email-csv', '', $csvModel->getFirstRow($csvModel->getTempName())) ?>
+        <?php echo CHtml::hiddenField('tempName', $csvModel->getTempName()); ?>
+</div>
+
+<div class="form-actions">
+	<?php echo CHtml::submitButton('Submit', array('id'=>'upload')); ?>
+</div>
+
+<?php $this->endWidget(); ?>
+
+</div><!-- form -->

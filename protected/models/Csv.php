@@ -109,6 +109,7 @@ class Csv extends CActiveRecord
      * It's assumed that the csv will have at least a name and email column.
      */
     public function csv2volunteers(
+        $tempName,
         $firstNameColumn=0,
         $lastNameColumn=1,
         $emailColumn=2
@@ -122,7 +123,7 @@ class Csv extends CActiveRecord
         $skillset = '';
         $location = '';
 
-	$filepath = $this->csv->getTempName();
+	$filepath = $tempName;
         $file = fopen($filepath, 'r');
         if ($file)
         {

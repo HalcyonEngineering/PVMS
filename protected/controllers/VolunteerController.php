@@ -46,19 +46,27 @@ class VolunteerController extends Controller
             $csvModel->attributes = $_POST['Csv'];
             $csvModel->csv = CUploadedFile::getInstance($csvModel, 'csv');
             if($csvModel->save()) {
-            //    $count = $csvModel->csv2volunteers();
-            //    if ($count['success'] > 0) {
-            //        Yii::app()->user->setFlash('success',
-            //            "<strong>".$count['success']." out of ".$count['total']." entries added successfully!</strong> Check the \"Manage Volunteers\" tab.");
-            //    } else {
-            //        Yii::app()->user->setFlash('error',
-            //            '<strong>Uh-oh!</strong> No volunteers were added. Were they already in the database?');
-            //    }
-                $tempName = $csvModel->getTempName();
-                $this->render('csvMap', array('tempName'=>$tempName));
+                $this->render('csvMap', array('csvModel'=>$csvModel));
                 return;
             }
        }
+
+        if(isset($_POST['yt0']))
+        {
+                $count = $csvModel->csv2volunteers(
+                    $_POST['tempName'],
+                    $_POST['first-name-csv'],
+                    $_POST['last-name-csv'],
+                    $_POST['email-csv']
+                );
+                if ($count['success'] > 0) {
+                    Yii::app()->user->setFlash('success',
+                        "<strong>".$count['success']." out of ".$count['total']." entries added successfully!</strong> Check the \"Manage Volunteers\" tab.");
+                } else {
+                    Yii::app()->user->setFlash('error',
+                        '<strong>Uh-oh!</strong> No volunteers were added. Were they already in the database?');
+                }
+        }
 
         if(isset($_POST['User']))
         {
