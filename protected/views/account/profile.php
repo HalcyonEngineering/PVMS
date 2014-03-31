@@ -32,15 +32,15 @@
         echo "<b>Avaliable Locations: </b><br/>".$model->location;
         echo "<br/><br/>";
     }else{
-        echo "<b>Avaliable Locations: </b><br/>".$model->location;
+        echo "<b>Avaliable Locations: </b><br/>";
         echo "Not Set<br/><br/>";
     }
     if ($model->skillset  != null)
     {
-        echo "<b>Avaliable Locations: </b><br/>".$model->skillset ;
+        echo "<b>Avaliable Skillsets: </b><br/>".$model->skillset ;
         echo "<br/><br/>";
     }else{
-        echo "<b>Avaliable Locations: </b><br/>".$model->skillset ;
+        echo "<b>Avaliable Skillsets: </b><br/>" ;
         echo "Not Set<br/><br/>";
     }
 ?>
@@ -101,7 +101,7 @@
 	<?php echo $form->error($model,'skillset'); ?>
 </div>
 <?php echo $form->labelEx($model,'Phone Number'); ?>
-<?php $this->widget('CMaskedTextField', array('mask'=>'XXX-XXX-XXXX','name'=>'someName', 'htmlOptions' => array('placeholder'=>"XXX-XXX-XXXX"))); ?>
+<?php $this->widget('CMaskedTextField', array('mask'=>'999-999-9999','name'=>'someName', 'htmlOptions' => array('placeholder'=>"XXX-XXX-XXXX"))); ?>
 <?php echo "<br/>"?>
 <?php echo $form->textFieldRow($model, 'address');?>
 
