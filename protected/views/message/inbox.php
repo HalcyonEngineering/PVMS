@@ -19,10 +19,14 @@
 	        'filter'=> '',
 	    ),
 	    array(
-		    'class'=> 'bootstrapwidgets.TbDataColumn',
+		    'class'=> 'bootstrap.widgets.TbDataColumn',
 	        'name'=> 'status',
 	        'value'=> 'Lookup::item("MessageStatus", $data->status);',
 	        'filter'=> Lookup::items("MessageStatus"),
+	    ),
+	    array(
+		    'class'=> 'bootstrap.widgets.TbButtonColumn',
+	        'template' => '{delete}',
 	    ),
 	);
 
