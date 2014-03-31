@@ -43,6 +43,34 @@
         echo "<b>Avaliable Skillsets: </b><br/>" ;
         echo "Not Set<br/><br/>";
     }
+    
+    if ($model->skillset  != null)
+    {
+        echo "<b>Avaliable Skillsets: </b><br/>".$model->skillset ;
+        echo "<br/><br/>";
+    }else{
+        echo "<b>Avaliable Skillsets: </b><br/>" ;
+        echo "Not Set<br/><br/>";
+    }
+    
+    if ($model->phoneNumber  != null)
+    {
+        echo "<b>Phone Number: </b><br/>".$model->phoneNumber ;
+        echo "<br/><br/>";
+    }else{
+        echo "<b>Phone Number: </b><br/>" ;
+        echo "Not Set<br/><br/>";
+    }
+    
+    if ($model->address  != null)
+    {
+        echo "<b>Address: </b><br/>".$model->address ;
+        echo "<br/><br/>";
+    }else{
+        echo "<b>Address: </b><br/>" ;
+        echo "Not Set<br/><br/>";
+    }
+    
 ?>
 </div>
 <div class="form" style='display:none;'>
