@@ -68,18 +68,6 @@
     <?php echo $form->error($userModel,'skillset'); ?>
 </div>
 
-<div class="row">
-    <?php echo $form->labelEx($userModel,'phoneNumber'); ?>
-    <?php echo $form->textField($userModel,'phoneNumber'); ?>
-    <?php echo $form->error($userModel,'phoneNumber'); ?>
-</div>
-
-<div class="row">
-    <?php echo $form->labelEx($userModel,'address'); ?>
-    <?php echo $form->textField($userModel,'address'); ?>
-    <?php echo $form->error($userModel,'address'); ?>
-</div>
-
 <div class="row buttons">
     <?php echo CHtml::submitButton('Submit'); ?>
 </div>

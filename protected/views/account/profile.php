@@ -27,20 +27,23 @@
     echo "<b>Name: </b><br/>". $model->name;
     echo "<br/><br/>";
     
+        echo "<b>Availability: </b><br/>".User::availabilityString($model->availability);
+        echo "<br/><br/>";
+
     if ($model->location != null)
     {
-        echo "<b>Avaliable Locations: </b><br/>".$model->location;
+        echo "<b>Available Locations: </b><br/>".$model->location;
         echo "<br/><br/>";
     }else{
-        echo "<b>Avaliable Locations: </b><br/>";
+        echo "<b>Available Locations: </b><br/>";
         echo "Not Set<br/><br/>";
     }
     if ($model->skillset  != null)
     {
-        echo "<b>Avaliable Skillsets: </b><br/>".$model->skillset ;
+        echo "<b>Available Skillsets: </b><br/>".$model->skillset ;
         echo "<br/><br/>";
     }else{
-        echo "<b>Avaliable Skillsets: </b><br/>" ;
+        echo "<b>Available Skillsets: </b><br/>" ;
         echo "Not Set<br/><br/>";
     }
     
@@ -119,14 +122,12 @@
 	<p class="hint">Please separate different skills with commas.</p>
 	<?php echo $form->error($model,'skillset'); ?>
 </div>
+
 <?php echo $form->labelEx($model,'Phone Number'); ?>
-<?php $this->widget('CMaskedTextField', array('mask'=>'999-999-9999','name'=>'someName', 'htmlOptions' => array('placeholder'=>"XXX-XXX-XXXX"))); ?>
+<?php $this->widget('CMaskedTextField', array('model'=>$model, 'attribute'=>'phoneNumber', 'mask'=>'999-999-9999','name'=>'someName', 'htmlOptions' => array('placeholder'=>"XXX-XXX-XXXX"))); ?>
 <?php echo "<br/>"?>
-<?php echo $form->textFieldRow($model, 'address');?>
 
-
-
-
+<?php echo $form->textFieldRow($model,'address'); ?>
 
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
