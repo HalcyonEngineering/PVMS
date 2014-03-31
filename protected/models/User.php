@@ -242,17 +242,19 @@ class User extends CActiveRecord
             }
 
             // Availability is check on both, match only volunteers who are available all the time
-            if (count($args['User']['availability']) === 2) {
-                $criteria->compare('availability', array(User::AVAILABLE_ALL));
-            // Only 1 checkbox is checked, we need to find out which
-            } else if (count($args['User']['availability']) === 1) {
-                if ($args['User']['availability'][0] === 'Weekdays') {
-                    $criteria->compare('availability', array(User::AVAILABLE_ALL, User::AVAILABLE_WEEKDAYS));
-                }
-                if ($args['User']['availability'][0] === 'Weekends') {
-                    $criteria->compare('availability', array(User::AVAILABLE_ALL, User::AVAILABLE_WEEKENDS));
-                }
-            } 
+            if (isset($args['User']['availability'][0])) {
+                if (count($args['User']['availability']) === 2) {
+                    $criteria->compare('availability', array(User::AVAILABLE_ALL));
+                // Only 1 checkbox is checked, we need to find out which
+                } else if (count($args['User']['availability']) === 1) {
+                    if ($args['User']['availability'][0] === 'Weekdays') {
+                        $criteria->compare('availability', array(User::AVAILABLE_ALL, User::AVAILABLE_WEEKDAYS));
+                    }
+                    if ($args['User']['availability'][0] === 'Weekends') {
+                        $criteria->compare('availability', array(User::AVAILABLE_ALL, User::AVAILABLE_WEEKENDS));
+                    }
+                } 
+            }
 
             // User has to be a volunteer
             $criteria->compare('type', User::VOLUNTEER);
