@@ -22,7 +22,6 @@ class Message extends CActiveRecord
 	const STATUS_READ = 1;
 
 	var $targets;
-
 	/**
 	 * @return string the associated database table name
 	 */
@@ -47,11 +46,11 @@ class Message extends CActiveRecord
 			array('subject', 'length', 'max'=>128),
 		    array('body', 'length', 'max'=>1024),
 		    array('timestamp','default', 'value'=>time(),'setOnEmpty'=>false,'on'=>'insert'),
-		    array('status', 'in', 'range'=>array(Message::STATUS_UNREAD, Message::STATUS_UNREAD)),
+		    array('status', 'in', 'range'=>array(Message::STATUS_UNREAD, Message::STATUS_READ)),
 		    array('status', 'default', 'value'=>0),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, sender_id, subject, body', 'safe', 'on'=>'search'),
+			array('user_id, sender_id, subject, body, status', 'safe', 'on'=>'search'),
 
 		);
 	}
@@ -80,7 +79,7 @@ class Message extends CActiveRecord
 			'sender_id' => 'Sender',
 			'subject' => 'Subject',
 			'body' => 'Body',
-			'timestamp' => 'Timestamp',
+			'timestamp' => 'Send Time',
 		    'status' => 'Status',
 		);
 	}
@@ -107,6 +106,7 @@ class Message extends CActiveRecord
 		$criteria->compare('sender_id',$this->sender_id,true);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('body',$this->body,true);
+		$criteria->compare('t.status', $this->status);
 		$criteria->with = array('sender');
 		$criteria->together = true;
 
@@ -131,6 +131,7 @@ class Message extends CActiveRecord
 		$criteria->compare('sender_id',Yii::app()->user->id,true);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('body',$this->body,true);
+		$criteria->compare('t.status', $this->status);
 		$criteria->with = array('recipient');
 		$criteria->together = true;
 

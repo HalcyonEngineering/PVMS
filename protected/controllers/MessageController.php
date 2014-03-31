@@ -52,15 +52,48 @@ class MessageController extends Controller
 
 	public function actionInbox(){
 		$model = new Message('search');
+		if(isset($_GET['Message'])){
+			$model->attributes=$_GET['Message'];
+		}
+		$this->render('inbox', array('model'=>$model));
+	}
 
-		$this->render('inbox', array('dataProvider'=>$model->searchInbox()));
+	public function actionRelational($id)
+	{
+		$model = $this->loadModel($id);
+		if ($model->user_id === Yii::app()->user->id){
+			$model->status = Message::STATUS_READ;
+			$model->save();
+		}
+		$this->renderPartial('_view', array(
+			'data'=>$model,
+		));
 	}
 
 	public function actionOutbox(){
 		$model = new Message('search');
-
-		$this->render('outbox', array('dataProvider'=>$model->searchOutbox()));
+		$model->unsetAttributes();
+		if(isset($_GET['Message'])){
+			$model->attributes=$_GET['Message'];
+		}
+		$this->render('outbox', array('model'=>$model));
 	}
+
+	/**
+	 * Returns the data model based on the primary key given in the GET variable.
+	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param integer $id the ID of the model to be loaded
+	 * @return Role the loaded model
+	 * @throws CHttpException
+	 */
+	public function loadModel($id)
+	{
+		$model=Message::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+
 	/**
 	 * Performs the AJAX validation.
 	 * @param Role $model the model to be validated
