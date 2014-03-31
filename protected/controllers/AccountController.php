@@ -3,7 +3,49 @@
 class AccountController extends Controller
 {
 	public $defaultAction = 'login';
-	
+
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',
+			      'actions'=>array('login', 'reset'),
+			      'users'=>array('*'),
+			),
+			array('allow',
+			      'actions'=>array('logout', 'settings', 'profile'),
+			      'expression'=>'!Yii::app()->user->isGuest',
+			),
+			array('allow',
+			      'actions'=>array('reset', 'passReset'),
+			      'expression'=>'!Yii::app()->user->isGuest',
+			),
+			array('allow',
+			      'actions'=>array('adminLogin', 'orgDisable', 'orgEnable'),
+			      'expression'=>'!Yii::app()->user->isAdmin()',
+			),
+			array('deny',  // deny all users
+			      'users'=>array('*'),
+			),
+		);
+	}
+
+
 	/**
 	* Second login admin attempt
 	* @TODO UI handle case for denied access and Not admin
@@ -302,31 +344,4 @@ class AccountController extends Controller
 			}
 		}	
 	}
-
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
 }

@@ -23,11 +23,15 @@ class FileDocController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'expression'=>'Yii::app()->user->isAdmin()'
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','download','listFiles','listParentFiles','delete'),
-				'users'=>array('@'),
+			array('allow',
+				'actions'=>array('download', 'listFiles'),
+			    'users'=>array('@'),
+			),
+			array('allow', // allow managers to create update and delete.
+				'actions'=>array('create','update','delete'),
+				'expression'=>'Yii::app()->user->isManager()'
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -130,8 +134,9 @@ class FileDocController extends Controller
 		if(isset($_POST['FileDoc']))
 		{
 			$model->attributes=$_POST['FileDoc'];
+			$model->uploadedfile=CUploadedFile::getInstance($model,'uploadedfile');
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('/project/view','id'=>$model->project_id));
 		}
 
 		$this->render('update',array(
@@ -153,7 +158,7 @@ class FileDocController extends Controller
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax'])) {
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('project/index'));
 			}
 		} else {
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
@@ -178,22 +183,6 @@ class FileDocController extends Controller
 	{
 		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$project_id,),));
 		$this->renderModal('//FileDoc/_files',array('dataProvider'=>$dataProvider,));
-	}
-
-	/**
-	 * Render a modal showing all FileDocs for the project for the role id passed in
-	 */
-	public function actionListParentFiles($role_id)
-	{
-		$project_id = Role::model()->findByPk($role_id)->project_id; //TODO: do something with these
-		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$project_id,),));
-		if (Yii::app()->user->isVolunteer()) {
-			$this->renderModal('_files',array('dataProvider'=>$dataProvider,
-												'template'=>'{download}',));
-		} else {
-			$this->renderModal('_files',array('dataProvider'=>$dataProvider,
-												'template'=>'{download}{view}{update}{delete}',));
-		}
 	}
 
 	/**

@@ -68,7 +68,7 @@ class FileDoc extends CActiveRecord
 			'file_name' => 'File Name',
 			'file_size' => 'File Size',
 			'file_data' => 'File Data',
-		    'uploadedfile'=> 'Upload File Here',
+		    'uploadedfile'=> 'Uploaded File',
 		);
 	}
 

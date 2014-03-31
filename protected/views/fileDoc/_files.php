@@ -11,6 +11,7 @@ $this->widget('bootstrap.widgets.TbGridView',
 	              'id'=>'file-doc-grid',
 	              'dataProvider'=>$dataProvider,
 	              'template'=>'{items}{summary}{pager}',
+
 	              'columns'=> array(
 		              'file_name',
 		              array(
@@ -31,6 +32,8 @@ $this->widget('bootstrap.widgets.TbGridView',
 			              'htmlOptions' => array(
 				              'style'=>'width:80px'
 			              ),
+			              'updateButtonUrl'=>'Yii::app()->controller->createUrl("/fileDoc/update",array("id"=>$data->id))',
+			              'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/fileDoc/delete",array("id"=>$data->id))',
 		              ),
 	              ),
               )

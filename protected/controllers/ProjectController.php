@@ -49,19 +49,7 @@ class ProjectController extends Controller
 				$emptyUserRoles[] = UserRole::getFakeUserRole($role);
 			}
 			$fakeData = CMap::mergeArray($emptyUserRoles, $roleDataProvider->getData());
-//			$newRoleDataProvider = new CArrayDataProvider($fakeData, array(
-//				'keyField'=>false,
-//				'sort'=>array(
-//					'attributes'=>array(
-//						//	'defaultOrder'=>'role.name',
-//						'role.name'=>array(
-//							'asc'=>'role.name',
-//							'desc'=>'role.name DESC'),
-//						'user.name'=>array(
-//							'asc'=>'user.name'),
-//						'desc'=>'user.name DESC'),
-//				),
-//			));
+
 			$emptyRolesProvider = new CArrayDataProvider('Role',array(
 				'rawData'=>$emptyRoles,
 				'sort'=>array(
@@ -71,7 +59,6 @@ class ProjectController extends Controller
 					)
 				)
 			));
-			//CVarDumper::dump($fakeData);
 			$this->render('view', array('model'=>$model,
 			                        'dataProvider'=>$dataProvider,
 			                        'roleDataProvider'=>$roleDataProvider,

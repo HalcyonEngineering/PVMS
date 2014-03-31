@@ -10,7 +10,7 @@
 	<?php $this->widget('ModalOpenButton',
 	                    array(
 		                    'button_id'=>'list-project-files-btn',
-		                    'url' => Yii::app()->createUrl("fileDoc/listParentFiles",array("role_id"=>$model->id)),
+		                    'url' => Yii::app()->createUrl("fileDoc/listFiles",array("project_id"=>$model->project->id)),
 		                    'label' => 'View project document repository',
 		                    'type' => 'common',
 	                    ));

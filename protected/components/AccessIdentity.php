@@ -20,7 +20,7 @@ class AccessIdentity extends CUserIdentity{
 	}
 
 	public function authenticate(){
-		return $this->_adminIdentity->authenticate();
+		return Yii::app()->user->isAdmin() && $this->_adminIdentity->authenticate();
 	}
 
 	public function getId(){
