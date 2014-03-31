@@ -139,7 +139,7 @@ class ProjectController extends Controller
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax'])) {
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
 			}
 		} else {
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
@@ -166,8 +166,15 @@ class ProjectController extends Controller
 		    'pagination'=>array('pageSize' => 9),
 		));
 
+		//code copied from VolunteerController search to facilitate report of the number of volunteers
+		$model = new User('search');
+        $model->unsetAttributes();
+        $o = Yii::app()->user->getManagedOrg();
+        $volunteerProvider = $model->search_volunteers_in_org($o);
+
 		$this->renderModal('index',array(
 			'dataProvider'=>$dataProvider,
+			'volunteerProvider'=>$volunteerProvider,
 		));
 	}
 
