@@ -33,12 +33,13 @@ class AccountController extends Controller
 			),
 			array('allow',
 			      'actions'=>array('reset', 'passReset'),
-			      'expression'=>'!Yii::app()->user->isGuest',
+			      'expression'=>'Yii::app()->user->isGuest',
 			),
 			array('allow',
 			      'actions'=>array('adminLogin', 'orgDisable', 'orgEnable'),
-			      'expression'=>'!Yii::app()->user->isAdmin()',
+			      'expression'=>'Yii::app()->user->isAdmin()',
 			),
+			
 			array('deny',  // deny all users
 			      'users'=>array('*'),
 			),

@@ -32,7 +32,7 @@ class FileDoc extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('uploadedfile', 'file', 'types'=>'txt,doc,docx','safe'=>true, 'maxSize'=>16*1024*1024, 'allowEmpty'=>true, 'tooLarge'=>'{attribute} is too large to be uploaded. Maximum size is 16MB.'),
+			array('uploadedfile', 'file', 'types'=>'txt,doc,docx,pdf,odt,xls,xlsx,xlsm,xlsb','safe'=>true, 'maxSize'=>16*1024*1024, 'allowEmpty'=>true, 'tooLarge'=>'{attribute} is too large to be uploaded. Maximum size is 16MB.'),
 			array('uploadedfile', 'required'),
 			array('project_id', 'required'),
 			array('project_id', 'exist', 'className'=>'Project','attributeName'=>'id'),
