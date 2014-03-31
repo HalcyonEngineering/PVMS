@@ -24,7 +24,7 @@ $this->widget(
 				           'url' => '#',
 				           'items' => array(
 					           array('label' => 'Inbox', 'url' => array('message/inbox')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES
-					           array('label' => 'Send Email', 'url' => array('mail/contact')),
+					           array('label' => 'Send Message', 'url' => array('message/compose')),
 				           ),
 				           'visible'=>!Yii::app()->user->isGuest,
 				     ),//End Messages drop down.

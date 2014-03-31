@@ -71,8 +71,11 @@ class MessageController extends Controller
 				$perUser->validate();
 				$perUser->save();
 			}
+            Yii::app()->user->setFlash('success', 'Your message has been sent.');
+            $this->redirect(array('message/outbox'));
 		}
-		$this->render('compose', array('model'=>$model));
+		$this->renderModal('compose', array('model'=>$model));
+        
 	}
 
 	public function actionInbox(){
