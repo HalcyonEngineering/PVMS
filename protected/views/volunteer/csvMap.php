@@ -14,11 +14,7 @@
     $this->pageTitle=Yii::app()->name . ' - CSV Mapping';
 ?>
 <h1>Csv Mapping</h1>
-<p style="width: 75%;">Choose your CSV mapping here:</p>
-
-<?php
-    echo CVarDumper::dumpAsString($csvModel->getFirstRow($csvModel->getTempName()));
-?>
+<p style="width: 75%;">Choose your CSV mapping here, select submit when you are done.</p>
     
 <div class="form">
 
