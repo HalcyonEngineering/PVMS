@@ -273,11 +273,14 @@ INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","c
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type") VALUES ('9','Matt Arnold','$2a$13$7G9CXaXPM2BHMHWMnKWyD.RMZkQwYxUe4tHUg79VKeSkKdDalVUwO','matt@pitchn.ca','Vancouver','Software Engineering, Video Games',NULL,'3','2');
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type") VALUES ('10','Andy Wang','$2a$13$SRvsTXfWXGDuLtYjDZlcVOVVa2Wjv.eXeHYQQXSwqEKMiNcvuUc9C','andy@pitchn.ca','Whiterock','Software Engineering',NULL,'3','2');
 INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type") VALUES ('11','Phattrick Tran','$2a$13$TDoAQfWsoD.9t54gTysg7efNlO4.8P07GDewLiigpjWG16Y9.XOt2','phat@pitchn.ca','Vancouver','Software Engineering, Parkour',NULL,'3','2');
+INSERT INTO "pvms_user" ("id","name","password","email","location","skillset","causes","availability","type") VALUES ('12','New Manager','$2a$12$asAXUgsB3jixPd7PA5qrBe1ptevmxrl3eb8J8VuIMJSRVYZok1V/m','new@pitchn.ca',NULL,NULL,NULL,'3','1');
 
 
 INSERT INTO "pvms_organization" ("id","name","desc") VALUES ('2','Pitchn','This is Pitchn Solutions.');
+INSERT INTO "pvms_organization" ("id","name","desc") VALUES ('3','Canadian Cancer Society','This is Candian Cancer Society.');
 
 INSERT INTO "pvms_organization_manager" ("user_id","org_id") VALUES ('3','2');
+INSERT INTO "pvms_organization_manager" ("user_id","org_id") VALUES ('12','3');
 
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('6','2');
 INSERT INTO "pvms_user_organization" ("user_id","org_id") VALUES ('7','2');
