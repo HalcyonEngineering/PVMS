@@ -5,7 +5,8 @@
 	echo "<b>Subject : </b>" . nl2br($data->subject);
     echo '</div>';
     echo '<div class="span-4">';
-    echo "<b>Sent at: </b>".$data->timestamp;
+	$ts = $data->getTimestampInfo();
+    echo "<b>Sent:</b>".$ts['timeString'];
     echo '</div>';
     echo '<br\>';
 	echo '</div>';
