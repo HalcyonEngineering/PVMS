@@ -52,5 +52,3 @@ Senior Citizens
 Women's Issues
 
 Testing pull hook to checkout pvms.sqlite
-
-Testing new server.
