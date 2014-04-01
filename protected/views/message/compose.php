@@ -11,7 +11,7 @@
 <?php
 
 	echo $form->errorSummary($model);
-	$listTargets = CHtml::listData(User::model()->findAll(), 'id', 'email');
+	$listTargets = CHtml::listData(User::model()->findAll(), 'id', 'name');
 	echo $form->select2Row($model, 'targets', array(
 		'data'=>$listTargets,
 		'options'=>array(

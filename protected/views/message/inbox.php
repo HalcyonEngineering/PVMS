@@ -32,6 +32,7 @@
 		array(
 			'class'=>'bootstrap.widgets.TbDataColumn',
 		    'name'=>'sender.name',
+		    'header'=>'Sender',
 		),
 	    array(
 		    'class'=>'bootstrap.widgets.TbRelationalColumn',

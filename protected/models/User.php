@@ -417,7 +417,14 @@ class User extends CActiveRecord
         $mail->email = 'noreply@pitchin.ca';
         $mail->Remail = $user->email;
         $mail->subject = 'Welcome to Pitch\'n!';
-        $mail->body = "Welcome to Pitch'n!\n\nPlease login with this email address:\n".$user->email."\n\nYour password is:\n".$user->newPassword."\n\nYou can log in at http://chivalry.cloudapp.net/PVMS\n\nThank you!\nPitch'n Team";
+        $mail->body = "Welcome to Pitch'n!\n\n"
+                      ."Please login with this email address:\n"
+                      .$user->email."\n\n"
+                      ."Your password is:\n"
+                      .$user->newPassword."\n\n"
+                      ."You can log in at ".Yii::app()->createAbsoluteUrl("account/login")."\n\n"
+                      ."Thank you!\n"
+                      ."Pitch'n Team";
         $mail->sendMail();
     }
 
@@ -436,7 +443,7 @@ class User extends CActiveRecord
                 array_push($new_roles, $new_role);
                 $model->roles = $new_roles;
                 if ($model->save()) {
-                    $note_url = Yii::app()->getBaseUrl(true).'/role/view?id='.$role_id;
+                    $note_url = Yii::app()->createAbsoluteUrl("role/view", array('id'=>$role_id));
                     Notification::notify($model->id, 'A new role has been assigned for you!', $note_url);
                     $count += 1;
                 }

@@ -108,18 +108,17 @@ class Message extends CActiveRecord
 
 
 		if ($dateTimeInterval->y > 0){
-			$timeString = $dateTimeInterval->y . " years";
+			$timeString = $dateTimeInterval->y . (($dateTimeInterval->y == 1) ? " year" : " years");
 		} elseif ($dateTimeInterval->m > 0){
-			$timeString = $dateTimeInterval->m . " months";
+			$timeString = $dateTimeInterval->m .(($dateTimeInterval->m == 1) ? " month" : "months");
 		} elseif ($dateTimeInterval->d > 0){
-			$timeString = $dateTimeInterval->d . " days";
+			$timeString = $dateTimeInterval->d . (($dateTimeInterval->d == 1) ? " day" : " days");
 		} elseif ($dateTimeInterval->i > 0){
-		  $timeString = $dateTimeInterval->i . " minutes";
+		  $timeString = $dateTimeInterval->i . (($dateTimeInterval->i == 1) ? " minute" : " minutes");
 		} elseif ($dateTimeInterval->s > 0){
-			$timeString = $dateTimeInterval->s . " seconds";
+			$timeString = $dateTimeInterval->s . (($dateTimeInterval->s == 1) ? " second" : " seconds");
 		}
 
-		//$timeString = ($dateTimeInterval->days <= 1) ? "< 1 day " : $dateTimeInterval->days." days ";
 		$timeString .= " ago";
 		$returnedArray['timeString'] = $timeString;
 		Yii::trace(CVarDumper::dumpAsString($returnedArray));

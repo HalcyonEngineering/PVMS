@@ -16,6 +16,7 @@
 		array(
 			'class'=>'bootstrap.widgets.TbDataColumn',
 			'name'=>'recipient.name',
+		    'header'=>'Recipient',
 		),
 		array(
 			'class'=>'bootstrap.widgets.TbRelationalColumn',
