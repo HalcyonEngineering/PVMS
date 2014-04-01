@@ -1,7 +1,11 @@
 <?php
 
 $messagesIcon= CHtml::image(Yii::app()->getBaseUrl().'/images/messages.png' , 'messages', array('class'=>'img-circle', 'id' => 'message-icon'));
+$messageModel =  new Message;
+	$messageModel->status = 0;
+	$dp = $messageModel->searchInbox();
 
+$messageCount = $dp->totalItemCount;
     
 //@TODO Add settings on conditions of displayed notificatons
 $this->widget(
@@ -13,26 +17,12 @@ $this->widget(
 	     'collapse' => false, // requires bootstrap-responsive.css
 	     'fixed' => 'top',
 	     'items' => array(
-		     array(
-			     'class' => 'bootstrap.widgets.TbMenu',
-			     'encodeLabel' => false,
-			     'htmlOptions' => array('class' => 'pull-right'),
-			     'items' => array(
-				     // This is the messages Drop Down Menu
-				     array('label' => $messagesIcon,
-                          'itemOptions' => array('id' => 'hide_arrowForMessage',),
-				           'url' => '#',
-				           'items' => array(
-					           array('label' => 'Inbox', 'url' => array('message/inbox')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES
-					           array('label' => 'Send Message', 'url' => array('message/compose')),
-				           ),
-				           'visible'=>!Yii::app()->user->isGuest,
-				     ),//End Messages drop down.
-
-				    /* '---',*/ //Divider
-
+			array(
+				'class' => 'bootstrap.widgets.TbMenu',
+				'encodeLabel' => false,
+				'htmlOptions' => array('class' => 'pull-right'),
 				     // This is the User Drop Down Menu
-					 
+				'items' => array(
 				     array(
 					 //This was changed to explicitly show admin access
 					     'label' => Yii::app()->user->getState('adminAccess') ? Yii::app()->user->getState('adminName') . " as " . Yii::app()->user->name : Yii::app()->user->name,
@@ -53,6 +43,23 @@ $this->widget(
 				           'visible'=>Yii::app()->user->isGuest),*///End user login
 			     ),//End menu items.
 		     ),//End TbMenu
+			array(
+				'class' => 'bootstrap.widgets.TbMenu',
+				'encodeLabel' => false,
+				'htmlOptions' => array('class' => 'pull-right'),
+				'items' => array(
+					// This is the messages Drop Down Menu
+					array('label' => $messagesIcon,
+					      'itemOptions' => array('id' => 'hide_arrowForMessage',),
+					      'url' => '#',
+					      'items' => array(
+						      array('label' => 'Inbox', 'url' => array('message/inbox')),   //THIS NEWS TO SHOW NUMBER OF UNREAD MESSAGES
+						      array('label' => 'Send Message', 'url' => array('message/compose')),
+					      ),
+					      'visible'=>!Yii::app()->user->isGuest,
+					),//End Messages drop down.
+				),
+			),
                array('class' => 'notification_TbDropdown',
                  'htmlOptions' => array('class' =>'pull-right', 'id' =>'notification-button'),
 		         'visible'=>!Yii::app()->user->isGuest
@@ -61,5 +68,17 @@ $this->widget(
      )//End navbar
 );//End widget instantiation
 
-
+	if ($messageCount > 0 && $messageCount < 10 ) {
+		echo CHtml::script("$(document).ready(
+									function(){
+										$('#message-icon').tooltip({trigger : 'manual', title: $messageCount,});
+										$('#message-icon').tooltip('show');
+									})");
+	} elseif ( $messageCount == 10 ) {
+		echo CHtml::script("$(document).ready(
+									function(){
+										$('#message-icon').tooltip({trigger : 'manual', title:  '10+',});
+										$('#message-icon').tooltip('show');
+									})");
+	}
 ?>

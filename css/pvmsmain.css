@@ -160,7 +160,7 @@ font-family: "Calibri";
    background-size:35px 35px;
 }
 
-#notification-menu a .tooltip-inner
+#notification-menu a .tooltip-inner, #message-icon + div .tooltip-inner
 {
     top: 6px;
 	min-width:20px;
@@ -177,7 +177,7 @@ font-family: "Calibri";
 	line-height: 5px;
 }
 
-#notification-menu .tooltip.top .tooltip-arrow
+#notification-menu .tooltip.top .tooltip-arrow, #message-icon + .tooltip.top .tooltip-arrow
 {
 	bottom:-4px;
 	margin-left:-5px;
