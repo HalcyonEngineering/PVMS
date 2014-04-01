@@ -47,6 +47,8 @@ class VolunteerController extends Controller
         {
             $csvModel->attributes = $_POST['Csv'];
             $csvModel->csv = CUploadedFile::getInstance($csvModel, 'csv');
+	        $csvModel->internalName = uniqid(Yii::app()->user->email, true).'.csv';
+	        $csvModel->csv->saveAs(Yii::getPathOfAlias("application.runtime.tmpcsv").'\\'.$csvModel->internalName);
             if($csvModel->save()) {
                 $this->render('csvMap', array('csvModel'=>$csvModel));
                 return;
@@ -55,11 +57,14 @@ class VolunteerController extends Controller
 
         if(isset($_POST['yt0']))
         {
+	        $columns = array(
+		        'firstName' => $_POST['first-name-csv'],
+	            'lastName' => $_POST['last-name-csv'],
+	            'email' => $_POST['email-csv'],
+	        );
                 $count = $csvModel->csv2volunteers(
-                    $_POST['tempName'],
-                    $_POST['first-name-csv'],
-                    $_POST['last-name-csv'],
-                    $_POST['email-csv']
+                    $_POST['internalName'],
+                    $columns
                 );
                 if ($count['success'] > 0) {
                     Yii::app()->user->setFlash('success',

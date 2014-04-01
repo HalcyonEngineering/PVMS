@@ -3,7 +3,7 @@
 $form = $this->beginWidget(
     'CActiveForm', 
     array(
-        'id'=>'add-volunteer-manual-form',
+        'id'=>'add-volunteer-csv-form',
         'enableClientValidation'=>true,
         'clientOptions'=>array('validateOnSubmit'=>true,),
         'enableAjaxValidation'=>false,

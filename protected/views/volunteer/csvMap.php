@@ -46,7 +46,7 @@
         <?php echo 'Email'; ?>
         <br>
 	<?php echo CHtml::dropDownList('email-csv', '', $csvModel->getFirstRow($csvModel->getTempName())) ?>
-        <?php echo CHtml::hiddenField('tempName', $csvModel->getTempName()); ?>
+        <?php echo CHtml::hiddenField('internalName', $csvModel->internalName); ?>
 </div>
 
 <div class="form-actions">

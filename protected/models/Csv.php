@@ -11,6 +11,10 @@ class Csv extends CActiveRecord
     public $csv;
     public $csvTemplateUrl;
     public $csvTemplateImageUrl;
+	/**
+	 * @var string Internally used name for the CSV.
+	 */
+	public $internalName;
 
     /**
      * @return string the associated database table name
@@ -95,7 +99,7 @@ class Csv extends CActiveRecord
     }
 
     public function getFirstRow($tempName) {
-	$filepath = $this->csv->getTempName();
+	$filepath = Yii::getPathOfAlias('application.runtime.tmpcsv').'\\'.$this->internalName;
         $file = fopen($filepath, 'r');
         if ($file)
         {
@@ -109,10 +113,8 @@ class Csv extends CActiveRecord
      * It's assumed that the csv will have at least a name and email column.
      */
     public function csv2volunteers(
-        $tempName,
-        $firstNameColumn=0,
-        $lastNameColumn=1,
-        $emailColumn=2
+        $internalName,
+		$mappedColumns
     )
     {
         $count = array('success'=>0, 'total'=>0);
@@ -122,11 +124,19 @@ class Csv extends CActiveRecord
         $availability = User::AVAILABLE_ALL;
         $skillset = '';
         $location = '';
+		$defaultColumns = array(
+			'firstName'=> 0,
+			'lastName'=> 1,
+			'email'=> 2,
+		);
+	    $columns = array_merge($defaultColumns, $mappedColumns);
+		// We changed the file path so we don't expose file system details to the user.
+		$filepath = Yii::getPathOfAlias('application.runtime.tmpcsv').'\\'.$internalName;
 
-	$filepath = $tempName;
-        $file = fopen($filepath, 'r');
-        if ($file)
+
+        if (file_exists($filepath))
         {
+	        $file = fopen($filepath, 'r');
             //fgetcsv($file); // skip the first row, which has the labels
             while(($fields = fgetcsv($file)) !== false)
             {
@@ -140,15 +150,15 @@ class Csv extends CActiveRecord
                 //    
                 //    // Default availability is weekdays and weekends
 
-                if(isset($fields[$firstNameColumn]) && isset($fields[$lastNameColumn])) {
-                    $name = $fields[$firstNameColumn].' '.$fields[$lastNameColumn];
+                if(isset($fields[$columns['firstName']]) && isset($fields[$columns['lastName']])) {
+                    $name = $fields[$columns['firstName']].' '.$fields[$columns['lastName']];
                 } else {
                     $count['total'] += 1;
                     continue;
                 }
 
-                if(isset($fields[$emailColumn])) {
-                    $email = $fields[$emailColumn];
+                if(isset($fields[$columns['email']])) {
+                    $email = $fields[$columns['email']];
                 } else {
                     $count['total'] += 1;
                     continue;
@@ -179,15 +189,4 @@ class Csv extends CActiveRecord
         return $this->csvTemplateUrl;
     }
 
-    /**
-     * returns the url of the CSV template image
-     */
-    public function getCsvTemplateImageUrl()
-    {
-        if($this->csvTemplateImageUrl === null)
-        {
-            $this->csvTemplateImageUrl = Yii::app()->baseUrl . '/assets/csv_template.jpg';
-        }
-        return $this->csvTemplateImageUrl;
-    }
 }
