@@ -45,5 +45,5 @@
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
 'template'=>"{pager}\n{items}\n{pager}",
-'emptyText' =>'<center><i>You currently have no projects, click the button above to create a new project</i></center>',
+'emptyText' =>'', //no real point to having anything for empty here //'<center><i>You currently have no projects, click the button above to create a new project</i></center>',
 )); ?>

@@ -36,6 +36,7 @@ return false;
 'id'=>'organization-grid',
 'dataProvider'=>$model->search(),
 'filter'=>$model,
+'emptyText'=>'<center><i>No organizations here.</i></center>',
 'columns'=>array(
 		'id',
 		'name',

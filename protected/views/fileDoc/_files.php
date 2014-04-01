@@ -11,7 +11,7 @@ $this->widget('bootstrap.widgets.TbGridView',
 	              'id'=>'file-doc-grid',
 	              'dataProvider'=>$dataProvider,
 	              'template'=>'{items}{summary}{pager}',
-
+	              'emptyText'=>'<center><i>No files here.</i></center>',
 	              'columns'=> array(
 		              'file_name',
 		              array(

@@ -14,4 +14,5 @@ array('label'=>'Manage Task','url'=>array('admin')),
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
+'emptyText'=>'<center><i>No tasks here.</i></center>',
 )); ?>

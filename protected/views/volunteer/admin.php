@@ -8,6 +8,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider'=>$dataProvider,
     'selectableRows' => 2,
     'filter'=>$model,
+    'emptyText'=>'<center><i>No volunteers here.</i></center>',
     'columns'=>array(
         'name',
         'email',

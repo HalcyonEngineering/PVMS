@@ -35,6 +35,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 		'name',
 		'manager.name::Manager Name',
 		'manager.email::Manager Email',
+		'emptyText'=>'<center><i>No organizations here.</i></center>',
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
 			'template'=>'{adminAccess} {disable} {enable} {delete} ',

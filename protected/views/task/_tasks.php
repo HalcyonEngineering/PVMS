@@ -27,6 +27,7 @@ $this->widget('bootstrap.widgets.TbGridView',
               array('id'=>'task-grid',
                     'dataProvider'=>$dataProvider,
                     'template'=>'{items}',
+                    'emptyText'=>'<center><i>No tasks here.</i></center>',
                     'columns'=>array(
 	                    array('class'=>'bootstrap.widgets.TbEditableColumn',
 	                          'name'=>'name',

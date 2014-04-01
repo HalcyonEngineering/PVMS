@@ -18,4 +18,5 @@
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
 'template'=>"{pager}\n{items}\n{pager}",
+'emptyText'=>'<center><i>You have no roles.</i></center>',
 )); ?>

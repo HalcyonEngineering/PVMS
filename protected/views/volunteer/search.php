@@ -21,6 +21,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'user-search-grid',
     'dataProvider'=>$data,
     'selectableRows' => 2,
+    'emptyText'=>'<center><i>You have no volunteers. Add volunteers to the left.</i></center>',
     'columns'=>array(
         array(
             'id' => 'selectedIds',

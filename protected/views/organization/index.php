@@ -10,4 +10,5 @@
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
+'emptyText'=>'<center><i>No organizations here.</i></center>',
 )); ?>

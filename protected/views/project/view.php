@@ -49,6 +49,7 @@ $this->breadcrumbs=array(
 		 'id'=>'unassigned-role-grid',
 		 'dataProvider' => $emptyRolesProvider,
 		 'template'=>'{items}',
+		 //note: no need for emptytext here
 	     'columns' => array(
 		     'name:text:Role Name',
 	         array(
@@ -65,6 +66,7 @@ $this->breadcrumbs=array(
 
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'dataProvider' => $roleDataProvider,
+	'emptyText'=>'<center><i>No roles here.</i></center>',
 	'columns' => array(
 		'role.name',
 		array('class'=>'bootstrap.widgets.TbButtonColumn',
