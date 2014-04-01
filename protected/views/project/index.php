@@ -25,7 +25,7 @@
                     'data-toggle'=>'tooltip',
                 ),
             ));*/-->
-        <div><i>You currently have no volunteers. <a href="http://localhost/PVMS/volunteer/add">Click here</a> to view "Add Volunteers" page to start adding volunteers</i></div>
+        <div><i>You currently have no volunteers. <a href="http://localhost/PVMS/volunteer/add"><b>Click here</b></a> to view the "Add Volunteers" page to start adding volunteers</i></div>
     <?php endif; ?>
     <br><hr> </hr>
 <h1>Projects</h1>
