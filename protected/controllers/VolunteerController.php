@@ -256,6 +256,9 @@ class VolunteerController extends Controller
 	{
 		if(isset($_POST['ajax']) && $_POST['ajax']==='add-volunteer-manual-form')
 		{
+			// Allow non-unique emails for validation.
+			// Any users already in the system get an additional organization.
+			$model->setScenario('manualEnroll');
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}

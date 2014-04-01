@@ -71,7 +71,7 @@ class User extends CActiveRecord
         // will receive user inputs.
         return array(
             array('name, email', 'required', 'except'=>'update'),
-            array('email', 'unique'),
+            array('email', 'unique', 'except'=>'manualEnroll'), // Used to pass manual enrollment.
             array('email', 'email'),
             array('name', 'match', 'pattern'=>'/^[A-Za-z][A-Za-z \'.-]*[A-Za-z.]$/'),
             array('name, origPassword, email, newPassword', 'length', 'max'=>128),
@@ -466,7 +466,12 @@ class User extends CActiveRecord
 
         // remove ONLY the one organization the volunteer is in
         $new_orgs = $volunteer->organizations;
-        $pos = array_search($org, $new_orgs);
+	    $org_ids = array();
+	    foreach($new_orgs as $key=>$arrayOrg){
+		    $org_ids[$key] = $arrayOrg;
+	    }
+        $pos = array_search($org->id, $org_ids);
+
         unset($new_orgs[$pos]);
         $volunteer->organizations = $new_orgs;
 
