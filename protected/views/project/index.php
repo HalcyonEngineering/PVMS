@@ -9,24 +9,25 @@
 <center>
 <h3><b>Current Organization Status:</b></h3>
 <h4> Number of Volunteers: <?php echo "<b>$volunteerProvider->itemCount</b>" ?></h4>
-<?php if($volunteerProvider->itemCount == 0) { 
-$csrfTokenName = Yii::app()->request->csrfTokenName;
-$csrfToken = Yii::app()->request->csrfToken;
-$this->widget('bootstrap.widgets.TbButton',
-                      array(
-	                      'buttonType' => 'link',
-	                      'type' => 'primary',
-	                      'label' => 'Add volunteers',
-	                      'encodeLabel' =>false,
-	                      'htmlOptions'=>array('submit'=>array('volunteer/add'),
-								'params'=>array($csrfTokenName=>$csrfToken,),
-								'title' => 'Add Volunteers',
-								'data-toggle'=>'tooltip',
-	                      ),
-              ));
-} ?>
 <h4> Number of Projects: <?php /*if($dataProvider->itemCount != 0) {*/echo "<b>$dataProvider->itemCount</b>"/*}*/?></h4>
-    <hr> </hr>
+    <?php if($volunteerProvider->itemCount == 0) : ?>
+<!--/*        $csrfTokenName = Yii::app()->request->csrfTokenName;
+        $csrfToken = Yii::app()->request->csrfToken;
+        $this->widget('bootstrap.widgets.TbButton',
+            array(
+                'buttonType' => 'link',
+                'type' => 'primary',
+                'label' => 'Add volunteers',
+                'encodeLabel' =>false,
+                'htmlOptions'=>array('submit'=>array('volunteer/add'),
+                    'params'=>array($csrfTokenName=>$csrfToken,),
+                    'title' => 'Add Volunteers',
+                    'data-toggle'=>'tooltip',
+                ),
+            ));*/-->
+        <div><i>You currently have no volunteers. <a href="http://localhost/PVMS/volunteer/add">Click here</a> to view "Add Volunteers" page to start adding volunteers</i></div>
+    <?php endif; ?>
+    <br><hr> </hr>
 <h1>Projects</h1>
 <p> Here are your projects. You can also create a new project by clicking on the button below</p>
 
@@ -43,5 +44,5 @@ $this->widget('bootstrap.widgets.TbButton',
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
 'template'=>"{pager}\n{items}\n{pager}",
-'emptyText' =>'<center>Welcome to Pitch\'n. Create a new project above!</center>',
+'emptyText' =>'<center><i>You currently have no projects, click the button above to create a new project</i></center>',
 )); ?>
