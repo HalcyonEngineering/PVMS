@@ -141,16 +141,6 @@ class Csv extends CActiveRecord
             if ($has_header) fgetcsv($file);
             while(($fields = fgetcsv($file)) !== false)
             {
-                //if(count($fields) >= 2)
-                //{
-                //    $name = $fields[0];
-                //    $email = $fields[1];
-                //    $skillset = (count($fields) > 2) ? $fields[2] : null;
-                //    $location = (count($fields) > 3) ? $fields[3] : null;
-                //    $availability = 3;
-                //    
-                //    // Default availability is weekdays and weekends
-
                 if(isset($fields[$columns['firstName']]) && isset($fields[$columns['lastName']])) {
                     $name = $fields[$columns['firstName']].' '.$fields[$columns['lastName']];
                 } else {
@@ -164,12 +154,18 @@ class Csv extends CActiveRecord
                     $count['total'] += 1;
                     continue;
                 }
+
+
                 $model = new User;
 	            $model->name = $name;
 	            $model->email = $email;
 	            $model->location = $location;
 	            $model->skillset = $skillset;
 	            $model->availability = $availability;
+
+                    if(isset($fields[$columns['phoneNumber']])) {$model->phoneNumber = $fields[$columns['phoneNumber']];}
+                    if(isset($fields[$columns['address']])) {$model->address = $fields[$columns['address']];}
+
                 $success = User::enrollVolunteer($model, $org);
                 if ($success) $count['success'] += 1;
                 $count['total'] += 1;

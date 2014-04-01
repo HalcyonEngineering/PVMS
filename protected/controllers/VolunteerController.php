@@ -63,6 +63,8 @@ class VolunteerController extends Controller
 		    'firstName' => $_POST['first-name-csv'],
 	            'lastName' => $_POST['last-name-csv'],
 	            'email' => $_POST['email-csv'],
+                    'phoneNumber' => $_POST['phone-number-csv'],
+                    'address' => $_POST['address-csv']
 	        );
                 $count = $csvModel->csv2volunteers(
                     $has_header,

@@ -64,6 +64,26 @@
             $csvModel->getFirstRow($csvModel->getTempName()),
             array('empty'=>'Select a column')
         ) ?>
+        <br>
+        <br>
+        <?php echo 'Phone Number (optional)'; ?>
+        <br>
+	<?php echo CHtml::dropDownList(
+            'phone-number-csv',
+            '',
+            $csvModel->getFirstRow($csvModel->getTempName()),
+            array('empty'=>'Select a column')
+        ) ?>
+        <br>
+        <br>
+        <?php echo 'Address (optional)'; ?>
+        <br>
+	<?php echo CHtml::dropDownList(
+            'address-csv',
+            '',
+            $csvModel->getFirstRow($csvModel->getTempName()),
+            array('empty'=>'Select a column')
+        ) ?>
         <?php echo CHtml::hiddenField('internalName', $csvModel->internalName); ?>
 </div>
 
