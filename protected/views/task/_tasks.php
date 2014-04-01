@@ -1,10 +1,5 @@
 <?php
 
-$template = '{view}';
-if (Yii::app()->user->isManager()) {
-	$template .= '{delete}';
-}
-
 $taskStatus = Lookup::items('TaskStatus');
 if (Yii::app()->user->isVolunteer()){
 	unset($taskStatus[Task::STATUS_COMPLETE_VERIFIED]);
@@ -28,6 +23,7 @@ $this->widget('bootstrap.widgets.TbGridView',
                     'dataProvider'=>$dataProvider,
                     'template'=>'{items}',
                     'emptyText'=>'<center><i>No tasks here.</i></center>',
+                    'nullDisplay'=> 'Not Set',
                     'columns'=>array(
 	                    array('class'=>'bootstrap.widgets.TbEditableColumn',
 	                          'name'=>'name',
@@ -113,9 +109,9 @@ $this->widget('bootstrap.widgets.TbGridView',
 	                          ),
 	                    ),
 	                    array('class'=>'bootstrap.widgets.TbButtonColumn', // buttoncolumn customized with documentation at: http://www.yiiframework.com/wiki/106/using-cbuttoncolumn-to-customize-buttons-in-cgridview/
-	                          'template'=>$template,
-	                          'viewButtonUrl'=>'Yii::app()->controller->createUrl("/task/view",array("id"=>$data->primaryKey))',
+	                          'template'=>'{delete}',
 	                          'deleteButtonUrl'=>'Yii::app()->controller->createUrl("/task/delete",array("id"=>$data->primaryKey))',
+	                          'visible'=>Yii::app()->user->isManager(),
 
 	                    ),
                     ),

@@ -31,14 +31,15 @@ $this->widget('bootstrap.widgets.TbAlert', array(
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'org-search-grid',
     'dataProvider'=>$model->search_Orgs(),
+    'emptyText'=>'<center><i>No organizations here.</i></center>',
     'columns'=>array(
 		'name',
 		'manager.name::Manager Name',
 		'manager.email::Manager Email',
-		'emptyText'=>'<center><i>No organizations here.</i></center>',
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
 			'template'=>'{adminAccess} {disable} {enable} {delete} ',
+			'deleteConfirmation' => 'Are you sure you want to delete this organization? This cannot be undone.',
 			'buttons'=> array(
 				'adminAccess' => array(
 					'label' => 'Log in',
