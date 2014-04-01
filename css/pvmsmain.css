@@ -405,6 +405,16 @@ h1, h2, h3, h4, h5{
  font-family: Georgia;
 }
 
+h3 {
+	font-size: 20px;
+}
+
+h4 {
+	font-size: 15px;
+	line-height:5px;
+	
+}
+
 label {
 	font-family: Georgia;
 }

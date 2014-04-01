@@ -7,7 +7,8 @@
 </center>
 <hr> </hr>
 <center>
-<h2> Volunteers: <?php echo $volunteerProvider->itemCount.' in organization';?></h2>
+<h3><b>Current Organization Status:</b></h3>
+<h4> Number of Volunteers: <?php echo "<b>$volunteerProvider->itemCount</b>" ?></h4>
 <?php if($volunteerProvider->itemCount == 0) { 
 $csrfTokenName = Yii::app()->request->csrfTokenName;
 $csrfToken = Yii::app()->request->csrfToken;
@@ -24,8 +25,10 @@ $this->widget('bootstrap.widgets.TbButton',
 	                      ),
               ));
 } ?>
-<h2> Projects: <?php /*if($dataProvider->itemCount != 0) {*/echo $dataProvider->itemCount.' in organization';/*}*/?></h2>
-<p> Here are your projects. You can also create a new project by clicking on the button below</p></br>
+<h4> Number of Projects: <?php /*if($dataProvider->itemCount != 0) {*/echo "<b>$dataProvider->itemCount</b>"/*}*/?></h4>
+    <hr> </hr>
+<h1>Projects</h1>
+<p> Here are your projects. You can also create a new project by clicking on the button below</p>
 
 <?php $this->widget('ModalOpenButton',
                     array(
