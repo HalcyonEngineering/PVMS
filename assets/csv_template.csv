@@ -1,2 +1,2 @@
-First Name,Last Name,Email,Skills (separate with comma),Location (city name),Available weekdays?,Available weekends?
-John,Smith,example@example.com,"Software Engineering, Web Development",Vancouver,N,Y
+First Name,Last Name,Email
+John,Smith,example@example.com

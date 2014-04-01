@@ -68,6 +68,25 @@
     <?php echo $form->error($userModel,'skillset'); ?>
 </div>
 
+<div>
+<?php echo $form->labelEx($userModel,'Phone Number'); ?>
+<?php $this->widget(
+            'CMaskedTextField',
+            array(
+                'model'=>$userModel,
+                'attribute'=>'phoneNumber',
+                'mask'=>'999-999-9999',
+                'name'=>'someName',
+                'htmlOptions' => array('placeholder'=>"XXX-XXX-XXXX")
+            )
+      );
+?>
+</div>
+
+<div>
+<?php echo $form->textFieldRow($userModel,'address'); ?>
+</div>
+
 <div class="row buttons">
     <?php echo CHtml::submitButton('Submit'); ?>
 </div>
