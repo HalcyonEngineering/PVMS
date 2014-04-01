@@ -55,14 +55,17 @@ class VolunteerController extends Controller
             }
        }
 
+        // submit button, haven't figured out how to change name yet
         if(isset($_POST['yt0']))
         {
+                $has_header = isset($_POST['has_header']);
 	        $columns = array(
-		        'firstName' => $_POST['first-name-csv'],
+		    'firstName' => $_POST['first-name-csv'],
 	            'lastName' => $_POST['last-name-csv'],
 	            'email' => $_POST['email-csv'],
 	        );
                 $count = $csvModel->csv2volunteers(
+                    $has_header,
                     $_POST['internalName'],
                     $columns
                 );

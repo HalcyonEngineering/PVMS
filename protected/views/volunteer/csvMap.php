@@ -33,19 +33,37 @@
 
 	<?php echo $form->errorSummary($csvModel); ?>
 
+<?php echo CHtml::checkBox('has_header', true).' My Csv has a header row.';?>
+<br>
+<br>
         <?php echo 'First Name:'; ?>
         <br>
-	<?php echo CHtml::dropDownList('first-name-csv', '', $csvModel->getFirstRow($csvModel->getTempName())) ?>
+	<?php echo CHtml::dropDownList(
+            'first-name-csv',
+            '',
+            $csvModel->getFirstRow($csvModel->getTempName()),
+            array('empty'=>'Select a column')
+        ) ?>
         <br>
         <br>
         <?php echo 'Last Name'; ?>
         <br>
-	<?php echo CHtml::dropDownList('last-name-csv', '', $csvModel->getFirstRow($csvModel->getTempName())) ?>
+	<?php echo CHtml::dropDownList(
+            'last-name-csv',
+            '',
+            $csvModel->getFirstRow($csvModel->getTempName()),
+            array('empty'=>'Select a column')
+        ) ?>
         <br>
         <br>
         <?php echo 'Email'; ?>
         <br>
-	<?php echo CHtml::dropDownList('email-csv', '', $csvModel->getFirstRow($csvModel->getTempName())) ?>
+	<?php echo CHtml::dropDownList(
+            'email-csv',
+            '',
+            $csvModel->getFirstRow($csvModel->getTempName()),
+            array('empty'=>'Select a column')
+        ) ?>
         <?php echo CHtml::hiddenField('internalName', $csvModel->internalName); ?>
 </div>
 

@@ -11,6 +11,8 @@ class Csv extends CActiveRecord
     public $csv;
     public $csvTemplateUrl;
     public $csvTemplateImageUrl;
+    public $header;
+
 	/**
 	 * @var string Internally used name for the CSV.
 	 */
@@ -55,6 +57,7 @@ class Csv extends CActiveRecord
     {
         return array(
             'csv' => 'Csv',
+            'header' => 'Header?',
         );
     }
 
@@ -112,10 +115,7 @@ class Csv extends CActiveRecord
      * Given the filepath to a csv, parses the csv and adds users to the database
      * It's assumed that the csv will have at least a name and email column.
      */
-    public function csv2volunteers(
-        $internalName,
-		$mappedColumns
-    )
+    public function csv2volunteers($has_header, $internalName, $mappedColumns)
     {
         $count = array('success'=>0, 'total'=>0);
 
@@ -137,7 +137,8 @@ class Csv extends CActiveRecord
         if (file_exists($filepath))
         {
 	        $file = fopen($filepath, 'r');
-            //fgetcsv($file); // skip the first row, which has the labels
+            // skip the first row if user indicates CSV has header.
+            if ($has_header) fgetcsv($file);
             while(($fields = fgetcsv($file)) !== false)
             {
                 //if(count($fields) >= 2)
