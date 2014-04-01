@@ -103,7 +103,7 @@ class AccountController extends Controller
 			$this->redirect(array('organization/search'));
 		} else {
 			Yii::app()->user->logout();
-			Yii::app()->user->setFlash('error', 'User has been disabled.');
+			Yii::app()->user->setFlash('error', '<strong>User has been disabled.</strong><br>Please contact Pitch\'n <a href="http://www.pitchn.ca/contact/">here</a>.');
 			$model = new LoginForm;
 			$this->render('login', array('model' => $model));
 		}
