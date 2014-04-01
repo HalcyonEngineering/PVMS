@@ -41,6 +41,8 @@ class VolunteerController extends Controller
         $csvModel = new Csv;
         $userModel = new User;
 
+	$this->performAjaxValidation($userModel);
+
         if(isset($_POST['Csv']))
         {
             $csvModel->attributes = $_POST['Csv'];
@@ -70,7 +72,7 @@ class VolunteerController extends Controller
 
         if(isset($_POST['User']))
         {
-			$userModel->attributes=$_POST['User'];
+	    $userModel->attributes=$_POST['User'];
             $success = User::enrollVolunteer($userModel, Yii::app()->user->getManagedOrg());
 
             if ($success) {
@@ -245,4 +247,18 @@ class VolunteerController extends Controller
             }
         $this->render('search', array('model'=>$model));
     }
+
+	/**
+	 * Performs the AJAX validation.
+	 * @param Task $model the model to be validated
+	 */
+	protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='add-volunteer-manual-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
+
 }
