@@ -29,8 +29,9 @@
     <?php endif; ?>
     <br><hr> </hr>
 <h1>Projects</h1>
+<?php if($dataProvider->itemCount != 0) : ?>
 <p> Here are your projects. You can also create a new project by clicking on the button below</p>
-
+<?php endif; ?>
 <?php $this->widget('ModalOpenButton',
                     array(
 	                    'button_id'=>'create-project-btn',
