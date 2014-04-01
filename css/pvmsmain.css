@@ -490,6 +490,13 @@ right: 34px;
   border:1px solid white  !important;
 }
 
+#out-box-btn {
+	float:right
+}
+
+#outbox-button-div {
+	margin-right: 0px !important;
+}
 
 
 
