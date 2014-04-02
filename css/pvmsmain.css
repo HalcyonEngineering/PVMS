@@ -498,5 +498,16 @@ right: 34px;
 	margin-right: 0px !important;
 }
 
+#list-files-btn {
+	float:right !important;
+}
 
+#project-button-div{
+	width:320px !important; 
+	margin-right: 0px !important;
+}
+
+.span-3 {
+margin-right: 0px;
+}
 

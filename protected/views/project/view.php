@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 	                   $model->name
                    );
 ?>
-<div class="span-9 pull-right" ><!--Buttons-->
+<div class="span-9 pull-right" id="project-button-div"><!--Buttons-->
 <div class="span-3" style="padding:5px;" >
 <?php $this->widget('ModalOpenButton',
                     array(
