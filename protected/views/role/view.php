@@ -6,7 +6,7 @@
 	);
 } ?>
 
-<div class="span-3 pull-right" style="padding:5px;" >
+<div class="span-3 pull-right" style="padding:5px;" id="view-doc-repo-btn">
 	<?php $this->widget('ModalOpenButton',
 	                    array(
 		                    'button_id'=>'list-project-files-btn',
@@ -25,7 +25,7 @@
 	$taskDataProvider = new CActiveDataProvider('Task', array ('criteria' => array ('condition' => 'role_id=' . $model->id,),));
 	$this->renderPartial('/task/_tasks', array ('dataProvider' => $taskDataProvider));
 ?>
-<div class="span-3 pull-left" ><!--Buttons-->
+<div class="span-3 pull-left" id="create-task-btn-span"><!--Buttons-->
 	<?php
 		if (Yii::app()->user->isManager()) {
 			$this->widget('ModalOpenButton',

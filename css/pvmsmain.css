@@ -469,16 +469,6 @@ label {
 	font-style:italic;
 }
 
-#create-task-btn {
-	position: relative;
-	right: 29px;
-}
-
-#add-role-btn {
-position: relative;
-right: 34px;
-}
-
 #Sign_in_button {
 	Margin-top:4px;
 	margin-bottom: 4px;
@@ -511,3 +501,23 @@ right: 34px;
 margin-right: 0px;
 }
 
+#modal-warning-title {
+ font-family: Georgia;
+}
+
+#view-doc-repo-btn{
+ padding: 0px !important;
+ margin-right: 0px;
+}
+
+#create-task-btn-span{
+	margin-left: 0px;
+}
+
+#add-role-btn-span{
+	margin-left: 0px;
+}
+
+#confirm-role-btn{
+	margin-bottom: 9px;
+}

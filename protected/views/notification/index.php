@@ -5,7 +5,7 @@
 
 <div class="modal-header">
     <a class="close" data-dismiss="modal">&times;</a>
-    <h4><b>Warning</b></h4>
+    <div id="modal-warning-title"><b>Warning</b></div>
 </div>
 
 <div id="read_allConfirm" class="modal-body">

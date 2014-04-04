@@ -95,7 +95,7 @@ $this->breadcrumbs=array(
 	),
 
 )); ?>
-<div class="span-3" style="padding:5px;" >
+<div class="span-3" style="padding:5px;" id="add-role-btn-span">
 <?php $this->widget('ModalOpenButton',
 
                     array(

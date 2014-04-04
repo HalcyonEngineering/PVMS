@@ -56,7 +56,7 @@ asort($list);
 echo 'Add selected volunteers to role: ';
 echo CHtml::dropDownList('role_list', 'empty', $list, array('empty' => '(Select a role to assign)'));
 echo '  ';
-echo CHtml::submitButton('Confirm', array('submit'=>'search'));
+echo CHtml::submitButton('Confirm', array('submit'=>'search', 'id'=>'confirm-role-btn'));
 ?>
 
 
