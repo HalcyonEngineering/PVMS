@@ -1,6 +1,6 @@
 <?php
 	/**
-	 * Project $data
+	 * @var $data Project
 	 */
 ?>
 
@@ -62,40 +62,24 @@ $this->widget(
                       )
         );
 
-        $this->widget('ModalOpenButton',
+        $this->widget('bootstrap.widgets.TbButton',
                       array(
-	                      'label' => TbHtml::icon(TbHtml::ICON_TRASH),
+	                      'buttonType' => 'link',
 	                      'type' => 'link',
-	                      'encodeLabel' =>false,
-	                      'button_id'=>'edit-project-'.$data->id,
-	                      'url' => Yii::app()->createUrl("project/delete", array("id"=>$data->id)),
+	                      'icon' => TbHtml::ICON_TRASH,
+	                      'url' => Yii::app()->createUrl('project/delete', array('id' => $data->id)),
 	                      'htmlOptions'=>array(
-	                      		'params'=>array('returnUrl'=>Yii::app()->createUrl('project/index')),
-                              'class' => 'pull-right',
-		                      'title' => 'Delete',
-		                      'data-toggle'=>'tooltip',
-	                      ),
-                      )
-        );
-
-        //this standard style won't work
-		/*$csrfTokenName = Yii::app()->request->csrfTokenName;
-		$csrfToken = Yii::app()->request->csrfToken;
-        $this->widget('Bootstrap.widgets.TbButton',
-                      array(
-	                      'buttonType' => 'submit',
-	                      //'type' => 'primary',
-	                      'label' => TbHtml::icon(TbHtml::ICON_TRASH),
-	                      'encodeLabel' =>false,
-	                      'htmlOptions'=>array('submit'=>array('project/delete'),
-								'params'=>array("id"=>$data->id,$csrfTokenName=>$csrfToken,'returnUrl'=>Yii::app()->createUrl('project/index'),),
+		                        'submit'=>array('project/delete', 'id'=> $data->id),
+		                        'id'=> uniqid("delete-project-".$data->id),
+	                            'csrf'=> true,
 								'confirm' => 'Delete project?',
 								'class' => 'pull-right',
 								'title' => 'Delete',
 								'data-toggle'=>'tooltip',
+	                            'href' => Yii::app()->createUrl('project/delete', array('id' => $data->id)),
 	                      ),
                       )
-        );*/
+        );
         ?>
       </div>
 	<?php echo CHtml::closeTag('div')?>

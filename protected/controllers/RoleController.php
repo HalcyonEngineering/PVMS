@@ -135,7 +135,10 @@ class RoleController extends Controller
 			// we only allow deletion via POST request
 			$model = $this->loadModel($id);
 			if (Yii::app()->user->isManagerForOrg($model->project->org_id)){
+				$users=$model->users;
+				$roleName = $model->name;
 				$model->delete();
+				Notification::notifyAll($users, "You have been removed from role \"$roleName\" because it has been deleted.", '#');
 			} else {
 				throw new CHttpException(403, 'You are not authorized to perform this action', 403);
 			}

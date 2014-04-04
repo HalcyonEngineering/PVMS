@@ -135,8 +135,22 @@ class ProjectController extends Controller
 				throw new CHttpException(403);
 			}
 			// we only allow deletion via POST request
+			//Prepare notifications for after delete.
+			$notificationArray = array();
+			$projectName = $model->name;
+			foreach ($model->roles as $role){
+				$notificationArray[] = array(
+				    'users' => $role->users,
+				    'desc' => "You have been removed from role \"$role->name\" because Project \"$projectName\" has been deleted.",
+				    'link' => '#'
+				);
+			}
 			$model->delete();
-
+			//Send out notifications.
+			Yii::trace(CVarDumper::dumpAsString($notificationArray));
+			foreach($notificationArray as $key=>$notification){
+				Notification::notifyAll($notification['users'], $notification['desc'], $notification['link']);
+			}
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax'])) {
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));

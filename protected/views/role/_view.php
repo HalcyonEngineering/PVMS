@@ -39,15 +39,15 @@
 <?php
     Yii::import('bootstrap.helpers.TbHtml');
     $this->widget('bootstrap.widgets.TbButton',
-                  array('label' => TbHtml::icon(TbHtml::ICON_TRASH),
+                  array('icon' => TbHtml::ICON_TRASH,
                         'type' => 'link',
                         'buttonType' => 'link',
-                        'encodeLabel' =>false,
                         'url'=> Yii::app()->controller->createUrl('/volunteer/removeFromRole',
                                                                   array("volunteer_id"=>Yii::app()->user->id, "role_id"=>$data->id)),
                         'htmlOptions'=>array(
                                              'class' => 'pull-right',
-                                             'title' => 'Remove Role',
+                                             'confirm' => 'Do you want to opt-out of this role?',
+                                             'title' => 'Opt Out of Role',
                                              'data-toggle'=>'tooltip'),
                         )
                   );

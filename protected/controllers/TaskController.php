@@ -137,7 +137,14 @@ class TaskController extends Controller
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			$model = $this->loadModel($id);
+			$roleModel = $model->role;
+			$taskName = $model->name;
+			if($model->delete()){
+				Notification::notifyAll($roleModel->users,
+				                        "Task \"$taskName\" has been removed from role \"$roleModel->name\".",
+				                        Yii::app()->createAbsoluteUrl('role/view', array('id'=>$roleModel->id)));
+			}
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax'])) {
