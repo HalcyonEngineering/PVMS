@@ -162,13 +162,17 @@ class VolunteerController extends Controller
                     Yii::trace('selectedIds: '.serialize($_POST['selectedIds']));
                     Yii::trace('role_list'.serialize($_POST['role_list']));
                     $role_name = Role::model()->findByPk($_POST['role_list'])->name;
-                    $success_count = User::assignToRole($_POST['selectedIds'], $_POST['role_list']);
-                    if ($success_count > 0) {
+                    $count = User::assignToRole($_POST['selectedIds'], $_POST['role_list']);
+                    if ($count['new'] > 0) {
                         Yii::app()->user->setFlash('success', 
-                            "<strong>Role assigned!</strong> You assigned $success_count volunteer(s) to the \"$role_name\" role."); 
-                    } else {
+                            "<strong>Role assigned!</strong> You assigned ".$count['new']." volunteer(s) to the \"$role_name\" role.");
+                    }
+	                if ($count['old'] > 0){
+		                Yii::app()->user->setFlash('info', $count['old']." users already assigned to the role \"$role_name\".");
+	                }
+	                if ($count['failed'] > 0){
                         Yii::app()->user->setFlash('error',
-                            '<strong>Uh-oh!</strong> Something happened...');
+                            "<strong>Uh-oh!</strong> Could not assign ".$count['failed']." users to the role \"$role_name\".");
                     }
                 }
             }
@@ -186,15 +190,29 @@ class VolunteerController extends Controller
     }
 
     public function actionRemoveFromRole($volunteer_id, $role_id) {
+	    $role = Role::model()->findByPk($role_id);
+	    if (Yii::app()->user->id === $volunteer_id || Yii::app()->user->isManagerForOrg($role->project->org->id)){
         User::removeFromRole($volunteer_id, $role_id);
-        $role = Role::model()->findByPk($role_id);
+
         if (Yii::app()->user->isManager()){
+	        Notification::notify($volunteer_id,
+	                             "You have been removed from the role \"$role->name\".",
+	                             Yii::app()->createAbsoluteUrl('role/index')
+	        );
         $this->redirect(array('project/view', 'id'=>$role->project->id));
         }
         else{
             Yii::app()->user->setFlash('success', 'You have removed yourself from role: '.$role->name.'.');
+	        Notification::notify(
+	                    $role->project->org->manager->id,
+	                    Yii::app()->user->getName() ."has been opted out of: \"$role->name\".",
+		                $this->createAbsoluteUrl('role/view', array('id'=>$role_id))
+	        );
             $this->redirect(array('role/index'));
         }
+	    } else {
+		    throw new CHttpException(403, "Access denied. You do not have sufficient permissions to perform this action.", 403);
+	    }
     }
     
     //Delete volunteer

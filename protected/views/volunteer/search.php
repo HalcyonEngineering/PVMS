@@ -5,6 +5,7 @@
         'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
         'alerts'=>array( // configurations per alert type
             'success'=>array(), // success, info, warning, error or danger
+            'info'=>array(),
             'error'=>array(), // success, info, warning, error or danger
         ),
     ));
