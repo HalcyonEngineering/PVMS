@@ -1,23 +1,24 @@
 <?php
+// This part is just part of my naive attempt of getting the testEnrollVolunteer test to work
 ob_start();
 
 class UserTest extends CDbTestCase
-{
-	public function testLoginUser() {
-		$this->assertTrue(Yii::app()->user->isGuest);
-        $identity = new UserIdentity('admin@pitchn.ca', 'admin');
-        $identity->authenticate();
-        Yii::app()->user->login($identity);
-		$this->assertTrue(Yii::app()->user->isAdmin());
-	}
+{	
+	// We define fixtures here
+	// ex [tablename] => [Class]
+	// Note that the fixture files we are using are in the form pvms_*.php
+	// Where the * is singular, but when we define it is plural, yeah I don't know
+	public $fixtures=array(
+		'users'=>'User',
+	);
 	
-	/**
-	* @expectedException CDbException
-	*/
-	public function testCreateNullUser() {
-		$this->setExpectedExceptionFromAnnotation(); 	
-		$model = new User();
-		$model->save(false);
+	
+	public function testValidatePassword()
+	{
+		// To get the AR instance of an object in the database, we call the fixture and the alias of the row
+		$user = $this->users('sampleUser');
+		$this->assertFalse($user->validatePassword('demo'));
+		$this->assertTrue($user->validatePassword('admin'));
 	}
 	
 	public function testCreateUser() {	
@@ -30,16 +31,21 @@ class UserTest extends CDbTestCase
 			'email'=>'kenshiro@hokuto.jp',
 			)
 		);
-		$model->save(false);
+		
+		$this->assertTrue($model->save());
+	}
+
+
+	public function testCreateNullUser() {
+		//$this->setExpectedExceptionFromAnnotation(); 	
+		$model = new User();
+		$this->assertFalse($model->save());
 	}
 	
+	//There are currently problems with this test due to database relations and
+	//Yii functionality
 	public function testEnrollVolunteer() {
-	
-		$this->assertTrue(Yii::app()->user->isGuest);
-        $identity = new UserIdentity('sean@pitchn.ca', 'manager');
-        $identity->authenticate();
-        Yii::app()->user->login($identity);
-		$model = User::model()->findByAttributes(array('email'=>'sean@pitchn.ca'));
+		$model = $this->users('sampleUser2');
 		$this->assertNotNull($model);
 		
 		$name = 'Tyrone Black';
@@ -49,7 +55,6 @@ class UserTest extends CDbTestCase
 		$organization = Yii::app()->user->managedOrg;
 		$availability = null;
 		
-		echo "test enroll";
 		$model->enrollVolunteer($name, $email, $location, $skillset, $organization, $availability);
 		
 		$user = User::model()->findByAttributes(array('name'=>$name));
@@ -57,8 +62,6 @@ class UserTest extends CDbTestCase
 		$this->assertNotNull($user);
 		
 		$this->assertTrue($user->name, $name);
-		
-		
 	}
-}	
-?>
+	
+}
