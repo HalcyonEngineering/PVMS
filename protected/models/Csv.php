@@ -170,6 +170,9 @@ class Csv extends CActiveRecord
                 if ($success) $count['success'] += 1;
                 $count['total'] += 1;
             }
+	        //Close and delete file.
+	        fclose($file);
+	        unlink($filepath);
         }
         return $count;
     }
