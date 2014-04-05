@@ -33,10 +33,10 @@ CREATE TABLE pvms_user
 	skillset VARCHAR(256),
 	causes VARCHAR(256),
   availability INTEGER NOT NULL DEFAULT 3,
-	type VARCHAR(128) NOT NULL DEFAULT 2,
-    phoneNumber VARCHAR(16),
-    address VARCHAR(256),
-    status INTEGER DEFAULT 0
+  type VARCHAR(128) NOT NULL DEFAULT 2,
+  phoneNumber VARCHAR(16),
+  address VARCHAR(256),
+  status INTEGER DEFAULT 0
 );
 
 ----

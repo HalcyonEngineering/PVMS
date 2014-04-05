@@ -8,6 +8,7 @@
  * @property integer $project_id
  * @property string $name
  * @property string $desc
+ * @property string $colour
  *
  * The followings are the available model relations:
  * @property Project $project
