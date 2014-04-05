@@ -14,7 +14,7 @@ return array(
 	'sampleOrg'=>array(
 		'id'=>'1',
 		'name'=>'sampleOrgName',
-                'desc"'=>'sampleOrgDesc',
+                'desc'=>'sampleOrgDesc',
 	),
 );
 

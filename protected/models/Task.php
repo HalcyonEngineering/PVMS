@@ -46,8 +46,8 @@ class Task extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, role_id, name, desc, expected, actual, status', 'safe', 'on'=>'search'),
-		    array('status', 'in', 'range'=>array(1,2), 'on'=>'volunteerUpdate'),
-		    array('status', 'in', 'range'=>array(1,2,3), 'on'=>'update'),
+		        array('status', 'in', 'range'=>array(1,2), 'on'=>'volunteerUpdate'),
+		        array('status', 'in', 'range'=>array(1,2,3), 'on'=>'update'),
 		);
 	}
 
