@@ -2,6 +2,26 @@
 
 class MailController extends Controller
 {
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+		);
+	}
+
+	public function accessRules()
+	{
+		return array(
+			array('allow',
+			      'actions'=>array('contact'),
+			      'user'=>array('@'),
+			),
+			array('deny',  // deny all users
+			      'users'=>array('*'),
+			),
+		);
+	}
+
 	/**
 	 * Displays the contact page
 	 */

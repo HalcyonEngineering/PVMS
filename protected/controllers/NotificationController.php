@@ -22,7 +22,7 @@ class NotificationController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('readAll','unread', 'read','readOnSelect', 'index','delete'),
+				'actions'=>array('readAll','unread', 'read','readOnSelect', 'index', 'delete'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -38,10 +38,14 @@ class NotificationController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		$model = $this->loadModel($id);
 		if(Yii::app()->request->isPostRequest)
 		{
+			if (Yii::app()->user->id !== $model->user_id){
+				throw new CHttpException(403, "You do not have permission to delete this message.");
+			}
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			$model->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax'])) {
@@ -104,6 +108,11 @@ class NotificationController extends Controller
 
     public function actionUnread($noti_id){
         $notification = Notification::model()->findByPk($noti_id);
+	    if(Yii::app()->user->id !== $notification->user_id){
+		    throw new CHttpException(403,
+		                             "You cannot set the status of a notification that does not belong to you."
+		    );
+	    }
             $notification->read_status = Notification::STATUS_UNREAD;
             $notification->save();
         $this->redirect(array('/notification/index'));
@@ -111,6 +120,11 @@ class NotificationController extends Controller
 
     public function actionRead($noti_id){
     $notification = Notification::model()->findByPk($noti_id);
+	    if(Yii::app()->user->id !== $notification->user_id){
+		    throw new CHttpException(403,
+		                             "You cannot set the status of a notification that does not belong to you."
+		    );
+	    }
     $notification->read_status = Notification::STATUS_READ;
     $notification->save();
     $this->redirect(array('/notification/index'));
@@ -118,6 +132,11 @@ class NotificationController extends Controller
 
     public function actionReadOnSelect($noti_id){
         $notification = Notification::model()->findByPk($noti_id);
+	    if(Yii::app()->user->id !== $notification->user_id){
+		    throw new CHttpException(403,
+		                             "You cannot read a notification that does not belong to you."
+		    );
+	    }
         $notification->read_status = Notification::STATUS_READ;
         $notification->save();
         echo CHtml::script("window.location.href = '$notification->link';");

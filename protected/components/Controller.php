@@ -20,7 +20,10 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
-
+	/**
+	 * @var WebUser The currently logged in user.
+	 */
+	public $curUser;
 	/**
 	 * Our custom redirect. Uses yii's CController's redirect when it is a normal request and
 	 * does a forced javascript redirect when it's an ajax redirect.
@@ -62,5 +65,12 @@ class Controller extends CController
 		} else {
 			$this->render($view,$data);
 		}
+	}
+
+	public function getCurUser(){
+		if (!isset($this->curUser)){
+			$this->curUser = Yii::app()->user;
+		}
+		return $this->curUser;
 	}
 }

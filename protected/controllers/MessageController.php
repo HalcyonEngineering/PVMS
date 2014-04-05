@@ -18,8 +18,8 @@ class MessageController extends Controller
 			      'expression'=> 'Yii::app()->user->isManager()',
 			),
 			array('allow',
-			      'actions'=>array('compose', 'inbox', 'relational', 'inbox', 'outbox', 'delete'),
-			      'expression'=>'!Yii::app()->user->isGuest',
+			      'actions'=>array('compose', 'inbox', 'relational', 'outbox', 'delete'),
+			      'users'=>array('@')
 			),
 			array('deny',  // deny all users
 			      'users'=>array('*'),
@@ -118,7 +118,7 @@ class MessageController extends Controller
 		{
 			$model = $this->loadModel($id);
 			if(!Yii::app()->user->id ===($model->user_id)){
-				throw new CHttpException(403);
+				throw new CHttpException(403, "You cannot delete this message.");
 			}
 			// we only allow deletion via POST request
 			$model->delete();

@@ -50,53 +50,42 @@ class FileDocController extends Controller
 		{
             $model->attributes=$_POST['FileDoc'];
             Yii::log('FileDoc uploadedfile before set from cuploadedfile getinstance: '.$model->uploadedfile, 'warning', 'FileDoc');
-            ////$tempattribute = 'uploadedfile';
-            ////Yii::log('getinstancebyname: '.(CHtml::resolveName($model, $tempattribute)), 'warning', 'FileDoc'); // => "(...) FileDoc[uploadedfile]"
-            $model->uploadedfile=CUploadedFile::getInstance($model,'uploadedfile'); //TODO: what's going on with getInstance and the model and the attribute name??? how is the binding to FileDoc[uploadedfile] specific enough?!?!?!
-            Yii::log('FileDoc uploadedfile after set from cuploadedfile getinstance: '.$model->uploadedfile, 'warning', 'FileDoc');
+            $model->uploadedfile=CUploadedFile::getInstance($model,'uploadedfile');
             if($model->save())
             {
-	            $this->redirect(array('/project/view','id'=>$project_id)); // redirect to success page
                 $project = Project::model()->findByAttributes(array('id' => $model->project_id,));
-                //$user_List = $project->users;
 	            $roleList = $project->roles;
 	            $userList = array();
                 foreach ($roleList as $role){
 	                $userList = CMap::mergeArray($userList, $role->users);
                 }
-	            Yii::log(CVarDumper::dumpAsString($userList), 'error');
-	            $project_name = $project->name;
-	            $file_id = $model->id;
-	            $file_name = $model->file_name;
 	            Notification::notifyAll($userList,
-	                                    $file_name . " added to " . $project_name . " project files. Click here for download."  ,
-	                                    $this->createUrl('/FileDoc/download', array('id' => $file_id)));
-
+	                                    $model->file_name . " added to " . $project->name . " project files. Click here for download."  ,
+	                                    $this->createUrl('/FileDoc/download', array('id' => $model->id)));
+	            $this->redirect(array('/project/view','id'=>$project_id)); // redirect to success page
             }
         }
-
-		if(isset($project_id)) {
-			$model->project_id = $project_id;
-		}
-
-		//$model->project_id = 1;
 
 		$this->renderModal('create',array(
 			'model'=>$model,
 		));
         } else {
-	        throw new CHttpException(403);
+	        throw new CHttpException(403, "You can not add a file to this project.");
         }
 	}
 
 	public function actionDownload($id)
 	{
+		if($this->getCurUser()->hasProjectAccess($id)){
             $model = FileDoc::model()->findByPk($id);
 
 		// note: documentation on sendFile: http://www.yiiframework.com/doc/api/1.1/CHttpRequest#sendFile-detail
 		Yii::app()->getRequest()->sendFile($model->file_name,$model->file_data); //TODO: put actual useful file data here //getRequest returns the request component of Yii
 		
 		//Yii::log('download: after workhorse code', 'warning', 'FileDoc'); //NOTE: it seems like nothing after the sendFile gets reached due to terminate (?)
+		} else {
+			throw new CHttpException(403, "You do not have the permissions to download a file from this project.");
+		}
 	}
 
 	/**
@@ -135,10 +124,12 @@ class FileDocController extends Controller
 	public function actionDelete($id)
 	{
 		$model = $this->loadModel($id);
-		if(Yii::app()->request->isPostRequest && Yii::app()->user->isManagerForOrg($model->project->org_id))
+		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
-
+			if(!Yii::app()->user->isManagerForOrg($model->project->org_id)){
+				throw new CHttpException(403, 'You are not authorized for this action.');
+			}
 				$project_id = $model->project->id;
 				$model->delete();
 
@@ -156,8 +147,12 @@ class FileDocController extends Controller
 	 */
 	public function actionListFiles($project_id)
 	{
+		if($this->getCurUser()->hasProjectAccess($project_id)){
 		$dataProvider=new CActiveDataProvider('FileDoc',array('criteria'=>array('condition'=>'project_id='.$project_id,),));
 		$this->renderModal('//FileDoc/_files',array('dataProvider'=>$dataProvider,));
+		} else {
+			throw new CHttpException(403, "You do not have access to this.", 403);
+		}
 	}
 
 	/**

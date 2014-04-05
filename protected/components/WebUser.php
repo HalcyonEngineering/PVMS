@@ -66,7 +66,7 @@ class WebUser extends CWebUser {
 	 *
 	 * @return bool
 	 */
-	public function hasRole($id = null){
+	public function hasRole($id){
 		$user = $this->loadUser(Yii::app()->user->id);
 		if ($id !== null){
 			$exists = Yii::app()->db->createCommand()
@@ -81,13 +81,32 @@ class WebUser extends CWebUser {
 		return false;
 	}
 
+	public function hasProjectAccess($project_id, $write=false){
+		$project = Project::model()->with('roles')->together(true)->findByPk($project_id);
+		$user = $this->loadUser(Yii::app()->user->id);
+		$roles = $user->roles;
+		if ($project !== null){
+			if ($this->isVolunteer()){
+				foreach ($project->roles as $role){
+					$result = array_search($role, $roles);
+					if ($result !== false) {
+						return true;
+					}
+				}
+			} else {
+				return $this->isManagerForOrg($project->org_id);
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * Checks if the user is a manager for the organization.
 	 * @param $id
 	 *
 	 * @return bool
 	 */
-	public function isManagerForOrg($org_id = null){
+	public function isManagerForOrg($org_id){
 		$user = $this->loadUser(Yii::app()->user->id);
 		if ($org_id !== null){
 			$exists = Yii::app()->db->createCommand()

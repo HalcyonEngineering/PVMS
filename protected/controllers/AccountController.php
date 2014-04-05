@@ -24,7 +24,7 @@ class AccountController extends Controller
 	{
 		return array(
 			array('allow',
-			      'actions'=>array('login', 'reset'),
+			      'actions'=>array('login'),
 			      'users'=>array('*'),
 			),
 			array('allow',
