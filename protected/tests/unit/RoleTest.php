@@ -55,6 +55,8 @@ class RoleTest extends CDbTestCase
         {
             $role = $this->roles('sampleRole');
             $this->assertTrue($role->delete);
+            $role2 = $this->roles('sampleRole2');
+            $this->assertTrue($role2->delete);
             $this->assertEquals(empty(Role::models()->findAll()), true);
         }
             

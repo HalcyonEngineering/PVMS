@@ -56,6 +56,8 @@ class TaskTest extends CDbTestCase
         {
             $task = $this->tasks('sampleTask');
             $this->assertTrue($task->delete());
+            $task2 = $this->tasks('sampleTask2');
+            $this->assertTrue($task2->delete());
             $this->assertEquals(empty(Task::models()->findAll()), true);
         }
             

@@ -55,6 +55,8 @@ class ProjectTest extends CDbTestCase
         {
             $project = $this->projects('sampleProject');
             $this->assertTrue($project->delete());
+            $project2 = $this->projects('sampleProject2');
+            $this->assertTrue($project2->delete());
             $this->assertEquals(empty(Project::models()->findAll()), true);
         }
             
