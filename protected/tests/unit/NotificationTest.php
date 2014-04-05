@@ -48,7 +48,7 @@ class NotificationTest extends CDbTestCase
         public function testDeleteNotification()
         {
             $notification = $this->notifications('sampleNotification');
-            $this->assertTrue($notification->delete);
+            $this->assertTrue($notification->delete());
             $this->assertEquals(empty(Notification::models()->findAll()), true);
         }
             

@@ -55,7 +55,7 @@ class TaskTest extends CDbTestCase
         public function testDeleteTask()
         {
             $task = $this->tasks('sampleTask');
-            $this->assertTrue($task->delete);
+            $this->assertTrue($task->delete());
             $this->assertEquals(empty(Task::models()->findAll()), true);
         }
             

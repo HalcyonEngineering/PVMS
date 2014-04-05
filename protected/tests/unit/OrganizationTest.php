@@ -47,7 +47,7 @@ class OrganizationTest extends CDbTestCase
         public function testDeleteOrg()
         {
             $org = $this->organizations('sampleOrg');
-            $this->assertTrue($org->delete);
+            $this->assertTrue($org->delete());
             $this->assertEquals(empty(Organization::models()->findAll()), true);
         }
             
