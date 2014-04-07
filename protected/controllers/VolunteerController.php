@@ -28,7 +28,7 @@ class VolunteerController extends Controller
 			),
 			array('allow',
 			      'actions'=>array('add', 'removeFromRole'),
-			      'expression'=>'Yii::app()->user->isVolunteer',
+			      'expression'=>'Yii::app()->user->isVolunteer()',
 			),
 			array('allow',
 			      'actions'=>array('deleteVolunteer', 'remove', 'removeFromRole', 'search'),
