@@ -117,7 +117,7 @@ class Csv extends CActiveRecord
      */
     public function csv2volunteers($has_header, $internalName, $mappedColumns)
     {
-        $count = array('success'=>0, 'total'=>0);
+        $count = array('success'=>0, 'error'=>0, 'old'=>0,  'total'=>0);
 
         $org = Yii::app()->user->getManagedOrg();
         // Default availability is weekdays and weekends
@@ -166,9 +166,12 @@ class Csv extends CActiveRecord
                     if(isset($fields[$columns['phoneNumber']])) {$model->phoneNumber = $fields[$columns['phoneNumber']];}
                     if(isset($fields[$columns['address']])) {$model->address = $fields[$columns['address']];}
 
-                $success = User::enrollVolunteer($model, $org);
-                if ($success) $count['success'] += 1;
-                $count['total'] += 1;
+                $status = User::enrollVolunteer($model, $org);
+	            $count['total']++;
+                if ($status === 'success') { $count['success']++; }
+	            if ($status === 'old') { $count['old']++; }
+	            if ($status === 'error') { $count['error']++; }
+
             }
 	        //Close and delete file.
 	        fclose($file);

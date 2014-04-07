@@ -82,20 +82,28 @@ class VolunteerController extends Controller
                 if ($count['success'] > 0) {
                     Yii::app()->user->setFlash('success',
                         "<strong>".$count['success']." out of ".$count['total']." entries added successfully!</strong> Check the \"Manage Volunteers\" tab.");
-                } else {
+                }
+	            if ($count['old'] > 0) {
+		            Yii::app()->user->setFlash('info',
+		                                       "<strong>Uh-oh!</strong> ".$count['old']." volunteers could not be added because they were already in your organization.");
+	            }
+	            if ($count['error'] > 0) {
                     Yii::app()->user->setFlash('error',
-                        '<strong>Uh-oh!</strong> No volunteers were added. Were they already in the database?');
+                        "<strong>Uh-oh!</strong> ".$count['error']." volunteers could not be added. Were they already in the database?");
                 }
         }
 
         if(isset($_POST['User']))
         {
 	    $userModel->attributes=$_POST['User'];
-            $success = User::enrollVolunteer($userModel, Yii::app()->user->getManagedOrg());
+            $status = User::enrollVolunteer($userModel, Yii::app()->user->getManagedOrg());
 
-            if ($success) {
+            if ($status === 'success') {
                 Yii::app()->user->setFlash('success',
                     '<strong>Volunteer added!</strong> Check the "Manage Volunteers" tab!.');
+            } elseif ($status === 'old'){
+	            Yii::app()->user->setFlash('info',
+	            'Volunteer is already part of your organization.');
             } else {
                 Yii::app()->user->setFlash('error',
                     '<strong>Uh-oh!</strong> Volunteer could not be added, try again later.');

@@ -358,6 +358,7 @@ class User extends CActiveRecord
      */
     public static function enrollVolunteer($model, $organization)
     {
+	    $status = 'error';
         // If the email does not exist in the database, create a new volunteer
         $user = User::model()->findByAttributes(array('email'=>$model->email));
         if ($user === null) {
@@ -383,9 +384,9 @@ class User extends CActiveRecord
 	                Yii::endProfile('email');
                     Notification::notify($user->id, "Welcome " . $user->name . 
                         ", you've been added as a member of  " . $organization->name . ".", '#');
-                    return true;
+                    return 'success';
                 } else {
-                    return false;
+                    return 'error';
                 }
             }
 
@@ -402,12 +403,13 @@ class User extends CActiveRecord
                 if ($user->save()) {
                     Notification::notify($user->id, "Welcome " . $user->name . 
                         ", you've been added as a member of  " . $organization->name . ".", '#');
-                    return true;
+                    return 'success';
                 } else {
-                    return false;
+                    return 'error';
                 }
+            } else {
+                return 'old';
             }
-            return false;
         }
     }
 
