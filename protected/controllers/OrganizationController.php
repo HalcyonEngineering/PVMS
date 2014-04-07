@@ -22,15 +22,15 @@ class OrganizationController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('update'),
+				'expression'=>'Yii::app()->user->isManager()',
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete', 'search'),
+				'actions'=>array('delete', 'search'),
 				'expression'=>'Yii::app()->user->isAdmin()'
 			),
 			array('deny',  // deny all users
@@ -78,8 +78,9 @@ class OrganizationController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate()
 	{
+		$id = Yii::app()->user->getManagedOrg()->id;
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -116,17 +117,6 @@ class OrganizationController extends Controller
 		} else {
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 		}
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Organization');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
 	}
 
 	/**

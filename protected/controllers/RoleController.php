@@ -43,8 +43,7 @@ class RoleController extends Controller
 	{
 		$model = $this->loadModel($id);
 		$onboardingModel = $model->onboardingDoc;
-
-		if (isset($_POST['Role']) && isset($_POST['OnboardingDoc']))
+		if (isset($_POST['Role']) && isset($_POST['OnboardingDoc']) && $this->getCurUser()->isManagerForOrg($model->project->org_id))
 		{
 			$model->attributes=$_POST['Role'];
 			$onboardingModel->attributes=$_POST['OnboardingDoc'];
@@ -53,6 +52,9 @@ class RoleController extends Controller
 					Yii::app()->user->setFlash('success', "Updated Role and Onboarding.");
 				}
 			}
+			// else, if the user does not have this role, they are not allowed.
+		} elseif (!$this->getCurUser()->hasRole($id) && !$this->getCurUser()->isManagerForOrg($model->project->org_id)){
+			throw new CHttpException(403, "You are not allowed to view this role.");
 		}
 
 		$this->render('view',array('model'=>$model,
@@ -88,7 +90,7 @@ class RoleController extends Controller
 			$this->renderModal('create',array('model'=>$model,
 			                                  'onboardingModel'=>$onboardingModel,));
 		} else {
-			throw new CHttpException(403, null, 403);
+			throw new CHttpException(403, "You do not have permission to create a role in this project.");
 		}
 	}
 
@@ -118,7 +120,7 @@ class RoleController extends Controller
 				'model'=>$model,
 			));
 		} else {
-			throw new CHttpException(403, 'You are not authorized to perform this system.', 403);
+			throw new CHttpException(403, 'You are not authorized to perform this action.', 403);
 		}
 	}
 
@@ -160,6 +162,8 @@ class RoleController extends Controller
 			$models = User::model()->findByPk(Yii::app()->user->id)->roles;
 		} elseif (Yii::app()->user->isManager()){
 			$models = Yii::app()->user->managedOrg->roles;
+		} else {
+			throw new CHttpException(403, "You should not have any assigned roles.");
 		}
 		$dataProvider=new CActiveDataProvider('Role',array('data'=>$models));
 		$this->render('index',array(

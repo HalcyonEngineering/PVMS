@@ -66,7 +66,7 @@ class ProjectController extends Controller
 			                    )
 			);
 		} else {
-			throw new CHttpException(403);
+			throw new CHttpException(403, "You do not have permission to view this project.");
 		}
 	}
 
@@ -117,7 +117,7 @@ class ProjectController extends Controller
 			                   array('model'=>$model)
 			);
 		} else {
-			throw new CHttpException(403);
+			throw new CHttpException(403, "You do not have permission to update this project.");
 		}
 	}
 
@@ -132,7 +132,7 @@ class ProjectController extends Controller
 		{
 			$model = $this->loadModel($id);
 			if(!Yii::app()->user->isManagerForOrg($model->org_id)){
-				throw new CHttpException(403);
+				throw new CHttpException(403, "You do not have permission to delete this project.");
 			}
 			// we only allow deletion via POST request
 			//Prepare notifications for after delete.
@@ -147,7 +147,6 @@ class ProjectController extends Controller
 			}
 			$model->delete();
 			//Send out notifications.
-			Yii::trace(CVarDumper::dumpAsString($notificationArray));
 			foreach($notificationArray as $key=>$notification){
 				Notification::notifyAll($notification['users'], $notification['desc'], $notification['link']);
 			}
@@ -165,9 +164,6 @@ class ProjectController extends Controller
 	 */
 	public function actionIndex()
 	{
-		if(isset($_POST['Project'])){
-			Yii::log("Project set in index.", CLogger::LEVEL_ERROR);
-		}
 		$dataCriteria=new CDbCriteria();
 		if(Yii::app()->user->ManagedOrg != null){
 			$dataCriteria->compare('org_id', Yii::app()->user->managedOrg->id);

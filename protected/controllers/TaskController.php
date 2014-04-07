@@ -21,12 +21,12 @@ class TaskController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('view', 'update', 'dynamicUpdate'),
+			array('allow',  // allow all users to perform 'update' and 'dynamicUpdate' actions
+				'actions'=>array('update', 'dynamicUpdate'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','listTasks','delete'),
+			array('allow', // allow authenticated user to perform 'create' and 'delete' actions
+				'actions'=>array('create','delete'),
 				'expression'=>'Yii::app()->user->isManager()',
 			),
 			array('deny',  // deny all users
@@ -35,44 +35,36 @@ class TaskController extends Controller
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
 
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate($role_id = null)
+	public function actionCreate($role_id)
 	{
 		$model=new Task;
-
+		$roleModel = Role::model()->findByPk($role_id);
+		if (!Yii::app()->user->isManagerForOrg($roleModel->org->id)){
+			throw new CHttpException(403, "You cannot create a task for this role.");
+		}
 		// Uncomment the following line if AJAX validation is needed
 		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Task']))
 		{
 			$model->attributes=$_POST['Task'];
-			if($model->save())
+			if($model->save()){
 				//$this->redirect(array('view','id'=>$model->id)); // this is what we would normally do, but we have to reroute it to make the role workflow workflow
 				Notification::notifyAll($model->role->users,
 				"Your manager has added a new task.",
 					Yii::app()->createUrl('/role/view', array('id'=>$model->role_id))
 				);
 				$this->redirect(array('/role/view','id'=>$model->role_id));
+			}
 		}
 
-		if(isset($role_id)) {
 			$model->role_id = $role_id;
 			$model->actual = 0;
-		}
 
 		$this->renderModal('/task/create',array(
 			'model'=>$model,
@@ -87,7 +79,9 @@ class TaskController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+		if (!Yii::app()->user->hasRole($model->role_id) && !Yii::app()->user->isManagerForOrg($model->org->id)){
+			throw new CHttpException(403, "You do not have permission to update this task.");
+		}
 		// Uncomment the following line if AJAX validation is needed
 		 $this->performAjaxValidation($model);
 
@@ -113,7 +107,9 @@ class TaskController extends Controller
 		if(isset($_POST['pk'])){
 				$model = $this->loadModel($_POST['pk']);
 				$model->setAttribute($_POST['name'],$_POST['value']);
-
+			if (!Yii::app()->user->hasRole($model->role_id) && !Yii::app()->user->isManagerForOrg($model->org->id)){
+				throw new CHttpException(403, "You do not have permission to update this task.");
+			}
 			if (Yii::app()->user->isVolunteer()){
 				$model->setScenario('volunteerUpdate');
 			}
@@ -138,6 +134,9 @@ class TaskController extends Controller
 		{
 			// we only allow deletion via POST request
 			$model = $this->loadModel($id);
+			if(!Yii::app()->user->isManagerForOrg($model->org->id)){
+				throw new CHttpException(403, "You do not have permission to delete this task.");
+			}
 			$roleModel = $model->role;
 			$taskName = $model->name;
 			if($model->delete()){
@@ -152,32 +151,6 @@ class TaskController extends Controller
 			}
 		} else {
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-		}
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Task');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Render a modal showing all Tasks for the role id passed in
-	 */
-	public function actionListTasks($role_id)
-	{
-		$dataProvider=new CActiveDataProvider('Task',array('criteria'=>array('condition'=>'role_id='.$role_id,),));
-		if (Yii::app()->user->isVolunteer()) {
-			$this->renderModal('_tasks',array('dataProvider'=>$dataProvider,
-												'template'=>'{view}{update}',));
-		} else {
-			$this->renderModal('_tasks',array('dataProvider'=>$dataProvider,
-												'template'=>'{view}{update}{delete}',));
 		}
 	}
 

@@ -22,17 +22,25 @@ class VolunteerController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-			      'actions'=>array(),
+			array('allow',
+			      'actions' => array('suggestLocation', 'suggestSkillset'),
 			      'users'=>array('@'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-			      'actions'=>array(),
+			array('allow',
+			      'actions'=>array('add', 'removeFromRole'),
+			      'expression'=>'Yii::app()->user->isVolunteer',
+			),
+			array('allow',
+			      'actions'=>array('deleteVolunteer', 'remove', 'removeFromRole', 'search'),
 			      'expression'=>'Yii::app()->user->isManager()',
 			),
-			/*array('deny',  // deny all users
+			array('allow',
+			      'actions'=>array('deleteVolunteer', 'volunteerDisable', 'volunteerEnable', 'search'),
+			      'expression'=>'Yii::app()->user->isAdmin()',
+			),
+			array('deny',  // deny all users
 			      'users'=>array('*'),
-			),*/
+			),
 		);
 	}
 
@@ -146,7 +154,7 @@ class VolunteerController extends Controller
         if(Yii::app()->user->isAdmin()) {
 	        $dataProvider = $model->search_volunteers();
             $this->render('admin', array('model'=>$model, 'org_model'=>$org_model, 'dataProvider'=>$dataProvider));
-        } else {
+        } elseif(Yii::app()->user->isManager()) {
             $role_model = new Role('search');
             $role_model->unsetAttributes();
 
@@ -179,6 +187,8 @@ class VolunteerController extends Controller
 
             Yii::trace("SUPERGLOBAL: ".CVarDumper::dumpAsString($_POST));
             $this->render('search', array('data'=>$data, 'model'=>$model, 'role_model'=>$role_model));
+        } else {
+	        throw new CHttpException(403, "Permission denied");
         }
     }
 
@@ -232,14 +242,8 @@ class VolunteerController extends Controller
     public function actionVolunteerDisable($userID){
         $model = User::model()->findByPk($userID);
         $model->setScenario("disable");
-        if($model->setAttribute('type', User::DISABLEDVOLUNTEER)){
-                Yii::Log("Setting successful", 'warning');
-        }
-        else {
-                Yii::Log("Setting unsuccessful", 'warning');
-        }
-        if($model->save(false)){
-                Yii::Log("Save successful", 'warning');
+        if($model->setAttribute('type', User::DISABLEDVOLUNTEER) && $model->save()){
+	        Yii::app()->user->setFlash('success', "Volunteer disabled.");
         }
         $this->redirect(array('volunteer/search'));
     }
@@ -249,31 +253,11 @@ class VolunteerController extends Controller
     */
     public function actionVolunteerEnable($userID){
             $model = User::model()->findByPk($userID);
-            $model->setScenario("disable");
-            if($model->setAttribute('type', User::VOLUNTEER)){
-                    Yii::Log("Setting successful", 'warning');
-            }
-            else {
-                    Yii::Log("Setting unsuccessful", 'warning');
-            }
-            if($model->save(false)){
-                    Yii::Log("Save successful", 'warning');
+            $model->setScenario("enable");
+            if($model->setAttribute('type', User::VOLUNTEER) && $model->save()){
+	            Yii::app()->user->setFlash('success', "Volunteer disabled.");
             }
              $this->redirect(array('volunteer/search'));
-    }
-    
-    public function actionDelete()
-    {
-        $model = new User();
-        Yii::trace("POST SUPERGLOBAL:".serialize($_POST));
-            if (isset($_POST['selectedIds']))
-            {
-                foreach ($_POST['selectedIds'] as $id)
-                {
-                    Yii::trace("user id: $id");
-                }
-            }
-        $this->render('search', array('model'=>$model));
     }
 
 	/**

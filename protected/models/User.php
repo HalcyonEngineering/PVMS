@@ -81,12 +81,12 @@ class User extends CActiveRecord
             array('verifyPassword', 'compare', 'compareAttribute' => 'newPassword', 'on' => 'register, settings, passreset'),
 
             // Do not allow changes to type unless we are registering.
-            array('type', 'unsafe', 'except' => 'register, disable'),
+            array('type', 'unsafe', 'except' => 'register, disable, enable'),
 
             //array('newPassword, verifyPassword', 'safe', 'on'=>'settings'),
             array('origPassword', 'required', 'on'=> 'settings'),
             array('type, newPassword, verifyPassword', 'required', 'on' => 'register'),
-            array('type', 'in', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR,  User::DISABLED)),
+            array('type', 'in', 'range' => array(User::VOLUNTEER, User::MANAGER, User::ADMINISTRATOR,  User::DISABLED, User::DISABLEDVOLUNTEER)),
 
             // Location and causes
             array('location', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Location can only includes skills, which must be word characters.'),

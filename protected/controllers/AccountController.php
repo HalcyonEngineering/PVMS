@@ -242,14 +242,8 @@ class AccountController extends Controller
 	public function actionOrgDisable($userID){
 		$model = User::model()->findByPk($userID);
 		$model->setScenario("disable");
-		if($model->setAttribute('type', User::DISABLED)){
-			Yii::Log("Setting successful", 'warning');
-		}
-		else {
-			Yii::Log("Setting unsuccessful", 'warning');
-		}
-		if($model->save(false)){
-			Yii::Log("Save successful", 'warning');
+		if($model->setAttribute('type', User::DISABLED) && $model->save()){
+			Yii::app()->user->setFlash('success', 'Manager disabled.');
 		}
 		$this->redirect(array('organization/search'));
 	}
@@ -259,15 +253,9 @@ class AccountController extends Controller
 	*/
 	public function actionOrgEnable($userID){
 		$model = User::model()->findByPk($userID);
-		$model->setScenario("disable");
-		if($model->setAttribute('type', User::MANAGER)){
-			Yii::Log("Setting successful", 'warning');
-		}
-		else {
-			Yii::Log("Setting unsuccessful", 'warning');
-		}
-		if($model->save(false)){
-			Yii::Log("Save successful", 'warning');
+		$model->setScenario("enable");
+		if($model->setAttribute('type', User::MANAGER) && $model->save()){
+			Yii::app()->user->setFlash('success', 'Manager enabled.');
 		}
 		$this->redirect(array('organization/search'));
 	}
