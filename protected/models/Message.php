@@ -41,7 +41,7 @@ class Message extends CActiveRecord
 			array('subject, body', 'required'),
 			array('user_id, sender_id', 'required', 'except'=>'compose'),
 			array('user_id', 'exist', 'className'=>'User', 'attributeName'=>'id'),
-			array('targets', 'safe', 'on'=>'compose'),
+			array('targets', 'required', 'on'=>'compose'),
 			array('user_id, sender_id, timestamp', 'numerical', 'integerOnly'=>true),
 			array('subject', 'length', 'max'=>128),
 		    array('body', 'length', 'max'=>1024),
