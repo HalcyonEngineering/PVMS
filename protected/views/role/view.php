@@ -4,6 +4,7 @@
 		"$projectName"=>array('project/view', 'id'=>$model->project->id),
 		$model->name,
 	);
+	$this->widget('bootstrap.widgets.TbAlert');
 } ?>
 
 <div class="span-3 pull-right" style="padding:5px;" id="view-doc-repo-btn">

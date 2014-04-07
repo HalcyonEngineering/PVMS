@@ -2,7 +2,7 @@
 <p>Here are all the volunteers in the system. You can also refine the list by searching.</p>
 
 <?php
-
+$this->widget('bootstrap.widgets.TbAlert');
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'user-search-grid',
     'dataProvider'=>$dataProvider,

@@ -143,8 +143,8 @@ class Message extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('user_id',Yii::app()->user->id,true);
-		$criteria->compare('sender_id',$this->sender_id,true);
+		$criteria->compare('user_id',Yii::app()->user->id);
+		$criteria->compare('sender_id',$this->sender_id);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('body',$this->body,true);
 		$criteria->compare('t.status', $this->status);
@@ -168,8 +168,8 @@ class Message extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('user_id',$this->user_id,true);
-		$criteria->compare('sender_id',Yii::app()->user->id,true);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('sender_id',Yii::app()->user->id);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('body',$this->body,true);
 		$criteria->compare('t.status', $this->status);
