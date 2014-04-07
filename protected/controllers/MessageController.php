@@ -2,6 +2,8 @@
 
 class MessageController extends Controller
 {
+	public $defaultAction='inbox';
+
 	public function filters()
 	{
 		return array(
