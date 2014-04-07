@@ -45,7 +45,7 @@ class FileDocController extends Controller
 		$projectModel = Project::model()->findByPk($project_id);
         if(Yii::app()->user->isManagerForOrg($projectModel->org_id)){
 		$model=new FileDoc; // remember: this is a local var
-
+		$model->project_id = $project_id;
         if(isset($_POST['FileDoc']))
 		{
             $model->attributes=$_POST['FileDoc'];

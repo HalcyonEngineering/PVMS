@@ -8,11 +8,7 @@
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php if (isset($model->project_id)) {
-				echo $form->hiddenField($model,'project_id');
-			} else {
-				echo $form->textFieldRow($model,'project_id',array('class'=>'span5'));
-			}  ?>
+<?php echo $form->hiddenField($model,'project_id'); ?>
 	
 	<?php echo $form->fileFieldRow($model,'uploadedfile',array(),array('label'=>'')); ?>
 <div class="form-actions">
