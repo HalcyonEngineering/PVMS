@@ -529,3 +529,8 @@ i {
     -webkit-transform:scale(1.5,1.5); /* Safari and Chrome */
     -o-transform:scale(1.5,1.5);
 }
+
+#s2id_Message_targets{
+	width: 790px !important;
+	margin-bottom: 10px;
+}

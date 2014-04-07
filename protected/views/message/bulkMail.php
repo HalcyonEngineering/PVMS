@@ -3,15 +3,17 @@
 	 * @var $form TbActiveForm
 	 * @var $model Mail
 	 */
-	$form=$this->beginWidget('bootstrap.widgets.TbActiveForm',
+    echo "<h1> Bulk Mail </h1>";
+    echo "<p> Compose your message below to be sent to the selected volunteers.</p>";
+    $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',
 	                         array('id'=>'role-form',
 	                               'enableAjaxValidation'=>false,
 	                         ));
 	echo $form->errorSummary($model);
 	echo $form->hiddenField($model, 'bulkUserId');
-	echo $form->textFieldRow($model,'subject');
+	echo $form->textFieldRow($model,'subject', array('style'=>'width: 776px;'));
 
-	echo $form->textAreaRow($model, 'body');
+	echo $form->textAreaRow($model, 'body', array('style'=>'width: 776px; height: 300px; resize: none;'));
 	Yii::log("BULKMAILLOGGER".CVarDumper::dumpAsString($model), "error");
 ?>
 

@@ -18,12 +18,11 @@
    
     
 	echo CHtml::tag('h1', array(), 'Inbox');
-$this->widget('ModalOpenButton',
+$this->widget('TbButton',
     array(
         'label' => 'Send Message',
         'type' => 'Common',
         'encodeLabel' =>false,
-        'button_id'=>'1',
         'url' => Yii::app()->createUrl("message/compose"),
     )
 );

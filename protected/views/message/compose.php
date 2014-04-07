@@ -14,6 +14,7 @@
 	$listTargets = CHtml::listData(User::model()->findAll(), 'id', 'name');
 	echo $form->select2Row($model, 'targets', array(
 		'data'=>$listTargets,
+
 		'options'=>array(
 
 		),
@@ -22,9 +23,9 @@
 		),
 	));
 
-	echo $form->textFieldRow($model, 'subject');
+	echo $form->textFieldRow($model, 'subject', array('style'=>'width: 776px;'));
 
-	echo $form->textAreaRow($model, 'body');
+	echo $form->textAreaRow($model, 'body', array('style'=>'width: 776px; height: 300px; resize: none;'));
 
 ?>
 

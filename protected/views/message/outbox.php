@@ -1,5 +1,4 @@
 <?php
-    
     echo "<div class=\"span-4 pull-right\">";
     $this->widget(
                   'bootstrap.widgets.TbButton',
