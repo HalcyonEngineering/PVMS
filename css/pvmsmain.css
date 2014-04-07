@@ -498,7 +498,7 @@ label {
 }
 
 .span-3 {
-margin-right: 0px;
+margin-right: 0px !important;
 }
 
 #modal-warning-title {
@@ -520,4 +520,12 @@ margin-right: 0px;
 
 #confirm-role-btn{
 	margin-bottom: 9px;
+}
+
+i {
+ `	transform:scale(1.5,1.5);
+    -ms-transform:scale(1.5,1.5); /* IE 9 */
+    -moz-transform:scale(1.5,1.5); /* Firefox */
+    -webkit-transform:scale(1.5,1.5); /* Safari and Chrome */
+    -o-transform:scale(1.5,1.5);
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
     $this->widget('bootstrap.widgets.TbAlert', array(
         'block'=>true, // display a larger alert block?
         'fade'=>true, // use transitions?
@@ -14,7 +14,7 @@
     $this->pageTitle=Yii::app()->name . ' - Add Volunteers';
 ?>
 <h1>Add Your Volunteers</h1>
-<p style="width: 75%;">You can add a volunteer manually by filling out a form, or add many volunteers at a time by using uploading a CSV file. Any volunteers which you add will be sent an email, confirming an account creation.</p>
+<p style="width: 75%;">You can add a volunteer manually by filling out a form, or add multiple volunteers at a time by uploading a CSV file. All volunteers which you add will receive an email for confirming an account creation.</p>
 <div class="form">
     <table style="width:600px; padding:0px;"><tr>
         <td style="padding:0px"><?php echo $formView; ?></td>

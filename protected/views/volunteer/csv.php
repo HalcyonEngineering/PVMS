@@ -12,8 +12,9 @@ $form = $this->beginWidget(
 ); 
 
 echo '<h2>By CSV</h2>';
-
-echo CHtml::link('If you\'re not sure what to upload, download an example here.', $csvModel->getCsvTemplateUrl());
+echo 'If you\'re not sure what to upload, download a CSV example ';
+echo CHtml::link('<b>here</b>', $csvModel->getCsvTemplateUrl());
+echo '.';
 echo '<br>';
 echo '<br>';
 echo '<br>';
