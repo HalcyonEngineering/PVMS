@@ -81,6 +81,7 @@ class Message extends CActiveRecord
 			'body' => 'Body',
 			'timestamp' => 'Send Time',
 		    'status' => 'Status',
+		    'targets' => 'Recipients',
 		);
 	}
 

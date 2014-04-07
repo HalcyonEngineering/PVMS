@@ -63,6 +63,7 @@ class MessageController extends Controller
 
 		if(isset($_POST['Message'])){
 			$model->attributes=$_POST['Message'];
+			if($model->validate()){
 			$model->sender_id=Yii::app()->user->id;
 			//Duplicate the message per user.
 			foreach($model->targets as $user_id){
@@ -75,6 +76,7 @@ class MessageController extends Controller
 			}
             Yii::app()->user->setFlash('success', 'Your message has been sent.');
             $this->redirect(array('message/outbox'));
+			}
 		}
 		$this->renderModal('compose', array('model'=>$model));
         
