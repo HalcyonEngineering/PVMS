@@ -21,6 +21,13 @@ class UserTest extends CDbTestCase
 		$this->assertTrue($user->validatePassword('admin'));
 	}
 	
+	public function testDeleteVolunteer()
+	{
+		// To get the AR instance of an object in the database, we call the fixture and the alias of the row
+		$user = $this->users('sampleUser');
+		$this->assertTrue($user->delete());
+	}
+	
 	public function testCreateUser() {	
 		$model = new User();
 		$password = $model->hashPassword("kenshiro");
