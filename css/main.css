@@ -80,22 +80,3 @@ div.form .rememberMe label
 	display: inline;
 }
 
-#AdminVS-ButtonColumn
-{
-	width: 66px;
-}
-
-.modal-body {
-max-height: none !important;
-}
-
-#modal {
-	width:auto !important;
-}
-
-.modal-header{
-	background-color: #1AAB9F;
-	color: white;
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
-}

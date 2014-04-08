@@ -555,10 +555,6 @@ i {
 max-height: none !important;
 }
 
-#modal {
-	width:auto !important;
-}
-
 .modal-header{
 	background-color: #1AAB9F;
 	color: white;
