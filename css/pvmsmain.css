@@ -348,7 +348,7 @@ div.view {
 
 #header .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus
 {
-	background-image: linear-gradient(to bottom, #D8D8D8, #A8A8A8);
+	background-image: linear-gradient(to bottom, #1AAB9F, #1AAB9F);
 	color: white;
 }
 
@@ -543,5 +543,25 @@ i {
 
 .navbar-inner{
 	padding: 0px !important;
+}
+
+#AdminVS-ButtonColumn
+{
+	width: 66px;
+}
+
+.modal-body {
+max-height: none !important;
+}
+
+#modal {
+	width:auto !important;
+}
+
+.modal-header{
+	background-color: #1AAB9F;
+	color: white;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
 }
 
