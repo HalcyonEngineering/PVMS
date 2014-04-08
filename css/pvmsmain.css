@@ -565,3 +565,7 @@ max-height: none !important;
 	border-top-right-radius:5px;
 }
 
+.modal-header .close {
+	opacity: 1;
+	color: white;	
+}
