@@ -529,7 +529,7 @@ i {
     -webkit-transform:scale(1.5,1.5); /* Safari and Chrome */
     -o-transform:scale(1.5,1.5);
 	margin-right: 6px;
-	margin-top: 10px !important;
+	margin-top: 5px !important;
 }
 
 .icon-calendar {
@@ -548,6 +548,7 @@ i {
 #AdminVS-ButtonColumn
 {
 	width: 66px;
+	vertical-align: middle;
 }
 
 .modal-body {
