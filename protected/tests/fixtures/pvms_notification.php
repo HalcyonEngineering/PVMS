@@ -14,7 +14,8 @@ return array(
 	'sampleNotification'=>array(
 		'id'=>'1',
 		'user_id'=>'10',
-                'timestamp'=>time(),
-                'link'=>'sampleNotificationLink',
+        'timestamp'=>time(),
+        'link'=>'sampleNotificationLink',
+		'description'=>'dakjsfejsgnkdfjgfdgkdj',
 	),
 );

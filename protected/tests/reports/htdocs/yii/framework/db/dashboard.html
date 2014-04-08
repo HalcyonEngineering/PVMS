@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\xampp/htdocs/yii/framework/db</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../../css/nv.d3.css" rel="stylesheet">
+  <link href="../../../../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../../../../js/html5shiv.js"></script>
+  <script src="../../../../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../../../index.html">C:\xampp</a></li>
+        <li><a href="../../../index.html">htdocs</a></li>
+        <li><a href="../../index.html">yii</a></li>
+        <li><a href="../index.html">framework</a></li>
+        <li><a href="htdocs/yii/framework/db.html">db</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Class</div></th>
+         <th><div align="right">Coverage</div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteCommandBuilder.php.html#18">CSqliteCommandBuilder</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1362">CStatElement</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2073">CStatRelation</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#64">CDbCommand</a></td><td><div align="right">19%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#37">CDbDataReader</a></td><td><div align="right">27%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#25">CDbSchema</a></td><td><div align="right">27%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#26">CDbCriteria</a></td><td><div align="right">31%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#311">CJoinElement</a></td><td><div align="right">34%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1933">CBaseActiveRelation</a></td><td><div align="right">41%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#21">CDbCommandBuilder</a></td><td><div align="right">43%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#21">CActiveFinder</a></td><td><div align="right">47%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#106">CDbConnection</a></td><td><div align="right">47%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#40">CActiveRecord</a></td><td><div align="right">50%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1205">CJoinQuery</a></td><td><div align="right">54%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2330">CActiveRecordMetaData</a></td><td><div align="right">55%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecordBehavior.php.html#21">CActiveRecordBehavior</a></td><td><div align="right">56%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2109">CActiveRelation</a></td><td><div align="right">65%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbColumnSchema.php.html#18">CDbColumnSchema</a></td><td><div align="right">77%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#18">CSqliteSchema</a></td><td><div align="right">77%</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Class</div></th>
+         <th><div align="right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#64">CDbCommand</a></td><td><div align="right">28002</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#311">CJoinElement</a></td><td><div align="right">9065</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#40">CActiveRecord</a></td><td><div align="right">6861</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#21">CDbCommandBuilder</a></td><td><div align="right">3884</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1362">CStatElement</a></td><td><div align="right">3540</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#26">CDbCriteria</a></td><td><div align="right">2932</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#25">CDbSchema</a></td><td><div align="right">2423</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#106">CDbConnection</a></td><td><div align="right">803</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#21">CActiveFinder</a></td><td><div align="right">315</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1933">CBaseActiveRelation</a></td><td><div align="right">241</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#37">CDbDataReader</a></td><td><div align="right">192</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1205">CJoinQuery</a></td><td><div align="right">73</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#18">CSqliteSchema</a></td><td><div align="right">40</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2330">CActiveRecordMetaData</a></td><td><div align="right">37</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbColumnSchema.php.html#18">CDbColumnSchema</a></td><td><div align="right">29</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2109">CActiveRelation</a></td><td><div align="right">24</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteCommandBuilder.php.html#18">CSqliteCommandBuilder</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2073">CStatRelation</a></td><td><div align="right">12</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Method</div></th>
+         <th><div align="right">Coverage</div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1237">CActiveRecord::refresh</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1193">CActiveRecord::saveCounters</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1263">CActiveRecord::equals</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1296">CActiveRecord::setPrimaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1497">CActiveRecord::findAllByPk</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1328">CActiveRecord::setOldPrimaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1151">CActiveRecord::saveAttributes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1019">CActiveRecord::beforeCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#866">CActiveRecord::onAfterDelete</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#675">CActiveRecord::hasAttribute</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#885">CActiveRecord::onBeforeFind</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#894">CActiveRecord::onAfterFind</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#923">CActiveRecord::onBeforeCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1514">CActiveRecord::findByAttributes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1531">CActiveRecord::findAllByAttributes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1812">CActiveRecord::deleteAll</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1760">CActiveRecord::updateAll</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1830">CActiveRecord::deleteAllByAttributes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1921">CActiveRecord::offsetExists</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2091">CStatRelation::mergeWith</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1725">CActiveRecord::together</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1705">CActiveRecord::with</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1568">CActiveRecord::findAllBySql</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1545">CActiveRecord::findBySql</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1592">CActiveRecord::count</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1619">CActiveRecord::countByAttributes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1645">CActiveRecord::countBySql</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#581">CActiveRecord::attributeNames</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#571">CActiveRecord::scopes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#142">CActiveFinder::count</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#119">CActiveFinder::findAllBySql</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#429">CJoinElement::find</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#686">CJoinElement::findWithBase</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1026">CJoinElement::getJoinCondition</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#722">CJoinElement::count</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#98">CActiveFinder::findBySql</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#58">CActiveFinder::query</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#185">CDbDataReader::getColumnCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#175">CDbDataReader::count</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#211">CDbDataReader::key</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#221">CDbDataReader::current</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#230">CDbDataReader::next</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1081">CJoinElement::joinOneMany</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1287">CJoinQuery::join</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#423">CActiveRecord::refreshMetaData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#311">CActiveRecord::hasRelated</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#436">CActiveRecord::tableName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#452">CActiveRecord::primaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#535">CActiveRecord::relations</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#210">CActiveRecord::__call</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#192">CActiveRecord::__unset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1389">CStatElement::query</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1378">CStatElement::__construct</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1397">CStatElement::queryOneMany</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1508">CStatElement::queryManyMany</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#111">CActiveRecord::cache</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2420">CActiveRecordMetaData::hasRelation</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2432">CActiveRecordMetaData::removeRelation</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#494">CDbSchema::addForeignKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#473">CDbSchema::alterColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#521">CDbSchema::dropForeignKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#537">CDbSchema::createIndex</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#574">CDbSchema::addPrimaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#560">CDbSchema::dropIndex</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#456">CDbSchema::renameColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#442">CDbSchema::dropColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#391">CDbSchema::renameTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#370">CDbSchema::createTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#402">CDbSchema::dropTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#413">CDbSchema::truncateTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#428">CDbSchema::addColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#592">CDbSchema::dropPrimaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteCommandBuilder.php.html#29">CSqliteCommandBuilder::createCompositeInCondition</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#288">CSqliteSchema::alterColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#272">CSqliteSchema::dropForeignKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#300">CSqliteSchema::dropIndex</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#314">CSqliteSchema::addPrimaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#328">CSqliteSchema::dropPrimaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#259">CSqliteSchema::addForeignKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#241">CSqliteSchema::renameColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#89">CSqliteSchema::findTableNames</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteCommandBuilder.php.html#51">CSqliteCommandBuilder::createMultipleInsertCommand</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#203">CSqliteSchema::renameTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#214">CSqliteSchema::truncateTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#227">CSqliteSchema::dropColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#340">CDbSchema::getColumnType</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#307">CDbSchema::findTableNames</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#111">CDbCommandBuilder::createCountCommand</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbColumnSchema.php.html#128">CDbColumnSchema::extractDefault</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#262">CDbCommandBuilder::createMultipleInsertCommand</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#277">CDbCommandBuilder::composeMultipleInsertCommand</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#637">CDbCommandBuilder::createPkCondition</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#451">CDbCommandBuilder::createSqlCommand</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecordBehavior.php.html#111">CActiveRecordBehavior::beforeCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecordBehavior.php.html#100">CActiveRecordBehavior::afterFind</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecordBehavior.php.html#59">CActiveRecordBehavior::afterSave</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecordBehavior.php.html#49">CActiveRecordBehavior::beforeSave</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecordBehavior.php.html#70">CActiveRecordBehavior::beforeDelete</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecordBehavior.php.html#80">CActiveRecordBehavior::afterDelete</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecordBehavior.php.html#90">CActiveRecordBehavior::beforeFind</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#658">CDbCommandBuilder::createColumnCriteria</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#721">CDbCommandBuilder::createSearchCondition</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#159">CDbSchema::refresh</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#136">CDbSchema::getTableNames</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#274">CDbSchema::resetSequence</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#284">CDbSchema::checkIntegrity</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#293">CDbSchema::createCommandBuilder</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#119">CDbSchema::getTables</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#468">CDbCriteria::addBetweenCondition</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#869">CDbCommandBuilder::getIntegerPrimaryKeyDefaultValue</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#838">CDbCommandBuilder::createCompositeInCondition</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#167">CDbCriteria::__wakeup</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#315">CDbCriteria::addNotInCondition</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#354">CDbCriteria::addColumnCondition</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#163">CDbDataReader::getRowCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1127">CJoinElement::joinManyMany</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1460">CDbCommand::createIndex</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#911">CDbCommand::leftJoin</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1472">CDbCommand::dropIndex</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1483">CDbCommand::processConditions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1562">CDbCommand::joinInternal</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1445">CDbCommand::dropForeignKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1433">CDbCommand::addForeignKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#152">CDbDataReader::getIsClosed</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1375">CDbCommand::addColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1387">CDbCommand::dropColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1400">CDbCommand::renameColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1415">CDbCommand::alterColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1594">CDbCommand::addPrimaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1606">CDbCommand::dropPrimaryKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#825">CDbCommand::orWhere</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#842">CDbCommand::getWhere</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#488">CDbConnection::getCurrentTransaction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1045">CDbCommand::setHaving</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#502">CDbConnection::beginTransaction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#853">CDbCommand::setWhere</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#870">CDbCommand::join</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#315">CDbConnection::getActive</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#292">CDbConnection::getAvailableDrivers</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#894">CDbCommand::setJoin</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#882">CDbCommand::getJoin</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#353">CDbConnection::cache</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1356">CDbCommand::truncateTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#928">CDbCommand::rightJoin</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1021">CDbCommand::having</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1154">CDbCommand::offset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1165">CDbCommand::getOffset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1008">CDbCommand::setGroup</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#997">CDbCommand::getGroup</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1143">CDbCommand::setLimit</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1132">CDbCommand::getLimit</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1034">CDbCommand::getHaving</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1066">CDbCommand::order</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1096">CDbCommand::getOrder</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1107">CDbCommand::setOrder</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1119">CDbCommand::limit</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1176">CDbCommand::setOffset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#972">CDbCommand::group</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1334">CDbCommand::renameTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1322">CDbCommand::createTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1345">CDbCommand::dropTable</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#958">CDbCommand::naturalJoin</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#943">CDbCommand::crossJoin</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1297">CDbCommand::delete</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1265">CDbCommand::update</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1187">CDbCommand::union</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1203">CDbCommand::getUnion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1214">CDbCommand::setUnion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1227">CDbCommand::insert</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#780">CDbCommand::where</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#801">CDbCommand::andWhere</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#761">CDbConnection::getAttribute</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#453">CDbCommand::queryColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#773">CDbConnection::setAttribute</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#431">CDbCommand::queryScalar</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#292">CDbCommand::bindValues</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#142">CDbDataReader::close</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#750">CDbConnection::getTimeout</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#723">CDbConnection::getPrefetch</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#130">CDbDataReader::nextResult</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#737">CDbCommand::setFrom</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#741">CDbConnection::getServerVersion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#245">CDbCommand::bindParam</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#144">CDbCommand::reset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#88">CDbDataReader::read</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#78">CDbDataReader::setFetchMode</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#98">CDbDataReader::readColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#109">CDbDataReader::readObject</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#119">CDbDataReader::readAll</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#65">CDbDataReader::bindColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#129">CDbCommand::setFetchMode</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#787">CDbConnection::getAttributes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#798">CDbConnection::setAttributes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#116">CDbCommand::__sleep</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#812">CDbConnection::getStats</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#714">CDbConnection::getConnectionStatus</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#732">CDbConnection::getServerInfo</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#586">CDbConnection::quoteColumnName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#673">CDbCommand::getDistinct</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#614">CDbConnection::getColumnCase</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#704">CDbConnection::getClientVersion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#683">CDbCommand::setDistinct</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#698">CDbCommand::from</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#534">CDbConnection::getCommandBuilder</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#557">CDbConnection::quoteValue</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#575">CDbConnection::quoteTableName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#726">CDbCommand::getFrom</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#634">CDbConnection::getNullConversion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#624">CDbConnection::setColumnCase</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#684">CDbConnection::setPersistent</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#650">CDbCommand::setSelect</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#639">CDbCommand::getSelect</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#606">CDbCommand::select</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#558">CDbCommand::buildQuery</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#674">CDbConnection::getPersistent</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#662">CDbCommand::selectDistinct</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#654">CDbConnection::getAutoCommit</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#644">CDbConnection::setNullConversion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#664">CDbConnection::setAutoCommit</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#905">CJoinElement::getColumnSelect</a></td><td><div align="right">16%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#274">CDbCriteria::addInCondition</a></td><td><div align="right">18%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#998">CJoinElement::getPrimaryKeyRange</a></td><td><div align="right">22%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1366">CActiveRecord::applyScopes</a></td><td><div align="right">25%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#780">CJoinElement::buildQuery</a></td><td><div align="right">27%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#494">CDbCriteria::mergeWith</a></td><td><div align="right">31%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#184">CDbSchema::quoteTableName</a></td><td><div align="right">33%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1273">CActiveRecord::getPrimaryKey</a></td><td><div align="right">33%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#597">CActiveRecord::getAttributeLabel</a></td><td><div align="right">33%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2006">CBaseActiveRelation::mergeWith</a></td><td><div align="right">34%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1257">CJoinQuery::__construct</a></td><td><div align="right">35%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#534">CJoinElement::applyLazyCondition</a></td><td><div align="right">36%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1882">CActiveRecord::populateRecords</a></td><td><div align="right">40%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#154">CActiveRecord::__set</a></td><td><div align="right">42%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#813">CJoinElement::populateRecord</a></td><td><div align="right">43%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#760">CDbCommandBuilder::createInCondition</a></td><td><div align="right">43%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#338">CActiveRecord::setDbCriteria</a></td><td><div align="right">50%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1002">CActiveRecord::beforeFind</a></td><td><div align="right">50%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#754">CActiveRecord::getAttributes</a></td><td><div align="right">52%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#72">CDbSchema::getTable</a></td><td><div align="right">53%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#214">CDbSchema::quoteColumnName</a></td><td><div align="right">57%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2356">CActiveRecordMetaData::__construct</a></td><td><div align="right">59%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#218">CDbCriteria::addCondition</a></td><td><div align="right">60%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#316">CDbCommand::execute</a></td><td><div align="right">60%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#980">CJoinElement::getPrimaryKeySelect</a></td><td><div align="right">60%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#470">CDbCommand::queryInternal</a></td><td><div align="right">60%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#250">CActiveRecord::getRelated</a></td><td><div align="right">62%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#100">CDbCommand::__construct</a></td><td><div align="right">62%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#205">CDbCommand::prepare</a></td><td><div align="right">63%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbColumnSchema.php.html#138">CDbColumnSchema::typecast</a></td><td><div align="right">63%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#365">CDbConnection::open</a></td><td><div align="right">64%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2161">CActiveRelation::mergeWith</a></td><td><div align="right">65%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#693">CDbConnection::getDriverName</a></td><td><div align="right">66%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#890">CJoinElement::getTableNameWithAlias</a></td><td><div align="right">66%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1014">CJoinElement::getColumnPrefix</a></td><td><div align="right">66%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#172">CActiveRecord::__isset</a></td><td><div align="right">66%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1067">CActiveRecord::insert</a></td><td><div align="right">67%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#200">CActiveFinder::buildJoinTree</a></td><td><div align="right">68%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#208">CDbCommandBuilder::createInsertCommand</a></td><td><div align="right">69%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#515">CDbConnection::getSchema</a></td><td><div align="right">71%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#414">CDbCriteria::compare</a></td><td><div align="right">72%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#443">CDbConnection::initConnection</a></td><td><div align="right">73%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#74">CDbCommandBuilder::createFindCommand</a></td><td><div align="right">73%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#50">CSqliteSchema::resetSequence</a></td><td><div align="right">75%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#856">CDbCommandBuilder::ensureTable</a></td><td><div align="right">75%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1659">CActiveRecord::exists</a></td><td><div align="right">75%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#58">CDbCommandBuilder::getLastInsertID</a></td><td><div align="right">75%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2405">CActiveRecordMetaData::addRelation</a></td><td><div align="right">75%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbColumnSchema.php.html#96">CDbColumnSchema::extractType</a></td><td><div align="right">75%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#361">CDbCommandBuilder::createUpdateCommand</a></td><td><div align="right">76%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#727">CActiveRecord::addRelatedRecord</a></td><td><div align="right">78%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1215">CActiveRecord::delete</a></td><td><div align="right">80%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#170">CDbCommand::setText</a></td><td><div align="right">80%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1341">CActiveRecord::query</a></td><td><div align="right">80%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#325">CDbConnection::setActive</a></td><td><div align="right">83%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#271">CDbCommand::bindValue</a></td><td><div align="right">83%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#628">CActiveRecord::getDbConnection</a></td><td><div align="right">83%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#707">CActiveRecord::setAttribute</a></td><td><div align="right">83%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2312">CManyManyRelation::initJunctionData</a></td><td><div align="right">83%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#195">CDbDataReader::rewind</a></td><td><div align="right">85%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#413">CDbConnection::createPdoInstance</a></td><td><div align="right">87%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#109">CSqliteSchema::loadTable</a></td><td><div align="right">87%</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Method</div></th>
+         <th><div align="right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1508">CStatElement::queryManyMany</a></td><td><div align="right">1122</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#494">CDbCriteria::mergeWith</a></td><td><div align="right">896</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1483">CDbCommand::processConditions</a></td><td><div align="right">812</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1397">CStatElement::queryOneMany</a></td><td><div align="right">552</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#111">CDbCommandBuilder::createCountCommand</a></td><td><div align="right">380</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#534">CJoinElement::applyLazyCondition</a></td><td><div align="right">297</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2006">CBaseActiveRelation::mergeWith</a></td><td><div align="right">288</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1127">CJoinElement::joinManyMany</a></td><td><div align="right">272</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#558">CDbCommand::buildQuery</a></td><td><div align="right">272</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#905">CJoinElement::getColumnSelect</a></td><td><div align="right">205</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#277">CDbCommandBuilder::composeMultipleInsertCommand</a></td><td><div align="right">156</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1081">CJoinElement::joinOneMany</a></td><td><div align="right">110</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#658">CDbCommandBuilder::createColumnCriteria</a></td><td><div align="right">110</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#760">CDbCommandBuilder::createInCondition</a></td><td><div align="right">91</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#606">CDbCommand::select</a></td><td><div align="right">90</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#686">CJoinElement::findWithBase</a></td><td><div align="right">90</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#813">CJoinElement::populateRecord</a></td><td><div align="right">84</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#721">CDbCommandBuilder::createSearchCondition</a></td><td><div align="right">72</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1066">CDbCommand::order</a></td><td><div align="right">72</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#429">CJoinElement::find</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1562">CDbCommand::joinInternal</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#722">CJoinElement::count</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1026">CJoinElement::getJoinCondition</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#972">CDbCommand::group</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#167">CDbCriteria::__wakeup</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#698">CDbCommand::from</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1366">CActiveRecord::applyScopes</a></td><td><div align="right">50</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#200">CActiveFinder::buildJoinTree</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#159">CDbSchema::refresh</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1151">CActiveRecord::saveAttributes</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#58">CActiveFinder::query</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#250">CActiveRecord::getRelated</a></td><td><div align="right">41</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#470">CDbCommand::queryInternal</a></td><td><div align="right">40</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#780">CJoinElement::buildQuery</a></td><td><div align="right">40</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#72">CDbSchema::getTable</a></td><td><div align="right">33</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#315">CDbCriteria::addNotInCondition</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1265">CDbCommand::update</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1287">CJoinQuery::join</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#494">CDbSchema::addForeignKey</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2161">CActiveRelation::mergeWith</a></td><td><div align="right">24</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2356">CActiveRecordMetaData::__construct</a></td><td><div align="right">21</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1237">CActiveRecord::refresh</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#340">CDbSchema::getColumnType</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#210">CActiveRecord::__call</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1296">CActiveRecord::setPrimaryKey</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1705">CActiveRecord::with</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#370">CDbSchema::createTable</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#557">CDbConnection::quoteValue</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#537">CDbSchema::createIndex</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#245">CDbCommand::bindParam</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1227">CDbCommand::insert</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#316">CDbCommand::execute</a></td><td><div align="right">18</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#274">CDbCriteria::addInCondition</a></td><td><div align="right">18</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#754">CActiveRecord::getAttributes</a></td><td><div align="right">17</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbColumnSchema.php.html#138">CDbColumnSchema::typecast</a></td><td><div align="right">16</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#208">CDbCommandBuilder::createInsertCommand</a></td><td><div align="right">14</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1067">CActiveRecord::insert</a></td><td><div align="right">13</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#597">CActiveRecord::getAttributeLabel</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#192">CActiveRecord::__unset</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1193">CActiveRecord::saveCounters</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#468">CDbCriteria::addBetweenCondition</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#825">CDbCommand::orWhere</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2091">CStatRelation::mergeWith</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#431">CDbCommand::queryScalar</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#801">CDbCommand::andWhere</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#838">CDbCommandBuilder::createCompositeInCondition</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1568">CActiveRecord::findAllBySql</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#354">CDbCriteria::addColumnCondition</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1545">CActiveRecord::findBySql</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#119">CDbSchema::getTables</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteCommandBuilder.php.html#29">CSqliteCommandBuilder::createCompositeInCondition</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1187">CDbCommand::union</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#488">CDbConnection::getCurrentTransaction</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#574">CDbSchema::addPrimaryKey</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#998">CJoinElement::getPrimaryKeyRange</a></td><td><div align="right">11</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#414">CDbCriteria::compare</a></td><td><div align="right">10</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1273">CActiveRecord::getPrimaryKey</a></td><td><div align="right">8</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1257">CJoinQuery::__construct</a></td><td><div align="right">8</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#443">CDbConnection::initConnection</a></td><td><div align="right">7</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#74">CDbCommandBuilder::createFindCommand</a></td><td><div align="right">7</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#361">CDbCommandBuilder::createUpdateCommand</a></td><td><div align="right">7</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1882">CActiveRecord::populateRecords</a></td><td><div align="right">7</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#413">CDbConnection::createPdoInstance</a></td><td><div align="right">7</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#727">CActiveRecord::addRelatedRecord</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#365">CDbConnection::open</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#726">CDbCommand::getFrom</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#673">CDbCommand::getDistinct</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#119">CActiveFinder::findAllBySql</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#780">CDbCommand::where</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#142">CActiveFinder::count</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#423">CActiveRecord::refreshMetaData</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1389">CStatElement::query</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#98">CActiveFinder::findBySql</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#639">CDbCommand::getSelect</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1096">CDbCommand::getOrder</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#292">CDbCommand::bindValues</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#130">CDbDataReader::nextResult</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#798">CDbConnection::setAttributes</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#311">CActiveRecord::hasRelated</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#773">CDbConnection::setAttribute</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1297">CDbCommand::delete</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1203">CDbCommand::getUnion</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1132">CDbCommand::getLimit</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#997">CDbCommand::getGroup</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1263">CActiveRecord::equals</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1356">CDbCommand::truncateTable</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1021">CDbCommand::having</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1034">CDbCommand::getHaving</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1019">CActiveRecord::beforeCount</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1619">CActiveRecord::countByAttributes</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1165">CDbCommand::getOffset</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#136">CDbSchema::getTableNames</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1592">CActiveRecord::count</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#842">CDbCommand::getWhere</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#1119">CDbCommand::limit</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#65">CDbDataReader::bindColumn</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#882">CDbCommand::getJoin</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#172">CActiveRecord::__isset</a></td><td><div align="right">5</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#184">CDbSchema::quoteTableName</a></td><td><div align="right">5</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbColumnSchema.php.html#96">CDbColumnSchema::extractType</a></td><td><div align="right">5</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#980">CJoinElement::getPrimaryKeySelect</a></td><td><div align="right">5</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCriteria.php.html#218">CDbCriteria::addCondition</a></td><td><div align="right">5</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#205">CDbCommand::prepare</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#154">CActiveRecord::__set</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#50">CSqliteSchema::resetSequence</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1341">CActiveRecord::query</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbSchema.php.html#214">CDbSchema::quoteColumnName</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#100">CDbCommand::__construct</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#515">CDbConnection::getSchema</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#856">CDbCommandBuilder::ensureTable</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#170">CDbCommand::setText</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1215">CActiveRecord::delete</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#325">CDbConnection::setActive</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#628">CActiveRecord::getDbConnection</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#707">CActiveRecord::setAttribute</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1002">CActiveRecord::beforeFind</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbConnection.php.html#693">CDbConnection::getDriverName</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#1014">CJoinElement::getColumnPrefix</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveFinder.php.html#890">CJoinElement::getTableNameWithAlias</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2405">CActiveRecordMetaData::addRelation</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/CDbCommandBuilder.php.html#58">CDbCommandBuilder::getLastInsertID</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#1659">CActiveRecord::exists</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/ar/CActiveRecord.php.html#2312">CManyManyRelation::initJunctionData</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbCommand.php.html#271">CDbCommand::bindValue</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/schema/sqlite/CSqliteSchema.php.html#109">CSqliteSchema::loadTable</a></td><td><div align="right">2</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/db/CDbDataReader.php.html#195">CDbDataReader::rewind</a></td><td><div align="right">2</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 2.0.4</a> using <a href="http://php.net/" target="_top">PHP 5.5.6</a> and <a href="http://phpunit.de/">PHPUnit 3.7.21</a> at Tue Apr 8 15:09:00 PDT 2014.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../../../js/holder.js" type="text/javascript"></script>
+  <script src="../../../../js/d3.min.js" type="text/javascript"></script>
+  <script src="../../../../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([3,0,1,2,2,4,4,1,2,0,1,5], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([219,0,2,3,7,4,6,17,12,11,6,99], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[19.09307875895,229,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#64\">CDbCommand<\/a>"],[47.945205479452,72,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#106\">CDbConnection<\/a>"],[27.027027027027,21,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#37\">CDbDataReader<\/a>"],[47.183098591549,43,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#21\">CActiveFinder<\/a>"],[34.038461538462,176,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#311\">CJoinElement<\/a>"],[54.411764705882,23,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1205\">CJoinQuery<\/a>"],[0,59,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1362\">CStatElement<\/a>"],[50.533807829181,234,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#40\">CActiveRecord<\/a>"],[41.071428571429,32,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1933\">CBaseActiveRelation<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2073\">CStatRelation<\/a>"],[65.51724137931,15,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2109\">CActiveRelation<\/a>"],[100,0,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2208\">CBelongsToRelation<\/a>"],[100,0,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2219\">CHasOneRelation<\/a>"],[100,7,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2230\">CHasManyRelation<\/a>"],[91.666666666667,6,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2274\">CManyManyRelation<\/a>"],[55.882352941176,16,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2330\">CActiveRecordMetaData<\/a>"],[56.25,8,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#21\">CActiveRecordBehavior<\/a>"],[77.142857142857,23,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbColumnSchema.php.html#18\">CDbColumnSchema<\/a>"],[43.498817966903,144,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#21\">CDbCommandBuilder<\/a>"],[31.512605042017,94,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#26\">CDbCriteria<\/a>"],[27.848101265823,79,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#25\">CDbSchema<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbTableSchema.php.html#32\">CDbTableSchema<\/a>"],[100,6,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteColumnSchema.php.html#18\">CSqliteColumnSchema<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteCommandBuilder.php.html#18\">CSqliteCommandBuilder<\/a>"],[77.631578947368,30,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#18\">CSqliteSchema<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[62.5,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#100\">CDbCommand::__construct<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#116\">CDbCommand::__sleep<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#129\">CDbCommand::setFetchMode<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#144\">CDbCommand::reset<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#157\">CDbCommand::getText<\/a>"],[80,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#170\">CDbCommand::setText<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#183\">CDbCommand::getConnection<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#192\">CDbCommand::getPdoStatement<\/a>"],[63.636363636364,4,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#205\">CDbCommand::prepare<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#227\">CDbCommand::cancel<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#245\">CDbCommand::bindParam<\/a>"],[83.333333333333,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#271\">CDbCommand::bindValue<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#292\">CDbCommand::bindValues<\/a>"],[60,11,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#316\">CDbCommand::execute<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#375\">CDbCommand::query<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#394\">CDbCommand::queryAll<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#413\">CDbCommand::queryRow<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#431\">CDbCommand::queryScalar<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#453\">CDbCommand::queryColumn<\/a>"],[60.78431372549,19,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#470\">CDbCommand::queryInternal<\/a>"],[0,16,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#558\">CDbCommand::buildQuery<\/a>"],[0,9,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#606\">CDbCommand::select<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#639\">CDbCommand::getSelect<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#650\">CDbCommand::setSelect<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#662\">CDbCommand::selectDistinct<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#673\">CDbCommand::getDistinct<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#683\">CDbCommand::setDistinct<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#698\">CDbCommand::from<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#726\">CDbCommand::getFrom<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#737\">CDbCommand::setFrom<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#780\">CDbCommand::where<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#801\">CDbCommand::andWhere<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#825\">CDbCommand::orWhere<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#842\">CDbCommand::getWhere<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#853\">CDbCommand::setWhere<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#870\">CDbCommand::join<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#882\">CDbCommand::getJoin<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#894\">CDbCommand::setJoin<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#911\">CDbCommand::leftJoin<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#928\">CDbCommand::rightJoin<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#943\">CDbCommand::crossJoin<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#958\">CDbCommand::naturalJoin<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#972\">CDbCommand::group<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#997\">CDbCommand::getGroup<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1008\">CDbCommand::setGroup<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1021\">CDbCommand::having<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1034\">CDbCommand::getHaving<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1045\">CDbCommand::setHaving<\/a>"],[0,8,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1066\">CDbCommand::order<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1096\">CDbCommand::getOrder<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1107\">CDbCommand::setOrder<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1119\">CDbCommand::limit<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1132\">CDbCommand::getLimit<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1143\">CDbCommand::setLimit<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1154\">CDbCommand::offset<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1165\">CDbCommand::getOffset<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1176\">CDbCommand::setOffset<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1187\">CDbCommand::union<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1203\">CDbCommand::getUnion<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1214\">CDbCommand::setUnion<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1227\">CDbCommand::insert<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1265\">CDbCommand::update<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1297\">CDbCommand::delete<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1322\">CDbCommand::createTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1334\">CDbCommand::renameTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1345\">CDbCommand::dropTable<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1356\">CDbCommand::truncateTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1375\">CDbCommand::addColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1387\">CDbCommand::dropColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1400\">CDbCommand::renameColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1415\">CDbCommand::alterColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1433\">CDbCommand::addForeignKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1445\">CDbCommand::dropForeignKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1460\">CDbCommand::createIndex<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1472\">CDbCommand::dropIndex<\/a>"],[0,28,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1483\">CDbCommand::processConditions<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1562\">CDbCommand::joinInternal<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1594\">CDbCommand::addPrimaryKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbCommand.php.html#1606\">CDbCommand::dropPrimaryKey<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#270\">CDbConnection::__construct<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#281\">CDbConnection::__sleep<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#292\">CDbConnection::getAvailableDrivers<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#304\">CDbConnection::init<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#315\">CDbConnection::getActive<\/a>"],[83.333333333333,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#325\">CDbConnection::setActive<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#353\">CDbConnection::cache<\/a>"],[64.705882352941,5,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#365\">CDbConnection::open<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#398\">CDbConnection::close<\/a>"],[87.5,7,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#413\">CDbConnection::createPdoInstance<\/a>"],[73.333333333333,7,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#443\">CDbConnection::initConnection<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#465\">CDbConnection::getPdoInstance<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#478\">CDbConnection::createCommand<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#488\">CDbConnection::getCurrentTransaction<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#502\">CDbConnection::beginTransaction<\/a>"],[71.428571428571,3,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#515\">CDbConnection::getSchema<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#534\">CDbConnection::getCommandBuilder<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#545\">CDbConnection::getLastInsertID<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#557\">CDbConnection::quoteValue<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#575\">CDbConnection::quoteTableName<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#586\">CDbConnection::quoteColumnName<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#596\">CDbConnection::getPdoType<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#614\">CDbConnection::getColumnCase<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#624\">CDbConnection::setColumnCase<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#634\">CDbConnection::getNullConversion<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#644\">CDbConnection::setNullConversion<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#654\">CDbConnection::getAutoCommit<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#664\">CDbConnection::setAutoCommit<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#674\">CDbConnection::getPersistent<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#684\">CDbConnection::setPersistent<\/a>"],[66.666666666667,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#693\">CDbConnection::getDriverName<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#704\">CDbConnection::getClientVersion<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#714\">CDbConnection::getConnectionStatus<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#723\">CDbConnection::getPrefetch<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#732\">CDbConnection::getServerInfo<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#741\">CDbConnection::getServerVersion<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#750\">CDbConnection::getTimeout<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#761\">CDbConnection::getAttribute<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#773\">CDbConnection::setAttribute<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#787\">CDbConnection::getAttributes<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#798\">CDbConnection::setAttributes<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbConnection.php.html#812\">CDbConnection::getStats<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#48\">CDbDataReader::__construct<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#65\">CDbDataReader::bindColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#78\">CDbDataReader::setFetchMode<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#88\">CDbDataReader::read<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#98\">CDbDataReader::readColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#109\">CDbDataReader::readObject<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#119\">CDbDataReader::readAll<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#130\">CDbDataReader::nextResult<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#142\">CDbDataReader::close<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#152\">CDbDataReader::getIsClosed<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#163\">CDbDataReader::getRowCount<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#175\">CDbDataReader::count<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#185\">CDbDataReader::getColumnCount<\/a>"],[85.714285714286,2,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#195\">CDbDataReader::rewind<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#211\">CDbDataReader::key<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#221\">CDbDataReader::current<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#230\">CDbDataReader::next<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/CDbDataReader.php.html#241\">CDbDataReader::valid<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#44\">CActiveFinder::__construct<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#58\">CActiveFinder::query<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#98\">CActiveFinder::findBySql<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#119\">CActiveFinder::findAllBySql<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#142\">CActiveFinder::count<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#161\">CActiveFinder::lazyFind<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#180\">CActiveFinder::getModel<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#185\">CActiveFinder::destroyJoinTree<\/a>"],[68.493150684932,24,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#200\">CActiveFinder::buildJoinTree<\/a>"],[96.666666666667,8,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#371\">CJoinElement::__construct<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#415\">CJoinElement::destroy<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#429\">CJoinElement::find<\/a>"],[91.836734693878,14,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#459\">CJoinElement::lazyFind<\/a>"],[36.206896551724,32,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#534\">CJoinElement::applyLazyCondition<\/a>"],[0,9,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#686\">CJoinElement::findWithBase<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#722\">CJoinElement::count<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#766\">CJoinElement::afterFind<\/a>"],[27.272727272727,9,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#780\">CJoinElement::buildQuery<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#800\">CJoinElement::runQuery<\/a>"],[43.478260869565,19,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#813\">CJoinElement::populateRecord<\/a>"],[66.666666666667,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#890\">CJoinElement::getTableNameWithAlias<\/a>"],[16.666666666667,18,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#905\">CJoinElement::getColumnSelect<\/a>"],[60,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#980\">CJoinElement::getPrimaryKeySelect<\/a>"],[22.222222222222,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#998\">CJoinElement::getPrimaryKeyRange<\/a>"],[66.666666666667,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1014\">CJoinElement::getColumnPrefix<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1026\">CJoinElement::getJoinCondition<\/a>"],[0,10,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1081\">CJoinElement::joinOneMany<\/a>"],[0,16,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1127\">CJoinElement::joinManyMany<\/a>"],[35,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1257\">CJoinQuery::__construct<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1287\">CJoinQuery::join<\/a>"],[100,14,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1315\">CJoinQuery::createCommand<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1378\">CStatElement::__construct<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1389\">CStatElement::query<\/a>"],[0,23,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1397\">CStatElement::queryOneMany<\/a>"],[0,33,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveFinder.php.html#1508\">CStatElement::queryManyMany<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#72\">CActiveRecord::__construct<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#94\">CActiveRecord::init<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#111\">CActiveRecord::cache<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#122\">CActiveRecord::__sleep<\/a>"],[100,5,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#134\">CActiveRecord::__get<\/a>"],[42.857142857143,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#154\">CActiveRecord::__set<\/a>"],[66.666666666667,5,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#172\">CActiveRecord::__isset<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#192\">CActiveRecord::__unset<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#210\">CActiveRecord::__call<\/a>"],[62.162162162162,20,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#250\">CActiveRecord::getRelated<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#311\">CActiveRecord::hasRelated<\/a>"],[100,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#323\">CActiveRecord::getDbCriteria<\/a>"],[50,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#338\">CActiveRecord::setDbCriteria<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#351\">CActiveRecord::defaultScope<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#363\">CActiveRecord::resetScope<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#389\">CActiveRecord::model<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#405\">CActiveRecord::getMetaData<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#423\">CActiveRecord::refreshMetaData<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#436\">CActiveRecord::tableName<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#452\">CActiveRecord::primaryKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#535\">CActiveRecord::relations<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#571\">CActiveRecord::scopes<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#581\">CActiveRecord::attributeNames<\/a>"],[33.333333333333,5,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#597\">CActiveRecord::getAttributeLabel<\/a>"],[83.333333333333,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#628\">CActiveRecord::getDbConnection<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#647\">CActiveRecord::getActiveRelation<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#656\">CActiveRecord::getTableSchema<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#665\">CActiveRecord::getCommandBuilder<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#675\">CActiveRecord::hasAttribute<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#691\">CActiveRecord::getAttribute<\/a>"],[83.333333333333,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#707\">CActiveRecord::setAttribute<\/a>"],[78.571428571429,6,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#727\">CActiveRecord::addRelatedRecord<\/a>"],[52.941176470588,9,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#754\">CActiveRecord::getAttributes<\/a>"],[100,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#803\">CActiveRecord::save<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#818\">CActiveRecord::getIsNewRecord<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#828\">CActiveRecord::setIsNewRecord<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#838\">CActiveRecord::onBeforeSave<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#847\">CActiveRecord::onAfterSave<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#857\">CActiveRecord::onBeforeDelete<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#866\">CActiveRecord::onAfterDelete<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#885\">CActiveRecord::onBeforeFind<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#894\">CActiveRecord::onAfterFind<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#907\">CActiveRecord::getActiveFinder<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#923\">CActiveRecord::onBeforeCount<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#937\">CActiveRecord::beforeSave<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#955\">CActiveRecord::afterSave<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#968\">CActiveRecord::beforeDelete<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#986\">CActiveRecord::afterDelete<\/a>"],[50,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1002\">CActiveRecord::beforeFind<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1019\">CActiveRecord::beforeCount<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1031\">CActiveRecord::afterFind<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1041\">CActiveRecord::beforeFindInternal<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1050\">CActiveRecord::afterFindInternal<\/a>"],[67.741935483871,10,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1067\">CActiveRecord::insert<\/a>"],[91.666666666667,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1115\">CActiveRecord::update<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1151\">CActiveRecord::saveAttributes<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1193\">CActiveRecord::saveCounters<\/a>"],[80,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1215\">CActiveRecord::delete<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1237\">CActiveRecord::refresh<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1263\">CActiveRecord::equals<\/a>"],[33.333333333333,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1273\">CActiveRecord::getPrimaryKey<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1296\">CActiveRecord::setPrimaryKey<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1318\">CActiveRecord::getOldPrimaryKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1328\">CActiveRecord::setOldPrimaryKey<\/a>"],[80,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1341\">CActiveRecord::query<\/a>"],[25.714285714286,10,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1366\">CActiveRecord::applyScopes<\/a>"],[100,5,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1422\">CActiveRecord::getTableAlias<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1436\">CActiveRecord::setTableAlias<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1452\">CActiveRecord::find<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1466\">CActiveRecord::findAll<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1481\">CActiveRecord::findByPk<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1497\">CActiveRecord::findAllByPk<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1514\">CActiveRecord::findByAttributes<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1531\">CActiveRecord::findAllByAttributes<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1545\">CActiveRecord::findBySql<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1568\">CActiveRecord::findAllBySql<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1592\">CActiveRecord::count<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1619\">CActiveRecord::countByAttributes<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1645\">CActiveRecord::countBySql<\/a>"],[75,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1659\">CActiveRecord::exists<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1705\">CActiveRecord::with<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1725\">CActiveRecord::together<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1741\">CActiveRecord::updateByPk<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1760\">CActiveRecord::updateAll<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1779\">CActiveRecord::updateCounters<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1796\">CActiveRecord::deleteByPk<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1812\">CActiveRecord::deleteAll<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1830\">CActiveRecord::deleteAllByAttributes<\/a>"],[94.117647058824,6,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1848\">CActiveRecord::populateRecord<\/a>"],[40,4,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1882\">CActiveRecord::populateRecords<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1908\">CActiveRecord::instantiate<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1921\">CActiveRecord::offsetExists<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#1992\">CBaseActiveRelation::__construct<\/a>"],[34,30,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2006\">CBaseActiveRelation::mergeWith<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2091\">CStatRelation::mergeWith<\/a>"],[65.51724137931,15,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2161\">CActiveRelation::mergeWith<\/a>"],[100,7,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2251\">CHasManyRelation::mergeWith<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2289\">CManyManyRelation::getJunctionTableName<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2300\">CManyManyRelation::getJunctionForeignKeys<\/a>"],[83.333333333333,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2312\">CManyManyRelation::initJunctionData<\/a>"],[59.259259259259,12,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2356\">CActiveRecordMetaData::__construct<\/a>"],[75,2,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2405\">CActiveRecordMetaData::addRelation<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2420\">CActiveRecordMetaData::hasRelation<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecord.php.html#2432\">CActiveRecordMetaData::removeRelation<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#29\">CActiveRecordBehavior::events<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#49\">CActiveRecordBehavior::beforeSave<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#59\">CActiveRecordBehavior::afterSave<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#70\">CActiveRecordBehavior::beforeDelete<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#80\">CActiveRecordBehavior::afterDelete<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#90\">CActiveRecordBehavior::beforeFind<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#100\">CActiveRecordBehavior::afterFind<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/ar\/CActiveRecordBehavior.php.html#111\">CActiveRecordBehavior::beforeCount<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbColumnSchema.php.html#83\">CDbColumnSchema::init<\/a>"],[75,5,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbColumnSchema.php.html#96\">CDbColumnSchema::extractType<\/a>"],[100,4,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbColumnSchema.php.html#112\">CDbColumnSchema::extractLimit<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbColumnSchema.php.html#128\">CDbColumnSchema::extractDefault<\/a>"],[63.636363636364,11,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbColumnSchema.php.html#138\">CDbColumnSchema::typecast<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#31\">CDbCommandBuilder::__construct<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#40\">CDbCommandBuilder::getDbConnection<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#48\">CDbCommandBuilder::getSchema<\/a>"],[75,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#58\">CDbCommandBuilder::getLastInsertID<\/a>"],[73.913043478261,7,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#74\">CDbCommandBuilder::createFindCommand<\/a>"],[0,19,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#111\">CDbCommandBuilder::createCountCommand<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#187\">CDbCommandBuilder::createDeleteCommand<\/a>"],[69.69696969697,11,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#208\">CDbCommandBuilder::createInsertCommand<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#262\">CDbCommandBuilder::createMultipleInsertCommand<\/a>"],[0,12,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#277\">CDbCommandBuilder::composeMultipleInsertCommand<\/a>"],[76.470588235294,7,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#361\">CDbCommandBuilder::createUpdateCommand<\/a>"],[91.304347826087,5,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#414\">CDbCommandBuilder::createUpdateCounterCommand<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#451\">CDbCommandBuilder::createSqlCommand<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#464\">CDbCommandBuilder::applyJoin<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#478\">CDbCommandBuilder::applyCondition<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#492\">CDbCommandBuilder::applyOrder<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#508\">CDbCommandBuilder::applyLimit<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#523\">CDbCommandBuilder::applyGroup<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#537\">CDbCommandBuilder::applyHaving<\/a>"],[100,6,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#550\">CDbCommandBuilder::bindValues<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#582\">CDbCommandBuilder::createCriteria<\/a>"],[100,7,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#611\">CDbCommandBuilder::createPkCriteria<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#637\">CDbCommandBuilder::createPkCondition<\/a>"],[0,10,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#658\">CDbCommandBuilder::createColumnCriteria<\/a>"],[0,8,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#721\">CDbCommandBuilder::createSearchCondition<\/a>"],[43.75,20,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#760\">CDbCommandBuilder::createInCondition<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#838\">CDbCommandBuilder::createCompositeInCondition<\/a>"],[75,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#856\">CDbCommandBuilder::ensureTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCommandBuilder.php.html#869\">CDbCommandBuilder::getIntegerPrimaryKeyDefaultValue<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#157\">CDbCriteria::__construct<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#167\">CDbCriteria::__wakeup<\/a>"],[60,4,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#218\">CDbCriteria::addCondition<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#251\">CDbCriteria::addSearchCondition<\/a>"],[18.75,5,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#274\">CDbCriteria::addInCondition<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#315\">CDbCriteria::addNotInCondition<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#354\">CDbCriteria::addColumnCondition<\/a>"],[72,9,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#414\">CDbCriteria::compare<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#468\">CDbCriteria::addBetweenCondition<\/a>"],[31.25,51,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#494\">CDbCriteria::mergeWith<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbCriteria.php.html#637\">CDbCriteria::toArray<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#44\">CDbSchema::loadTable<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#50\">CDbSchema::__construct<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#60\">CDbSchema::getDbConnection<\/a>"],[53.846153846154,14,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#72\">CDbSchema::getTable<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#119\">CDbSchema::getTables<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#136\">CDbSchema::getTableNames<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#146\">CDbSchema::getCommandBuilder<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#159\">CDbSchema::refresh<\/a>"],[33.333333333333,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#184\">CDbSchema::quoteTableName<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#202\">CDbSchema::quoteSimpleTableName<\/a>"],[57.142857142857,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#214\">CDbSchema::quoteColumnName<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#233\">CDbSchema::quoteSimpleColumnName<\/a>"],[100,6,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#246\">CDbSchema::compareTableNames<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#274\">CDbSchema::resetSequence<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#284\">CDbSchema::checkIntegrity<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#293\">CDbSchema::createCommandBuilder<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#307\">CDbSchema::findTableNames<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#340\">CDbSchema::getColumnType<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#370\">CDbSchema::createTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#391\">CDbSchema::renameTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#402\">CDbSchema::dropTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#413\">CDbSchema::truncateTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#428\">CDbSchema::addColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#442\">CDbSchema::dropColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#456\">CDbSchema::renameColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#473\">CDbSchema::alterColumn<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#494\">CDbSchema::addForeignKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#521\">CDbSchema::dropForeignKey<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#537\">CDbSchema::createIndex<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#560\">CDbSchema::dropIndex<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#574\">CDbSchema::addPrimaryKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbSchema.php.html#592\">CDbSchema::dropPrimaryKey<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbTableSchema.php.html#65\">CDbTableSchema::getColumn<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/CDbTableSchema.php.html#73\">CDbTableSchema::getColumnNames<\/a>"],[100,6,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteColumnSchema.php.html#25\">CSqliteColumnSchema::extractDefault<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteCommandBuilder.php.html#29\">CSqliteCommandBuilder::createCompositeInCondition<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteCommandBuilder.php.html#51\">CSqliteCommandBuilder::createMultipleInsertCommand<\/a>"],[75,4,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#50\">CSqliteSchema::resetSequence<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#79\">CSqliteSchema::checkIntegrity<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#89\">CSqliteSchema::findTableNames<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#99\">CSqliteSchema::createCommandBuilder<\/a>"],[87.5,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#109\">CSqliteSchema::loadTable<\/a>"],[95.454545454545,8,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#129\">CSqliteSchema::findColumns<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#163\">CSqliteSchema::findConstraints<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#182\">CSqliteSchema::createColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#203\">CSqliteSchema::renameTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#214\">CSqliteSchema::truncateTable<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#227\">CSqliteSchema::dropColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#241\">CSqliteSchema::renameColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#259\">CSqliteSchema::addForeignKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#272\">CSqliteSchema::dropForeignKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#288\">CSqliteSchema::alterColumn<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#300\">CSqliteSchema::dropIndex<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#314\">CSqliteSchema::addPrimaryKey<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/db\/schema\/sqlite\/CSqliteSchema.php.html#328\">CSqliteSchema::dropPrimaryKey<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

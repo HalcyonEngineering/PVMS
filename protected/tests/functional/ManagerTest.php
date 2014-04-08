@@ -2,6 +2,7 @@
 //$ alias phpunit="/cygdrive/c/xampp/php/php C:/xampp/php/phpunit"
 //$ java -jar selenium-server-standalone-2.40.0.jar
 
+// We need to regenerate the database before running this test
 class AccountTest extends WebTestCase
 {
 	public function testLoginLogout()
@@ -95,7 +96,7 @@ class AccountTest extends WebTestCase
 		//=================================
 		// Test the import of volunteers
 		//=================================
-		/*
+		
 		$this->clickAndWait("//img[@src='/PVMS/images/addvolunteers.png']");
 		//$this->pause(1000);
 		
@@ -107,12 +108,12 @@ class AccountTest extends WebTestCase
 		$this->pause($time);
 		$this->type('name=User[location]','Burnaby');
 		$this->clickAndWait("//input[@type='submit']");
-		*/
+		
 		
 		//=================================
 		// Test the assignment of volunteers
 		//=================================
-		/*
+		
 		$this->clickAndWait("//img[@src='/PVMS/images/managevolunteers.png']");
 		$this->click("//input[@id='User_availability_0']");
 		$this->click("//input[@id='User_availability_1']");
@@ -128,18 +129,18 @@ class AccountTest extends WebTestCase
 		$this->pause($time);
 		$this->select("id=role_list", "value=3");
 		$this->pause($time);
-		$this->clickAndWait("//input[@id='yt2']");
-		*/
+		$this->clickAndWait("//input[@id='confirm-role-btn']");
+		
 		//=================================
 		// Test features for Organizations
 		//=================================
 		
-		/*
+		
 		$this->clickAndWait("//*[@src='/PVMS/images/projects.png']");
 		$this->pause($time);
 		$this->clickAndWait("//a[@id='yw2']");
 		$this->pause(5000);
-		*/
+		
 		
 		
 		//=================================
@@ -150,8 +151,8 @@ class AccountTest extends WebTestCase
 		$this->click("//a[@href='/PVMS/account/logout']");
 		$this->pause($time);
 		
-		// Now log into the manager account properly
-		/*
+		// Now log into a Volunteer
+		
 		$this->type('name=LoginForm[username]','kenneth@pitchn.ca');
 		$this->pause($time);
 		$this->assertElementPresent('name=LoginForm[username]');
@@ -161,9 +162,13 @@ class AccountTest extends WebTestCase
 		$this->clickAndWait("//button[@id='Sign_in_button']");
 		$this->pause($time);
 		$this->assertTextNotPresent('Exception');
-		$this->pause(5000);
+		$this->pause(2000);
 		//$this->assertTextNotPresent('Login');
-		*/
+		
+		$this->click("//img[@id='notification-icon']");
+		$this->pause($time);
+		$this->click("//a[@href='/PVMS/notification/index']");
+		$this->pause(3000);
 		
 	}
 }

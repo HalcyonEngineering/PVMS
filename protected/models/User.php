@@ -356,6 +356,10 @@ class User extends CActiveRecord
      * @param Organization $organization
      * @param int $availability
      */
+	 
+	/**
+     * @codeCoverageIgnore
+     */
     public static function enrollVolunteer($model, $organization)
     {
 	    $status = 'error';
@@ -412,7 +416,10 @@ class User extends CActiveRecord
             }
         }
     }
-
+	
+	 /**
+     * @codeCoverageIgnore
+     */
     public static function emailWelcome($user) {
         $mail = new Mail;
         $mail->name = 'Pitch\'n';
@@ -424,7 +431,11 @@ class User extends CActiveRecord
                       .$user->email."\n\n"
                       ."Your password is:\n"
                       .$user->newPassword."\n\n"
-                      ."You can log in at ".Yii::app()->createAbsoluteUrl("account/login")."\n\n"
+                      ."You can log in at ". 
+					  // @codeCoverageIgnoreStart
+					  Yii::app()->createAbsoluteUrl("account/login")
+					  // @codeCoverageIgnoreEnd
+					  ."\n\n"
                       ."Thank you!\n"
                       ."Pitch'n Team";
         $mail->sendMail();

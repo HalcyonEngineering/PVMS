@@ -25,4 +25,11 @@ return array(
 		"desc"=>'Sample Role 2 Description',
 		"colour"=>'#00FF00',
 	),
+	'sampleRole3'=>array(
+		"id"=>'10',
+		"project_id"=>'1',
+		"name"=>'Sample Role 2 Name',
+		"desc"=>'Sample Role 2 Description',
+		"colour"=>'#00FF00',
+	),
 );

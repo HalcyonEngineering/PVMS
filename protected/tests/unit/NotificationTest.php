@@ -3,24 +3,25 @@
 class NotificationTest extends CDbTestCase
 {
 	public $fixtures=array(
-            'notifications'=>'Notifications',
+            'notifications'=>'Notification',
         );
 	
         public function testCreateNotification()
         {
             $model = new Notification();
             $model->setAttributes(array(
-                'user_id'=>'70',
+                'user_id'=>'2',
                 'timestamp'=>time(),
                 'link'=>'sampleLink',
+				'description'=>'sampleDescription',
             ));
         
-            $this->assertTrue($model->save());
+			$this->assertTrue($model->save());
         }
 
         public function testCreateNullNotification()
         {
-            $model = new Notificationanzation();
+            $model = new Notification();
             $this->assertFalse($model->save());
         }
 
@@ -36,12 +37,12 @@ class NotificationTest extends CDbTestCase
         {
             $notification = $this->notifications('sampleNotification');
             $notification->setAttributes(array(
-                'user_id'=>'50',
+                'user_id'=>'1',
                 'link'=>'sampleNotificationLinkUpdated',
             ));
             $this->assertTrue($notification->save());
             $this->assertEquals($notification->id, '1');
-            $this->assertEquals($notification->user_id, '50');
+            $this->assertEquals($notification->user_id, '1');
             $this->assertEquals($notification->link, 'sampleNotificationLinkUpdated');
         }
 
@@ -49,7 +50,7 @@ class NotificationTest extends CDbTestCase
         {
             $notification = $this->notifications('sampleNotification');
             $this->assertTrue($notification->delete());
-            $this->assertEquals(empty(Notification::models()->findAll()), true);
+            $this->assertEquals(empty(Notification::model()->findAll()), true);
         }
             
 }

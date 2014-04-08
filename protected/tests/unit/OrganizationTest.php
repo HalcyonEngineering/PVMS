@@ -3,12 +3,12 @@
 class OrganizationTest extends CDbTestCase
 {
 	public $fixtures=array(
-            'organizations'=>'Organzations',
+            'organizations'=>'Organization',
         );
 	
         public function testCreateOrg()
         {
-            $model = new Organzation();
+            $model = new Organization();
             $model->setAttributes(array(
                 'name'=>'Created organization',
                 'desc'=>'Created organization description',
@@ -19,7 +19,7 @@ class OrganizationTest extends CDbTestCase
 
         public function testCreateNullOrg()
         {
-            $model = new Organzation();
+            $model = new Organization();
             $this->assertFalse($model->save());
         }
 
@@ -48,7 +48,6 @@ class OrganizationTest extends CDbTestCase
         {
             $org = $this->organizations('sampleOrg');
             $this->assertTrue($org->delete());
-            $this->assertEquals(empty(Organization::models()->findAll()), true);
+            $this->assertEquals(empty(Organization::model()->findAll()), true);
         }
-            
 }

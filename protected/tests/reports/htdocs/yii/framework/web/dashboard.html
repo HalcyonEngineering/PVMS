@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\xampp/htdocs/yii/framework/web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../../css/nv.d3.css" rel="stylesheet">
+  <link href="../../../../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../../../../js/html5shiv.js"></script>
+  <script src="../../../../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../../../index.html">C:\xampp</a></li>
+        <li><a href="../../../index.html">htdocs</a></li>
+        <li><a href="../../index.html">yii</a></li>
+        <li><a href="../index.html">framework</a></li>
+        <li><a href="htdocs/yii/framework/web.html">web</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Class</div></th>
+         <th><div align="right">Coverage</div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#19">CHtml</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#58">CWebApplication</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#63">CHttpRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#21">CDataProvider</a></td><td><div align="right">3%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#33">CBaseUserIdentity</a></td><td><div align="right">9%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#72">CHttpSession</a></td><td><div align="right">15%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#47">CActiveDataProvider</a></td><td><div align="right">19%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1270">CCookieCollection</a></td><td><div align="right">26%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#58">CWebUser</a></td><td><div align="right">27%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CUserIdentity.php.html#27">CUserIdentity</a></td><td><div align="right">66%</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Class</div></th>
+         <th><div align="right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#19">CHtml</a></td><td><div align="right">112204</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#63">CHttpRequest</a></td><td><div align="right">47929</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#58">CWebApplication</a></td><td><div align="right">4734</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#58">CWebUser</a></td><td><div align="right">4485</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#72">CHttpSession</a></td><td><div align="right">2811</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#21">CDataProvider</a></td><td><div align="right">955</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#47">CActiveDataProvider</a></td><td><div align="right">376</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1270">CCookieCollection</a></td><td><div align="right">164</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#33">CBaseUserIdentity</a></td><td><div align="right">69</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Method</div></th>
+         <th><div align="right">Coverage</div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#114">CHtml::decode</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#101">CHtml::encode</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#810">CWebUser::checkAccess</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#128">CHtml::encodeArray</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#156">CHtml::tag</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#184">CHtml::closeTag</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#174">CHtml::openTag</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#725">CWebUser::saveIdentityStates</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#697">CWebUser::hasFlash</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#553">CWebUser::setStateKeyPrefix</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#528">CWebUser::createIdentityCookie</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#617">CWebUser::clearStates</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#637">CWebUser::getFlashes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#682">CWebUser::setFlash</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#666">CWebUser::getFlash</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#194">CHtml::cdata</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#207">CHtml::metaTag</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#391">CHtml::pageStateField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#379">CHtml::statefulForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#364">CHtml::endForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#407">CHtml::link</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#424">CHtml::mailto</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#453">CHtml::button</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#438">CHtml::image</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#335">CHtml::beginForm</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#320">CHtml::form</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#246">CHtml::css</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#227">CHtml::linkTag</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#262">CHtml::refresh</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#276">CHtml::cssFile</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#302">CHtml::scriptFile</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#287">CHtml::script</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#508">CWebUser::saveToCookie</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#485">CWebUser::renewCookie</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#514">CWebApplication::afterControllerAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#501">CWebApplication::beforeControllerAction</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#485">CWebApplication::setLayoutPath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#523">CWebApplication::findModule</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#541">CWebApplication::init</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#67">CBaseUserIdentity::getName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#57">CBaseUserIdentity::getId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#473">CWebApplication::getLayoutPath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#463">CWebApplication::setSystemViewPath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#407">CWebApplication::getControllerPath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#391">CWebApplication::getController</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#419">CWebApplication::setControllerPath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#429">CWebApplication::getViewPath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#451">CWebApplication::getSystemViewPath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#441">CWebApplication::setViewPath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#87">CBaseUserIdentity::setPersistentStates</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#97">CBaseUserIdentity::getIsAuthenticated</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#340">CWebUser::getReturnUrl</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#313">CWebUser::getName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#258">CWebUser::logout</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#356">CWebUser::setReturnUrl</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#370">CWebUser::loginRequired</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#444">CWebUser::afterLogout</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#434">CWebUser::beforeLogout</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#183">CWebUser::__unset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#169">CWebUser::__isset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#118">CBaseUserIdentity::setState</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#108">CBaseUserIdentity::getState</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#127">CBaseUserIdentity::clearState</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CUserIdentity.php.html#55">CUserIdentity::authenticate</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#155">CWebUser::__set</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CUserIdentity.php.html#66">CUserIdentity::getId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#479">CHtml::htmlButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#497">CHtml::submitButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1696">CHtml::activeRadioButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1669">CHtml::activeFileField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1642">CHtml::activeTextArea</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1738">CHtml::activeCheckBox</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1799">CHtml::activeDropDownList</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1902">CHtml::activeCheckBoxList</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1860">CHtml::activeListBox</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1624">CHtml::activePasswordField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1606">CHtml::activeHiddenField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1510">CHtml::activeNumberField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1490">CHtml::activeEmailField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1530">CHtml::activeRangeField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1550">CHtml::activeDateField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1590">CHtml::activeTelField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1570">CHtml::activeTimeField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1950">CHtml::activeRadioButtonList</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1988">CHtml::errorSummary</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2455">CHtml::resolveNameID</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2376">CHtml::clientChange</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2287">CHtml::listOptions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2473">CHtml::resolveName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2506">CHtml::resolveValue</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2555">CHtml::renderAttributes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2536">CHtml::addErrorCss</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2229">CHtml::activeInputField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2211">CHtml::activeName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2073">CHtml::listData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2035">CHtml::error</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2130">CHtml::value</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2153">CHtml::getIdByName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2194">CHtml::setModelNameConverter</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2164">CHtml::activeId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1470">CHtml::activeUrlField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1450">CHtml::activeSearchField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#695">CHtml::telField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#678">CHtml::emailField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#661">CHtml::timeField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#712">CHtml::urlField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#726">CHtml::hiddenField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#758">CHtml::fileField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#741">CHtml::passwordField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#644">CHtml::dateField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#627">CHtml::rangeField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#525">CHtml::imageButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#511">CHtml::resetButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#540">CHtml::linkButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#562">CHtml::label</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#610">CHtml::numberField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#593">CHtml::textField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#773">CHtml::textArea</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#798">CHtml::radioButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1316">CHtml::normalizeUrl</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1293">CHtml::asset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1253">CHtml::ajax</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1342">CHtml::inputField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1373">CHtml::activeLabel</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1430">CHtml::activeTextField</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1410">CHtml::activeLabelEx</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1231">CHtml::ajaxSubmitButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1215">CHtml::ajaxButton</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#915">CHtml::dropDownList</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#845">CHtml::checkBox</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#977">CHtml::listBox</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1024">CHtml::checkBoxList</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1196">CHtml::ajaxLink</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1140">CHtml::radioButtonList</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#375">CWebApplication::parseActionParams</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#399">CWebApplication::setController</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#603">CHttpRequest::getIsPutViaPostRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#593">CHttpRequest::getIsPutRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#583">CHttpRequest::getIsDeleteViaPostRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#612">CHttpRequest::getIsAjaxRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#622">CHttpRequest::getIsFlashRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#640">CHttpRequest::getServerPort</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#631">CHttpRequest::getServerName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#573">CHttpRequest::getIsDeleteRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#563">CHttpRequest::getIsPostRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#462">CHttpRequest::decodePathInfo</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#427">CHttpRequest::getPathInfo</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#412">CHttpRequest::setScriptUrl</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#495">CHttpRequest::getRequestUri</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#529">CHttpRequest::getQueryString</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#551">CHttpRequest::getRequestType</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#538">CHttpRequest::getIsSecureConnection</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#649">CHttpRequest::getUrlReferrer</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#658">CHttpRequest::getUserAgent</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#895">CHttpRequest::compareAcceptTypes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#833">CHttpRequest::parseAcceptHeader</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#799">CHttpRequest::redirect</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#922">CHttpRequest::getPreferredAcceptTypes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#938">CHttpRequest::getPreferredAcceptType</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#982">CHttpRequest::getPreferredLanguage</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#950">CHttpRequest::getPreferredLanguages</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#770">CHttpRequest::setSecurePort</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#756">CHttpRequest::getSecurePort</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#685">CHttpRequest::getScriptFile</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#676">CHttpRequest::getUserHost</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#667">CHttpRequest::getUserHostAddress</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#700">CHttpRequest::getBrowser</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#709">CHttpRequest::getAcceptTypes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#739">CHttpRequest::setPort</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#725">CHttpRequest::getPort</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#385">CHttpRequest::getScriptUrl</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#374">CHttpRequest::setBaseUrl</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#117">CDataProvider::getSort</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#93">CDataProvider::setPagination</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#69">CDataProvider::getPagination</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#141">CDataProvider::setSort</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#165">CDataProvider::getData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#187">CDataProvider::getKeys</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#176">CDataProvider::setData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#50">CDataProvider::getId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#223">CActiveDataProvider::calculateTotalItemCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#138">CActiveDataProvider::setCountCriteria</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#125">CActiveDataProvider::getCountCriteria</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#103">CActiveDataProvider::getCriteria</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#148">CActiveDataProvider::getSort</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#163">CActiveDataProvider::getModel</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#208">CActiveDataProvider::fetchKeys</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#172">CActiveDataProvider::fetchData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#198">CDataProvider::setKeys</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#210">CDataProvider::getItemCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#278">CHttpRequest::getRawBody</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#258">CHttpRequest::getRestParams</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#238">CHttpRequest::getPut</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#291">CHttpRequest::getUrl</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#305">CHttpRequest::getHostInfo</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#361">CHttpRequest::getBaseUrl</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#348">CHttpRequest::setHostInfo</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#213">CHttpRequest::getDelete</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#197">CHttpRequest::getPost</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#108">CHttpRequest::init</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#234">CDataProvider::setTotalItemCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#221">CDataProvider::getTotalItemCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#119">CHttpRequest::normalizeRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#145">CHttpRequest::stripSlashes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#183">CHttpRequest::getQuery</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#169">CHttpRequest::getParam</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#995">CHttpRequest::sendFile</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1136">CHttpRequest::xSendFile</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#432">CHttpSession::getCount</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#423">CHttpSession::getIterator</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#238">CWebApplication::getWidgetFactory</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#228">CWebApplication::getClientScript</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#450">CHttpSession::getKeys</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#442">CHttpSession::count</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#411">CHttpSession::gcSession</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#399">CHttpSession::destroySession</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#351">CHttpSession::openSession</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#338">CHttpSession::setTimeout</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#310">CWebApplication::createController</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#362">CHttpSession::closeSession</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#387">CHttpSession::writeSession</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#374">CHttpSession::readSession</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#464">CHttpSession::get</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#475">CHttpSession::itemAt</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#131">CWebApplication::processRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#568">CHttpSession::offsetUnset</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#149">CWebApplication::registerCoreComponents</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#183">CWebApplication::getAuthManager</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#207">CWebApplication::getUser</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#191">CWebApplication::getAssetManager</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#559">CHttpSession::offsetSet</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#549">CHttpSession::offsetGet</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#496">CHttpSession::remove</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#486">CHttpSession::add</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#511">CHttpSession::clear</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#521">CHttpSession::contains</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#539">CHttpSession::offsetExists</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#529">CHttpSession::toArray</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#330">CHttpSession::getTimeout</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#322">CHttpSession::setUseTransparentSessionID</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#264">CWebApplication::setTheme</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1389">CCookieCollection::removeCookie</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#131">CHttpSession::close</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#152">CHttpSession::getIsStarted</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#168">CHttpSession::setSessionID</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#160">CHttpSession::getSessionID</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1374">CCookieCollection::addCookie</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1356">CCookieCollection::remove</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1199">CHttpRequest::createCsrfCookie</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1176">CHttpRequest::getCsrfToken</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1218">CHttpRequest::validateCsrfToken</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1289">CCookieCollection::getRequest</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1325">CCookieCollection::add</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#274">CWebApplication::runController</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#179">CHttpSession::regenerateID</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#187">CHttpSession::getSessionName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#252">CHttpSession::getCookieMode</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#238">CHttpSession::setCookieParams</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#265">CHttpSession::setCookieMode</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#289">CHttpSession::getGCProbability</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#298">CHttpSession::setGCProbability</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#246">CWebApplication::getThemeManager</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#219">CWebApplication::getViewRenderer</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#203">CHttpSession::getSavePath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#195">CHttpSession::setSessionName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#212">CHttpSession::setSavePath</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#225">CHttpSession::getCookieParams</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#254">CWebApplication::getTheme</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#314">CHttpSession::getUseTransparentSessionID</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#756">CWebUser::updateFlash</a></td><td><div align="right">25%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#455">CWebUser::restoreFromCookie</a></td><td><div align="right">28%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#780">CWebUser::updateAuthStatus</a></td><td><div align="right">33%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#109">CHttpSession::open</a></td><td><div align="right">40%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1297">CCookieCollection::getCookies</a></td><td><div align="right">66%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#227">CWebUser::login</a></td><td><div align="right">70%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#82">CActiveDataProvider::__construct</a></td><td><div align="right">76%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#196">CWebUser::init</a></td><td><div align="right">80%</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#737">CWebUser::loadIdentityStates</a></td><td><div align="right">80%</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Method</div></th>
+         <th><div align="right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2287">CHtml::listOptions</a></td><td><div align="right">506</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2376">CHtml::clientChange</a></td><td><div align="right">420</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#305">CHttpRequest::getHostInfo</a></td><td><div align="right">380</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1024">CHtml::checkBoxList</a></td><td><div align="right">306</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#310">CWebApplication::createController</a></td><td><div align="right">272</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#995">CHttpRequest::sendFile</a></td><td><div align="right">240</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#833">CHttpRequest::parseAcceptHeader</a></td><td><div align="right">156</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1136">CHttpRequest::xSendFile</a></td><td><div align="right">156</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1253">CHtml::ajax</a></td><td><div align="right">156</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1988">CHtml::errorSummary</a></td><td><div align="right">132</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2229">CHtml::activeInputField</a></td><td><div align="right">132</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1218">CHttpRequest::validateCsrfToken</a></td><td><div align="right">110</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1140">CHtml::radioButtonList</a></td><td><div align="right">110</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#895">CHttpRequest::compareAcceptTypes</a></td><td><div align="right">90</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2555">CHtml::renderAttributes</a></td><td><div align="right">90</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#385">CHttpRequest::getScriptUrl</a></td><td><div align="right">90</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2506">CHtml::resolveValue</a></td><td><div align="right">90</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#495">CHttpRequest::getRequestUri</a></td><td><div align="right">72</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#950">CHttpRequest::getPreferredLanguages</a></td><td><div align="right">72</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#119">CHttpRequest::normalizeRequest</a></td><td><div align="right">72</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2130">CHtml::value</a></td><td><div align="right">72</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#335">CHtml::beginForm</a></td><td><div align="right">72</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#427">CHttpRequest::getPathInfo</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#798">CHtml::radioButton</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1696">CHtml::activeRadioButton</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#915">CHtml::dropDownList</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#845">CHtml::checkBox</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1738">CHtml::activeCheckBox</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#485">CWebUser::renewCookie</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#523">CWebApplication::findModule</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#810">CWebUser::checkAccess</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#453">CHtml::button</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2473">CHtml::resolveName</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1799">CHtml::activeDropDownList</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#370">CWebUser::loginRequired</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#455">CWebUser::restoreFromCookie</a></td><td><div align="right">38</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#562">CHtml::label</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#128">CHtml::encodeArray</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#227">CHtml::linkTag</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#156">CHtml::tag</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#773">CHtml::textArea</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#637">CWebUser::getFlashes</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2073">CHtml::listData</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1373">CHtml::activeLabel</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#538">CHttpRequest::getIsSecureConnection</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1642">CHtml::activeTextArea</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1902">CHtml::activeCheckBoxList</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#172">CActiveDataProvider::fetchData</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1316">CHtml::normalizeUrl</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1950">CHtml::activeRadioButtonList</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#258">CWebUser::logout</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#780">CWebUser::updateAuthStatus</a></td><td><div align="right">26</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#265">CHttpSession::setCookieMode</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1176">CHttpRequest::getCsrfToken</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#131">CWebApplication::processRequest</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#208">CActiveDataProvider::fetchKeys</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#213">CHttpRequest::getDelete</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2455">CHtml::resolveNameID</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#238">CHttpRequest::getPut</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#977">CHtml::listBox</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#756">CHttpRequest::getSecurePort</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#725">CHttpRequest::getPort</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#799">CHttpRequest::redirect</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#93">CDataProvider::setPagination</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#141">CDataProvider::setSort</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#109">CHttpSession::open</a></td><td><div align="right">13</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#375">CWebApplication::parseActionParams</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#485">CWebApplication::setLayoutPath</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#441">CWebApplication::setViewPath</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1342">CHtml::inputField</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#463">CWebApplication::setSystemViewPath</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#419">CWebApplication::setControllerPath</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#540">CHtml::linkButton</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#479">CHtml::htmlButton</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2536">CHtml::addErrorCss</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#207">CHtml::metaTag</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#617">CWebUser::clearStates</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#528">CWebUser::createIdentityCookie</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2035">CHtml::error</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#2194">CHtml::setModelNameConverter</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#340">CWebUser::getReturnUrl</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#274">CWebApplication::runController</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#551">CHttpRequest::getRequestType</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#573">CHttpRequest::getIsDeleteRequest</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#252">CHttpSession::getCookieMode</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#298">CHttpSession::setGCProbability</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#258">CHttpRequest::getRestParams</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1374">CCookieCollection::addCookie</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1356">CCookieCollection::remove</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#622">CHttpRequest::getIsFlashRequest</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#593">CHttpRequest::getIsPutRequest</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1199">CHttpRequest::createCsrfCookie</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1325">CCookieCollection::add</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#169">CHttpRequest::getParam</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#361">CHttpRequest::getBaseUrl</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#69">CDataProvider::getPagination</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#165">CDataProvider::getData</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#145">CHttpRequest::stripSlashes</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#187">CDataProvider::getKeys</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#117">CDataProvider::getSort</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CDataProvider.php.html#221">CDataProvider::getTotalItemCount</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#756">CWebUser::updateFlash</a></td><td><div align="right">10</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1297">CCookieCollection::getCookies</a></td><td><div align="right">7</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#196">CWebUser::init</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#125">CActiveDataProvider::getCountCriteria</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#138">CActiveDataProvider::setCountCriteria</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1196">CHtml::ajaxLink</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#103">CActiveDataProvider::getCriteria</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#667">CHttpRequest::getUserHostAddress</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#676">CHttpRequest::getUserHost</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#658">CHttpRequest::getUserAgent</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#649">CHttpRequest::getUrlReferrer</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#612">CHttpRequest::getIsAjaxRequest</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#603">CHttpRequest::getIsPutViaPostRequest</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#583">CHttpRequest::getIsDeleteViaPostRequest</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#685">CHttpRequest::getScriptFile</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#278">CHttpRequest::getRawBody</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1860">CHtml::activeListBox</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#197">CHttpRequest::getPost</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#462">CHttpRequest::decodePathInfo</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#1669">CHtml::activeFileField</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#223">CActiveDataProvider::calculateTotalItemCount</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#183">CHttpRequest::getQuery</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#563">CHttpRequest::getIsPostRequest</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#529">CHttpRequest::getQueryString</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#148">CActiveDataProvider::getSort</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#938">CHttpRequest::getPreferredAcceptType</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#155">CWebUser::__set</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CBaseUserIdentity.php.html#108">CBaseUserIdentity::getState</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#475">CHttpSession::itemAt</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#169">CWebUser::__isset</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#183">CWebUser::__unset</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#313">CWebUser::getName</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#464">CHttpSession::get</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#496">CHttpSession::remove</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#473">CWebApplication::getLayoutPath</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#254">CWebApplication::getTheme</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#407">CWebApplication::getControllerPath</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#429">CWebApplication::getViewPath</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#549">CHttpSession::offsetGet</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#511">CHttpSession::clear</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CWebApplication.php.html#451">CWebApplication::getSystemViewPath</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#322">CHttpSession::setUseTransparentSessionID</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#238">CHttpSession::setCookieParams</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#246">CHtml::css</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#982">CHttpRequest::getPreferredLanguage</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#262">CHtml::refresh</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#276">CHtml::cssFile</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#424">CHtml::mailto</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/helpers/CHtml.php.html#407">CHtml::link</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#709">CHttpRequest::getAcceptTypes</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#725">CWebUser::saveIdentityStates</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#131">CHttpSession::close</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpSession.php.html#212">CHttpSession::setSavePath</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#922">CHttpRequest::getPreferredAcceptTypes</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CHttpRequest.php.html#1389">CCookieCollection::removeCookie</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#682">CWebUser::setFlash</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#666">CWebUser::getFlash</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#227">CWebUser::login</a></td><td><div align="right">5</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/CActiveDataProvider.php.html#82">CActiveDataProvider::__construct</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="htdocs/yii/framework/web/auth/CWebUser.php.html#737">CWebUser::loadIdentityStates</a></td><td><div align="right">3</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 2.0.4</a> using <a href="http://php.net/" target="_top">PHP 5.5.6</a> and <a href="http://phpunit.de/">PHPUnit 3.7.21</a> at Tue Apr 8 15:09:00 PDT 2014.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../../../js/holder.js" type="text/javascript"></script>
+  <script src="../../../../js/d3.min.js" type="text/javascript"></script>
+  <script src="../../../../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([0,5,2,2,0,0,0,1,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([269,0,0,2,1,1,0,1,2,2,0,27], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[19.672131147541,26,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#47\">CActiveDataProvider<\/a>"],[3.3898305084746,32,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#21\">CDataProvider<\/a>"],[0.77922077922078,221,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#63\">CHttpRequest<\/a>"],[26.086956521739,19,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1270\">CCookieCollection<\/a>"],[15.126050420168,67,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#72\">CHttpSession<\/a>"],[0.67114093959732,69,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#58\">CWebApplication<\/a>"],[9.0909090909091,9,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#33\">CBaseUserIdentity<\/a>"],[66.666666666667,4,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CUserIdentity.php.html#27\">CUserIdentity<\/a>"],[27.868852459016,108,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#58\">CWebUser<\/a>"],[0.50188205771644,337,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#19\">CHtml<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[76.923076923077,4,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#82\">CActiveDataProvider::__construct<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#103\">CActiveDataProvider::getCriteria<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#115\">CActiveDataProvider::setCriteria<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#125\">CActiveDataProvider::getCountCriteria<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#138\">CActiveDataProvider::setCountCriteria<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#148\">CActiveDataProvider::getSort<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#163\">CActiveDataProvider::getModel<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#172\">CActiveDataProvider::fetchData<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#208\">CActiveDataProvider::fetchKeys<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CActiveDataProvider.php.html#223\">CActiveDataProvider::calculateTotalItemCount<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#34\">CDataProvider::fetchData<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#39\">CDataProvider::fetchKeys<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#44\">CDataProvider::calculateTotalItemCount<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#50\">CDataProvider::getId<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#59\">CDataProvider::setId<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#69\">CDataProvider::getPagination<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#93\">CDataProvider::setPagination<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#117\">CDataProvider::getSort<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#141\">CDataProvider::setSort<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#165\">CDataProvider::getData<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#176\">CDataProvider::setData<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#187\">CDataProvider::getKeys<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#198\">CDataProvider::setKeys<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#210\">CDataProvider::getItemCount<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#221\">CDataProvider::getTotalItemCount<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CDataProvider.php.html#234\">CDataProvider::setTotalItemCount<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#108\">CHttpRequest::init<\/a>"],[0,8,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#119\">CHttpRequest::normalizeRequest<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#145\">CHttpRequest::stripSlashes<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#169\">CHttpRequest::getParam<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#183\">CHttpRequest::getQuery<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#197\">CHttpRequest::getPost<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#213\">CHttpRequest::getDelete<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#238\">CHttpRequest::getPut<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#258\">CHttpRequest::getRestParams<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#278\">CHttpRequest::getRawBody<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#291\">CHttpRequest::getUrl<\/a>"],[0,19,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#305\">CHttpRequest::getHostInfo<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#348\">CHttpRequest::setHostInfo<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#361\">CHttpRequest::getBaseUrl<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#374\">CHttpRequest::setBaseUrl<\/a>"],[0,9,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#385\">CHttpRequest::getScriptUrl<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#412\">CHttpRequest::setScriptUrl<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#427\">CHttpRequest::getPathInfo<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#462\">CHttpRequest::decodePathInfo<\/a>"],[0,8,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#495\">CHttpRequest::getRequestUri<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#529\">CHttpRequest::getQueryString<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#538\">CHttpRequest::getIsSecureConnection<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#551\">CHttpRequest::getRequestType<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#563\">CHttpRequest::getIsPostRequest<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#573\">CHttpRequest::getIsDeleteRequest<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#583\">CHttpRequest::getIsDeleteViaPostRequest<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#593\">CHttpRequest::getIsPutRequest<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#603\">CHttpRequest::getIsPutViaPostRequest<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#612\">CHttpRequest::getIsAjaxRequest<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#622\">CHttpRequest::getIsFlashRequest<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#631\">CHttpRequest::getServerName<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#640\">CHttpRequest::getServerPort<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#649\">CHttpRequest::getUrlReferrer<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#658\">CHttpRequest::getUserAgent<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#667\">CHttpRequest::getUserHostAddress<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#676\">CHttpRequest::getUserHost<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#685\">CHttpRequest::getScriptFile<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#700\">CHttpRequest::getBrowser<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#709\">CHttpRequest::getAcceptTypes<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#725\">CHttpRequest::getPort<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#739\">CHttpRequest::setPort<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#756\">CHttpRequest::getSecurePort<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#770\">CHttpRequest::setSecurePort<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#783\">CHttpRequest::getCookies<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#799\">CHttpRequest::redirect<\/a>"],[0,12,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#833\">CHttpRequest::parseAcceptHeader<\/a>"],[0,9,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#895\">CHttpRequest::compareAcceptTypes<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#922\">CHttpRequest::getPreferredAcceptTypes<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#938\">CHttpRequest::getPreferredAcceptType<\/a>"],[0,8,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#950\">CHttpRequest::getPreferredLanguages<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#982\">CHttpRequest::getPreferredLanguage<\/a>"],[0,15,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#995\">CHttpRequest::sendFile<\/a>"],[0,12,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1136\">CHttpRequest::xSendFile<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1176\">CHttpRequest::getCsrfToken<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1199\">CHttpRequest::createCsrfCookie<\/a>"],[0,10,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1218\">CHttpRequest::validateCsrfToken<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1279\">CCookieCollection::__construct<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1289\">CCookieCollection::getRequest<\/a>"],[66.666666666667,6,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1297\">CCookieCollection::getCookies<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1325\">CCookieCollection::add<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1356\">CCookieCollection::remove<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1374\">CCookieCollection::addCookie<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpRequest.php.html#1389\">CCookieCollection::removeCookie<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#83\">CHttpSession::init<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#101\">CHttpSession::getUseCustomStorage<\/a>"],[40,6,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#109\">CHttpSession::open<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#131\">CHttpSession::close<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#140\">CHttpSession::destroy<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#152\">CHttpSession::getIsStarted<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#160\">CHttpSession::getSessionID<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#168\">CHttpSession::setSessionID<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#179\">CHttpSession::regenerateID<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#187\">CHttpSession::getSessionName<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#195\">CHttpSession::setSessionName<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#203\">CHttpSession::getSavePath<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#212\">CHttpSession::setSavePath<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#225\">CHttpSession::getCookieParams<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#238\">CHttpSession::setCookieParams<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#252\">CHttpSession::getCookieMode<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#265\">CHttpSession::setCookieMode<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#289\">CHttpSession::getGCProbability<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#298\">CHttpSession::setGCProbability<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#314\">CHttpSession::getUseTransparentSessionID<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#322\">CHttpSession::setUseTransparentSessionID<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#330\">CHttpSession::getTimeout<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#338\">CHttpSession::setTimeout<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#351\">CHttpSession::openSession<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#362\">CHttpSession::closeSession<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#374\">CHttpSession::readSession<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#387\">CHttpSession::writeSession<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#399\">CHttpSession::destroySession<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#411\">CHttpSession::gcSession<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#423\">CHttpSession::getIterator<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#432\">CHttpSession::getCount<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#442\">CHttpSession::count<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#450\">CHttpSession::getKeys<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#464\">CHttpSession::get<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#475\">CHttpSession::itemAt<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#486\">CHttpSession::add<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#496\">CHttpSession::remove<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#511\">CHttpSession::clear<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#521\">CHttpSession::contains<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#529\">CHttpSession::toArray<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#539\">CHttpSession::offsetExists<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#549\">CHttpSession::offsetGet<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#559\">CHttpSession::offsetSet<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CHttpSession.php.html#568\">CHttpSession::offsetUnset<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#131\">CWebApplication::processRequest<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#149\">CWebApplication::registerCoreComponents<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#183\">CWebApplication::getAuthManager<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#191\">CWebApplication::getAssetManager<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#199\">CWebApplication::getSession<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#207\">CWebApplication::getUser<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#219\">CWebApplication::getViewRenderer<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#228\">CWebApplication::getClientScript<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#238\">CWebApplication::getWidgetFactory<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#246\">CWebApplication::getThemeManager<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#254\">CWebApplication::getTheme<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#264\">CWebApplication::setTheme<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#274\">CWebApplication::runController<\/a>"],[0,16,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#310\">CWebApplication::createController<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#375\">CWebApplication::parseActionParams<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#391\">CWebApplication::getController<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#399\">CWebApplication::setController<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#407\">CWebApplication::getControllerPath<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#419\">CWebApplication::setControllerPath<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#429\">CWebApplication::getViewPath<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#441\">CWebApplication::setViewPath<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#451\">CWebApplication::getSystemViewPath<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#463\">CWebApplication::setSystemViewPath<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#473\">CWebApplication::getLayoutPath<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#485\">CWebApplication::setLayoutPath<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#501\">CWebApplication::beforeControllerAction<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#514\">CWebApplication::afterControllerAction<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#523\">CWebApplication::findModule<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/CWebApplication.php.html#541\">CWebApplication::init<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#57\">CBaseUserIdentity::getId<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#67\">CBaseUserIdentity::getName<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#77\">CBaseUserIdentity::getPersistentStates<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#87\">CBaseUserIdentity::setPersistentStates<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#97\">CBaseUserIdentity::getIsAuthenticated<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#108\">CBaseUserIdentity::getState<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#118\">CBaseUserIdentity::setState<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CBaseUserIdentity.php.html#127\">CBaseUserIdentity::clearState<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CUserIdentity.php.html#43\">CUserIdentity::__construct<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CUserIdentity.php.html#55\">CUserIdentity::authenticate<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CUserIdentity.php.html#66\">CUserIdentity::getId<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CUserIdentity.php.html#77\">CUserIdentity::getName<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#141\">CWebUser::__get<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#155\">CWebUser::__set<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#169\">CWebUser::__isset<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#183\">CWebUser::__unset<\/a>"],[80,6,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#196\">CWebUser::init<\/a>"],[70.588235294118,5,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#227\">CWebUser::login<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#258\">CWebUser::logout<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#286\">CWebUser::getIsGuest<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#295\">CWebUser::getId<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#303\">CWebUser::setId<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#313\">CWebUser::getName<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#326\">CWebUser::setName<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#340\">CWebUser::getReturnUrl<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#356\">CWebUser::setReturnUrl<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#370\">CWebUser::loginRequired<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#410\">CWebUser::beforeLogin<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#422\">CWebUser::afterLogin<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#434\">CWebUser::beforeLogout<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#444\">CWebUser::afterLogout<\/a>"],[28.571428571429,9,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#455\">CWebUser::restoreFromCookie<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#485\">CWebUser::renewCookie<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#508\">CWebUser::saveToCookie<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#528\">CWebUser::createIdentityCookie<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#542\">CWebUser::getStateKeyPrefix<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#553\">CWebUser::setStateKeyPrefix<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#572\">CWebUser::getState<\/a>"],[100,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#593\">CWebUser::setState<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#607\">CWebUser::hasState<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#617\">CWebUser::clearStates<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#637\">CWebUser::getFlashes<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#666\">CWebUser::getFlash<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#682\">CWebUser::setFlash<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#697\">CWebUser::hasFlash<\/a>"],[100,1,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#713\">CWebUser::changeIdentity<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#725\">CWebUser::saveIdentityStates<\/a>"],[80,3,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#737\">CWebUser::loadIdentityStates<\/a>"],[25,4,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#756\">CWebUser::updateFlash<\/a>"],[33.333333333333,8,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#780\">CWebUser::updateAuthStatus<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/web\/auth\/CWebUser.php.html#810\">CWebUser::checkAccess<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#101\">CHtml::encode<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#114\">CHtml::decode<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#128\">CHtml::encodeArray<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#156\">CHtml::tag<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#174\">CHtml::openTag<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#184\">CHtml::closeTag<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#194\">CHtml::cdata<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#207\">CHtml::metaTag<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#227\">CHtml::linkTag<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#246\">CHtml::css<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#262\">CHtml::refresh<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#276\">CHtml::cssFile<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#287\">CHtml::script<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#302\">CHtml::scriptFile<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#320\">CHtml::form<\/a>"],[0,8,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#335\">CHtml::beginForm<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#364\">CHtml::endForm<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#379\">CHtml::statefulForm<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#391\">CHtml::pageStateField<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#407\">CHtml::link<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#424\">CHtml::mailto<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#438\">CHtml::image<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#453\">CHtml::button<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#479\">CHtml::htmlButton<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#497\">CHtml::submitButton<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#511\">CHtml::resetButton<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#525\">CHtml::imageButton<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#540\">CHtml::linkButton<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#562\">CHtml::label<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#593\">CHtml::textField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#610\">CHtml::numberField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#627\">CHtml::rangeField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#644\">CHtml::dateField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#661\">CHtml::timeField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#678\">CHtml::emailField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#695\">CHtml::telField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#712\">CHtml::urlField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#726\">CHtml::hiddenField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#741\">CHtml::passwordField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#758\">CHtml::fileField<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#773\">CHtml::textArea<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#798\">CHtml::radioButton<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#845\">CHtml::checkBox<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#915\">CHtml::dropDownList<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#977\">CHtml::listBox<\/a>"],[0,17,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1024\">CHtml::checkBoxList<\/a>"],[0,10,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1140\">CHtml::radioButtonList<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1196\">CHtml::ajaxLink<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1215\">CHtml::ajaxButton<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1231\">CHtml::ajaxSubmitButton<\/a>"],[0,12,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1253\">CHtml::ajax<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1293\">CHtml::asset<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1316\">CHtml::normalizeUrl<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1342\">CHtml::inputField<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1373\">CHtml::activeLabel<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1410\">CHtml::activeLabelEx<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1430\">CHtml::activeTextField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1450\">CHtml::activeSearchField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1470\">CHtml::activeUrlField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1490\">CHtml::activeEmailField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1510\">CHtml::activeNumberField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1530\">CHtml::activeRangeField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1550\">CHtml::activeDateField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1570\">CHtml::activeTimeField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1590\">CHtml::activeTelField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1606\">CHtml::activeHiddenField<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1624\">CHtml::activePasswordField<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1642\">CHtml::activeTextArea<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1669\">CHtml::activeFileField<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1696\">CHtml::activeRadioButton<\/a>"],[0,7,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1738\">CHtml::activeCheckBox<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1799\">CHtml::activeDropDownList<\/a>"],[0,2,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1860\">CHtml::activeListBox<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1902\">CHtml::activeCheckBoxList<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1950\">CHtml::activeRadioButtonList<\/a>"],[0,11,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#1988\">CHtml::errorSummary<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2035\">CHtml::error<\/a>"],[0,5,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2073\">CHtml::listData<\/a>"],[0,8,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2130\">CHtml::value<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2153\">CHtml::getIdByName<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2164\">CHtml::activeId<\/a>"],[100,3,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2176\">CHtml::modelName<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2194\">CHtml::setModelNameConverter<\/a>"],[0,1,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2211\">CHtml::activeName<\/a>"],[0,11,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2229\">CHtml::activeInputField<\/a>"],[0,22,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2287\">CHtml::listOptions<\/a>"],[0,20,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2376\">CHtml::clientChange<\/a>"],[0,4,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2455\">CHtml::resolveNameID<\/a>"],[0,6,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2473\">CHtml::resolveName<\/a>"],[0,9,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2506\">CHtml::resolveValue<\/a>"],[0,3,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2536\">CHtml::addErrorCss<\/a>"],[0,9,"<a href=\"htdocs\/yii\/framework\/web\/helpers\/CHtml.php.html#2555\">CHtml::renderAttributes<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
