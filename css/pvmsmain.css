@@ -540,3 +540,8 @@ i {
 	width: 790px !important;
 	margin-bottom: 10px;
 }
+
+.navbar-inner{
+	padding: 0px !important;
+}
+
