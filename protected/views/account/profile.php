@@ -12,7 +12,8 @@
 
 <div id = "profile">
 <?php
-	echo CHtml::tag('h1', array(), 'My Profile', false);
+    echo "<center>";
+	echo CHtml::tag('h1', array(), $model->name, false);
 	$this->widget('bootstrap.widgets.TbButton',
 	              array('buttonType' => 'link',
 	                    'type' => 'link', // the chrome of the button
@@ -24,7 +25,6 @@
 	);
 	echo CHtml::closeTag('h1');
 
-    echo "<b>Name: </b><br/>". $model->name;
     echo "<br/><br/>";
     
         echo "<b>Availability: </b><br/>".User::availabilityString($model->availability);
@@ -64,7 +64,7 @@
         echo "<b>Address: </b><br/>" ;
         echo "Not Set<br/><br/>";
     }
-    
+     echo "</center>";
 ?>
 </div>
 <div class="form" style='display:none;'>
