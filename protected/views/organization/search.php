@@ -38,6 +38,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 		'manager.email::Manager Email',
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
+            'id'=>'AdminVS-ButtonColumn',
 			'template'=>'{adminAccess} {disable} {enable} {delete} ',
 			'deleteConfirmation' => 'Are you sure you want to delete this organization? This cannot be undone.',
 			'buttons'=> array(

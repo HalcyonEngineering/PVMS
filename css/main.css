@@ -79,3 +79,8 @@ div.form .rememberMe label
 {
 	display: inline;
 }
+
+#AdminVS-ButtonColumn
+{
+	width: 66px;
+}
