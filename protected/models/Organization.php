@@ -102,8 +102,8 @@ class Organization extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
+		$criteria->compare('t.id',$this->id);
+		$criteria->compare('t.name',$this->name,true);
 		$criteria->compare('desc',$this->desc,true);
 		$criteria->with = array('managers');
 		$criteria->together = true;

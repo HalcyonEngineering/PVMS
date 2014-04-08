@@ -32,8 +32,9 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'id'=>'org-search-grid',
     'dataProvider'=>$model->search_Orgs(),
     'emptyText'=>'<center><i>No organizations here.</i></center>',
+    'filter'=>$model,
     'columns'=>array(
-		'name',
+		'name::Organization Name',
 		'manager.name::Manager Name',
 		'manager.email::Manager Email',
         array(
