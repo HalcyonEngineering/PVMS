@@ -528,6 +528,12 @@ i {
     -moz-transform:scale(1.5,1.5); /* Firefox */
     -webkit-transform:scale(1.5,1.5); /* Safari and Chrome */
     -o-transform:scale(1.5,1.5);
+	margin-right: 6px;
+	margin-top: 10px !important;
+}
+
+.icon-calendar {
+	margin:auto !important;
 }
 
 #s2id_Message_targets{
